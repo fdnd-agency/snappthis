@@ -1,38 +1,32 @@
-# sv
+# SnappThis
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Design Challenge: Ontwerp en ontwikkel een webapplicatie voor Snappthis die gebruikers een intuïtieve en naadloze ervaring biedt bij het maken en delen van foto's en 'photo mind maps' binnen een groep.
 
-## Creating a project
+## Table of Contents
+  * [Beschrijving](#beschrijving)
+  * [Gebruik](#gebruik)
+  * [Kenmerken](#kenmerken)
+  * [Installatie](#installatie)
+  * [Bronnen](#bronnen)
+  * [Licentie](#licentie)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Beschrijving
 
-```sh
-# create a new project in the current directory
-npx sv create
+Snappthis is een innovatieve webapplicatie die gebruikers in staat stelt om eenvoudig 'photo mind maps' (of 'snappmaps') te maken met een groep: een verzameling foto's gemaakt door de groepsleden naar aanleiding van een foto-opdracht (een onderwerp). De app richt zich op een gebruiksvriendelijke en efficiënte manier van groepen maken, onderwerpen uitzetten, foto's maken, delen en bekijken, waardoor het een ideaal hulpmiddel is voor zowel professionele als persoonlijke doeleinden.
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Kenmerken
 
-## Developing
+## Installatie
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Clone de repo
+2. Install dependencies met `npm install`
+3. Start een development server met `npm run dev` of start de server en open de applicatie gelijk in een nieuw browser tabje met `npm run dev -- --open`
+4. Je kan ook een productie versie van de app maken met `npm run build`
+5. Preview de productie versie met `npm run preview`
+6. Om de app te deployen is mogelijk nodig om een [adapter](https://svelte.dev/docs/kit/adapters) te installeren. 
 
-```sh
-npm run dev
+## Bronnen
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Licentie
 
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+This project is licensed under the terms of the [MIT license](./LICENSE).
