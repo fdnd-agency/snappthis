@@ -1,6 +1,9 @@
 # Team Conventions
 Our [team canvas](https://www.figma.com/design/ZpUnjTTKth5AHhfBd7qjcG/SnappThis?node-id=0-1&t=0DqkwhleUHG1YjqY-1)
 
+<img height="500" alt="image" src="https://github.com/user-attachments/assets/bcadc444-a718-469b-b8e2-852db4315b6b" />
+
+
 ## Communication 
 - Over Teams - our second-year students group app
 - Over Teams - with the first-year students and client
