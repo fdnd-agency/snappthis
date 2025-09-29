@@ -1,0 +1,47 @@
+:root{
+    /* Colors */
+    
+    /* Primary colors */
+    --primary-color-0:  hsl(200, 43%, 0%);
+    --primary-color-10: hsl(200, 43%, 10%);
+    --primary-color:    hsl(200, 43%, 20%);
+    --primary-color-30: hsl(200, 43%, 30%);
+    --primary-color-40: hsl(200, 43%, 40%);
+    --primary-color-50: hsl(200, 43%, 50%);
+    --primary-color-60: hsl(200, 43%, 60%);
+
+    /* Accent colors */
+    --accent-green-80: hsl(136, 100%, 80%);
+    --accent-green-70: hsl(136, 100%, 70%);
+    --accent-green-60: hsl(136, 100%, 60%);
+    --accent-green:    hsl(136, 100%, 50%);
+    --accent-green-40: hsl(136, 100%, 40%);
+    --accent-green-30: hsl(136, 100%, 30%);
+    --accent-green-20: hsl(136, 100%, 20%);
+
+    --accent-red-90: hsl(357, 100%, 90%);
+    --accent-red-80: hsl(357, 100%, 80%);
+    --accent-red-70: hsl(357, 100%, 70%);
+    --accent-red:    hsl(357, 100%, 60%);
+    --accent-red-50: hsl(357, 100%, 50%);
+    --accent-red-40: hsl(357, 100%, 40%);
+    --accent-red-30: hsl(357, 100%, 30%);
+
+    --accent-yellow-80: hsl(55, 94%, 80%);
+    --accent-yellow-70: hsl(55, 94%, 70%);
+    --accent-yellow-60: hsl(55, 94%, 60%);
+    --accent-yellow:    hsl(55, 94%, 50%);
+    --accent-yellow-40: hsl(55, 94%, 40%);
+    --accent-yellow-30: hsl(55, 94%, 30%);
+    --accent-yellow-20: hsl(55, 94%, 20%);
+
+    /* Neutral colors */
+    --neutral-color-100:hsl(0, 0%, 100%);
+    --neutral-color-90: hsl(200, 13%, 90%);
+    --neutral-color-80: hsl(200, 13%, 80%);
+    --neutral-color:    hsl(200, 13%, 70%);
+    --neutral-color-60: hsl(200, 13%, 60%);
+    --neutral-color-50: hsl(200, 13%, 50%);
+    --neutral-color-40: hsl(200, 13%, 40%);
+    --neutral-color-0:  hsl(0, 0%, 0%);
+}
