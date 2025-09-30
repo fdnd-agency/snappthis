@@ -1,2 +1,12 @@
-<h1>Welcome to SnappThis</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    import SnappMapPreview from "$lib/components/SnappMapPreview.svelte"
+
+    let { data } = $props()
+    const snappMaps = data.snappMaps
+</script>
+
+<h1>SnappMaps</h1>
+
+{#each snappMaps as snappMap}
+    <SnappMapPreview {snappMap}></SnappMapPreview>
+{/each}
