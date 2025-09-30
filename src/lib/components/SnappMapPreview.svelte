@@ -66,6 +66,7 @@
         width: 100%;
         max-width: max-content;
         list-style: none;
+        font-family: "Bariol", sans-serif;
     }
 
     ul {

@@ -10,3 +10,9 @@
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap}></SnappMapPreview>
 {/each}
+
+<style>
+    h1 {
+        font-family: "Bariol", sans-serif;
+    }
+</style>
