@@ -1,2 +1,16 @@
-<h1>Welcome to SnappThis</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    import Header from '$lib/components/header.svelte';
+</script>
+
+<Header title="SnappThis" />
+
+<main>
+
+</main>
+
+<style>
+    main {
+        background-color: var(--neutral-color-90);
+        height: 100vh;
+    }
+</style>
