@@ -9,16 +9,13 @@
     });
 </script>
 
-<picture>
-    <source class="pic" srcset="./src/lib/assets/example/example-photo.avif" media="(min-width: 512px)">    <source srcset="$lib/assets/example/example-photo.webp" media="(min-width: 512px)">
-    <source class="pic" srcset="./src/lib/assets/example/example-photo.webp" media="(min-width: 512px)">    <source srcset="$lib/assets/example/example-photo.webp" media="(min-width: 512px)">
-        <img class="pic" src="./src/lib/assets/example/example-photo.png" height="512" width="512" alt="example photo"/>
-</picture>
-        {#each pictures.data as picture}
-            <img src={`https://fdnd-agency.directus.app/assets/${picture.picture}`}>
-            <p>{picture.location}</p>
-        {/each}
-<h2>hallo</h2>
+{#each pictures.data as picture}
+  <picture>
+    <source srcset={`https://fdnd-agency.directus.app/assets/${picture.picture}`} type="image/webp" media="(min-width: 512px)">
+    <source srcset="/example/example-photo.webp" type="image/webp" media="(min-width: 512px)">
+    <img class="pic" src={`https://fdnd-agency.directus.app/assets/${picture.picture}`} height="512" width="512" alt="example photo"/>
+  </picture>
+{/each}
 
 <style>
     .pic:nth-last-of-type(1) {

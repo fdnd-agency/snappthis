@@ -14,11 +14,13 @@
 <Header title="SnappThis" />
 
 <main>
+    <div class="container">
     <Image />
         <Image />
             <Image />
                 <Image />
                     <Image />
+    </div>
     <p>{users.name}</p>
 </main>
 
@@ -26,5 +28,12 @@
     main {
         background-color: var(--neutral-color-90);
         height: 100vh;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        padding: 1em;
     }
 </style>
