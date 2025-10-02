@@ -1,1 +1,6 @@
-// place files you want to import through the `$lib` alias in this folder.
+export async function fetchUsers() {
+  const response = await fetch('https://fdnd-agency.directus.app/items/snappthis_user');
+  
+  const data = await response.json();
+  return data;
+}
