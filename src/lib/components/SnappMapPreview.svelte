@@ -64,7 +64,7 @@
         margin: 2rem auto;
         padding: 1rem;
         width: 100%;
-        max-width: max-content;
+        max-width: 1000px;
         list-style: none;
         font-family: "Bariol", sans-serif;
     }
@@ -79,17 +79,18 @@
        padding: 0;
     }
 
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    /* First row */
     div {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-block: 1rem;
-    }
-
-    a {
-        font-size: 2rem;
-        text-decoration: none;
-        color: black;
+        font-size: clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
     }
 
     ul:nth-of-type(1) {
@@ -98,7 +99,6 @@
 
     ul:nth-of-type(1) li {
         display: flex;
-        font-size: 2rem;
         margin: 0;
         padding: 0;
         max-width: unset;
@@ -110,6 +110,7 @@
         padding-right: .15em;
     }
 
+    /* Second row */
     div + ul {
         max-width: 100%;
         overflow-x: scroll;
@@ -117,12 +118,13 @@
 
     div + ul li {
         aspect-ratio: 1 / 1;
-        width: clamp(6.25rem, 5rem + 6.6667vw, 12.5rem);
         margin: 0;
         padding: 0;
         flex-shrink: 0;
         height: 100%;
-        max-width: unset;
+        min-width: 6.25rem;
+        width: calc(5rem + 6.6667vw);
+        max-width: 12.5rem;
     }
 
     div + ul li img {
@@ -132,15 +134,18 @@
         aspect-ratio: 1 / 1;
     }
 
+    /* Second row: first block (gallery icon) */
     div + ul li:first-of-type {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: #E9ECEE;
+        font-size: clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
     }
 
     div + ul li:first-of-type :global(svg) {
-        height: 100%;
+        height: 50%;
+        width: 50%;
     }
 </style>
