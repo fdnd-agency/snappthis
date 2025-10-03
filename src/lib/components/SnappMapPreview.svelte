@@ -114,6 +114,8 @@
     div + ul {
         max-width: 100%;
         overflow-x: scroll;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
     }
 
     div + ul li {
@@ -123,7 +125,7 @@
         flex-shrink: 0;
         height: 100%;
         min-width: 6.25rem;
-        width: calc(5rem + 6.6667vw);
+        width: 100%;
         max-width: 12.5rem;
     }
 
