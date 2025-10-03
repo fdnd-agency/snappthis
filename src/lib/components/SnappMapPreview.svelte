@@ -1,8 +1,8 @@
 <script>
-    import Heart from "$lib/components/Heart.svelte";
-    import Star from "$lib/components/Star.svelte";
-    import Tomato from "$lib/components/Tomato.svelte";
-    import Gallery from "./Gallery.svelte";
+    import Heart from "$lib/components/icons/Heart.svelte";
+    import Star from "$lib/components/icons/Star.svelte";
+    import Tomato from "$lib/components/icons/Tomato.svelte";
+    import Gallery from "$lib/components/icons/Gallery.svelte";
 
     let { snappMap } = $props();
 </script>
