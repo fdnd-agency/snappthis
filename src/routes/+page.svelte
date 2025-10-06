@@ -5,7 +5,7 @@
     const snappMaps = data.snappMaps
 </script>
 
-<h1>SnappMaps</h1>
+<h1>SnappMap Overview</h1>
 
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap}></SnappMapPreview>
