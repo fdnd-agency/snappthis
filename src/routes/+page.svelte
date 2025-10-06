@@ -1,39 +1,20 @@
 <script>
-    import Header from '$lib/components/header.svelte';
-    import Image from '$lib/components/image.svelte';
-    import { fetchUsers } from '$lib/index.js';
-    import { onMount } from 'svelte';
+    import SnappMapPreview from "$lib/components/SnappMapPreview.svelte"
 
-  let users = [];
-
-  onMount(async () => {
-    users = await fetchUsers();
-  });
+    let { data } = $props()
+    const snappMaps = data.snappMaps
 </script>
 
-<Header title="SnappThis" />
+<h1>SnappMap Overview</h1>
 
-<main>
-    <div class="container">
-    <Image />
-        <Image />
-            <Image />
-                <Image />
-                    <Image />
-    </div>
-    <p>{users.name}</p>
-</main>
+{#each snappMaps as snappMap}
+    <SnappMapPreview {snappMap}></SnappMapPreview>
+{/each}
 
 <style>
-    main {
-        background-color: var(--neutral-color-90);
-        height: 100vh;
-    }
-
-    .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 20px;
-        padding: 1em;
+    h1 {
+        font-family: "Bariol", sans-serif;
+        margin: 2rem auto;
+        width: max-content;
     }
 </style>

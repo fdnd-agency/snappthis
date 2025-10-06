@@ -56,3 +56,10 @@
 
 
 {@render children?.()}
+
+<style>
+	@font-face {
+		font-family: "Bariol";
+		src: url("$lib/assets/fonts/Bariol_Regular.otf") format("opentype");
+	}
+</style>
