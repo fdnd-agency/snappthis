@@ -9,7 +9,7 @@
 
 <li>
     <div>
-        <a href="/{snappMap.id}">{snappMap.name}</a>
+        <a href="/{snappMap.uuid}">{snappMap.name}</a>
         <ul>
             <li><Heart></Heart>15</li>
             <li><Tomato></Tomato>9</li>
@@ -17,39 +17,17 @@
         </ul>
     </div>
     <ul>
-        <li><Gallery></Gallery>{snappMap.persons.length}</li>
+        <li><Gallery></Gallery>{snappMap.snaps.length}</li>
+        {#each snappMap.snaps.slice(0, 4) as snap, i }
         <li>
             <img
-                src="https://picsum.photos/200/200"
+                src="{"https://fdnd-agency.directus.app/assets/" + snap.picture}"
                 height="200"
                 width="200"
                 alt=""
             />
         </li>
-        <li>
-            <img
-                src="https://picsum.photos/201/201"
-                height="200"
-                width="200"
-                alt=""
-            />
-        </li>
-        <li>
-            <img
-                src="https://picsum.photos/202/202"
-                height="200"
-                width="200"
-                alt=""
-            />
-        </li>
-        <li>
-            <img
-                src="https://picsum.photos/203/203"
-                height="200"
-                width="200"
-                alt=""
-            />
-        </li>
+        {/each}
     </ul>
 </li>
 
