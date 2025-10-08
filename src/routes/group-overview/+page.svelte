@@ -1,10 +1,12 @@
 <script>
     import Header from '$lib/components/header.svelte'
+    import Dropdown from '$lib/components/dropdown-button.svelte'
 </script>
 
 <Header />
 
 <main>
+    <Dropdown />
 </main>
 
 <style>
