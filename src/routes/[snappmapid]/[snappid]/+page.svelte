@@ -1,6 +1,6 @@
 <script>
     let { data } = $props()
-    const snappDetails = data.snappDetails
+    const snappDetail = data.snappDetails
 </script>
 
 <h1> test </h1>
