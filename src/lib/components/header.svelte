@@ -7,33 +7,29 @@
 
     <img src="./src/lib/assets/header/logo_white.svg" height="100" width="100">
 
-    <div class="user">
-        <!-- there should be a profile pic with it -->
-    </div>
+    <img class="user-pic" src="./src/lib/assets/header/user.jpg">
+    <!-- there should be a profile pic with it -->
 </header>
 
 <style>
 
-    .user {
-        display: block;
-        height: 75px;
-        width: 75px;
-        border-radius: 100%;
-        background-color: var(--neutral-color-100);
-        margin: 1em;
+    .user-pic {
+            height: 75px;
+            border-radius: 100%;
     }
+
     header {
         background: linear-gradient(var(--primary-color), var( --primary-color-30)) ;
         color: var(--neutral-color-100);
         font-family: "Bariol Bold";
         height: 100px;
-        width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        padding: 1em;
 
-        & img {
+        img {
             height: 80%;
-            padding: 1em;
         }
     }
 </style>

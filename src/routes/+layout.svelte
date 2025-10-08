@@ -54,8 +54,8 @@
     --neutral-color-0:  hsl(0, 0%, 0%);
 
     /* border radius */
-    --border-radius-desktop: 25%;
-    --border-radius-mobile: 15%;
+    --border-radius-desktop: 20%;
+    --border-radius-mobile: 10%;
 }
 </style>
 

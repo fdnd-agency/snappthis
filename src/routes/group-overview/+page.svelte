@@ -1,5 +1,6 @@
 <script>
     import Header from '$lib/components/header.svelte'
+    import Nav from '$lib/components/navigation-bar.svelte'
 
 
     import { onMount } from 'svelte'
@@ -14,6 +15,7 @@
 
 <Header />
 <main>
+    <Nav />
 
 
     <!-- there should be the name of the snapmap here -->
@@ -28,45 +30,46 @@
 
 <style>
     main {
-        height: 100vh;
+        height: 100%;
         width: 100%;
         background-color: var(--neutral-color-80);
+
     }
 
-    .snappmapnav {
-        height: 50px;
-        background-color: var(--neutral-color-60);
-        display: flex;
-        justify-content: space-between;
-    }
 
     .photo-overview {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 1em;
+        margin: 2em;
 
-        .gridtwo {
+
+        .grid-2 {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        .gridthree {
+        .grid-3 {
             grid-template-columns: repeat(3, 1fr);
         }
 
-        .gridfour {
+        .grid-4 {
             grid-template-columns: repeat(3, 1fr);
         }
 
-        .gridfive {
+        .grid-5 {
             grid-template-columns: repeat(3, 1fr);
         }
 
         & img {
             width: 100%;
             height: 100%;
-            border-radius: 20px;
+            border-radius: var(--border-radius-desktop);
             border: 2px solid var(--accent-green-20);
             object-fit: cover;
+
+            @media screen and (min-width: 720px) {
+                border-radius: var(--border-radius-mobile);
+            }
         }
     }
 </style>
