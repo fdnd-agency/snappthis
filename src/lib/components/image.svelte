@@ -1,15 +1,15 @@
 <script>
-    import { fetchPictures } from '$lib/components/index.js';
-    import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
+  import { loadPictures } from '$lib/utils/fetchData.js';
 
-    let pictures = [];
+  let pictures = [];
 
-    onMount(async () => {
-        pictures = await fetchPictures();
-    });
+  onMount(async () => {
+    pictures = await loadPictures();
+  });
 </script>
 
-{#each pictures.data as picture}
+{#each pictures as picture}
   <picture>
     <source srcset={`https://fdnd-agency.directus.app/assets/${picture.picture}`} type="image/webp" media="(min-width: 512px)">
     <source srcset="/example/example-photo.webp" type="image/webp" media="(min-width: 512px)">

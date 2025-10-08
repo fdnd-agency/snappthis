@@ -1,1 +1,5 @@
-<h1>Group Overview</h1>
+<script>
+    import Header from '$lib/components/header.svelte'
+</script>
+
+<Header />
