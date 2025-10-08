@@ -21,7 +21,7 @@
         {#each snappMap.snaps.slice(0, 4) as snap, i }
         <li>
             <img
-                src="{"https://fdnd-agency.directus.app/assets/" + snap.picture}"
+                src="{"https://fdnd-agency.directus.app/assets/" + snap.picture + "?width=200&height=200&format=webp"}"
                 height="200"
                 width="200"
                 alt=""
