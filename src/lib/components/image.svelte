@@ -1,11 +1,11 @@
 <script>
-  import { onMount } from 'svelte';
-  import { loadPictures } from '$lib/utils/fetchData.js';
+  import { onMount } from 'svelte'
+  import { loadPictures } from '$lib/components/index.js'
 
   let pictures = [];
 
   onMount(async () => {
-    pictures = await loadPictures();
+    pictures = await loadPictures()
   });
 </script>
 

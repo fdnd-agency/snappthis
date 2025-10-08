@@ -2,7 +2,10 @@
 	import favicon from '$lib/assets/favicon.svg';
 	
 	let { children } = $props();
+
 </script>
+
+{@render children?.()}
 
 <style>
 	    :root {
@@ -52,4 +55,4 @@
 }
 </style>
 
-{@render children?.()}
+
