@@ -8,7 +8,7 @@
     <img src="./src/lib/assets/header/logo_white.svg" height="100" width="100">
 
     <div class="user">
-
+        <!-- there should be a profile pic with it -->
     </div>
 </header>
 

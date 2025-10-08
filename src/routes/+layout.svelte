@@ -1,5 +1,5 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/svg/favicon.svg';
 	
 	let { children } = $props();
 
@@ -52,6 +52,10 @@
     --neutral-color-50: hsl(200, 13%, 50%);
     --neutral-color-40: hsl(200, 13%, 40%);
     --neutral-color-0:  hsl(0, 0%, 0%);
+
+    /* border radius */
+    --border-radius-desktop: 25%;
+    --border-radius-mobile: 15%;
 }
 </style>
 
