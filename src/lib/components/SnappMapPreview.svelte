@@ -9,7 +9,7 @@
 
 <li>
     <div>
-        <a href="/{snappMap.id}">{snappMap.name}</a>
+        <a href="/{snappMap.uuid}">{snappMap.name}</a>
         <ul>
             <li><Heart></Heart>15</li>
             <li><Tomato></Tomato>9</li>
@@ -17,39 +17,17 @@
         </ul>
     </div>
     <ul>
-        <li><Gallery></Gallery>{snappMap.persons.length}</li>
+        <li><Gallery></Gallery>{snappMap.snaps.length}</li>
+        {#each snappMap.snaps.slice(0, 4) as snap, i }
         <li>
             <img
-                src="https://picsum.photos/200/200"
+                src="{"https://fdnd-agency.directus.app/assets/" + snap.picture + "?width=200&height=200&format=webp"}"
                 height="200"
                 width="200"
                 alt=""
             />
         </li>
-        <li>
-            <img
-                src="https://picsum.photos/201/201"
-                height="200"
-                width="200"
-                alt=""
-            />
-        </li>
-        <li>
-            <img
-                src="https://picsum.photos/202/202"
-                height="200"
-                width="200"
-                alt=""
-            />
-        </li>
-        <li>
-            <img
-                src="https://picsum.photos/203/203"
-                height="200"
-                width="200"
-                alt=""
-            />
-        </li>
+        {/each}
     </ul>
 </li>
 
@@ -61,7 +39,7 @@
     }
 
     li {
-        margin: 2rem auto;
+        margin: 0 auto;
         padding: 1rem;
         width: 100%;
         max-width: 1000px;
@@ -93,18 +71,18 @@
         font-size: clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
     }
 
-    ul:nth-of-type(1) {
+    div > ul {
         gap: 1rem;
     }
 
-    ul:nth-of-type(1) li {
+    div > ul li {
         display: flex;
         margin: 0;
         padding: 0;
         max-width: unset;
     }
 
-    ul:nth-of-type(1) li :global(svg){
+    div > ul li :global(svg){
         height: 1.25em;
         width: 1.25em;
         padding-right: .15em;
@@ -116,13 +94,12 @@
         overflow-x: scroll;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
     }
 
     div + ul li {
-        aspect-ratio: 1 / 1;
         margin: 0;
         padding: 0;
-        flex-shrink: 0;
         height: 100%;
         min-width: 6.25rem;
         width: 100%;
@@ -131,7 +108,7 @@
 
     div + ul li img {
         width: 100%;
-        object-fit: contain;
+        object-fit: cover;
         height: auto;
         aspect-ratio: 1 / 1;
     }
