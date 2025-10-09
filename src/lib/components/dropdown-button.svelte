@@ -15,11 +15,13 @@
 		const photoGrid = document.querySelector('.photo-overview')
 		if (!photoGrid) return
 
-        photoGrid.classList.toggle('.grid-1', '.grid-2', '.grid-3', '.grid-4', '.grid-5')
+        photoGrid.classList.remove('.grid-1', '.grid-2', '.grid-3', '.grid-4', '.grid-5')
 
-        photoGrid.classList.toggle(className);
+        photoGrid.classList.add(className);
     }
 
+
+    // gebruik hier een radio :binding
 
 </script>
 
@@ -28,12 +30,12 @@
     <button class="dropdwnbutton" on:click={toggleDropdown}></button>
      {#if open}
         <div class=dropdowncontent>
-            <button class="grid" on:click={() => setGrid('grid-1')}> <GridTwo /> </button>
-            <button class="grid-2" on:click={() => setGrid('grid-2')}> <GridTwo /> </button>
-            <button class="grid-3" on:click={() => setGrid('grid-3')}> <GridThree /> </button>
-            <button class="grid-4" on:click={() => setGrid('grid-4')}> <GridFour /> </button>
-            <button class="grid-5" on:click={() => setGrid('grid-5')}> <GridFive /> </button>
-            <button class="list-view"> <ListView /> </button>
+            <radio class="grid" on:click={() => setGrid('grid-1')}> <GridTwo /> 
+            <raido class="grid-2" on:click={() => setGrid('grid-2')}> <GridTwo /> 
+            <radio class="grid-3" on:click={() => setGrid('grid-3')}> <GridThree /> 
+            <radio class="grid-4" on:click={() => setGrid('grid-4')}> <GridFour /> 
+            <radio class="grid-5" on:click={() => setGrid('grid-5')}> <GridFive /> 
+            <radio class="list-view"> <ListView />
         </div>
     {/if}
 </div>
