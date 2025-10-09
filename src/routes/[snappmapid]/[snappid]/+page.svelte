@@ -11,12 +11,12 @@
         <img src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`} alt="picture" width="200px"/>
 
 
-        <li class="info">
-            <p>{snappDetail.location}</p>
-            <p>{snappDetail.author.name}</p>
-            <p> {snappDetail.snapmap.name} </p>
-            <p>{snappDetail.date_created.substring(0, 10)}</p>
-        </li>
+        <ul class="info">
+            <li>{snappDetail.location}</li>
+            <li>{snappDetail.author.name}</li>
+            <li> {snappDetail.snapmap.name} </li>
+            <li>{snappDetail.date_created.substring(0, 10)}</li>
+        </ul>
     </section>
 
 
@@ -45,7 +45,11 @@
         background-color: var(--neutral-color-90);
     }
 
-    p {
+    ul {
+        padding: 0;
+    }
+
+    li {
         font-family: Bariol;
         font-size: 1em;
         background-color: var(--neutral-color-90);
@@ -54,6 +58,7 @@
         padding: 1em;
         border-radius: 1em;
         margin: 0;
+        list-style: none;
     }
 
     img {
