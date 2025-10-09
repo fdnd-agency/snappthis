@@ -57,6 +57,14 @@
     --border-radius-desktop: 20%;
     --border-radius-mobile: 10%;
 }
+
+h1 {
+    font-family: 'Bariol';
+}
+
+h2 {
+    font-family: 'Bariol'; 
+}
 </style>
 
 

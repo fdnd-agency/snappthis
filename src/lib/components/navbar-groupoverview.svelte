@@ -26,4 +26,8 @@
         display: flex;
         justify-content: flex-end;
     }
+    
+    h2 {
+            font-family: 'Bariol';
+    }
 </style>

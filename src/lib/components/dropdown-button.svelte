@@ -11,11 +11,16 @@
         open = !open;
     }
 
-    function gridOne() {
-        const main document.querySelector('main') {
-            main.style.toggleclass('.gridone')
-        }
+    function setGrid(className) {
+		const photoGrid = document.querySelector('.photo-overview')
+		if (!photoGrid) return
+
+        photoGrid.classList.toggle('.grid-1', '.grid-2', '.grid-3', '.grid-4', '.grid-5')
+
+        photoGrid.classList.toggle(className);
     }
+
+
 </script>
 
 <div class="dropdown-button">
@@ -23,11 +28,11 @@
     <button class="dropdwnbutton" on:click={toggleDropdown}></button>
      {#if open}
         <div class=dropdowncontent>
-            <button class="grid" on:click={gridOne}> <GridTwo /> </button>
-            <button class="grid-2"> <GridTwo /> </button>
-            <button class="grid-3"> <GridThree /> </button>
-            <button class="grid-4"> <GridFour /> </button>
-            <button class="grid-5"> <GridFive /> </button>
+            <button class="grid" on:click={() => setGrid('grid-1')}> <GridTwo /> </button>
+            <button class="grid-2" on:click={() => setGrid('grid-2')}> <GridTwo /> </button>
+            <button class="grid-3" on:click={() => setGrid('grid-3')}> <GridThree /> </button>
+            <button class="grid-4" on:click={() => setGrid('grid-4')}> <GridFour /> </button>
+            <button class="grid-5" on:click={() => setGrid('grid-5')}> <GridFive /> </button>
             <button class="list-view"> <ListView /> </button>
         </div>
     {/if}
