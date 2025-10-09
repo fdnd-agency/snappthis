@@ -8,14 +8,19 @@
 
     <section class="content-holder">
         <!-- svelte-ignore a11y_img_redundant_alt -->
-        <img src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}`} alt="picture" width="200px"/>
+        <!-- <img src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}`} alt="picture" width="200px"/> -->
 
-        <div class="info">
+          <picture class="snapp">
+            <source srcset={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}`} type="image/webp" media="(width: 200px)">
+            <img src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}`} width="200px" alt="example photo"/>
+        </picture>
+
+        <li class="info">
             <p>{snappDetail.location}</p>
             <p>{snappDetail.author.name}</p>
             <p> {snappDetail.snapmap.name} </p>
             <p>{snappDetail.date_created.substring(0, 10)}</p>
-        </div>
+        </li>
     </section>
 
 
