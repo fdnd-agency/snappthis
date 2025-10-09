@@ -16,6 +16,18 @@ Snappthis is een innovatieve webapplicatie die gebruikers in staat stelt om eenv
 
 ## Kenmerken
 
+SnappThis is verdeeld onder de pagina met verschillende SnappMaps (dit zijn projecten waar de foto's geimporteerd kunnen worden) de overzichtspagina van de SnappMap zelf en de detailpagina van een specifieke foto. Voor Sprint 14 hebben we deze drie pagina's uitgewerkt, hierbij hebben we een werkende [datamodel](https://github.com/fdnd-agency/snappthis/wiki/Data-Model) opgesteld. Deze data wordt geladen op alle webpagina's.
+
+### Alle SnappMaps
+
+### SnappMap overzichtspagina
+De overzichtspagina bestaat uit alle foto's van een SnappMap (subject) dit wordt in het datamodel aangegeven als (snappmapID). Op deze pagina worden alle foto's ingeladen die verbonden zijn met een bepaalde SnapMap ID. Op de live website is dit nog niet zichtbaar omdat dit nog een voorbeeld is. Er is een ontwerp gemaakt van deze pagina op [Figma](https://www.figma.com/design/ACEivj97iw7ao1eFssYlej/Redesign-SnappThis?node-id=0-1&t=IpVuISbZlMLqMQpd-1). Ik heb hier een aantal ontwerp keuze's gemaakt.
+
+#### 
+
+### SnappMap detailpagina
+
+
 ## Installatie
 
 1. Clone de repo
