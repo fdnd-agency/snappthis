@@ -1,8 +1,8 @@
 <script>
-    import Heart from "$lib/components/icons/Heart.svelte";
-    import Star from "$lib/components/icons/Star.svelte";
-    import Tomato from "$lib/components/icons/Tomato.svelte";
-    import Gallery from "$lib/components/icons/Gallery.svelte";
+    import HeartIcon from "$lib/components/icons/HeartIcon.svelte";
+    import StarIcon from "$lib/components/icons/StarIcon.svelte";
+    import TomatoIcon from "$lib/components/icons/TomatoIcon.svelte";
+    import GalleryIcon from "$lib/components/icons/GalleryIcon.svelte";
 
     let { snappMap } = $props();
 </script>
@@ -11,13 +11,13 @@
     <div>
         <a href="/{snappMap.uuid}">{snappMap.name}</a>
         <ul>
-            <li><Heart></Heart>15</li>
-            <li><Tomato></Tomato>9</li>
-            <li><Star></Star>2</li>
+            <li><HeartIcon></HeartIcon>15</li>
+            <li><TomatoIcon></TomatoIcon>9</li>
+            <li><StarIcon></StarIcon>2</li>
         </ul>
     </div>
     <ul>
-        <li><Gallery></Gallery>{snappMap.snaps.length}</li>
+    <li><GalleryIcon></GalleryIcon>{snappMap.snaps.length}</li>
         {#each snappMap.snaps.slice(0, 4) as snap, i }
         <li>
             <img
