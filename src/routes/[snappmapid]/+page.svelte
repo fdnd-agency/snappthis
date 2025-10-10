@@ -1,13 +1,11 @@
 <script>
     import Header from '$lib/components/header.svelte'
-    import Nav from '$lib/components/navbar-groupoverview.svelte'
-
+    import Nav from '$lib/components/navbar-snapmap.svelte'
 
     import { onMount } from 'svelte'
     import { loadPictures } from '$lib/components/index.js'
 
     let pictures = []
-    let currentGrid = 'grid-1'
 
     onMount(async () => {
         pictures = await loadPictures()

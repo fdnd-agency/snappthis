@@ -1,4 +1,5 @@
 <script>
+    import GridOne from '$lib/components/icons/Grid1.svelte'
     import GridTwo from '$lib/components/icons/Grid2.svelte'
     import GridThree from '$lib/components/icons/Grid3.svelte'
     import GridFour from '$lib/components/icons/Grid4.svelte'
@@ -8,18 +9,11 @@
     let open = false
 
     function toggleDropdown() {
-        open = !open;
-    }
+        open = !open
+    }   
 
-    function setGrid(className) {
-		const photoGrid = document.querySelector('.photo-overview')
-		if (!photoGrid) return
-
-        photoGrid.classList.remove('.grid-1', '.grid-2', '.grid-3', '.grid-4', '.grid-5')
-
-        photoGrid.classList.add(className);
-    }
-
+    // girdone should change the style of group overview to class "photo-overview grid-1"
+    // so here you need to export a variable that the parent can bind to
 
     // gebruik hier een radio :binding
 
@@ -30,12 +24,12 @@
     <button class="dropdwnbutton" on:click={toggleDropdown}></button>
      {#if open}
         <div class=dropdowncontent>
-            <radio class="grid" on:click={() => setGrid('grid-1')}> <GridTwo /> 
-            <raido class="grid-2" on:click={() => setGrid('grid-2')}> <GridTwo /> 
-            <radio class="grid-3" on:click={() => setGrid('grid-3')}> <GridThree /> 
-            <radio class="grid-4" on:click={() => setGrid('grid-4')}> <GridFour /> 
-            <radio class="grid-5" on:click={() => setGrid('grid-5')}> <GridFive /> 
-            <radio class="list-view"> <ListView />
+            <radio name="grid" value="grid-1"><GridOne /></radio>
+            <radio name="grid" value="grid-2"><GridTwo /></radio>
+            <radio name="grid" value="grid-3"><GridThree /></radio>
+            <radio name="grid" value="grid-4"><GridFour /></radio>
+            <radio name="grid" value="grid-5"><GridFive /></radio>
+            <radio name="grid" value="list-view"><ListView /></radio>
         </div>
     {/if}
 </div>

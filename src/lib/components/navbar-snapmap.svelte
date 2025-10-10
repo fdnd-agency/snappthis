@@ -1,7 +1,7 @@
 <script>
     // import the snapmapname of the particular snapmap
 
-    import Dropdown from '$lib/components/dropdown-button.svelte'
+    import Dropdown from '$lib/components/snappmap-dropdown-button.svelte'
 </script>
 
     <div class="snappmapnav">
