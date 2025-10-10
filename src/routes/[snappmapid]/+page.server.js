@@ -1,10 +1,5 @@
-let baseURL = 'https://fdnd-agency.directus.app/items/'
-
 export async function load({ url, params }) {
-    const snappmapDetails = await fetch(
-        `${baseURL}snappthis_snap/${params.snappmap}/fields=picture`
-    ).then(response => response.json())
-
-    return { snappmapDetails: snappmapDetails.data }
+    const response = await fetch(`https://fdnd-agency.directus.app/items/snappthis_snapmap/${params.uuid}?fields=uuid,snapmap`);
+    const snappMap = await response.json();
+    return { snappMap: snappMap.data };
 }
-
