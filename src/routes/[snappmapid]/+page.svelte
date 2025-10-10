@@ -1,18 +1,15 @@
 <script>
-    export let data
-    const snapMap = data.snappMap
+    let { data } = $props();
+    const snaps = data.snaps[0].snaps;
+    const id = data.id;
 </script>
 
-<main>
-    <h1>{snapMap.snapmap}</h1>
-</main>
+<!-- temporary list of snaps. feel free to overwrite -->
 
-<h1> example </h1>
+<h1>SnappMap</h1>
 
-<style>
-    main {
-        height: 100%;
-        width: 100%;
-        background-color: var(--neutral-color-80);
-    }
-</style>
+<ul>
+    {#each snaps as snap}
+        <li><a href="/{id}/{snap.uuid}">{snap.uuid}</a></li>
+    {/each}
+</ul>
