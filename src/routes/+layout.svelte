@@ -1,7 +1,7 @@
 <script>
-    import favicon from "$lib/assets/favicon.svg";
+    import favicon from '$lib/assets/favicon.svg'
 
-    let { children } = $props();
+    let { children } = $props()
 </script>
 
 {@render children?.()}
@@ -53,10 +53,10 @@
         --neutral-color-0: hsl(0, 0%, 0%);
     }
 
-    @import url("https://fonts.cdnfonts.com/css/bariol-bold");
+    @import url('https://fonts.cdnfonts.com/css/bariol-bold');
 
     @font-face {
-        font-family: "Bariol";
-        src: url("$lib/assets/fonts/Bariol_Regular.otf") format("opentype");
+        font-family: 'Bariol';
+        src: url('$lib/assets/fonts/Bariol_Regular.otf') format('opentype');
     }
 </style>

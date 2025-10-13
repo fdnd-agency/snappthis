@@ -1,10 +1,10 @@
 <script>
-    import HeartIcon from "$lib/components/icons/HeartIcon.svelte";
-    import StarIcon from "$lib/components/icons/StarIcon.svelte";
-    import TomatoIcon from "$lib/components/icons/TomatoIcon.svelte";
-    import GalleryIcon from "$lib/components/icons/GalleryIcon.svelte";
+    import HeartIcon from '$lib/components/icons/HeartIcon.svelte'
+    import StarIcon from '$lib/components/icons/StarIcon.svelte'
+    import TomatoIcon from '$lib/components/icons/TomatoIcon.svelte'
+    import GalleryIcon from '$lib/components/icons/GalleryIcon.svelte'
 
-    let { snappMap } = $props();
+    let { snappMap } = $props()
 </script>
 
 <li>
@@ -17,16 +17,17 @@
         </ul>
     </div>
     <ul>
-    <li><GalleryIcon></GalleryIcon>{snappMap.snaps.length}</li>
-        {#each snappMap.snaps.slice(0, 4) as snap, i }
-        <li>
-            <img
-                src="{"https://fdnd-agency.directus.app/assets/" + snap.picture + "?width=200&height=200&format=webp"}"
-                height="200"
-                width="200"
-                alt=""
-            />
-        </li>
+        <li><GalleryIcon></GalleryIcon>{snappMap.snaps.length}</li>
+        {#each snappMap.snaps.slice(0, 4) as snap, i}
+            <li>
+                <img
+                    src={'https://fdnd-agency.directus.app/assets/' +
+                        snap.picture +
+                        '?width=200&height=200&format=webp'}
+                    height="200"
+                    width="200"
+                    alt="" />
+            </li>
         {/each}
     </ul>
 </li>
@@ -44,7 +45,7 @@
         width: 100%;
         max-width: 1000px;
         list-style: none;
-        font-family: "Bariol", sans-serif;
+        font-family: 'Bariol', sans-serif;
     }
 
     ul {
@@ -53,8 +54,8 @@
     }
 
     ul li {
-       margin: 0;
-       padding: 0;
+        margin: 0;
+        padding: 0;
     }
 
     a {
@@ -82,10 +83,10 @@
         max-width: unset;
     }
 
-    div > ul li :global(svg){
+    div > ul li :global(svg) {
         height: 1.25em;
         width: 1.25em;
-        padding-right: .15em;
+        padding-right: 0.15em;
     }
 
     /* Second row */
@@ -119,7 +120,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #E9ECEE;
+        background-color: #e9ecee;
         font-size: clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
     }
 
