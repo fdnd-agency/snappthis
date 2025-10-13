@@ -1,12 +1,13 @@
 <script>
-    let { data } = $props();
-    const snaps = data.snaps[0].snaps;
-    const id = data.id;
+    let { data } = $props()
+    const snaps = data.snaps[0].snaps
+    const id = data.id
+
+    import Header from '$lib/components/Header.svelte'
 </script>
 
-<!-- temporary list of snaps. feel free to overwrite -->
 
-<h1>SnappMap</h1>
+<Header />
 
 <ul>
     {#each snaps as snap}

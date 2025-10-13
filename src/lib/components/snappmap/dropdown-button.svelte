@@ -12,6 +12,8 @@
         open = !open
     }   
 
+    
+
     // girdone should change the style of group overview to class "photo-overview grid-1"
     // so here you need to export a variable that the parent can bind to
 
