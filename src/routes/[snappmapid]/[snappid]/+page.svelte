@@ -3,25 +3,25 @@
     const snappDetail = data.snappDetails
 </script>
 
-<h1> Snap Detail </h1>
-    <h2> {snappDetail.snapmap.name} </h2>
+<h1>Snap Detail</h1>
+<h2>{snappDetail.snapmap.name}</h2>
 
-    <section class="content-holder">
-        <!-- svelte-ignore a11y_img_redundant_alt -->
-        <img src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`} alt="picture" width="200px"/>
+<section class="content-holder">
+    <!-- svelte-ignore a11y_img_redundant_alt -->
+    <img
+        src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`}
+        alt="picture"
+        width="200px" />
 
-
-        <ul class="info">
-            <li>{snappDetail.location}</li>
-            <li>{snappDetail.author.name}</li>
-            <li> {snappDetail.snapmap.name} </li>
-            <li>{snappDetail.date_created.substring(0, 10)}</li>
-        </ul>
-    </section>
-
+    <ul class="info">
+        <li>{snappDetail.location}</li>
+        <li>{snappDetail.author.name}</li>
+        <li>{snappDetail.snapmap.name}</li>
+        <li>{snappDetail.date_created.substring(0, 10)}</li>
+    </ul>
+</section>
 
 <style>
-
     .content-holder {
         display: flex;
         flex-direction: column;
@@ -29,7 +29,6 @@
         @media (width > 600px) {
             flex-direction: row;
         }
-
     }
 
     h1 {
@@ -66,7 +65,7 @@
         object-fit: cover;
         height: 300px;
         width: 300px;
-        transition: .5s;
+        transition: 0.5s;
         margin-bottom: 1em;
 
         @media (width > 600px) {
@@ -80,12 +79,9 @@
     .info {
         display: flex;
         flex-wrap: wrap;
-        gap: .5em;
+        gap: 0.5em;
 
         @media (width > 600px) {
-
         }
-
     }
-
 </style>

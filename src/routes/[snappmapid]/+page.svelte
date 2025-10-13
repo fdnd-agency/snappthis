@@ -1,7 +1,7 @@
 <script>
-    let { data } = $props();
-    const snaps = data.snaps[0].snaps;
-    const id = data.id;
+    let { data } = $props()
+    const snaps = data.snaps[0].snaps
+    const id = data.id
 </script>
 
 <!-- temporary list of snaps. feel free to overwrite -->

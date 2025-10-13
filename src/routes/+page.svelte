@@ -1,5 +1,5 @@
 <script>
-    import SnappMapPreview from "$lib/components/SnappMapPreview.svelte"
+    import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
 
     let { data } = $props()
     const snappMaps = data.snappMaps
@@ -13,7 +13,7 @@
 
 <style>
     h1 {
-        font-family: "Bariol", sans-serif;
+        font-family: 'Bariol', sans-serif;
         margin: 2rem auto;
         width: max-content;
     }
