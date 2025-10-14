@@ -8,5 +8,5 @@
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M0 15.6038H15.6038V0H0V15.6038V15.6038ZM0 36H15.6038V20.3962H0V36V36ZM20.6842 36H36.288V20.3962H20.6842V36V36ZM20.6842 15.6038H36.288V0H20.6842V15.6038V15.6038Z"
-        fill="#172F3B" />
+        fill="currentColor" />
 </svg>
