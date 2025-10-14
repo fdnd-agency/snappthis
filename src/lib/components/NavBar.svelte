@@ -26,12 +26,13 @@
     }
 
     nav {
-        width: 100%;
         background-color: #172f3b;
         color: white;
         padding: 1rem;
         position: fixed;
         bottom: 0;
+        left: 0;
+        right: 0;
     }
 
     div {
