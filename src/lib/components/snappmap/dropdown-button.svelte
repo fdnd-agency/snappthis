@@ -12,8 +12,6 @@
         open = !open
     }  
 
-    // i want to toggle between different grid views
-    // and a list view
 
 </script>
 
@@ -22,12 +20,12 @@
     <button class="dropdwnbutton" on:click={toggleDropdown}></button>
      {#if open}
         <div class=dropdowncontent>
-            <radio name="grid" value="grid-1"><GridOne /></radio>
-            <radio name="grid" value="grid-2"><GridTwo /></radio>
-            <radio name="grid" value="grid-3"><GridThree /></radio>
-            <radio name="grid" value="grid-4"><GridFour /></radio>
-            <radio name="grid" value="grid-5"><GridFive /></radio>
-            <radio name="grid" value="list-view"><ListView /></radio>
+            <button on:click={() => selectGrid('grid-1')}><GridOne /></button>
+            <button on:click={() => selectGrid('grid-2')}><GridTwo /></button>
+            <button on:click={() => selectGrid('grid-3')}><GridThree /></button>
+            <button on:click={() => selectGrid('grid-4')}><GridFour /></button>
+            <button on:click={() => selectGrid('grid-5')}><GridFive /></button>
+            <button on:click={() => selectGrid('list-view')}><ListView /></button>
         </div>
     {/if}
 </div>

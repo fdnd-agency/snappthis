@@ -4,6 +4,10 @@
     const id = data.id
 
     import Header from '$lib/components/Header.svelte'
+    import Star from '$lib/components/icons/Star.svelte'
+    import Tomato from '$lib/components/icons/Tomato.svelte'
+    import Heart from '$lib/components/icons/Heart.svelte'
+
 
 
 </script>
@@ -14,21 +18,34 @@
     {#each snaps as snap}
         <picture>
             <a href="/{ snap.uuid }/{ snap.picture}">
-                <img src={"https://fdnd-agency.directus.app/assets/" + snap.picture + "?width=200&height=200&format=webp"} height="200" width="200" alt="" />
+                    <img src={"https://fdnd-agency.directus.app/assets/" + snap.picture} alt="" />
             </a>
         </picture>
     {/each}
 </ul>
 
+<li>
+    {#each snaps as snap}
+    <p> {snap.author} </p>
+    <p> {snap.location} </p>
+        <picture>
+            <a href="/{ snap.uuid }/{ snap.picture}">
+                    <img src={"https://fdnd-agency.directus.app/assets/" + snap.picture} alt="" />
+            </a>
+        </picture>
+    <button> <Star /> </button>
+    <button> <Tomato /> </button>
+    <button> <Heart /> </button>
+    {/each}
+</li>
+
 <style>
     .snaps-list {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 1rem;
-        list-style: none;
         padding: 1rem;
-        max-width: 1000px;
-        margin: 0 auto;
+        width: 100%;
 
     .grid-1 {
         grid-template-columns: repeat(1, 1fr);
@@ -53,7 +70,8 @@
 
     picture img {
         border-radius: var(--border-radius-desktop);
-        border: var(--accent-green-20) 2px solid;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
-
 </style>
