@@ -23,6 +23,7 @@ Our [team canvas](https://www.figma.com/design/ZpUnjTTKth5AHhfBd7qjcG/SnappThis?
 - Commit messages should follow the format specified in Conventional Commits (https://docs.fdnd.nl/conventies.html#conventional-commits)
 - There should be at least one approving review (by a human) before merging a pull request
 - Making deadlines for important requirements
+- Merge dev into your feature branch before opening a Pull Request
 
 ## Roles
 
