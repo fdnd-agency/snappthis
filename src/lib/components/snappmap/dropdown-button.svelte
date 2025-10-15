@@ -5,12 +5,19 @@
     import GridFour from '$lib/components/icons/Grid4.svelte'
     import GridFive from '$lib/components/icons/Grid5.svelte'
     import ListView from '$lib/components/icons/Listview.svelte'
+    import { createEventDispatcher } from 'svelte';
 
     let open = false
+    const dispatch = createEventDispatcher()
 
     function toggleDropdown() {
         open = !open
     }  
+
+    function setGrid(state) {
+        dispatchEvent('gridChange', state)
+        open = false
+    }
 
 
 </script>
@@ -20,12 +27,12 @@
     <button class="dropdwnbutton" on:click={toggleDropdown}></button>
      {#if open}
         <div class=dropdowncontent>
-            <button on:click={() => selectGrid('grid-1')}><GridOne /></button>
-            <button on:click={() => selectGrid('grid-2')}><GridTwo /></button>
-            <button on:click={() => selectGrid('grid-3')}><GridThree /></button>
-            <button on:click={() => selectGrid('grid-4')}><GridFour /></button>
-            <button on:click={() => selectGrid('grid-5')}><GridFive /></button>
-            <button on:click={() => selectGrid('list-view')}><ListView /></button>
+            <button on:click={() => setGrid('grid-1')}><GridOne /></button>
+            <button on:click={() => setGrid('grid-2')}><GridTwo /></button>
+            <button on:click={() => setGrid('grid-3')}><GridThree /></button>
+            <button on:click={() => setGrid('grid-4')}><GridFour /></button>
+            <button on:click={() => setGrid('grid-5')}><GridFive /></button>
+            <button on:click={() => setGrid('list-view')}><ListView /></button>
         </div>
     {/if}
 </div>
