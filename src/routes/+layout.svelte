@@ -1,10 +1,14 @@
 <script>
     import favicon from '$lib/assets/favicon.svg'
+    import NavBar from '$lib/components/NavBar.svelte'
+    import { page } from '$app/state';
 
     let { children } = $props()
 </script>
 
 {@render children?.()}
+
+<NavBar page={page.url.pathname}></NavBar>
 
 <style>
     :root {
