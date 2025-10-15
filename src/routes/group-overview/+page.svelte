@@ -9,16 +9,26 @@
 </header>
 
 <main>
-    <ul>
-        {#each groups as group}
-            <li>
-                <p>{group.name}</p>
-                <p>{group.users.length}</p>
-                <a href="/">Add person</a>
-                <a href="/">Add SnappMap</a>
-            </li>
-        {/each}
-    </ul>
+    <div>
+        <ul>
+            {#each groups as group}
+                <li>
+                    <a href={group.uuid}>{group.name}</a>
+                    <p>
+                        {#if group.users.length == 0}
+                            No members yet
+                        {:else if group.users.length == 1}
+                            {group.users.length} member
+                        {:else}
+                            {group.users.length} members
+                        {/if}
+                    </p>
+                    <a href="/">Add person</a>
+                    <a href="/">Add SnappMap</a>
+                </li>
+            {/each}
+        </ul>
+    </div>
 </main>
 
 <style>
