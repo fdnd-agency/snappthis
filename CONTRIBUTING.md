@@ -25,6 +25,18 @@ Our [team canvas](https://www.figma.com/design/ZpUnjTTKth5AHhfBd7qjcG/SnappThis?
 - Making deadlines for important requirements
 - Merge dev into your feature branch before opening a Pull Request
 
+## Definition of Ready
+- De story is juist geformatteerd (als... wil ik.. omdat...)
+- De story heeft een duidelijke beschrijving
+- De story is gepokerd en eventueel in kleine taken verdeeld
+- De story heeft een prioriteit (MoSCoW)
+
+## Definition of Done
+- De story is getest
+- De story staat live
+- De story is gerviewd
+- De code voldoet aan RAPPE (Responsive, Accesible, Performance, Progressive Enhancement)
+
 ## Roles
 
 ### Sprint 15
