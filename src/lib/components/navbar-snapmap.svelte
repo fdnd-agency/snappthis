@@ -5,10 +5,7 @@
 </script>
 
     <div class="snappmapnav">
-        <a href="/"> <img src="src/lib/assets/svg/go-back.svg"> </a>
-        <h2>Snappmapp</h2>
-        <div class="snappmapnav-dropdown">
-            <Dropdown />
+
         </div>
     </div>
 

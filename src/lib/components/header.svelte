@@ -1,5 +1,5 @@
 <script>
-    import data from './src/lib/+page.server.js'
+    let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
 
@@ -11,10 +11,7 @@
 
     <img src="./src/lib/assets/header/logo_white.svg" height="100" width="100">
 
-    <h1>  </h1>
-
-    <img class="user-pic" src="./src/lib/assets/header/user.jpg">
-    <!-- there should be a profile pic with it -->
+    <h1> { snaps.name } </h1>
 
     <Dropdownbutton />
 </header>
