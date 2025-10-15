@@ -4,8 +4,11 @@
 </script>
 
 <header>
-    <h1>Group Overview</h1>
-    <a href="/">Add group</a>
+    <div>
+        <a href="/">Back</a>
+        <h1>Group Overview</h1>
+        <a href="/">Add group</a>
+    </div>
 </header>
 
 <main>
@@ -36,19 +39,52 @@
         background-color: #172f3b;
         background-color: var(--primary-color);
         width: 100%;
-        display: flex;
         color: white;
         font-family: 'Bariol';
     }
 
+    h1 {
+        font-size: clamp(1.5rem, 1.3rem + 1.15vw, 2rem);
+    }
+
+    header a {
+        color: white;
+        text-decoration: none;
+    }
+
+    div {
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+
+    header div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1rem;
+    }
+
+    main {
+        font-family: 'Bariol';
+        width: 100%;
+    }
+
     ul,
     li {
-        margin-inline: 0;
+        margin: 0;
         padding-inline: 0;
     }
+
     li {
         list-style: none;
         padding: 1em;
         border-bottom: 1px solid grey;
+    }
+
+    li a:nth-of-type(1) {
+        font-size: 1.5rem;
+        margin-block: 0.25em;
+        color: currentColor;
+        text-decoration: none;
     }
 </style>
