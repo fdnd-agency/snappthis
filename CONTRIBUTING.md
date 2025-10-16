@@ -26,16 +26,16 @@ Our [team canvas](https://www.figma.com/design/ZpUnjTTKth5AHhfBd7qjcG/SnappThis?
 - Merge dev into your feature branch before opening a Pull Request
 
 ## Definition of Ready
-- De story is juist geformatteerd (als... wil ik.. omdat...)
-- De story heeft een duidelijke beschrijving
-- De story is gepokerd en eventueel in kleine taken verdeeld
-- De story heeft een prioriteit (MoSCoW)
+- The story correctly formatted (as user...I want to... because)
+- The story has a clear description
+- The story is pokered (by planning poker) and additionaly the tasks are distrubuted
+- The story has its priority
 
 ## Definition of Done
-- De story is getest
-- De story staat live
-- De story is gerviewd
-- De code voldoet aan RAPPE (Responsive, Accesible, Performance, Progressive Enhancement)
+- The story is tested
+- The story is live
+- The story is reviewed
+- The code is RAPPE (Responsive, Accesible, Performance, Progressive Enhancement)
 
 ## Roles
 
