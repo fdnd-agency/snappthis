@@ -10,6 +10,7 @@ Our [team canvas](https://www.figma.com/design/ZpUnjTTKth5AHhfBd7qjcG/SnappThis?
 - The SCRUM-master will plan the Standups (monday, wednesday and friday) andev tuesday, thursday (via teams)
 - When running into any issues announce them at the next Standup
 - Feel free to request a pair programming session if you need help with something
+- Making deadlines for important requirements
 
 ## Code conventions
 - Comments and variables should be in English
@@ -22,7 +23,6 @@ Our [team canvas](https://www.figma.com/design/ZpUnjTTKth5AHhfBd7qjcG/SnappThis?
 - Every branch should have an issue associated with it
 - Commit messages should follow the format specified in Conventional Commits (https://docs.fdnd.nl/conventies.html#conventional-commits)
 - There should be at least one approving review (by a human) before merging a pull request
-- Making deadlines for important requirements
 - Merge dev into your feature branch before opening a Pull Request
 
 ## Definition of Ready
