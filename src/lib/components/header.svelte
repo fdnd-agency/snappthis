@@ -2,9 +2,6 @@
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
-
-    import Dropdownbutton from './snappmap/dropdown-button.svelte'
-
 </script>
 
 <header>
@@ -13,7 +10,6 @@
 
     <h1> { snaps.name } </h1>
 
-    <Dropdownbutton />
 </header>
 
 

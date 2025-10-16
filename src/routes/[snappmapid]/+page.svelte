@@ -8,25 +8,45 @@
     import Tomato from '$lib/components/icons/Tomato.svelte'
     import Heart from '$lib/components/icons/Heart.svelte'
 
-    let gridState = 'grid-3'
+    import GridOne from '$lib/components/icons/Grid1.svelte'
+    import GridTwo from '$lib/components/icons/Grid2.svelte'
+    import GridThree from '$lib/components/icons/Grid3.svelte'
+    import GridFour from '$lib/components/icons/Grid4.svelte'
+    import GridFive from '$lib/components/icons/Grid5.svelte'
+    import ListView from '$lib/components/icons/Listview.svelte'
 
-    function setGrid(state) {
-        gridState = state;
-    }
+    let gridsize = $state('grid1')
 </script>
 
 <Header {data}/>
 
-<!-- <div class="grid-toggle">
-    <button on:click={() => setGrid('grid-1')}>1</button>
-    <button on:click={() => setGrid('grid-2')}>2</button>
-    <button on:click={() => setGrid('grid-3')}>3</button>
-    <button on:click={() => setGrid('grid-4')}>4</button>
-    <button on:click={() => setGrid('grid-5')}>5</button>
-    <button on:click={() => setGrid('list-view')}>List</button>
-</div> -->
+            <label>
+                <input type="radio" name="settings" value="grid1" bind:group={gridsize} />
+                <GridOne />
+            </label>
+            <label>
+                <input type="radio" name="settings" value="grid2" bind:group={gridsize} />
+                <GridTwo />
+            </label>
+            <label>
+                <input type="radio" name="settings" value="grid3" bind:group={gridsize} />
+                <GridThree />
+            </label>
+            <label>
+                <input type="radio" name="settings" value="grid4" bind:group={gridsize} />
+                <GridFour />
+            </label>
+            <label>
+                <input type="radio" name="settings" value="grid5" bind:group={gridsize} />
+                <GridFive />
+            </label>
+            <label>
+                <input type="radio" name="settings" value="list-view" bind:group={gridsize} />
+                <ListView />
+            </label>
 
-<li class="snaps-list {gridState}">
+
+<li class='snaps-grid-{gridsize}'>
     {#each snaps as snap}
         <picture>
             <a href="/{ snap.uuid }/{ snap.picture}">
@@ -36,7 +56,7 @@
     {/each}
 </li>
 
-<li class="snaps-list">
+<li class="snaps-list-">
     {#each snaps as snap}
     <p> {snap.author} </p>
     <p> {snap.location} </p>
@@ -52,42 +72,44 @@
 </li>
 
 <style>
-    .snaps-list {
+.container {
         display: grid;
         gap: 1em;
         top: 0;
         list-style: none;
         margin: 1em;
-    }
-
-.snaps-list.grid-1 { 
-    grid-template-columns: repeat(1, 1fr); 
 }
 
-.snaps-list.grid-2 { 
-    grid-template-columns: repeat(2, 1fr); 
-}
-
-.snaps-list.grid-3 { 
-    grid-template-columns: repeat(3, 1fr); 
-}
-
-.snaps-list.grid-4 { 
-    grid-template-columns: repeat(4, 1fr); 
-}
-
-.snaps-list.grid-5 { 
-    grid-template-columns: repeat(5, 1fr); 
-}
-
-.snaps-list.list-view { 
-    display: block; 
-}
 
 picture img {
     border-radius: var(--border-radius-desktop);
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+.snaps-grid-grid1 { 
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+}
+
+.snaps-grid-grid2 { 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+}
+
+.snaps-grid-grid3 { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+.snaps-grid-grid4 { 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+}
+
+.snaps-grid-grid5 { 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
 }
 </style>
