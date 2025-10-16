@@ -12,4 +12,10 @@ export async function load({ url }) {
     return { user: user.data }
 }
 
+export async function load({ url }) {
+    const user = await fetch(
+        `https://fdnd-agency.directus.app/items/snappthis_action`
+    ).then((response) => response.json())
+    return { user: user.data }
+}
 
