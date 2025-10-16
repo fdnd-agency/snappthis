@@ -1,21 +1,8 @@
-// export async function load({ url, params }) {
-//     const user = await fetch(
-//         `https://fdnd-agency.directus.app/items/snappthis_user/${params.userid}`
-//     ).then((response) => response.json())
-//     return { user: user.data }
-// }
-
 export async function load({ url }) {
     const user = await fetch(
-        `https://fdnd-agency.directus.app/items/snappthis_user/902bf505-c020-4663-aee8-2cef8074b8f2`
+        `https://fdnd-agency.directus.app/items/snappthis_user/c317f593-e64b-42d6-8cbd-4f14829d44ed`
     ).then((response) => response.json())
     return { user: user.data }
 }
 
-export async function load({ url }) {
-    const user = await fetch(
-        `https://fdnd-agency.directus.app/items/snappthis_action`
-    ).then((response) => response.json())
-    return { user: user.data }
-}
 

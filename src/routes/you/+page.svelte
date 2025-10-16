@@ -19,7 +19,8 @@
 </ul>
 
 <ul>
-    <li> <GalleryIcon></GalleryIcon> { } snapps</li>
+    <li> <GalleryIcon></GalleryIcon> 54 snapps</li>
     <li> <a href="/group-overview"> <GroupIcon></GroupIcon> { user.groups } groups </a></li>
     <li> <StarIcon></StarIcon> 21 stars</li>
 </ul>
+
