@@ -46,7 +46,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.35rem;
+        gap: 0.5em;
+
 
         color: white;
         text-decoration: none;

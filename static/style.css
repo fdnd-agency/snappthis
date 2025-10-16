@@ -42,7 +42,23 @@
     --neutral-color-50: hsl(200, 13%, 50%);
     --neutral-color-40: hsl(200, 13%, 40%);
     --neutral-color-0: hsl(0, 0%, 0%);
-}
+
+    /* widths */
+    --grid-2-width: 50%;
+    --grid-3-width: 33%;
+    --grid-4-width: 25%;
+    --grid-5-width: 20%;
+    --margin-width: 5%;
+
+    /* heights */
+    --top-bar-height: 9%;
+    --bottom-bar-height: 9%;
+    --acitivity-area-height: 50%;
+    --icons-top-bar-height: 26%;
+    --icons-bottom-bar-height: 36%;
+    --button-height: 7%;
+
+    --spacing: 0.5%;
 
 /* A few snippets from https://frontendmasters.com/blog/the-coyier-css-starter/ */
 *,
@@ -52,12 +68,26 @@
 }
 
 body {
-    margin: 0;
+    margin-left: var(--margin-width);
+    margin-right: var(--margin-width);
     padding: 1rem 2rem;
+    background-color: var(--neutral-color-90);
 
     @media (width < 500px) {
         padding: 1rem;
     }
+}
+
+header {
+    height: var(--top-bar-height);
+}
+
+nav {
+    height: var(--bottom-bar-height);
+}
+
+button + a {
+    height: var(--button-height);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -68,4 +98,35 @@ body {
     html {
         interpolate-size: allow-keywords;
     }
+}
+
+
+/* titles */
+p.title {
+    font-family: 'Bariol bold';
+    font-size: 36px;
+}
+
+/* regular font */
+p {
+    font-family: 'Bariol regular';
+    font-size: 36px;
+}
+
+p.input {
+    font-size: 30px;
+}
+
+p.second-line {
+    font-size: 27px;
+}
+
+p.name {
+    font-family: 'Bariol Bold';
+    font-size: 42px;
+}
+
+p.email {
+    font-family: 'Bariol regular';
+    font-size: 30px;
 }
