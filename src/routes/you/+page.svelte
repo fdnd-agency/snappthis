@@ -7,20 +7,44 @@
     const user = data.user
 </script>
 
-<h1>You</h1>
+<section class="user-info">
+    <h1>{ user.name }</h1>
 
-<h2>{ user.name }</h2>
+    <ul class="your-info">
+        <li>{ user.gender }</li>
+        <li>{ user.birthdate.substring(0, 10) }</li>
+        <li>@{ user.usecase }</li>
+        <li>{ user.email }</li>
+    </ul>
 
-<ul>
-    <li>{ user.gender }</li>
-    <li>{ user.birthdate.substring(0, 10) }</li>
-    <li>@{ user.usecase }</li>
-    <li>{ user.email }</li>
-</ul>
+    <ul class="your-data">
+        <li> <GalleryIcon></GalleryIcon> 54 snapps</li>
+        <li> <a href="/group-overview"> <GroupIcon></GroupIcon> { user.groups } groups </a></li>
+        <li> <StarIcon></StarIcon> 21 stars</li>
+    </ul>
+</section>
 
-<ul>
-    <li> <GalleryIcon></GalleryIcon> 54 snapps</li>
-    <li> <a href="/group-overview"> <GroupIcon></GroupIcon> { user.groups } groups </a></li>
-    <li> <StarIcon></StarIcon> 21 stars</li>
-</ul>
 
+<style>
+
+h1, li {
+    font-family: 'bariol';
+}
+
+.user-info {
+    background-color: var(--neutral-color-90);
+    margin: 0;
+    padding: 2em;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    list-style: none;
+    padding: 0;
+}
+
+
+
+</style>
