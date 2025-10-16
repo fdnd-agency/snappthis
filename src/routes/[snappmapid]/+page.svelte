@@ -15,7 +15,9 @@
     import GridFive from '$lib/components/icons/Grid5.svelte'
     import ListView from '$lib/components/icons/Listview.svelte'
 
+
     let gridsize = $state('grid1')
+
 </script>
 
 <Header {data}/>

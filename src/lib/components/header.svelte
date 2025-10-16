@@ -2,13 +2,13 @@
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
+
+    let { title } = "title-example"
 </script>
 
 <header>
 
-    <img src="./src/lib/assets/header/logo_white.svg" height="100" width="100">
-
-    <h1> { snaps.name } </h1>
+    <h1> { title } </h1>
 
 </header>
 
@@ -16,17 +16,17 @@
 <style>
 
     .user-pic {
-            height: 75px;
-            border-radius: 100%;
+        height: 75px;
+        border-radius: 100%;
     }
 
     header {
-        background: linear-gradient(var(--primary-color), var( --primary-color-30)) ;
+        background: var( --primary-color);
         color: var(--neutral-color-100);
         font-family: "Bariol Bold";
-        height: 100px;
+        height: 9%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         padding: 1em;
 
