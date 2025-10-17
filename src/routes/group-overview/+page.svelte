@@ -8,6 +8,10 @@
     const groups = data.groups
 </script>
 
+<svelte:head>
+    <title>Your Groups</title> 
+</svelte:head>
+
 <header>
     <div>
         <a href="/"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
