@@ -67,11 +67,11 @@
                     <img src={"https://fdnd-agency.directus.app/assets/" + snap.picture} alt="" />
             </a>
         </picture>
-    <button> <Star /> </button>
-    <button> <Tomato /> </button>
-    <button> <Heart /> </button>
+    <button aria-label="Star"> <Star /> </button>
+    <button aria-label="Tomato"> <Tomato /> </button>
+    <button aria-label="Heart"> <Heart /> </button>
     {/each}
-    </div>
+</div>
 
 <style>
 .container {
@@ -81,7 +81,6 @@
         list-style: none;
         margin: 1em;
 }
-
 
 picture img {
     border-radius: var(--border-radius-desktop);
