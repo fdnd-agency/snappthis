@@ -7,7 +7,7 @@ Our [team canvas](https://www.figma.com/design/ZpUnjTTKth5AHhfBd7qjcG/SnappThis?
 ## Communication 
 - Over Teams - our second-year students group app
 - Over Teams - with the first-year students and client
-- The SCRUM-master will plan the Standups (monday, wednesday and friday) andev tuesday, thursday (via teams)
+- The SCRUM-master will plan the Standups (monday, wednesday and friday) and tuesday, thursday (via teams)
 - When running into any issues announce them at the next Standup
 - Feel free to request a pair programming session if you need help with something
 - Making deadlines for important requirements
