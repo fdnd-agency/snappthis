@@ -1,37 +1,19 @@
 <script>
-    let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-
-    let { title } = "title-example"
+    export let title = 'SnappThis'
 </script>
 
-<header>
-
-    <h1> { title } </h1>
-
+<header class="header">
+    <h1>{title}</h1>
 </header>
 
-
 <style>
-
-    .user-pic {
-        height: 75px;
-        border-radius: 100%;
-    }
-
-    header {
-        background: var( --primary-color);
+    .header {
+        background-color: var(--primary-color);
         color: var(--neutral-color-100);
-        font-family: "Bariol Bold";
-        height: 9%;
+        font-family: 'Bariol Bold';
+        height: 10%;
+        width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        padding: 1em;
-
-        img {
-            height: 80%;
-        }
     }
 </style>
