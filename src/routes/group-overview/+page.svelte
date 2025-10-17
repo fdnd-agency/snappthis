@@ -1,13 +1,18 @@
 <script>
+    import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte'
+    import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
+    import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
+    import UserIcon from '$lib/components/icons/UserIcon.svelte'
+
     let { data } = $props()
     const groups = data.groups
 </script>
 
 <header>
     <div>
-        <a href="/">Back</a>
-        <h1>Group Overview</h1>
-        <a href="/">Add group</a>
+        <a href="/"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
+        <h1>Your Groups</h1>
+        <a href="/"><PlusIcon title="Add group"></PlusIcon></a>
     </div>
 </header>
 
@@ -26,8 +31,10 @@
                             {group.users.length} members
                         {/if}
                     </p>
-                    <a href="/">Add person</a>
-                    <a href="/">Add SnappMap</a>
+                    <div class="options">
+                        <a href="/"><UserIcon title="Add User"></UserIcon></a>
+                        <a href="/"><LogoIcon title="Add Snappmap"></LogoIcon></a>
+                    </div>
                 </li>
             {/each}
         </ul>
@@ -35,8 +42,8 @@
 </main>
 
 <style>
+    /* Header styles */
     header {
-        background-color: #172f3b;
         background-color: var(--primary-color);
         width: 100%;
         color: white;
@@ -52,20 +59,27 @@
         text-decoration: none;
     }
 
-    div {
+    header a :global(svg) {
+        height: 1.25em;
+    }
+
+    header > div,
+    main > div {
         max-width: 1000px;
         margin-inline: auto;
     }
 
-    header div {
+    header > div {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-inline: 1rem;
     }
 
+    /* Main styles */
     main {
         font-family: 'Bariol';
+        color: var(--primary-color);
         width: 100%;
     }
 
@@ -78,13 +92,39 @@
     li {
         list-style: none;
         padding: 1em;
-        border-bottom: 1px solid grey;
+        border-bottom: 2px solid #E9ECEE;
+        display: grid;
+        grid-template-areas:
+            'title link'
+            'members link ';
+            align-items: center;
     }
 
-    li a:nth-of-type(1) {
+    li > a {
         font-size: 1.5rem;
-        margin-block: 0.25em;
+        margin: 0;
         color: currentColor;
         text-decoration: none;
+        grid-area: title;
+        align-self: top;
+    }
+
+    li p {
+        grid-area: members;
+        margin: 0;
+        color: var(--primary-color-30);
+    }
+
+    li .options {
+        grid-area: link;
+        justify-self: end;
+    }
+
+    li .options a {
+        color: var(--primary-color-30);
+    }
+
+    li .options a :global(svg) {
+        height: 1.5em;
     }
 </style>
