@@ -48,7 +48,7 @@
             </label>
 
 
-<li class='snaps-grid-{gridsize}'>
+<div class='snaps-grid-{gridsize}'>
     {#each snaps as snap}
         <picture>
             <a href="/{ snap.uuid }/{ snap.picture}">
@@ -56,9 +56,9 @@
             </a>
         </picture>
     {/each}
-</li>
+</div>
 
-<li class="snaps-list-">
+<div class="snaps-list-">
     {#each snaps as snap}
     <p> {snap.author} </p>
     <p> {snap.location} </p>
@@ -71,7 +71,7 @@
     <button> <Tomato /> </button>
     <button> <Heart /> </button>
     {/each}
-</li>
+    </div>
 
 <style>
 .container {
