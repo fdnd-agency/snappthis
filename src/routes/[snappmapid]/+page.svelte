@@ -42,6 +42,7 @@
 </label>
 <label>
     <input
+    class="listradio"
         type="radio"
         name="settings"
         value="list"
@@ -61,13 +62,16 @@
                 />
             </a>
         </picture>
-        <div class="list-container">
-            <p>{snap.author}</p>
-            <p>{snap.location}</p>
-            <button aria-label="Star"> <Star /> </button>
-            <button aria-label="Tomato"> <Tomato /> </button>
-            <button aria-label="Heart"> <Heart /> </button>
-        </div>
+<div class="list-container {gridsize === 'list' ? 'visible' : ''}">
+    <h2>{snap.author}</h2>
+    <h3>{snap.location}</h3>
+
+    <div class="feedback">
+        <button aria-label="Star"><Star /></button>
+        <button aria-label="Tomato"><Tomato /></button>
+        <button aria-label="Heart"><Heart /></button>
+    </div>
+</div>
     {/each}
 </div>
 
@@ -113,12 +117,27 @@
     }
 
     .list-container {
+        display: grid;
+        grid-template-rows: 50% 40% 10%;
+    }
 
+    .feedback {
+        display: flex;
+        justify-content: flex-end;
+        height: 1em;
     }
 
     .snaps-list {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 30% 70%;
+        padding: 1em;
     }
 
+.list-container {
+    display: none;
+}
+
+.list-container.visible {
+    display: block;
+}
 </style>
