@@ -53,6 +53,7 @@
 
 <ul class="snaps-{gridsize}">
     {#each snaps as snap}
+    <li>
         <picture>
             <a href="/{snap.uuid}/{snap.picture}">
                 <img
@@ -62,6 +63,7 @@
                 />
             </a>
         </picture>
+    </li>
 <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
     <h2>{snap.author}</h2>
     <h3>{snap.location}</h3>
@@ -78,14 +80,14 @@
 <style>
     .container {
         display: grid;
-        gap: 1em;
+        gap: 2em;
         top: 0;
         list-style: none;
         margin: 1em;
     }
 
     picture img {
-        border-radius: var(--border-radius-desktop);
+        border-radius: 5%;
         width: 100%;
         height: auto;
         object-fit: cover;
