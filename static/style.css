@@ -105,30 +105,30 @@ button + a {
 
 /* titles */
 p.title {
-    font-family: 'Bariol bold';
-    font-size: 36px;
+    font-family: 'Bariol Bold', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 2.25rem;
 }
 
 /* regular font */
 p {
-    font-family: 'Bariol regular';
-    font-size: 36px;
+    font-family: 'Bariol Regular', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 2.25rem;
 }
 
 p.input {
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 
 p.second-line {
-    font-size: 27px;
+    font-size: 1.6875rem;
 }
 
 p.name {
-    font-family: 'Bariol Bold';
-    font-size: 42px;
+    font-family: 'Bariol Bold', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 2.625rem;
 }
 
 p.email {
-    font-family: 'Bariol regular';
-    font-size: 30px;
+    font-family: 'Bariol Regular', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.875rem;
 }
