@@ -51,7 +51,7 @@
     <ListView />
 </label>
 
-<div class="snaps-{gridsize}">
+<ul class="snaps-{gridsize}">
     {#each snaps as snap}
         <picture>
             <a href="/{snap.uuid}/{snap.picture}">
@@ -73,7 +73,7 @@
     </div>
 </div>
     {/each}
-</div>
+</ul>
 
 <style>
     .container {
