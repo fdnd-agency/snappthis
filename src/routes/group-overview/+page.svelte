@@ -119,16 +119,16 @@
         color: var(--primary-color-30);
     }
 
-    li .options {
+    .options {
         grid-area: link;
         justify-self: end;
     }
 
-    li .options a {
+    .options a {
         color: var(--primary-color-30);
     }
 
-    li .options a :global(svg) {
+    .options a :global(svg) {
         height: 1.5em;
     }
 </style>
