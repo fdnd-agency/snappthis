@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-    <title>Your Groups</title> 
+    <title>Your Groups</title>
 </svelte:head>
 
 <header>
@@ -24,7 +24,7 @@
     <div>
         <ul>
             {#each groups as group}
-                <li>
+                <li class="group">
                     <a href={group.uuid}>{group.name}</a>
                     <p>
                         {#if group.users.length == 0}
@@ -35,10 +35,18 @@
                             {group.users.length} members
                         {/if}
                     </p>
-                    <div class="options">
-                        <a href="/"><UserIcon title="Add User"></UserIcon></a>
-                        <a href="/"><LogoIcon title="Add Snappmap"></LogoIcon></a>
-                    </div>
+                    <ul class="options">
+                        <li>
+                            <a href="/">
+                                <UserIcon title="Add User"></UserIcon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/">
+                                <LogoIcon title="Add Snappmap"></LogoIcon>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             {/each}
         </ul>
@@ -93,18 +101,18 @@
         padding-inline: 0;
     }
 
-    li {
+    .group {
         list-style: none;
         padding: 1em;
-        border-bottom: 2px solid #E9ECEE;
+        border-bottom: 2px solid #e9ecee;
         display: grid;
         grid-template-areas:
             'title link'
             'members link ';
-            align-items: center;
+        align-items: center;
     }
 
-    li > a {
+    .group > a {
         font-size: 1.5rem;
         margin: 0;
         color: currentColor;
@@ -113,7 +121,7 @@
         align-self: top;
     }
 
-    li p {
+    .group > p {
         grid-area: members;
         margin: 0;
         color: var(--primary-color-30);
@@ -122,6 +130,8 @@
     .options {
         grid-area: link;
         justify-self: end;
+        display: flex;
+        list-style: none;
     }
 
     .options a {
