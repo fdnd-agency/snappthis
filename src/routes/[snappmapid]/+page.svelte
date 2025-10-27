@@ -1,25 +1,24 @@
 <script>
-    let { data } = $props();
-    const snaps = data.snaps[0].snaps;
-    const id = data.id;
-    import Header from "$lib/components/Header.svelte";
-    import Star from "$lib/components/icons/Star.svelte";
-    import Tomato from "$lib/components/icons/Tomato.svelte";
-    import Heart from "$lib/components/icons/Heart.svelte";
-    import GridOne from "$lib/components/icons/Grid1.svelte";
-    import GridTwo from "$lib/components/icons/Grid2.svelte";
-    import GridThree from "$lib/components/icons/Grid3.svelte";
-    import GridFour from "$lib/components/icons/Grid4.svelte";
-    import GridFive from "$lib/components/icons/Grid5.svelte";
-    import ListView from "$lib/components/icons/Listview.svelte";
-    let gridsize = $state("grid1");
+    let { data } = $props()
+    const snaps = data.snaps[0].snaps
+    const id = data.id
+    import Header from '$lib/components/Header.svelte'
+    import Star from '$lib/components/icons/StarIcon.svelte'
+    import Tomato from '$lib/components/icons/TomatoIcon.svelte'
+    import Heart from '$lib/components/icons/HeartIcon.svelte'
+    import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
+    import GridThree from '$lib/components/icons/Grid3Icon.svelte'
+    import GridFour from '$lib/components/icons/Grid4Icon.svelte'
+    import GridFive from '$lib/components/icons/Grid5Icon.svelte'
+    import ListView from '$lib/components/icons/ListviewIcon.svelte'
+    let gridsize = $state('grid1')
 </script>
 
 <Header {data} />
 
 <label>
     <input type="radio" name="settings" value="grid1" bind:group={gridsize} />
-    <GridOne />
+    <GridTwo />
 </label>
 <label>
     <input type="radio" name="settings" value="grid2" bind:group={gridsize} />
@@ -39,38 +38,36 @@
 </label>
 <label>
     <input
-    class="listradio"
+        class="listradio"
         type="radio"
         name="settings"
         value="list"
-        bind:group={gridsize}
-    />
+        bind:group={gridsize} />
     <ListView />
 </label>
 
 <ul class="snaps-{gridsize}">
     {#each snaps as snap}
-    <li>
-        <picture>
-            <a href="/{snap.uuid}/{snap.picture}">
-                <img
-                    src={"https://fdnd-agency.directus.app/assets/" +
-                        snap.picture}
-                    alt=""
-                />
-            </a>
-        </picture>
-    </li>
-<div class="list-container {gridsize === 'list' ? 'visible' : ''}">
-    <h2>{snap.author}</h2>
-    <h3>{snap.location}</h3>
+        <li class="liststyle">
+            <picture>
+                <a href="/{snap.uuid}/{snap.picture}">
+                    <img
+                        src={'https://fdnd-agency.directus.app/assets/' +
+                            snap.picture}
+                        alt="" />
+                </a>
+            </picture>
+        </li>
+        <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
+            <h2>{snap.author}</h2>
+            <h3>{snap.location}</h3>
 
-    <div class="feedback">
-        <button aria-label="Star"><Star /></button>
-        <button aria-label="Tomato"><Tomato /></button>
-        <button aria-label="Heart"><Heart /></button>
-    </div>
-</div>
+            <div class="feedback">
+                <button aria-label="Star"><Star /></button>
+                <button aria-label="Tomato"><Tomato /></button>
+                <button aria-label="Heart"><Heart /></button>
+            </div>
+        </div>
     {/each}
 </ul>
 
@@ -81,6 +78,12 @@
         top: 0;
         list-style: none;
         margin: 1em;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
     picture img {
         border-radius: 5%;
@@ -122,10 +125,10 @@
         grid-template-columns: 30% 70%;
         padding: 1em;
     }
-.list-container {
-    display: none;
-}
-.list-container.visible {
-    display: block;
-}
+    .list-container {
+        display: none;
+    }
+    .list-container.visible {
+        display: block;
+    }
 </style>
