@@ -14,13 +14,13 @@
         <li>{ user.gender }</li>
         <li>{ user.birthdate.substring(0, 10) }</li>
         <li>@{ user.usecase }</li>
-        <li>{ user.email }</li>
+        <li><strong>{ user.email }</strong></li>
     </ul>
 
     <ul class="your-data">
         <li> <GalleryIcon></GalleryIcon> 54 snapps</li>
         <li> <a href="/group-overview"> <GroupIcon></GroupIcon> { user.groups } groups </a></li>
-        <li> <StarIcon></StarIcon> 21 stars</li>
+        <li > <StarIcon></StarIcon> 21 stars</li>
     </ul>
 </section>
 
@@ -31,10 +31,18 @@ h1, li {
     font-family: 'bariol';
 }
 
+a {
+    color: var(--neutral-color-0);
+    text-decoration: none;
+}
+
 .user-info {
     background-color: var(--neutral-color-90);
     margin: 0;
     padding: 2em;
+    height: 45vh;   
+    place-items: center;
+
 }
 
 ul {
@@ -43,8 +51,7 @@ ul {
     gap: .5em;
     list-style: none;
     padding: 0;
+    justify-content: center;
 }
-
-
 
 </style>
