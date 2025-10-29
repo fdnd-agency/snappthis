@@ -60,7 +60,7 @@
                             alt="{snap.picture}" />
             </a>
         </li>
-        <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
+        <li class="list-container {gridsize === 'list' ? 'visible' : ''}">
             <h2>{snap.author}</h2>
             <h3>{snap.location}</h3>
 
@@ -69,7 +69,7 @@
                 <button aria-label="Tomato"><Tomato /></button>
                 <button aria-label="Heart"><Heart /></button>
             </div>
-        </div>
+        </li>
     {/each}
 </ul>
 
