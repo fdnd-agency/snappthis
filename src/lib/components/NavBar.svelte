@@ -17,7 +17,7 @@
             ><SearchIcon></SearchIcon>Explore</a>
         <a href="/group" class={page.startsWith('/group') ? 'active' : ''}
             ><GroupIcon></GroupIcon>Groups</a>
-        <a href="/you" class={page.startsWith('/you') ? 'active' : ''}
+        <a href="/user" class={page.startsWith('/user') ? 'active' : ''}
             ><UserIcon></UserIcon>You</a>
     </div>
 </nav>

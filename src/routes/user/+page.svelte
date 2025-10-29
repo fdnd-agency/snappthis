@@ -20,7 +20,7 @@
     <ul class="your-data">
         <li><GalleryIcon></GalleryIcon> 54 snapps</li>
         <li>
-            <a href="/group-overview">
+            <a href="/group">
                 <GroupIcon></GroupIcon>
                 {user.groups} groups
             </a>
