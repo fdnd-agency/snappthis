@@ -9,7 +9,7 @@
 
 <li>
     <div>
-        <a href="/{snappMap.uuid}">{snappMap.name}</a>
+        <a href="/group/{snappMap.uuid}">{snappMap.name}</a>
         <ul>
             <li><HeartIcon></HeartIcon>15</li>
             <li><TomatoIcon></TomatoIcon>9</li>
