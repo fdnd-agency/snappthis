@@ -2,6 +2,8 @@
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
+
+    const snapMap = data.snaps?.[0]   
     import Header from '$lib/components/Header.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
@@ -14,7 +16,7 @@
     let gridsize = $state('grid1')
 </script>
 
-<Header {data} />
+<Header title="{snapMap.name}" />
 
 <label>
     <input type="radio" name="settings" value="grid1" bind:group={gridsize} />
