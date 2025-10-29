@@ -18,6 +18,10 @@
 
 </script>
 
+<svelte:head>
+	<title>{snapMap.name}</title>
+</svelte:head>
+
 <Header title={snapMap.name} />
 
 <label>
@@ -64,11 +68,11 @@
             <h2>{snap.author}</h2>
             <h3>{snap.location}</h3>
 
-            <div class="feedback">
+            <form class="feedback">
                 <button aria-label="Star"><Star /></button>
                 <button aria-label="Tomato"><Tomato /></button>
                 <button aria-label="Heart"><Heart /></button>
-            </div>
+            </form>
         </li>
     {/each}
 </ul>
