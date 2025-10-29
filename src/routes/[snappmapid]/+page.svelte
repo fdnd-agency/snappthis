@@ -63,7 +63,7 @@
                         <img
                             src={'https://fdnd-agency.directus.app/assets/' +
                                 snap.picture}
-                            alt="{snap.picture}" />
+                            alt="Photo by ${snap.author} at ${snap.location}" />
             </a>
         </li>
         <li class="list-container {gridsize === 'list' ? 'visible' : ''}">
