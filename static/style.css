@@ -53,11 +53,6 @@
 
 body {
     margin: 0;
-    padding: 1rem 2rem;
-
-    @media (width < 500px) {
-        padding: 1rem;
-    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
