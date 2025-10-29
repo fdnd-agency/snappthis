@@ -24,6 +24,8 @@
 
 <Header title={snapMap.name} />
 
+<main>
+
 <label>
     <input type="radio" name="settings" value="grid1" bind:group={gridsize} />
     <GridOne />
@@ -76,6 +78,7 @@
         </li>
     {/each}
 </ul>
+</main>
 
 <style>
     .container {
