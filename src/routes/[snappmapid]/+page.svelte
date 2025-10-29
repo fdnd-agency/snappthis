@@ -21,7 +21,7 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header title={snapMap.name} />
+<Header title={snapMap.name}></Header>
 
 <main>
     <div class="layout-navigation">
@@ -78,23 +78,25 @@
 
     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
-            <li class="liststyle">
-                <a href="/{snap.uuid}/{snap.picture}">
+            <li class="list {gridsize === 'list' ? 'visible' : ''}">
+                <a href="/{id}/{snap.uuid}">
                     <img
                         src={'https://fdnd-agency.directus.app/assets/' +
                             snap.picture}
                         alt="Photo by ${snap.author} at ${snap.location}" />
                 </a>
-            </li>
-            <li class="list-container {gridsize === 'list' ? 'visible' : ''}">
-                <h2>{snap.author}</h2>
-                <h3>{snap.location}</h3>
+            <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
+                    <h2>{snap.author}</h2>
+                    <h3>{snap.location}</h3>
 
-                <form class="feedback">
-                    <button aria-label="Star"><Star /></button>
-                    <button aria-label="Tomato"><Tomato /></button>
-                    <button aria-label="Heart"><Heart /></button>
-                </form>
+                    <form class="feedback">
+                        <button aria-label="Star"><Star /></button>
+                        <button aria-label="Tomato"><Tomato /></button>
+                        <button aria-label="Heart"><Heart /></button>
+                    </form>
+
+                    <a href="/{id}/{snap.uuid}"> View Photo </a>
+                </div>
             </li>
         {/each}
     </ul>
@@ -105,6 +107,7 @@
         margin-bottom: 5%;
         display: grid;
         grid-template-columns: 20% 80%;
+        font-family: 'Bariol Bold';
 
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
@@ -196,15 +199,16 @@
     .list-container {
         display: grid;
         grid-template-rows: 50% 40% 10%;
+
     }
 
     .feedback {
         display: flex;
         justify-content: flex-end;
-        height: 1em;
     }
 
-    .snaps-list {
+
+    .list.visible {
         display: grid;
         grid-template-columns: 30% 70%;
         padding: 1em;
