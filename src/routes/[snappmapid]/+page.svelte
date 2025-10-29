@@ -81,6 +81,10 @@
 </main>
 
 <style>
+    main {
+        margin-bottom: 5%;
+    }
+
     .container {
         display: grid;
         gap: 2em;
