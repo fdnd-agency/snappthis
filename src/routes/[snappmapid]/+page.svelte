@@ -53,14 +53,12 @@
 <ul class="snaps-{gridsize}">
     {#each snaps as snap}
         <li class="liststyle">
-            <picture>
-                <a href="/{snap.uuid}/{snap.picture}">
-                    <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="" />
-                </a>
-            </picture>
+            <a href="/{snap.uuid}/{snap.picture}">
+                        <img
+                            src={'https://fdnd-agency.directus.app/assets/' +
+                                snap.picture}
+                            alt="{snap.picture}" />
+            </a>
         </li>
         <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
             <h2>{snap.author}</h2>
@@ -90,7 +88,7 @@
         padding: 0;
     }
 
-    picture img {
+    img {
         border-radius: 5%;
         width: 100%;
         height: auto;
