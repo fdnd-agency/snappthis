@@ -1,8 +1,11 @@
 <script>
     export let title = 'SnappThis'
+
+    import Goback from '$lib/components/icons/GobackIcon.svelte'
 </script>
 
 <header class="header">
+
     <h1>{title}</h1>
 </header>
 

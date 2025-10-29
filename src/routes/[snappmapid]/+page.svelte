@@ -15,74 +15,110 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
-
 </script>
 
 <svelte:head>
-	<title>{snapMap.name}</title>
+    <title>{snapMap.name}</title>
 </svelte:head>
 
 <Header title={snapMap.name} />
 
 <main>
+    <div class="layout-navigation">
+    <label>
+        <input
+            type="radio"
+            name="settings"
+            value="grid1"
+            bind:group={gridsize} />
+        <GridOne /> One-Column
+    </label>
+    <label>
+        <input
+            type="radio"
+            name="settings"
+            value="grid2"
+            bind:group={gridsize} />
+        <GridTwo /> XLarge
+    </label>
+    <label>
+        <input
+            type="radio"
+            name="settings"
+            value="grid3"
+            bind:group={gridsize} />
+        <GridThree /> Large
+    </label>
+    <label>
+        <input
+            type="radio"
+            name="settings"
+            value="grid4"
+            bind:group={gridsize} />
+        <GridFour /> Medium
+    </label>
+    <label>
+        <input
+            type="radio"
+            name="settings"
+            value="grid5"
+            bind:group={gridsize} />
+        <GridFive /> Small
+    </label>
+    <label>
+        <input
+            class="listradio"
+            type="radio"
+            name="settings"
+            value="list"
+            bind:group={gridsize} />
+        <ListView /> List
+    </label>
+    </div>
 
-<label>
-    <input type="radio" name="settings" value="grid1" bind:group={gridsize} />
-    <GridOne />
-</label>
-<label>
-    <input type="radio" name="settings" value="grid2" bind:group={gridsize} />
-    <GridTwo />
-</label>
-<label>
-    <input type="radio" name="settings" value="grid3" bind:group={gridsize} />
-    <GridThree />
-</label>
-<label>
-    <input type="radio" name="settings" value="grid4" bind:group={gridsize} />
-    <GridFour />
-</label>
-<label>
-    <input type="radio" name="settings" value="grid5" bind:group={gridsize} />
-    <GridFive />
-</label>
-<label>
-    <input
-        class="listradio"
-        type="radio"
-        name="settings"
-        value="list"
-        bind:group={gridsize} />
-    <ListView />
-</label>
+    <ul class="snaps-{gridsize}">
+        {#each snaps as snap}
+            <li class="liststyle">
+                <a href="/{snap.uuid}/{snap.picture}">
+                    <img
+                        src={'https://fdnd-agency.directus.app/assets/' +
+                            snap.picture}
+                        alt="Photo by ${snap.author} at ${snap.location}" />
+                </a>
+            </li>
+            <li class="list-container {gridsize === 'list' ? 'visible' : ''}">
+                <h2>{snap.author}</h2>
+                <h3>{snap.location}</h3>
 
-<ul class="snaps-{gridsize}">
-    {#each snaps as snap}
-        <li class="liststyle">
-            <a href="/{snap.uuid}/{snap.picture}">
-                        <img
-                            src={'https://fdnd-agency.directus.app/assets/' +
-                                snap.picture}
-                            alt="Photo by ${snap.author} at ${snap.location}" />
-            </a>
-        </li>
-        <li class="list-container {gridsize === 'list' ? 'visible' : ''}">
-            <h2>{snap.author}</h2>
-            <h3>{snap.location}</h3>
-
-            <form class="feedback">
-                <button aria-label="Star"><Star /></button>
-                <button aria-label="Tomato"><Tomato /></button>
-                <button aria-label="Heart"><Heart /></button>
-            </form>
-        </li>
-    {/each}
-</ul>
+                <form class="feedback">
+                    <button aria-label="Star"><Star /></button>
+                    <button aria-label="Tomato"><Tomato /></button>
+                    <button aria-label="Heart"><Heart /></button>
+                </form>
+            </li>
+        {/each}
+    </ul>
 </main>
 
 <style>
     main {
         margin-bottom: 5%;
+        display: grid;
+        grid-template-columns: 20% 80%;
+
+        @media (max-width: 720px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .layout-navigation {
+        background-color: var(--neutral-color-80);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100%;
+        padding: 1em;
     }
 
     .container {
@@ -96,7 +132,9 @@
     ul {
         list-style-type: none;
         margin: 0;
-        padding: 0;
+        padding: 1em;
+        overflow: scroll;
+        height: 100vh;
     }
 
     img {
