@@ -31,7 +31,7 @@
             name="settings"
             value="grid1"
             bind:group={gridsize} />
-        <GridOne /> One-Column
+        <GridOne /> <p> One-Column </p>
     </label>
     <label>
         <input
@@ -39,7 +39,7 @@
             name="settings"
             value="grid2"
             bind:group={gridsize} />
-        <GridTwo /> XLarge
+        <GridTwo /> <p> XLarge </p>
     </label>
     <label>
         <input
@@ -47,7 +47,7 @@
             name="settings"
             value="grid3"
             bind:group={gridsize} />
-        <GridThree /> Large
+        <GridThree /> <p> Large </p>
     </label>
     <label>
         <input
@@ -55,7 +55,7 @@
             name="settings"
             value="grid4"
             bind:group={gridsize} />
-        <GridFour /> Medium
+        <GridFour /> <p> Medium </p>
     </label>
     <label>
         <input
@@ -63,7 +63,7 @@
             name="settings"
             value="grid5"
             bind:group={gridsize} />
-        <GridFive /> Small
+        <GridFive /> <p> Small </p>
     </label>
     <label>
         <input
@@ -72,7 +72,7 @@
             name="settings"
             value="list"
             bind:group={gridsize} />
-        <ListView /> List
+        <ListView /> <p> List </p>
     </label>
     </div>
 
@@ -115,10 +115,33 @@
         background-color: var(--neutral-color-80);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         height: 100%;
         padding: 1em;
+
+        @media (max-width: 720px) {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1em;
+        }
+
+        p {
+            font-family: 'Bariol bold';
+
+            @media (max-width: 720px) {
+            display: none;
+        }
+        }
+
+        label {
+            display: flex;
+            gap: 1em;
+        }
+
+        input {
+                display: none;
+        }
     }
 
     .container {
@@ -135,12 +158,13 @@
         padding: 1em;
         overflow: scroll;
         height: 100vh;
+        gap: 1em;
     }
 
     img {
         border-radius: 5%;
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit: cover;
     }
 
