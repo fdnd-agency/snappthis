@@ -14,20 +14,21 @@
 
     let { data } = $props()
     const snaps = data.snaps[0].snaps
-    const snappDetail = data.snappDetails
     const id = data.id
+    const users = data.users 
     let gridsize = $state('grid1')
 
-    const snapMap = data.snaps?.[0]
-    const users = data.users
+    // function to get the name 
+    const userMap = new Map(users.map(u => [u.uuid, u.name]))
+
 </script>
 
 
 <svelte:head>
-    <title>{snapMap.name}</title>
+    <title>{snap.name}</title>
 </svelte:head>
 
-<Header title={snapMap.name}></Header>
+<Header title={snap.name}></Header>
 
 <main>
     <p>{author.name}</p>
