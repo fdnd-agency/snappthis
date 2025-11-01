@@ -31,7 +31,7 @@
 
 <main>
     <div class="layout-navigation">
-        <label>
+        <label tabindex="0">
             <input
                 type="radio"
                 name="settings"
@@ -40,7 +40,7 @@
             <GridTwo />
             <p>XLarge</p>
         </label>
-        <label>
+        <label tabindex="0">
             <input
                 type="radio"
                 name="settings"
@@ -49,7 +49,7 @@
             <GridThree />
             <p>Large</p>
         </label>
-        <label>
+        <label tabindex="0">
             <input
                 type="radio"
                 name="settings"
@@ -58,7 +58,7 @@
             <GridFour />
             <p>Medium</p>
         </label>
-        <label>
+        <label tabindex="0">
             <input
                 type="radio"
                 name="settings"
@@ -67,7 +67,7 @@
             <GridFive />
             <p>Small</p>
         </label>
-        <label>
+        <label tabindex="0">
             <input
                 class="listradio"
                 type="radio"
@@ -81,7 +81,7 @@
 
     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}">
+            <li class="list {gridsize === 'list' ? 'visible' : ''}" tabindex="0">
                 <a href="/{id}/{snap.uuid}">
                     <img
                         src={'https://fdnd-agency.directus.app/assets/' +
@@ -149,15 +149,14 @@
 
             &:nth-of-type(3) {
                 @media (max-width: 720px) {
-                display: none;
+                    display: none;
+                }
             }
-            }
-
 
             &:nth-of-type(4) {
                 @media (max-width: 720px) {
-                display: none;
-            }
+                    display: none;
+                }
             }
         }
 
