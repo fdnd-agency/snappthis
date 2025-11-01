@@ -16,7 +16,7 @@
     const snaps = data.snaps[0].snaps
     const id = data.id
     const users = data.users 
-    const snapmap = data.snapmap
+    const snapmap = data.snaps?.[0]
     let gridsize = $state('grid1')
 
     // function to get the name 
