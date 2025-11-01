@@ -16,6 +16,7 @@
     const snaps = data.snaps[0].snaps
     const id = data.id
     const users = data.users 
+    const snapmap = data.snapmap
     let gridsize = $state('grid1')
 
     // function to get the name 
@@ -25,13 +26,12 @@
 
 
 <svelte:head>
-    <title>{snap.name}</title>
+    <title>{snapmap.name}</title>
 </svelte:head>
 
-<Header title={snap.name}></Header>
+<Header title={snapmap.name}></Header>
 
 <main>
-    <p>{author.name}</p>
     <div class="layout-navigation">
     <label>
         <input
