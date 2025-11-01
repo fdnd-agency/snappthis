@@ -5,7 +5,7 @@
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
-    import GridOne from '$lib/components/icons/Grid1Icon.svelte'
+    
     import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
     import GridThree from '$lib/components/icons/Grid3Icon.svelte'
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
@@ -33,14 +33,6 @@
 
 <main>
     <div class="layout-navigation">
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid1"
-            bind:group={gridsize} />
-        <GridOne /> <p> One-Column </p>
-    </label>
     <label>
         <input
             type="radio"
@@ -175,7 +167,6 @@
     img {
         border-radius: 5%;
         width: 100%;
-        aspect-ratio: 1/1;
     }
 
     .snaps-grid1 {
