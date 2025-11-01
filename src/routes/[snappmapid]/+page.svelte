@@ -5,7 +5,7 @@
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
-    
+
     import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
     import GridThree from '$lib/components/icons/Grid3Icon.svelte'
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
@@ -15,15 +15,13 @@
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
-    const users = data.users 
+    const users = data.users
     const snapmap = data.snaps?.[0]
     let gridsize = $state('grid1')
 
-    // function to get the name 
-    const userMap = new Map(users.map(u => [u.uuid, u.name]))
-
+    // function to get the name
+    const userMap = new Map(users.map((u) => [u.uuid, u.name]))
 </script>
-
 
 <svelte:head>
     <title>{snapmap.name}</title>
@@ -33,47 +31,52 @@
 
 <main>
     <div class="layout-navigation">
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid2"
-            bind:group={gridsize} />
-        <GridTwo /> <p> XLarge </p>
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid3"
-            bind:group={gridsize} />
-        <GridThree /> <p> Large </p>
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid4"
-            bind:group={gridsize} />
-        <GridFour /> <p> Medium </p>
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid5"
-            bind:group={gridsize} />
-        <GridFive /> <p> Small </p>
-    </label>
-    <label>
-        <input
-            class="listradio"
-            type="radio"
-            name="settings"
-            value="list"
-            bind:group={gridsize} />
-        <ListView /> <p> List </p>
-    </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid2"
+                bind:group={gridsize} />
+            <GridTwo />
+            <p>XLarge</p>
+        </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid3"
+                bind:group={gridsize} />
+            <GridThree />
+            <p>Large</p>
+        </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid4"
+                bind:group={gridsize} />
+            <GridFour />
+            <p>Medium</p>
+        </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid5"
+                bind:group={gridsize} />
+            <GridFive />
+            <p>Small</p>
+        </label>
+        <label>
+            <input
+                class="listradio"
+                type="radio"
+                name="settings"
+                value="list"
+                bind:group={gridsize} />
+            <ListView />
+            <p>List</p>
+        </label>
     </div>
 
     <ul class="snaps-{gridsize}">
@@ -85,7 +88,10 @@
                             snap.picture}
                         alt="Photo by ${snap.author} at ${snap.location}" />
                 </a>
-            <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
+                <div
+                    class="list-container {gridsize === 'list'
+                        ? 'visible'
+                        : ''}">
                     <h2>{userMap.get(snap.author)}</h2>
                     <h3>{snap.location}</h3>
 
@@ -133,17 +139,30 @@
             font-family: 'Bariol bold';
 
             @media (max-width: 720px) {
-            display: none;
-        }
+                font-size: 12px;
+            }
         }
 
         label {
             display: flex;
             gap: 1em;
+
+            &:nth-of-type(3) {
+                @media (max-width: 720px) {
+                display: none;
+            }
+            }
+
+
+            &:nth-of-type(4) {
+                @media (max-width: 720px) {
+                display: none;
+            }
+            }
         }
 
         input {
-                display: none;
+            display: none;
         }
     }
 
@@ -197,14 +216,12 @@
     .list-container {
         display: grid;
         grid-template-rows: 50% 40% 10%;
-
     }
 
     .feedback {
         display: flex;
         justify-content: flex-end;
     }
-
 
     .list.visible {
         display: grid;
