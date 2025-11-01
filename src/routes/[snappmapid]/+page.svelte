@@ -11,7 +11,7 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
-    
+
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const snappDetail = data.snappDetails
@@ -19,8 +19,9 @@
     let gridsize = $state('grid1')
 
     const snapMap = data.snaps?.[0]
-
+    const users = data.users
 </script>
+
 
 <svelte:head>
     <title>{snapMap.name}</title>
@@ -29,6 +30,7 @@
 <Header title={snapMap.name}></Header>
 
 <main>
+    <p>{author.name}</p>
     <div class="layout-navigation">
     <label>
         <input
@@ -91,7 +93,7 @@
                         alt="Photo by ${snap.author} at ${snap.location}" />
                 </a>
             <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
-                    <h2>{snap.author}</h2>
+                    <h2>{userMap.get(snap.author)}</h2>
                     <h3>{snap.location}</h3>
 
                     <form class="feedback">
