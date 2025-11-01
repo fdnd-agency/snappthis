@@ -1,11 +1,7 @@
 <script>
-    let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid1')
-
-    const snapMap = data.snaps?.[0]
     import Header from '$lib/components/Header.svelte'
+
+    // icons
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -15,6 +11,15 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
+    
+    let { data } = $props()
+    const snaps = data.snaps[0].snaps
+    const snappDetail = data.snappDetails
+    const id = data.id
+    let gridsize = $state('grid1')
+
+    const snapMap = data.snaps?.[0]
+
 </script>
 
 <svelte:head>
