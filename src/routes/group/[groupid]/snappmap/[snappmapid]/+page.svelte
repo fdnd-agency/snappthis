@@ -1,4 +1,6 @@
 <script>
+    import { page } from '$app/state'
+
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
@@ -25,67 +27,76 @@
 
 <main>
     <div class="layout-navigation">
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid1"
-            bind:group={gridsize} />
-        <GridOne /> <p> One-Column </p>
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid2"
-            bind:group={gridsize} />
-        <GridTwo /> <p> XLarge </p>
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid3"
-            bind:group={gridsize} />
-        <GridThree /> <p> Large </p>
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid4"
-            bind:group={gridsize} />
-        <GridFour /> <p> Medium </p>
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="settings"
-            value="grid5"
-            bind:group={gridsize} />
-        <GridFive /> <p> Small </p>
-    </label>
-    <label>
-        <input
-            class="listradio"
-            type="radio"
-            name="settings"
-            value="list"
-            bind:group={gridsize} />
-        <ListView /> <p> List </p>
-    </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid1"
+                bind:group={gridsize} />
+            <GridOne />
+            <p>One-Column</p>
+        </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid2"
+                bind:group={gridsize} />
+            <GridTwo />
+            <p>XLarge</p>
+        </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid3"
+                bind:group={gridsize} />
+            <GridThree />
+            <p>Large</p>
+        </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid4"
+                bind:group={gridsize} />
+            <GridFour />
+            <p>Medium</p>
+        </label>
+        <label>
+            <input
+                type="radio"
+                name="settings"
+                value="grid5"
+                bind:group={gridsize} />
+            <GridFive />
+            <p>Small</p>
+        </label>
+        <label>
+            <input
+                class="listradio"
+                type="radio"
+                name="settings"
+                value="list"
+                bind:group={gridsize} />
+            <ListView />
+            <p>List</p>
+        </label>
     </div>
 
     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="/{id}/{snap.uuid}">
+                <a href="{page.url.pathname}/{snap.uuid}">
                     <img
                         src={'https://fdnd-agency.directus.app/assets/' +
                             snap.picture}
                         alt="Photo by ${snap.author} at ${snap.location}" />
                 </a>
-            <div class="list-container {gridsize === 'list' ? 'visible' : ''}">
+                <div
+                    class="list-container {gridsize === 'list'
+                        ? 'visible'
+                        : ''}">
                     <h2>{snap.author}</h2>
                     <h3>{snap.location}</h3>
 
@@ -95,7 +106,7 @@
                         <button aria-label="Heart"><Heart /></button>
                     </form>
 
-                    <a href="/{id}/{snap.uuid}"> View Photo </a>
+                    <a href="{page.url.pathname}/{snap.uuid}"> View Photo </a>
                 </div>
             </li>
         {/each}
@@ -133,8 +144,8 @@
             font-family: 'Bariol bold';
 
             @media (max-width: 720px) {
-            display: none;
-        }
+                display: none;
+            }
         }
 
         label {
@@ -143,7 +154,7 @@
         }
 
         input {
-                display: none;
+            display: none;
         }
     }
 
@@ -199,14 +210,12 @@
     .list-container {
         display: grid;
         grid-template-rows: 50% 40% 10%;
-
     }
 
     .feedback {
         display: flex;
         justify-content: flex-end;
     }
-
 
     .list.visible {
         display: grid;
