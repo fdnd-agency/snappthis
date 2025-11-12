@@ -13,10 +13,12 @@
             <LogoIcon></LogoIcon>
             Home
         </a>
-        <a href="/explore" class={page.startsWith('/explore') ? 'active' : ''}><SearchIcon></SearchIcon>Explore</a>
-        <a href="/group-overview" class={page.startsWith('/group-overview') ? 'active' : ''}
+        <a href="/explore" class={page.startsWith('/explore') ? 'active' : ''}
+            ><SearchIcon></SearchIcon>Explore</a>
+        <a href="/group" class={page.startsWith('/group') ? 'active' : ''}
             ><GroupIcon></GroupIcon>Groups</a>
-        <a href="/you" class={page.startsWith('/you') ? 'active' : ''}><UserIcon></UserIcon>You</a>
+        <a href="/user" class={page.startsWith('/user') ? 'active' : ''}
+            ><UserIcon></UserIcon>You</a>
     </div>
 </nav>
 

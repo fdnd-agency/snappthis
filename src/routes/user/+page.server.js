@@ -4,5 +4,3 @@ export async function load({ url }) {
     ).then((response) => response.json())
     return { user: user.data }
 }
-
-
