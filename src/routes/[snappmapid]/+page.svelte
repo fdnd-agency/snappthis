@@ -17,7 +17,6 @@
     const id = data.id
     const users = data.users
     const snapmap = data.snaps?.[0]
-    let gridsize = $state('grid1')
 
     // function to get the name
     const userMap = new Map(users.map((u) => [u.uuid, u.name]))
@@ -31,81 +30,9 @@
 
 <main>
     <div class="layout-navigation">
-        <label tabindex="0">
-            <input
-                type="radio"
-                name="settings"
-                value="grid2"
-                bind:group={gridsize} />
-            <GridTwo />
-            <p>XLarge</p>
-        </label>
-        <label tabindex="0">
-            <input
-                type="radio"
-                name="settings"
-                value="grid3"
-                bind:group={gridsize} />
-            <GridThree />
-            <p>Large</p>
-        </label>
-        <label tabindex="0">
-            <input
-                type="radio"
-                name="settings"
-                value="grid4"
-                bind:group={gridsize} />
-            <GridFour />
-            <p>Medium</p>
-        </label>
-        <label tabindex="0">
-            <input
-                type="radio"
-                name="settings"
-                value="grid5"
-                bind:group={gridsize} />
-            <GridFive />
-            <p>Small</p>
-        </label>
-        <label tabindex="0">
-            <input
-                class="listradio"
-                type="radio"
-                name="settings"
-                value="list"
-                bind:group={gridsize} />
-            <ListView />
-            <p>List</p>
-        </label>
+       
     </div>
 
-    <ul class="snaps-{gridsize}">
-        {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}" tabindex="0">
-                <a href="/{id}/{snap.uuid}">
-                    <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}" />
-                </a>
-                <div
-                    class="list-container {gridsize === 'list'
-                        ? 'visible'
-                        : ''}">
-                    <h2>{userMap.get(snap.author)}</h2>
-                    <h3>{snap.location}</h3>
-
-                    <form class="feedback">
-                        <button aria-label="Star"><Star /></button>
-                        <button aria-label="Tomato"><Tomato /></button>
-                        <button aria-label="Heart"><Heart /></button>
-                    </form>
-
-                    <a href="/{id}/{snap.uuid}"> View Photo </a>
-                </div>
-            </li>
-        {/each}
-    </ul>
 </main>
 
 <style>
