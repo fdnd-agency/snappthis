@@ -10,64 +10,73 @@
 
 <button class="dropdownmenu-button"> 
     <GridTwo/> 
-    <!-- there should be a state here where it shows the current state -->
 </button>
 
 <div class="dropdownmenu">
-    <span> 
+    <span>
+        <input type="radio" name="xlarge" value="xlarge">  
         <GridTwo></GridTwo> 
-        <label>XL</label> 
-        <label>XLarge</label> 
+        <label for="xlarge">XL</label> 
+        <label for="xlarge">XLarge</label> 
     </span>
-    <span> 
+
+    <span>
+        <input type="radio" name="large" value="large"> 
         <GridThree></GridThree> 
-        <label>L</label> 
-        <label>Large</label> 
+        <label for="large">L</label> 
+        <label for="large">Large</label> 
     </span>
-    <span> 
+
+    <span>
+        <input type="radio" name="medium" value="medium"> 
         <GridFour></GridFour>
-         <label>M</label> 
-         <label>Medium</label> 
+         <label for="medium">M</label> 
+         <label for="medium">Medium</label> 
     </span>
+
     <span>
+        <input type="radio" name="small" value="small"> 
+        <GridFive></GridFive>
+         <label for="small">S</label> 
+         <label for="small">Small</label> 
+    </span>
+
+    <span>
+        <input type="radio" name="list" value="list"> 
         <ListView></ListView> 
-        <label>List</label> 
-        <label>List View</label>
+        <label for="list">List</label> 
+        <label for="list">List View</label>
     </span>
 </div>
 
-<div class="dropdownmenu-desktop">
-    <span> 
-        <GridTwo></GridTwo> 
-        <label>XLarge</label> 
-    </span>
-
-    <span>
-         <GridThree></GridThree>
-        <label>Large</label> 
-    </span>
-
-    <span> 
-        <GridFour></GridFour> 
-        <label>Medium</label> 
-    </span>
-
-    <span> 
-        <GridFive></GridFive> 
-            <label>Small</label>
-        </span>
-    <span>
-        <ListView></ListView> 
-        <label>List View</label>
-    </span>
-</div>
 
 <style>
     .dropdownmenu {
         display: flex;
         flex-direction: column;
         gap: 1em;
-        background-color: var(--neutral-color-80);
+        background-color: var(--neutral-color-100);
+        padding: 1em;
+
+        span:nth-of-type(3) {
+            @media screen and (max-width: 720px){
+                display: none;
+            }
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: var(--neutral-color-90);
+            padding: 1em;
+            border-radius: var(--border-radius-small);
+        }
+
+        span label {
+            align-items: center;
+            flex-direction: column;
+        }
 
         span label:nth-of-type(1) {
             @media screen and (min-width: 720px){
@@ -75,7 +84,7 @@
             }
         }
 
-        span label:ntxh-of-type(2) {
+        span label:nth-of-type(2) {
             @media screen and (max-width: 720px){
                 display: none;
             }
