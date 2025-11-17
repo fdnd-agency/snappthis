@@ -1,5 +1,6 @@
 <script>
     import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
+    import ButtonXL from '$lib/components/snappmap-overview/XL-button.svelte'
 
     let { data } = $props()
     const snappMaps = data.snappMaps
@@ -10,6 +11,8 @@
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap}></SnappMapPreview>
 {/each}
+
+<ButtonXL />
 
 <style>
     h1 {

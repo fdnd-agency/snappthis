@@ -1,7 +1,5 @@
 <script>
-
-    import GridTwo from '$lib/assets/icons/Grid2Icon.svelte'
-
+    import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
 </script>
 
 <button>
