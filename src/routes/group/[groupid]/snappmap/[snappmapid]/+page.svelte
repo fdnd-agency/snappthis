@@ -8,6 +8,8 @@
 
     const snapMap = data.snaps?.[0]
     import Header from '$lib/components/Header.svelte'
+    import Layout from '$lib/components/snappmap-overview/layout-navigation.svelte'
+
 </script>
 
 <svelte:head>
@@ -17,9 +19,11 @@
 <Header title={snapMap.name}></Header>
 
 <main>
+    <nav>
 
-    <button>
-    </button>
+        <Layout></Layout>
+
+    </nav>
     
 </main>
 
