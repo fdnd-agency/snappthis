@@ -6,6 +6,12 @@
     import ListView from '$lib/components/icons/Grid5Icon.svelte'
 
     import { onMount } from 'svelte'
+
+    let selected = "xlarge";
+
+    function selectOption(value) {
+        selected = value;
+    }
 </script>
 
 <button class="dropdownmenu-button"> 
@@ -13,36 +19,51 @@
 </button>
 
 <div class="dropdownmenu">
-    <span>
-        <input type="radio" name="xlarge" value="xlarge">  
+    <span class="span-content"
+        class:selected={selected === "xlarge"}
+        on:click={() => selectOption("xlarge")}
+    >
+        <input type="radio" name="layout" value="xlarge" class="radio-element">  
         <GridTwo></GridTwo> 
         <label for="xlarge">XL</label> 
         <label for="xlarge">XLarge</label> 
     </span>
 
-    <span>
-        <input type="radio" name="large" value="large"> 
+    <span class="span-content"
+    class:selected={selected === "large"}
+        on:click={() => selectOption("large")}
+    >
+        <input type="radio" name="layout" value="large" class="radio-element"> 
         <GridThree></GridThree> 
         <label for="large">L</label> 
         <label for="large">Large</label> 
     </span>
 
-    <span>
-        <input type="radio" name="medium" value="medium"> 
+    <span class="span-content"
+        class:selected={selected === "medium"}
+        on:click={() => selectOption("medium")}
+    >
+        <input type="radio" name="layout" value="medium" class="radio-element"> 
         <GridFour></GridFour>
          <label for="medium">M</label> 
          <label for="medium">Medium</label> 
     </span>
 
-    <span>
-        <input type="radio" name="small" value="small"> 
+    <span class="span-content"
+        class:selected={selected === "small"}
+        on:click={() => selectOption("small")}
+    >
+        <input type="radio" name="layout" value="small" class="radio-element"> 
         <GridFive></GridFive>
          <label for="small">S</label> 
          <label for="small">Small</label> 
     </span>
 
-    <span>
-        <input type="radio" name="list" value="list"> 
+    <span class="span-content"
+        class:selected={selected === "list-view"}
+        on:click={() => selectOption("list-view")}
+    >
+        <input type="radio" name="layout" value="list" class="radio-element"> 
         <ListView></ListView> 
         <label for="list">List</label> 
         <label for="list">List View</label>
@@ -54,7 +75,7 @@
     .dropdownmenu {
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        gap: 0.5em;
         background-color: var(--neutral-color-100);
         padding: 1em;
 
@@ -64,13 +85,13 @@
             }
         }
 
-        span {
+        .span-content {
             display: flex;
             align-items: center;
             justify-content: space-evenly;
             background-color: var(--neutral-color-90);
             padding: 1em;
-            border-radius: var(--border-radius-small);
+            border-radius: 16px;
         }
 
         span label {
@@ -91,5 +112,11 @@
         }
     }
 
+    .radio-element {
+        display: none;
+    }
 
+.span-content.selected {
+    background-color: var(--primary-color-60);
+}
 </style>

@@ -42,8 +42,6 @@
     --neutral-color-50: hsl(200, 13%, 50%);
     --neutral-color-40: hsl(200, 13%, 40%);
     --neutral-color-0: hsl(0, 0%, 0%);
-
-    --border-radius-small: 16px;
 }
 
 /* A few snippets from https://frontendmasters.com/blog/the-coyier-css-starter/ */
