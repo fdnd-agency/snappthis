@@ -40,7 +40,7 @@
     nav {
         width: 20vw;
         height: 100vh;
-        background-color: var(--neutral-color-90);
+        background-color: var(--neutral-color-80);
 
         @media (max-width: 1080px) {
             display: none;

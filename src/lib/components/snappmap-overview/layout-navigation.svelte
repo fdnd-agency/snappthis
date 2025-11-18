@@ -72,11 +72,15 @@
         display: flex;
         flex-direction: column;
         gap: 0.5em;
-        background-color: var(--neutral-color-100);
+        background-color: var(--neutral-color-80);
         padding: 1em;
         width: fit-content;
-    
 
+        @media (min-width: 1080px) {
+            width: 100%;
+
+        }
+    
         span:nth-of-type(4) {
             @media screen and (max-width: 1080px){
                 display: none;
