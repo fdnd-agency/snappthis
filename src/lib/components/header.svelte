@@ -8,20 +8,11 @@
 
 <header class="header">
 
-    <div class="button-back">
-        <a href="/"> <Goback/> </a>
-    </div>
-
 
 
     <h1>{title}</h1>
 
 
-    <div class="button-gallery">
-        <!-- here will be all the buttons -->
-        <button> <Gallery/> </button>
-        <button> <ChronologicalIcon/> </button>
-    </div>
 </header>
 
 <style>

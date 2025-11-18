@@ -23,6 +23,9 @@
         <Layout/>
     </nav>
     
+    <div class="layout-dropdown">
+        <Layout/>
+    </div>
 </main>
 
 <style>
@@ -43,6 +46,14 @@
         background-color: var(--neutral-color-80);
 
         @media (max-width: 1080px) {
+            display: none;
+        }
+    }
+
+    .layout-dropdown {
+        position: absolute;
+        right:0;
+        @media (min-width: 1080px) {
             display: none;
         }
     }
