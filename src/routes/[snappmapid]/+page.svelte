@@ -29,7 +29,9 @@
 <Header title={snapmap.name}></Header>
 
 <nav>
-
+    <!-- title of group (component) -->
+    <!-- sort function (component) -->
+    <!-- layout navigation (component) -->
 </nav>
 
 <main>
