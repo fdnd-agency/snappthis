@@ -1,3 +1,7 @@
+<script>
+    let { title } = $props()
+</script>
+
 <svg
     width="36"
     height="36"

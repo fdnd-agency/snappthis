@@ -14,10 +14,6 @@
     }
 </script>
 
-<button class="dropdownmenu-button"> 
-    <GridTwo/> 
-</button>
-
 <div class="dropdownmenu">
     <span class="span-content"
         class:selected={selected === "xlarge"}
@@ -78,6 +74,14 @@
         gap: 0.5em;
         background-color: var(--neutral-color-100);
         padding: 1em;
+        width: fit-content;
+    
+
+        span:nth-of-type(4) {
+            @media screen and (max-width: 1080px){
+                display: none;
+            }
+        }
 
         span:nth-of-type(3) {
             @media screen and (max-width: 720px){
@@ -97,6 +101,7 @@
         span label {
             align-items: center;
             flex-direction: column;
+            padding-left: 3em;
         }
 
         span label:nth-of-type(1) {
