@@ -1,13 +1,9 @@
 <script>
-    import { fetchPictures } from '$lib/components/index.js';
     import { onMount } from 'svelte';
 
     let pictures = [];
 
     let { data } = $props();
-    const snaps = data.snaps?.[0]?.snaps || [];
-    const id = data.id;
-    const users = data.users;
 
     onMount(async () => {
         pictures = await fetchPictures();
@@ -24,10 +20,10 @@
 
 <div class="snaps">
     <ul>
-        {#each snaps as snap}
+        
             <li>
                 <picture>
-                    {#if snap.picture}
+                    {#if picture}
                     <source
                         srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=webp`}
                         type="image/webp"
@@ -77,7 +73,6 @@
 
                 <Feedback />
             </li>
-        {/each}
     </ul>
 </div>
 

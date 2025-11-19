@@ -12,9 +12,7 @@
     const users = data.users
     const snapmap = data.snaps?.[0]
 
-    export let data;
 
-    // function to get the name
     const userMap = new Map(users.map((u) => [u.uuid, u.name]))
 </script>
 
@@ -24,8 +22,15 @@
 
 <Header title={snapmap.name}></Header>
 
+
 <nav>
-    <Gallery snappMaps={data.snappMaps} />
+    {#each snaps as snap}
+        <Gallery 
+        pictures={snaps.picture}
+        user={snaps.userMap}
+        location={snaps.location}
+        />
+     {/each}
     <!-- title of group (component) -->
     <!-- sort function (component) -->
     <!-- layout navigation (component) -->
