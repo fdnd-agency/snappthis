@@ -13,6 +13,13 @@
         pictures = await fetchPictures();
         console.log("Fetched pictures:", pictures);
     });
+
+    // which data needed?
+
+    // picture-code as picture
+    // author of the picture snap user (traced in the code itself)
+    // location of where the picture is made
+    // feedback of the snapp starred tomato and starred
 </script>
 
 <div class="snaps">
@@ -22,19 +29,19 @@
                 <picture>
                     {#if snap.picture}
                     <source
-                        srcset={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=512&height=512&format=webp`}
+                        srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=webp`}
                         type="image/webp"
                         loading="lazy"
 
                     />
                     <source
-                        srcset={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=512&height=512&format=avif`}
+                        srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=avif`}
                         type="image/avif"
                         loading="lazy"
 
                     />
                     <img
-                        src={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=512&height=512`}
+                        src={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512`}
                         height="512"
                         width="512"
                         alt="example photo"
