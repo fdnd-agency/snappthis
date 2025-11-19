@@ -1,16 +1,10 @@
 <script>
     import Header from '$lib/components/Header.svelte'
+    import Gallery from '$lib/components/snappmap-overviewpage/gallery-component.svelte'
 
     // icons
-    import Star from '$lib/components/icons/StarIcon.svelte'
-    import Tomato from '$lib/components/icons/TomatoIcon.svelte'
-    import Heart from '$lib/components/icons/HeartIcon.svelte'
 
-    import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
-    import GridThree from '$lib/components/icons/Grid3Icon.svelte'
-    import GridFour from '$lib/components/icons/Grid4Icon.svelte'
-    import GridFive from '$lib/components/icons/Grid5Icon.svelte'
-    import ListView from '$lib/components/icons/ListviewIcon.svelte'
+
 
     let { data } = $props()
     const snaps = data.snaps[0].snaps
@@ -29,13 +23,14 @@
 <Header title={snapmap.name}></Header>
 
 <nav>
+    <Gallery snappMaps={data.snappMaps} />
     <!-- title of group (component) -->
     <!-- sort function (component) -->
     <!-- layout navigation (component) -->
 </nav>
 
 <main>
-
+    <Gallery />
 </main>
 
 <style>

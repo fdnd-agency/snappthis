@@ -1,43 +1,54 @@
 <script>
+    import { fetchPictures } from '$lib/components/index.js';
+    import { onMount } from 'svelte';
+    import Feedback from './Feedback.svelte';
 
+    let pictures = [];
+
+    let { data } = $props();
+    const snaps = data.snaps?.[0]?.snaps || [];
+    const id = data.id;
+    const users = data.users;
+
+    onMount(async () => {
+        pictures = await fetchPictures();
+        console.log("Fetched pictures:", pictures);
+    });
 </script>
 
-
 <div class="snaps">
-    <!-- for each loop -->
-     <!-- Data wordt ingeladen op de pagina zelf -->
-      <!-- geef dat aan op de pagina gebruik voor nu een fallback -->
-    {#each snappMaps as snappMap} 
-      <li>
-    <picture>
-        <!-- WEBP -->
-        <source 
-        srcset="$lib/assets/example/example-photo.webp" type="image/webp"> 
-
-        <!-- AVIF -->
-        <source 
-        srcset="$lib/assets/example/example-photo.avif" type="image/avif"> 
-
-        <!-- normale formaat -->
-        <img src="$lib/assets/example/example-photo.png" width="100" height="100">
-    </picture>
-            </li>
-    {/each}
-
-            {#each snappMap.snaps.slice(0, 4) as snap, i}
+    <ul>
+        {#each snaps as snap}
             <li>
-                <img
-                    src= '{#if snap.picture === empty} {/if}https://fdnd-agency.directus.app/assets/' +
-                        snap.picture +
-                        '?width=200&height=200&format=webp'}
-                    height="200"
-                    width="200"
-                    alt="" />
+                <picture>
+                    <source
+                        srcset={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=512&height=512&format=webp`}
+                        type="image/webp"
+                    />
+                    <source
+                        srcset={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=512&height=512&format=avif`}
+                        type="image/avif"
+                    />
+                    <img
+                        src={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=512&height=512`}
+                        height="512"
+                        width="512"
+                        alt="example photo"
+                    />
+                </picture>
+
+                <h2>{snap.author}</h2>
+                <p>{snap.location}</p>
+
+                <Feedback />
             </li>
         {/each}
-
-            <!-- name author -->
-             <!-- location of snap -->
-              <!--  -->
+    </ul>
 </div>
 
+<style>
+    .snaps ul {
+        list-style: none;
+        padding: 0;
+    }
+</style>
