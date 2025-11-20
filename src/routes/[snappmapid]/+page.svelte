@@ -40,14 +40,14 @@
 </main>
 
 <style>
-
     main {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        width: 100%;
+        gap: 1em;
+        margin: 1em;
     }
+
 p {
     color: black;
 }
-
 </style>

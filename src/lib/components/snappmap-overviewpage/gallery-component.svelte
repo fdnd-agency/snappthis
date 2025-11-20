@@ -82,19 +82,35 @@
 </div>
 
 <style>
-    .snaps ul {
-        list-style: none;
-        padding: 0;
+.snaps ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.snaps li {
+    display: flex;
+    flex-direction: column;
+}
+
+.snaps img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius:  clamp(8px, 4em, 24px);
+
+    @media (max-width:1080px) {
+        border-radius: 16px;
     }
 
-    img {
-        border-radius: 24px;
-        width: 256px;
-        height: 256px;
+    @media (max-width:720px) {
+        border-radius: 8px;
     }
+}
 
-    .photo-card-list {
-        display: none;
-    }
-
+.photo-card-list {
+    display: none;
+}
 </style>
