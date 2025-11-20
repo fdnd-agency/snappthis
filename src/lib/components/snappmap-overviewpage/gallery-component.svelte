@@ -24,7 +24,7 @@
             <li>
                 <div class="mask">
                     <a href="/{url}/{snap}">
-                        <picture>
+                        <picture class:load on:load{() => (loaded = true)}</picture>>
                         {#if picture}
                         <source
                             srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=webp`}
