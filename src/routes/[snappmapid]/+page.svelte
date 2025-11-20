@@ -31,8 +31,7 @@
 <main>
 
     <Card
-    text="Hallo"
-    textSmall="Hallo2"
+    text="Card-example"
     />
 
 </main>

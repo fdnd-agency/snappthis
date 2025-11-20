@@ -2,23 +2,23 @@
     import { onMount } from 'svelte'
 
     export let text;
-    export let textSmall; 
 </script>
 
 <div class="card">
     <p> {text} </p>
-    <p> {textSmall}</p>
 </div>
 
 <style>
 
     .card {
-        width: 150px;
-        height: 60px;
-        background-color: var(--neutral-color-60);
+        width: fit-content;
+        height: fit-content;
+        background-color: var(--neutral-color);
         border-radius: 16px;
         display: flex;
         justify-content: center;
+        font-size: clamp(20px, 4vw, 36px);
+        padding-left: 2em;
+        padding-right: 2em;
     }
-
 </style>
