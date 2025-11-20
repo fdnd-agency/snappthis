@@ -112,7 +112,7 @@
     overflow: hidden;
     border-radius:  clamp(8px, 4em, 24px);
 
-    transform: translateY(30px);
+    transform: translateY(100%);
 
     transition:
         transform 0.8s cubic-bezier(.25,.8,.25,1),
@@ -131,16 +131,17 @@
 
 
 picture.loaded {
-    transform: translateY(0);
+    transform: translateY(100%);
     opacity: 1;
 }
 
 .skeleton {
-    height: 100%;
-    width: 100%;
-    display: block;
+    position: absolute;
+    inset: 0;
+    background-size: 400% 100%;
     background-color: var(--neutral-color-90);
-    animation: shimmer 2s infinite repeat;
+    animation: shimmer 2s infinite;
+    z-index: 2;
 }
 
 .mask {
