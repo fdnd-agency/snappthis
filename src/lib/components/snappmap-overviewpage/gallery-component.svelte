@@ -22,59 +22,62 @@
     <ul>
         
             <li>
-                <a href="/{url}/{snap}">
-                <picture>
-                    {#if picture}
-                    <source
-                        srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=webp`}
-                        type="image/webp"
-                        loading="lazy"
+                <div class="mask">
+                    <a href="/{url}/{snap}">
+                        <picture>
+                        {#if picture}
+                        <source
+                            srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=webp`}
+                            type="image/webp"
+                            loading="lazy"
 
-                    />
-                    <source
-                        srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=avif`}
-                        type="image/avif"
-                        loading="lazy"
-                    />
-                    <img
-                        src={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512`}
-                        height="512"
-                        width="512"
-                        alt="example photo"
-                        loading="lazy"
+                        />
+                        <source
+                            srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=avif`}
+                            type="image/avif"
+                            loading="lazy"
+                        />
+                        <img
+                            src={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512`}
+                            height="512"
+                            width="512"
+                            alt="example photo"
+                            loading="lazy"
 
-                    />
-                        {:else}
-                    <source
-                        srcset="/src/lib/assets/example/example-photo.webp"
-                        type="image/webp"
-                        alt="fallback photo"
-                        loading="lazy"
-                    />
-                    <source
-                        srcset="/src/lib/assets/example/example-photo.avif"
-                        type="image/avif"
-                        alt="fallback photo"
-                        loading="lazy"
+                        />
+                            {:else}
+                        <source
+                            srcset="/src/lib/assets/example/example-photo.webp"
+                            type="image/webp"
+                            alt="fallback photo"
+                            loading="lazy"
+                        />
+                        <source
+                            srcset="/src/lib/assets/example/example-photo.avif"
+                            type="image/avif"
+                            alt="fallback photo"
+                            loading="lazy"
 
-                    />
-                    <img
-                        src="/src/lib/assets/example/example-photo.webp"
-                        height="512"
-                        width="512"
-                        alt="fallback photo"
-                        loading="lazy"
-                    />
-                {/if}
-                </picture>
-                </a>
+                        />
+                        <img
+                            src="/src/lib/assets/example/example-photo.webp"
+                            height="512"
+                            width="512"
+                            alt="fallback photo"
+                            loading="lazy"
+                        />
+                    {/if}
+                        </picture>
+                    </a>
+                </div>
+
                 <div class="photo-card-list">
-                <Card 
-                    text={author}
-                />
-                <Card 
-                    text={location}
-                />
+                    <Card 
+                        text={author}
+                    />
+                    <Card 
+                        text={location}
+                    />
                 </div>
 
             </li>
@@ -108,6 +111,13 @@
     @media (max-width:720px) {
         border-radius: 8px;
     }
+}
+
+.mask {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .photo-card-list {
