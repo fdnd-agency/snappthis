@@ -32,6 +32,7 @@
 
     <Card
     text="Hallo"
+    textSmall="Hallo2"
     />
 
 </main>

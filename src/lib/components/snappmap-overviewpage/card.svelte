@@ -7,15 +7,18 @@
 
 <div class="card">
     <p> {text} </p>
-    <p> {text-small}</p>
+    <p> {textSmall}</p>
 </div>
 
 <style>
 
     .card {
-        width: 100%;
-        height: fit-content;
+        width: 150px;
+        height: 60px;
         background-color: var(--neutral-color-60);
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
     }
 
 </style>
