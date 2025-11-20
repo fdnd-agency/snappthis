@@ -10,6 +10,8 @@
     export let snap
 
 
+    let loaded = false
+
     // which data needed?
 
     // picture-code as picture
@@ -24,7 +26,12 @@
             <li>
                 <div class="mask">
                     <a href="/{url}/{snap}">
-                        <picture class:load on:load{() => (loaded = true)}</picture>>
+
+                        {#if !loaded}
+				            <div class="skeleton"></div>
+			            {/if}
+
+                        <picture class:loaded={loaded}>
                         {#if picture}
                         <source
                             srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=webp`}
@@ -43,7 +50,7 @@
                             width="512"
                             alt="example photo"
                             loading="lazy"
-
+                            on:load={() => (loaded = true)}
                         />
                             {:else}
                         <source
@@ -65,6 +72,7 @@
                             width="512"
                             alt="fallback photo"
                             loading="lazy"
+                            on:load={() => (loaded = true)}
                         />
                     {/if}
                         </picture>
@@ -104,6 +112,13 @@
     overflow: hidden;
     border-radius:  clamp(8px, 4em, 24px);
 
+    transform: translateY(30px);
+
+    transition:
+        transform 0.8s cubic-bezier(.25,.8,.25,1),
+        opacity 0.5s ease-out;
+
+
     @media (max-width:1080px) {
         border-radius: 16px;
     }
@@ -113,14 +128,34 @@
     }
 }
 
-.mask {
-    overflow: hidden;
-    width: 100%;
+
+
+picture.loaded {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.skeleton {
     height: 100%;
-    position: relative;
+    width: 100%;
+    display: block;
+    background-color: var(--neutral-color-90);
+    animation: shimmer 2s infinite repeat;
+}
+
+.mask {
+	overflow: hidden;
+	position: relative;
+	border-radius: 12px; 
 }
 
 .photo-card-list {
     display: none;
+}
+
+@keyframes shimmer {
+    0% { opacity: 1;}
+    50% { opacity: 0.5;}
+    100% { opacity: 1;}
 }
 </style>
