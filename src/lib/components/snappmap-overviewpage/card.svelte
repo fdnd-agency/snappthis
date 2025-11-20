@@ -11,13 +11,13 @@
 <style>
 
     .card {
-        width: fit-content;
+        width: 500px;
         height: fit-content;
         background-color: var(--neutral-color);
         border-radius: 16px;
         display: flex;
         justify-content: center;
-        font-size: clamp(20px, 4vw, 36px);
+        font-size: clamp(20px, 4vw, 28px);
         padding-left: 2em;
         padding-right: 2em;
     }

@@ -1,10 +1,13 @@
 <script>
     import { onMount } from 'svelte';
     import Card from '$lib/components/snappmap-overviewpage/card.svelte'
+    import Feedback from './feedback.svelte'
 
     export let picture
     export let location
     export let author
+    export let url
+    export let snap
 
 
     // which data needed?
@@ -19,6 +22,7 @@
     <ul>
         
             <li>
+                <a href="/{url}/{snap}">
                 <picture>
                     {#if picture}
                     <source
@@ -42,20 +46,20 @@
                     />
                         {:else}
                     <source
-                        srcset="./src/lib/assets/example/example-photo.webp"
+                        srcset="/src/lib/assets/example/example-photo.webp"
                         type="image/webp"
                         alt="fallback photo"
                         loading="lazy"
                     />
                     <source
-                        srcset="./src/lib/assets/example/example-photo.avif"
+                        srcset="/src/lib/assets/example/example-photo.avif"
                         type="image/avif"
                         alt="fallback photo"
                         loading="lazy"
 
                     />
                     <img
-                        src="./src/lib/assets/example/example-photo.webp"
+                        src="/src/lib/assets/example/example-photo.webp"
                         height="512"
                         width="512"
                         alt="fallback photo"
@@ -63,12 +67,15 @@
                     />
                 {/if}
                 </picture>
+                </a>
+                <div class="photo-card-list">
                 <Card 
                     text={author}
                 />
                 <Card 
                     text={location}
                 />
+                </div>
 
             </li>
     </ul>
@@ -79,4 +86,15 @@
         list-style: none;
         padding: 0;
     }
+
+    img {
+        border-radius: 24px;
+        width: 256px;
+        height: 256px;
+    }
+
+    .photo-card-list {
+        display: none;
+    }
+
 </style>

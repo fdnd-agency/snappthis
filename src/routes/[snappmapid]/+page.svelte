@@ -21,8 +21,6 @@
 
 <Header title={snapmap.name}></Header>
 
-<h1>Snaps:</h1>
-
 <nav>
     <!-- title of group (component) -->
     <!-- sort function (component) -->
@@ -32,6 +30,8 @@
 <main>
 {#each snaps as snap}
     <Gallery
+        url={snapmap.uuid}
+        snap={snap.uuid}
         picture={snap.picture}
         author={snap.author}
         location={snap.location}
@@ -40,6 +40,12 @@
 </main>
 
 <style>
+
+    main {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        width: 100%;
+    }
 p {
     color: black;
 }
