@@ -21,6 +21,7 @@
 
 <Header title={snapmap.name}></Header>
 
+<h1>Snaps:</h1>
 
 <nav>
     <!-- title of group (component) -->
@@ -29,14 +30,18 @@
 </nav>
 
 <main>
-
-    <Card
-    text="Card-example"
+{#each snaps as snap}
+    <Gallery
+        picture={snap.picture}
+        author={snap.author}
+        location={snap.location}
     />
-
+{/each}
 </main>
 
 <style>
-
+p {
+    color: black;
+}
 
 </style>

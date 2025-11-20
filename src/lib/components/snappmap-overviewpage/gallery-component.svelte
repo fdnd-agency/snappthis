@@ -1,5 +1,10 @@
 <script>
     import { onMount } from 'svelte';
+    import Card from '$lib/components/snappmap-overviewpage/card.svelte'
+
+    export let picture
+    export let location
+    export let author
 
 
     // which data needed?
@@ -58,14 +63,13 @@
                     />
                 {/if}
                 </picture>
-                <div class="card">
-                    <h2>{snap.author}</h2>
-                </div>
-                <div class="card">
-                    <p>{snap.location}</p>
-                </div>
+                <Card 
+                    text={author}
+                />
+                <Card 
+                    text={location}
+                />
 
-                <Feedback />
             </li>
     </ul>
 </div>
