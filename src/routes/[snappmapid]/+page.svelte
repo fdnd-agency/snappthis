@@ -1,10 +1,9 @@
 <script>
     import Header from '$lib/components/Header.svelte'
     import Gallery from '$lib/components/snappmap-overviewpage/gallery-component.svelte'
+    import Card from '$lib/components/snappmap-overviewpage/card.svelte'
 
     // icons
-
-
 
     let { data } = $props()
     const snaps = data.snaps[0].snaps
@@ -24,20 +23,17 @@
 
 
 <nav>
-    {#each snaps as snap}
-        <Gallery 
-        pictures={snaps.picture}
-        user={snaps.userMap}
-        location={snaps.location}
-        />
-     {/each}
     <!-- title of group (component) -->
     <!-- sort function (component) -->
     <!-- layout navigation (component) -->
 </nav>
 
 <main>
-    <Gallery />
+
+    <Card
+    text="Hallo"
+    />
+
 </main>
 
 <style>

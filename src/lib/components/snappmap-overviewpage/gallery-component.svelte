@@ -1,14 +1,6 @@
 <script>
     import { onMount } from 'svelte';
 
-    let pictures = [];
-
-    let { data } = $props();
-
-    onMount(async () => {
-        pictures = await fetchPictures();
-        console.log("Fetched pictures:", pictures);
-    });
 
     // which data needed?
 
@@ -34,7 +26,6 @@
                         srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=avif`}
                         type="image/avif"
                         loading="lazy"
-
                     />
                     <img
                         src={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512`}
@@ -67,9 +58,12 @@
                     />
                 {/if}
                 </picture>
-
-                <h2>{snap.author}</h2>
-                <p>{snap.location}</p>
+                <div class="card">
+                    <h2>{snap.author}</h2>
+                </div>
+                <div class="card">
+                    <p>{snap.location}</p>
+                </div>
 
                 <Feedback />
             </li>
