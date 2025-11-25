@@ -1,7 +1,6 @@
 <script>
     import Header from '$lib/components/Header.svelte'
-    import Gallery from '$lib/components/snappmap-overviewpage/gallery-component.svelte'
-    import Card from '$lib/components/snappmap-overviewpage/card.svelte'
+    import Gallery from '$lib/components/GalleryComponent.svelte'
 
     // icons
 

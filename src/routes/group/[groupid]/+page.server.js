@@ -1,18 +1,20 @@
 export async function load({ url, params }) {
-    // all groups will be loaded
+    // Load group
     const groupRes = await fetch(
         `https://fdnd-agency.directus.app/items/snappthis_group/${params.groupid}`
     );
-    const groupData = await groupRes.json();
-    const group = groupData.data;
+    const groupJson = await groupRes.json();
+    const group = groupJson.data;
 
-    const snapmapsRes = await fetch(
+    // Load ALL snapmaps
+    const snappMapsRes = await fetch(
         'https://fdnd-agency.directus.app/items/snappthis_snapmap'
     );
-    const snapmapsData = await snapmapsRes.json();
-    const snapmaps = snapmapsData.data;
-    
-    return { groups: groups.data,
-        snapmaps: snapmaps.data
-     }
+    const snapmapJson = await snappMapsRes.json();
+    const snapmaps = snapmapJson.data;
+
+    return {
+        group,
+        snapmaps
+    };
 }

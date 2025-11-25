@@ -4,30 +4,36 @@
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
     import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
     import UserIcon from '$lib/components/icons/UserIcon.svelte'
+    import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
 
     let { data } = $props()
-    const groups = data.groups
-    const snappmaps = data.snappmap
+    const group = data.group
+    const snapmaps = data.snapmaps
 </script>
-
-<p>{snappmaps.name}</p>
 
 <header>
     <div>
-        <a href="/"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
-        <h1>{groups.name}</h1>
-        <a href="/"><PlusIcon title="Add group"></PlusIcon></a>
+        <a href="/group"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
+        <h1>{group.name}</h1>
+        <a href="/"><PlusIcon title="Add snappmapp"></PlusIcon></a>
     </div>
 </header>
+<main>
+        <div>
+        <ul>
+            {#each snapmaps as snapmap}
+                <li class="group">
+                    <a href="/group/{group.uuid}/{snapmap.uuid}">{snapmap.name}</a>
+                    <p>
 
-<ul>
-    <li>
-        <p> {groups.snappmap}</p>
-    </li>
-</ul>
-
-
-
+                    </p>
+                    <ul class="options">
+                    </ul>
+                </li>
+            {/each}
+        </ul>
+    </div>
+</main>
 <style>
     header {
         background-color: var(--primary-color);
@@ -62,58 +68,12 @@
         padding-inline: 1rem;
     }
 
-      main {
+    main {
         font-family: 'Bariol';
         color: var(--primary-color);
         width: 100%;
     }
 
-    ul,
-    li {
-        margin: 0;
-        padding-inline: 0;
-    }
-
-    .group {
-        list-style: none;
-        padding: 1em;
-        border-bottom: 2px solid #e9ecee;
-        display: grid;
-        grid-template-areas:
-            'title link'
-            'members link ';
-        align-items: center;
-    }
-
-    .group > a {
-        font-size: 1.5rem;
-        margin: 0;
-        color: currentColor;
-        text-decoration: none;
-        grid-area: title;
-        align-self: top;
-    }
-
-    .group > p {
-        grid-area: members;
-        margin: 0;
-        color: var(--primary-color-30);
-    }
-
-    .options {
-        grid-area: link;
-        justify-self: end;
-        display: flex;
-        list-style: none;
-    }
-
-    .options a {
-        color: var(--primary-color-30);
-    }
-
-    .options a :global(svg) {
-        height: 1.5em;
-    }
 </style>
 
 

@@ -1,6 +1,5 @@
 <script>
     import { onMount } from 'svelte';
-    import Card from '$lib/components/snappmap-overviewpage/card.svelte'
     import Feedback from './feedback.svelte'
 
     export let picture
