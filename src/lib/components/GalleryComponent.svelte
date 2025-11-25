@@ -41,7 +41,9 @@
                             loading="lazy"
                             on:load={() => (loaded = true)}
                         />
+                        </picture>
                             {:else}
+                        <picture>
                         <img
                             src="/src/lib/assets/example/example-photo.webp"
                             height="512"
@@ -128,5 +130,21 @@ picture.loaded {
     0% { opacity: 1;}
     50% { opacity: 0.5;}
     100% { opacity: 1;}
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: clamp(8px, 4em, 24px);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(.25,.8,.25,1), opacity 0.5s ease-out;
+}
+
+picture.loaded img {
+    transform: translateY(0);
+    opacity: 1;
 }
 </style>
