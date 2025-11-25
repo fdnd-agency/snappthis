@@ -11,13 +11,15 @@ export async function load({ url, params }) {
 
   const snappMapsRes = await fetch(
     'https://fdnd-agency.directus.app/items/snappthis_snapmap?fields=name,uuid'
-  )
-  const snappMapsData = await snappMapsRes.json()
+  );
+  const snappMapsData = await snappMapsRes.json();
+
+  const snapmap = snappMapsData.data.find(m => m.uuid === params.snappmapid);
 
   return {
     snaps: snapsData.data,
     users: usersData.data,
-    snapmap: snappMapsData.data, 
+    snapmap,
     id: params.snappmapid,
   };
 }

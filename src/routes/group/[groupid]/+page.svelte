@@ -22,11 +22,8 @@
         <div>
         <ul>
             {#each snapmaps as snapmap}
-                <li class="group">
+                <li class="snapmap">
                     <a href="/group/{group.uuid}/{snapmap.uuid}">{snapmap.name}</a>
-                    <p>
-
-                    </p>
                     <ul class="options">
                     </ul>
                 </li>
@@ -68,10 +65,57 @@
         padding-inline: 1rem;
     }
 
-    main {
+  main {
         font-family: 'Bariol';
         color: var(--primary-color);
         width: 100%;
+    }
+
+    ul,
+    li {
+        margin: 0;
+        padding-inline: 0;
+    }
+
+    .snapmap {
+        list-style: none;
+        padding: 1em;
+        border-bottom: 2px solid #e9ecee;
+        display: grid;
+        grid-template-areas:
+            'title link'
+            'members link ';
+        align-items: center;
+    }
+
+    .snapmap > a {
+        font-size: 1.5rem;
+        margin: 0;
+        color: currentColor;
+        text-decoration: none;
+        grid-area: title;
+        align-self: top;
+    }
+
+    .snapmap > p {
+        grid-area: members;
+        margin: 0;
+        color: var(--primary-color-30);
+    }
+
+    .options {
+        grid-area: link;
+        justify-self: end;
+        display: flex;
+        list-style: none;
+    }
+
+    .options a {
+        color: var(--primary-color-30);
+    }
+
+    .options a :global(svg) {
+        height: 1.5em;
     }
 </style>
 

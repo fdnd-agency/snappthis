@@ -1,30 +1,32 @@
 <script>
     import { onMount } from 'svelte';
+  import Card from '$lib/components/Card.svelte';
 
-    export let picture
-    export let location
-    export let author
-    export let url
-    export let snap
+  export let picture;
+  export let location;
+  export let author;
+  export let url;
+  export let snap;
+
+  let loaded = false;
 </script>
 
 <div class="snaps">
-    <ul>
-            <li>
-                <div class="mask">
-                    <a href="/{url}/{snap}">
+    <div>
+        <div class="mask">
+            <a href={`/${url}/${snap}`}>
 
                         {#if !loaded}
 				            <div class="skeleton"></div>
 			            {/if}
 
-                        <picture class:loaded={loaded}>
+                        
                         {#if picture}
+                        <picture class:loaded={loaded}>
                         <source
                             srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=webp`}
                             type="image/webp"
                             loading="lazy"
-
                         />
                         <source
                             srcset={`https://fdnd-agency.directus.app/assets/${picture}?width=512&height=512&format=avif`}
@@ -40,19 +42,6 @@
                             on:load={() => (loaded = true)}
                         />
                             {:else}
-                        <source
-                            srcset="/src/lib/assets/example/example-photo.webp"
-                            type="image/webp"
-                            alt="fallback photo"
-                            loading="lazy"
-                        />
-                        <source
-                            srcset="/src/lib/assets/example/example-photo.avif"
-                            type="image/avif"
-                            alt="fallback photo"
-                            loading="lazy"
-
-                        />
                         <img
                             src="/src/lib/assets/example/example-photo.webp"
                             height="512"
@@ -61,32 +50,26 @@
                             loading="lazy"
                             on:load={() => (loaded = true)}
                         />
-                    {/if}
                         </picture>
+                        {/if}
                     </a>
                 </div>
 
-                <!-- <div class="photo-card-list">
+                <div class="photo-card-list">
                     <Card 
                         text={author}
                     />
                     <Card 
                         text={location}
                     />
-                </div> -->
+                </div>
 
-            </li>
-    </ul>
+    </div>
 </div>
 
 <style>
-.snaps ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
-.snaps li {
+.snaps div {
     display: flex;
     flex-direction: column;
 }
