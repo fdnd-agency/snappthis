@@ -1,6 +1,5 @@
 <script>
     import { onMount } from 'svelte';
-    import Feedback from './feedback.svelte'
 
     export let picture
     export let location
@@ -67,14 +66,14 @@
                     </a>
                 </div>
 
-                <div class="photo-card-list">
+                <!-- <div class="photo-card-list">
                     <Card 
                         text={author}
                     />
                     <Card 
                         text={location}
                     />
-                </div>
+                </div> -->
 
             </li>
     </ul>

@@ -21,9 +21,3 @@ export async function load({ url, params }) {
     id: params.snappmapid,
   };
 }
-
-export async function load({ url, params }) {
-    let latest = await fetch(
-        `https://fdnd-agency.directus.app/items/snappthis_group/?fields=snappmap.*.*&filter[snappmap][snappthis_group_uuid][uuid][_eq]=${params.groupid}`
-    ).then((response) => response.json())
-}

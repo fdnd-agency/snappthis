@@ -8,9 +8,8 @@
     const snaps = data.snaps[0].snaps
     const id = data.id
     const users = data.users
-    const snapmap = data.snaps?.[0]
-
-
+    const snapmap = data.snap?.[0]
+    
     const userMap = new Map(users.map((u) => [u.uuid, u.name]))
 </script>
 

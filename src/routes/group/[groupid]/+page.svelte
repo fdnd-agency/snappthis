@@ -73,7 +73,6 @@
         color: var(--primary-color);
         width: 100%;
     }
-
 </style>
 
 
