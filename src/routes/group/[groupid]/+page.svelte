@@ -8,11 +8,52 @@
     let { data } = $props()
     const groups = data.groups
 </script>
-<Header title="{groups.name}"/>
 
-    {#each snapmaps as snapmap}
+<header>
+    <div>
+        <a href="/"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
+        <h1>{groups.name}</h1>
+        <a href="/"><PlusIcon title="Add group"></PlusIcon></a>
+    </div>
+</header>
 
-    {/each}
+<p> {groups.snappmap}</p>
+
+
+<style>
+    header {
+        background-color: var(--primary-color);
+        width: 100%;
+        color: white;
+        font-family: 'Bariol';
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 1.3rem + 1.15vw, 2rem);
+    }
+
+    header a {
+        color: white;
+        text-decoration: none;
+    }
+
+    header a :global(svg) {
+        height: 1.25em;
+    }
+
+    header > div,
+    main > div {
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+
+    header > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1rem;
+    }
+</style>
 
 
 
