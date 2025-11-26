@@ -2,6 +2,7 @@
 import Header from '$lib/components/Header.svelte';
 import Gallery from '$lib/components/GalleryComponent.svelte';
 import Layout from '$lib/components/Layout-navigation.svelte';
+import SortFilter from '$lib/components/Sort-filter.svelte'
 
   // get data from load function
   export let data;
@@ -40,13 +41,27 @@ import Layout from '$lib/components/Layout-navigation.svelte';
     main {
         display: grid;
         grid-template-columns: 20% 80%;
+        width: fit-content;
+
+        @media (max-width: 1080px) {
+            display: grid;
+            grid-template-columns: 100%;
+        }
+    }
+
+    .navbar {
+        display: block;
+        background-color: var(--primary-color);
+
+        @media (max-width: 1080px) {
+            display: none;
+        }
     }
     .content {
         display: grid;
-        grid-template-columns: repeat(5, 20%);
+        grid-template-columns: repeat(5, 19%);
         gap: 1em;
         margin: 1em;
-        width: 100%;
         overflow: hidden;
     }
 

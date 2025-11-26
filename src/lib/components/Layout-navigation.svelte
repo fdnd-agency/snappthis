@@ -72,7 +72,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5em;
-        background-color: var(--neutral-color-darker);
+        background-color: var(--neutral-color-lighter);
         padding: 1em;
         width: fit-content;
 
@@ -97,15 +97,18 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            background-color: var(--neutral-color-darker);
+            background-color: var(--neutral-color-light);
             padding: 1em;
             border-radius: 16px;
+            color: var(--neutral-color-lightest);
+        
         }
 
         span label {
             align-items: center;
             flex-direction: column;
             padding-left: 3em;
+            color: var(--neutral-color-lightest);
         }
 
         span label:nth-of-type(1) {

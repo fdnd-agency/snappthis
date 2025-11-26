@@ -13,7 +13,7 @@
 <style>
     .header {
         background-color: var(--primary-color);
-        color: var(--neutral-color-darkest);
+        color: var(--neutral-color-lightest);
         font-family: 'Bariol Bold';
         height: 10%;
         width: 100%;

@@ -54,17 +54,18 @@
                         />
                         </picture>
                         {/if}
-                    </a>
-                </div>
-
-                <div class="photo-card-list">
+                                        <!-- <div class="photo-card-list">
                     <Card 
                         text={author}
                     />
                     <Card 
                         text={location}
                     />
+                    </div> -->
+                    </a>
                 </div>
+
+
 
     </div>
 </div>
@@ -111,9 +112,9 @@ picture.loaded {
     position: absolute;
     inset: 0;
     background-size: 400% 100%;
-    background-color: var(--neutral-color-darker);
+    background-color: var(--primary-color-darker);
     animation: shimmer 2s infinite;
-    z-index: 2;
+    z-index: -1;
 }
 
 .mask {

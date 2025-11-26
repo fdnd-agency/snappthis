@@ -2,6 +2,7 @@
     import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
     import Card from '$lib/components/Card.svelte'
     import GalleryComponent from '$lib/components/GalleryComponent.svelte'
+    import Feedback from '$lib/components/Feedback.svelte'
 
     let { data } = $props()
     const snappMaps = data.snappMaps
@@ -16,7 +17,11 @@
     <div class="gallery">
         <GalleryComponent/>
     </div>
+
+
 </div>
+
+    <Feedback />
 </main>
 
 <style>
