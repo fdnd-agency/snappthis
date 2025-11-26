@@ -126,7 +126,7 @@
     }
 
     .layout-navigation {
-        background-color: var(--neutral-color-80);
+        background-color: var(--neutral-color-light);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
