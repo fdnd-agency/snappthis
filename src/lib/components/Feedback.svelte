@@ -95,7 +95,7 @@
 
     .feedback button {
         background-color: var(--neutral-color);
-        color: var(--neutral-color-40);
+        color: var(--neutral-color-lighter);
         height: 3.5em;
         width: 3em;
         border-radius: 8px;
@@ -121,7 +121,7 @@
 @container (min-width: 720px) {
     .feedback button {
         background-color: var(--neutral-color);
-        color: var(--neutral-color-40);
+        color: var(--neutral-color-lighter);
         height: 4em;
         width: 4em;
         border-radius: 8px;

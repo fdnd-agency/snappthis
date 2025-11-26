@@ -72,7 +72,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5em;
-        background-color: var(--neutral-color-80);
+        background-color: var(--neutral-color-darker);
         padding: 1em;
         width: fit-content;
 
@@ -97,7 +97,7 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            background-color: var(--neutral-color-90);
+            background-color: var(--neutral-color-darker);
             padding: 1em;
             border-radius: 16px;
         }
@@ -126,7 +126,7 @@
     }
 
 .span-content.selected {
-    background-color: var(--primary-color-60);
+    background-color: var(--primary-color-light);
 }
 </style>
 

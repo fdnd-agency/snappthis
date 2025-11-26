@@ -41,7 +41,7 @@
         font-size: 1.5em;
         width: 97%;
         padding: 1em;
-        background-color: var(--neutral-color-90);
+        background-color: var(--neutral-color-lighter);
     }
 
     ul {
@@ -51,7 +51,7 @@
     li {
         font-family: Bariol;
         font-size: 1em;
-        background-color: var(--neutral-color-90);
+        background-color: var(--neutral-color-lighter);
         width: fit-content;
         height: fit-content;
         padding: 1em;

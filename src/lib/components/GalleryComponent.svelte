@@ -111,7 +111,7 @@ picture.loaded {
     position: absolute;
     inset: 0;
     background-size: 400% 100%;
-    background-color: var(--neutral-color-90);
+    background-color: var(--neutral-color-darker);
     animation: shimmer 2s infinite;
     z-index: 2;
 }

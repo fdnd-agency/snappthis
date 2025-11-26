@@ -51,6 +51,6 @@ import Layout from '$lib/components/Layout-navigation.svelte';
     }
 
 p {
-    color: black;
+    color: var(--neutral-color-darkest);
 }
 </style>

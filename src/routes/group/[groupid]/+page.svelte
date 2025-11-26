@@ -35,7 +35,7 @@
     header {
         background-color: var(--primary-color);
         width: 100%;
-        color: white;
+        color: var(--neutral-color-lighter);
         font-family: 'Bariol';
     }
 
@@ -44,7 +44,7 @@
     }
 
     header a {
-        color: white;
+        color: var(--neutral-color-lighter);
         text-decoration: none;
     }
 
@@ -80,7 +80,7 @@
     .snapmap {
         list-style: none;
         padding: 1em;
-        border-bottom: 2px solid #e9ecee;
+        border-bottom: 2px solid var(--neutral-color-lighter);
         display: grid;
         grid-template-areas:
             'title link'
@@ -100,7 +100,7 @@
     .snapmap > p {
         grid-area: members;
         margin: 0;
-        color: var(--primary-color-30);
+        color: var(--primary-color-light);
     }
 
     .options {
@@ -111,7 +111,7 @@
     }
 
     .options a {
-        color: var(--primary-color-30);
+        color: var(--primary-color-light);
     }
 
     .options a :global(svg) {
