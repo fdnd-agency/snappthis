@@ -1,49 +1,71 @@
 :root {
     /* Primary colors */
-    --primary-color-0: hsl(200, 43%, 0%);
-    --primary-color-10: hsl(200, 43%, 10%);
-    --primary-color: hsl(200, 43%, 20%);
-    --primary-color-30: hsl(200, 43%, 30%);
-    --primary-color-40: hsl(200, 43%, 40%);
-    --primary-color-50: hsl(200, 43%, 50%);
-    --primary-color-60: hsl(200, 43%, 60%);
+    --primary-h: 200;
+    --primary-s: 43%;
+    --primary-color-darkest:  hsl(var(--primary-h),var(--primary-s)%, 0%);
+    --primary-color-darker: hsl(var(--primary-h), var(--primary-s), 10%);
+    --primary-color: hsl(var(--primary-h), var(--primary-s), 20%);
+    --primary-color-light: hsl(var(--primary-h), var(--primary-s), 30%);
+    --primary-color-lighter: hsl(var(--primary-h), var(--primary-s), 40%);
+    --primary-color-lightest: hsl(var(--primary-h), var(--primary-s), 50%);
+
+    /* darkest
+    darker
+    dark
+    light
+    lighter
+    lightest */
+
+
 
     /* Accent colors */
-    --accent-green-80: hsl(136, 100%, 80%);
-    --accent-green-70: hsl(136, 100%, 70%);
-    --accent-green-60: hsl(136, 100%, 60%);
-    --accent-green: hsl(136, 100%, 50%);
-    --accent-green-40: hsl(136, 100%, 40%);
-    --accent-green-30: hsl(136, 100%, 30%);
-    --accent-green-20: hsl(136, 100%, 20%);
+    --secondary-h: 136;
+    --secondary-s: 100%;
+    --secondary-color-darkest: hsl(var(--secondary-h), var(--secondary-s), 20%);
+    --secondary-color-darker: hsl(var(--secondary-h), var(--secondary-s), 30%);
+    --secondary-color-dark: hsl(var(--secondary-h), var(--secondary-s), 40%);
+    --secondary-color: hsl(var(--secondary-h), var(--secondary-s), 50%);
+    --secondary-color-light: hsl(var(--secondary-h), var(--secondary-s), 60%);
+    --secondary-color-lighter: hsl(var(--secondary-h), var(--secondary-s), 70%);
+    --secondary-color-lightest: hsl(var(--secondary-h), var(--secondary-s), 80%);
 
-    --accent-red-90: hsl(357, 100%, 90%);
-    --accent-red-80: hsl(357, 100%, 80%);
-    --accent-red-70: hsl(357, 100%, 70%);
-    --accent-red: hsl(357, 100%, 60%);
-    --accent-red-50: hsl(357, 100%, 50%);
-    --accent-red-40: hsl(357, 100%, 40%);
-    --accent-red-30: hsl(357, 100%, 30%);
+    --accent-red-h: 357;
+    --accent-red-s: 100%;
+    --accent-red-darkest: hsl(var(--accent-red-h), var(--accent-red-s), 30%);
+    --accent-red-darker: hsl(var(--accent-red-h), var(--accent-red-s), 40%);
+    --accent-red-dark: hsl(var(--accent-red-h), var(--accent-red-s), 50%);
+    --accent-red: hsl(var(--accent-red-h), var(--accent-red-s), 60%);
+    --accent-red-light: hsl(var(--accent-red-h), var(--accent-red-s), 70%);
+    --accent-red-lighter: hsl(var(--accent-red-h), var(--accent-red-s), 80%);
+    --accent-red-lightest: hsl(var(--accent-red-h), var(--accent-red-s), 90%);
 
-    --accent-yellow-80: hsl(55, 94%, 80%);
-    --accent-yellow-70: hsl(55, 94%, 70%);
-    --accent-yellow-60: hsl(55, 94%, 60%);
-    --accent-yellow: hsl(55, 94%, 50%);
-    --accent-yellow-40: hsl(55, 94%, 40%);
-    --accent-yellow-30: hsl(55, 94%, 30%);
-    --accent-yellow-20: hsl(55, 94%, 20%);
+
+    --accent-yellow-h: 55;
+    --accent-yellow-s: 94%;
+    --accent-yellow-dark: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 20%);
+    --accent-yellow-darker: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 30%);
+    --accent-yellow-darkest: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 40%);
+    --accent-yellow: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 50%);
+    --accent-yellow-light: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 60%);
+    --accent-yellow-lighter: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 70%);
+    --accent-yellow-lightest: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 80%);
+
+
 
     /* Neutral colors */
-    --neutral-color-100: hsl(0, 0%, 100%);
-    --neutral-color-90: hsl(200, 13%, 90%);
-    --neutral-color-80: hsl(200, 13%, 80%);
-    --neutral-color: hsl(200, 13%, 70%);
-    --neutral-color-60: hsl(200, 13%, 60%);
-    --neutral-color-50: hsl(200, 13%, 50%);
-    --neutral-color-40: hsl(200, 13%, 40%);
-    --neutral-color-0: hsl(0, 0%, 0%);
-}
+    --neutral-h: 200;
+    --neutral-s: 13%;
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
 
+    --neutral-color-darkest: var(--black);
+    --neutral-color-darker: hsl(var(--neutral-h), var(--neutral-s), 40%);
+    --neutral-color-dark: hsl(var(--neutral-h), var(--neutral-s), 60%);
+    --neutral-color: hsl(var(--neutral-h), var(--neutral-s), 70%);
+    --neutral-color-light: hsl(var(--neutral-h), var(--neutral-s), 80%);
+    --neutral-color-lighter: hsl(var(--neutral-h), var(--neutral-s), 90%);
+    --neutral-color-lightest: var(--white);
+}
 /* A few snippets from https://frontendmasters.com/blog/the-coyier-css-starter/ */
 *,
 *::before,
