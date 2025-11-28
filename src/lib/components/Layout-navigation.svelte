@@ -13,65 +13,35 @@
         selected = value;
     }
 
-    const allOptions = [
-        { value: "xlarge", short: "XL", long: "XLarge", icon: GridTwo },
-        { value: "large", short: "L", long: "Large", icon: GridThree },
-        { value: "medium", short: "M", long: "Medium", icon: GridFour },
-        { value: "small", short: "S", long: "Small", icon: GridFive },
-        { value: "list", short: "List", long: "List View", icon: ListView }
-    ]
+    onMount(async () => {
+        const allOptions = [
+            { value: "xlarge", short: "XL", long: "XLarge", icon: GridTwo },
+            { value: "large", short: "L", long: "Large", icon: GridThree },
+            { value: "medium", short: "M", long: "Medium", icon: GridFour },
+            { value: "small", short: "S", long: "Small", icon: GridFive },
+            { value: "list", short: "List", long: "List View", icon: ListView }
+        ]
+    });
 </script>
 
 <div class="dropdownmenu">
-    <label class="span-content"
-        class:selected={selected === "xlarge"}
-        on:click={() => selectOption("xlarge")}
-    >
-        <input type="radio" name="layout" value="xlarge" class="radio-element">  
-        <GridTwo></GridTwo> 
-        <span for="xlarge">XL</span> 
-        <span for="xlarge">XLarge</span> 
-</label>
+    {#each allOptions as option, i}
+    <label
+    class="option {selected === option.value ? 'selected' : ''}"
+    for={opt.value}>
+        <input
+        id={option.value}
+        type="radio"
+        name="layout"
+        value={option.value}
+        bind:group={selected}/>
 
-    <label class="span-content"
-    class:selected={selected === "large"}
-        on:click={() => selectOption("large")}
-    >
-        <input type="radio" name="layout" value="large" class="radio-element"> 
-        <GridThree></GridThree> 
-        <span for="large">L</span> 
-        <span for="large">Large</span> 
-</label>
+        <svelte:component this={option.icon} />
 
-    <label class="span-content"
-        class:selected={selected === "medium"}
-        on:click={() => selectOption("medium")}
-    >
-        <input type="radio" name="layout" value="medium" class="radio-element"> 
-        <GridFour></GridFour>
-         <span for="medium">M</span> 
-         <span for="medium">Medium</span> 
-</label>
-
-    <label class="span-content"
-        class:selected={selected === "small"}
-        on:click={() => selectOption("small")}
-    >
-        <input type="radio" name="layout" value="small" class="radio-element"> 
-        <GridFive></GridFive>
-         <span for="small">S</span> 
-         <span for="small">Small</span> 
-</label>
-
-    <label class="span-content"
-        class:selected={selected === "list-view"}
-        on:click={() => selectOption("list-view")}
-    >
-        <input type="radio" name="layout" value="list" class="radio-element"> 
-        <ListView></ListView> 
-        <span for="list">List</span> 
-        <span for="list">List View</span>
-</label>
+        <span class="short">{option.short}</span>
+        <span class="long">{option.long}</span>
+    </label>
+    {/each}
 </div>
 
 
