@@ -10,6 +10,7 @@ import SortFilter from '$lib/components/Sort-filter.svelte'
   const snaps = data.snaps[0]?.snaps || [];
   const snapmap = data.snapmap;
   const users = data.users || [];
+const group = data.group
 
   const userMap = new Map(users.map(u => [u.uuid, u.name]));
 </script>
@@ -27,7 +28,7 @@ import SortFilter from '$lib/components/Sort-filter.svelte'
 <div class="content">
     {#each snaps as snap}
         <Gallery
-        url={snapmap.uuid}        
+        url='group/{group.uuid}/{snapmap.uuid}'        
         snap={snap.uuid}
         picture={snap.picture}
         author={userMap.get(snap.author) || snap.author}

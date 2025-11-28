@@ -7,6 +7,7 @@
   export let author;
   export let url;
   export let snap;
+  export let groupid;
 
   let loaded = false;
 </script>
@@ -14,7 +15,7 @@
 <div class="snaps">
     <div>
         <div class="mask">
-            <a href={`/${url}/${snap}`}>
+            <a href={`${url}/${snap}`}>
 
                         {#if !loaded}
 				            <div class="skeleton"></div>
