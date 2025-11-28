@@ -12,6 +12,14 @@
     function selectOption(value) {
         selected = value;
     }
+
+    const allOptions = [
+        { value: "xlarge", short: "XL", long: "XLarge", icon: GridTwo },
+        { value: "large", short: "L", long: "Large", icon: GridThree },
+        { value: "medium", short: "M", long: "Medium", icon: GridFour },
+        { value: "small", short: "S", long: "Small", icon: GridFive },
+        { value: "list", short: "List", long: "List View", icon: ListView }
+    ]
 </script>
 
 <div class="dropdownmenu">
@@ -81,13 +89,13 @@
 
         }
     
-        span:nth-of-type(4) {
+        label:nth-of-type(4) {
             @media screen and (max-width: 1080px){
                 display: none;
             }
         }
 
-        span:nth-of-type(3) {
+        label:nth-of-type(3) {
             @media screen and (max-width: 720px){
                 display: none;
             }
@@ -102,19 +110,19 @@
             border-radius: 16px;
         }
 
-        span label {
+        label span {
             align-items: center;
             flex-direction: column;
             padding-left: 3em;
         }
 
-        span label:nth-of-type(1) {
+        label span:nth-of-type(1) {
             @media screen and (min-width: 720px){
                 display: none;
             }
         }
 
-        span label:nth-of-type(2) {
+        label span:nth-of-type(2) {
             @media screen and (max-width: 720px){
                 display: none;
             }

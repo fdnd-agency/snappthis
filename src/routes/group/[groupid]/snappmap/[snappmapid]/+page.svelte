@@ -8,15 +8,7 @@
 
     const snapMap = data.snaps?.[0]
     import Header from '$lib/components/Header.svelte'
-    import Star from '$lib/components/icons/StarIcon.svelte'
-    import Tomato from '$lib/components/icons/TomatoIcon.svelte'
-    import Heart from '$lib/components/icons/HeartIcon.svelte'
-    import GridOne from '$lib/components/icons/Grid1Icon.svelte'
-    import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
-    import GridThree from '$lib/components/icons/Grid3Icon.svelte'
-    import GridFour from '$lib/components/icons/Grid4Icon.svelte'
-    import GridFive from '$lib/components/icons/Grid5Icon.svelte'
-    import ListView from '$lib/components/icons/ListviewIcon.svelte'
+    import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
 </script>
 
 <svelte:head>
@@ -26,91 +18,9 @@
 <Header title={snapMap.name}></Header>
 
 <main>
-    <div class="layout-navigation">
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid1"
-                bind:group={gridsize} />
-            <GridOne />
-            <p>One-Column</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid2"
-                bind:group={gridsize} />
-            <GridTwo />
-            <p>XLarge</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid3"
-                bind:group={gridsize} />
-            <GridThree />
-            <p>Large</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid4"
-                bind:group={gridsize} />
-            <GridFour />
-            <p>Medium</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid5"
-                bind:group={gridsize} />
-            <GridFive />
-            <p>Small</p>
-        </label>
-        <label>
-            <input
-                class="listradio"
-                type="radio"
-                name="settings"
-                value="list"
-                bind:group={gridsize} />
-            <ListView />
-            <p>List</p>
-        </label>
+    <div class="sidebar">
+        <LayoutNavigation />
     </div>
-
-    <ul class="snaps-{gridsize}">
-        {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="{page.url.pathname}/{snap.uuid}">
-                    <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}" />
-                </a>
-                <div
-                    class="list-container {gridsize === 'list'
-                        ? 'visible'
-                        : ''}">
-                    <h2>{snap.author}</h2>
-                    <h3>{snap.location}</h3>
-
-                    <form class="feedback">
-                        <button aria-label="Star"><Star /></button>
-                        <button aria-label="Tomato"><Tomato /></button>
-                        <button aria-label="Heart"><Heart /></button>
-                    </form>
-
-                    <a href="{page.url.pathname}/{snap.uuid}"> View Photo </a>
-                </div>
-            </li>
-        {/each}
-    </ul>
 </main>
 
 <style>
