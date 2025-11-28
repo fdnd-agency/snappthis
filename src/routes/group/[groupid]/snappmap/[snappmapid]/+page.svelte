@@ -21,6 +21,9 @@
     <div class="sidebar">
         <LayoutNavigation />
     </div>
+
+    <div class="content">
+    </div>
 </main>
 
 <style>
