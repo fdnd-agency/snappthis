@@ -13,33 +13,33 @@
         selected = value;
     }
 
-    onMount(async () => {
-        const allOptions = [
+        const options = [
             { value: "xlarge", short: "XL", long: "XLarge", icon: GridTwo },
             { value: "large", short: "L", long: "Large", icon: GridThree },
             { value: "medium", short: "M", long: "Medium", icon: GridFour },
             { value: "small", short: "S", long: "Small", icon: GridFive },
             { value: "list", short: "List", long: "List View", icon: ListView }
-        ]
-    });
+    ]
 </script>
 
 <div class="dropdownmenu">
-    {#each allOptions as option, i}
+    {#each options as opt, i}
     <label
-    class="option {selected === option.value ? 'selected' : ''}"
-    for={opt.value}>
-        <input
-        id={option.value}
-        type="radio"
-        name="layout"
-        value={option.value}
-        bind:group={selected}/>
+    class="option {selected === opt.value ? 'selected' : ''}"
+    for={opt.value}
+    >
+            <input
+                id={opt.value}
+                type="radio"
+                name="layout"
+                value={opt.value}
+                bind:group={selected}
+            />
 
-        <svelte:component this={option.icon} />
+            <svelte:component this={opt.icon} />
 
-        <span class="short">{option.short}</span>
-        <span class="long">{option.long}</span>
+        <span class="short">{opt.short}</span>
+        <span class="long">{opt.long}</span>
     </label>
     {/each}
 </div>
@@ -50,7 +50,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5em;
-        background-color: var(--neutral-color-80);
+        background-color: var(--neutral-color-light);
         padding: 1em;
         width: fit-content;
 
@@ -71,13 +71,18 @@
             }
         }
 
-        .span-content {
+        .option {
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            background-color: var(--neutral-color-90);
+            background: var(--neutral-color-lighter);
             padding: 1em;
             border-radius: 16px;
+            cursor: pointer;
+
+            &.selected {
+                background: var(--primary-color-lightest);
+            }
         }
 
         label span {
@@ -99,11 +104,16 @@
         }
     }
 
-    .radio-element {
-        display: none;
+    input[type="radio"] {
+    display: none;
     }
 
-.span-content.selected {
-    background-color: var(--primary-color-60);
-}
+    .short { 
+        padding-left: 3em;
+    }
+
+    .long { 
+    padding-left: 3em;
+    }      
+
 </style>
