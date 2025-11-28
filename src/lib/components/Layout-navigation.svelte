@@ -15,55 +15,55 @@
 </script>
 
 <div class="dropdownmenu">
-    <span class="span-content"
+    <label class="span-content"
         class:selected={selected === "xlarge"}
         on:click={() => selectOption("xlarge")}
     >
         <input type="radio" name="layout" value="xlarge" class="radio-element">  
         <GridTwo></GridTwo> 
-        <label for="xlarge">XL</label> 
-        <label for="xlarge">XLarge</label> 
-    </span>
+        <span for="xlarge">XL</span> 
+        <span for="xlarge">XLarge</span> 
+</label>
 
-    <span class="span-content"
+    <label class="span-content"
     class:selected={selected === "large"}
         on:click={() => selectOption("large")}
     >
         <input type="radio" name="layout" value="large" class="radio-element"> 
         <GridThree></GridThree> 
-        <label for="large">L</label> 
-        <label for="large">Large</label> 
-    </span>
+        <span for="large">L</span> 
+        <span for="large">Large</span> 
+</label>
 
-    <span class="span-content"
+    <label class="span-content"
         class:selected={selected === "medium"}
         on:click={() => selectOption("medium")}
     >
         <input type="radio" name="layout" value="medium" class="radio-element"> 
         <GridFour></GridFour>
-         <label for="medium">M</label> 
-         <label for="medium">Medium</label> 
-    </span>
+         <span for="medium">M</span> 
+         <span for="medium">Medium</span> 
+</label>
 
-    <span class="span-content"
+    <label class="span-content"
         class:selected={selected === "small"}
         on:click={() => selectOption("small")}
     >
         <input type="radio" name="layout" value="small" class="radio-element"> 
         <GridFive></GridFive>
-         <label for="small">S</label> 
-         <label for="small">Small</label> 
-    </span>
+         <span for="small">S</span> 
+         <span for="small">Small</span> 
+</label>
 
-    <span class="span-content"
+    <label class="span-content"
         class:selected={selected === "list-view"}
         on:click={() => selectOption("list-view")}
     >
         <input type="radio" name="layout" value="list" class="radio-element"> 
         <ListView></ListView> 
-        <label for="list">List</label> 
-        <label for="list">List View</label>
-    </span>
+        <span for="list">List</span> 
+        <span for="list">List View</span>
+</label>
 </div>
 
 
