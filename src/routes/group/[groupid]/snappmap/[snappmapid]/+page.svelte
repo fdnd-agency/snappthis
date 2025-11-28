@@ -35,4 +35,13 @@
         }
     }
 
+    .sidebar {
+        background-color: var(--neutral-color-light);
+        height: 100vh;
+        width: fit-content;
+
+        @media (max-width: 720px) {
+            display: none;
+        }
+    }
 </style>
