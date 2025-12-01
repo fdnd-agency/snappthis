@@ -24,7 +24,7 @@
     --secondary-color-darkest: light-dark(hsl(var(--secondary-h), var(--secondary-s), 20%),hsl(var(--secondary-h), var(--secondary-s), 80%));
     --secondary-color-darker: light-dark(hsl(var(--secondary-h), var(--secondary-s), 30%),hsl(var(--secondary-h), var(--secondary-s), 70%));
     --secondary-color-dark: light-dark(hsl(var(--secondary-h), var(--secondary-s), 40%),hsl(var(--secondary-h), var(--secondary-s), 60%));
-    --secondary-color: light-dark(hsl(var(--secondary-h), var(--secondary-s), 50%),);
+    --secondary-color: light-dark(hsl(var(--secondary-h), var(--secondary-s), 50%),hsl(var(--secondary-h), var(--secondary-s), 20%));
     --secondary-color-light: light-dark(hsl(var(--secondary-h), var(--secondary-s), 60%),hsl(var(--secondary-h), var(--secondary-s), 40%));
     --secondary-color-lighter: light-dark(hsl(var(--secondary-h), var(--secondary-s), 70%),hsl(var(--secondary-h), var(--secondary-s), 30%));
     --secondary-color-lightest: light-dark(hsl(var(--secondary-h), var(--secondary-s), 80%),hsl(var(--secondary-h), var(--secondary-s), 20%));
