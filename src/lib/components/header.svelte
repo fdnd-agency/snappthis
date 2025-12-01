@@ -19,8 +19,17 @@
     <div class="right-icon">
         <button>
             <!-- add icon -->
+
+                <!-- dropdown add user -->
+                <!-- dropdown add snappmap -->
+                <!-- dropdown add group -->
+
             <!-- layout-icon -->
+                <!-- dropdown layoutnavigation -->
+                <!-- dropdown sort -->
+
             <!-- setings icon -->
+                <!-- settings -->
         </button>
     </div>
 
