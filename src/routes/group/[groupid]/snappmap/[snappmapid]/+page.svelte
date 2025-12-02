@@ -28,11 +28,7 @@
 <Header title={snapMap.name}></Header>
 
 <main>
-    <div class="view-transition">
-        <div class="first-line"></div>
-        <Logo />
-        <div class="second-line"></div>
-    </div>
+
 
     <div class="layout-navigation">
         <label>
