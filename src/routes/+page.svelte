@@ -1,11 +1,11 @@
 <script>
     import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
+    import Header from '$lib/components/header.svelte'
 
     let { data } = $props()
     const snappMaps = data.snappMaps
 </script>
 
-<h1>SnappMap Overview</h1>
 
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap}></SnappMapPreview>

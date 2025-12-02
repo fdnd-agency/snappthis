@@ -1,17 +1,10 @@
 <script>
-    export let title = 'SnappThis'
-
-    import {GobackIcon, }
-
-    import Goback from '$lib/components/icons/GobackIcon.svelte'
+    export let title = 'SnappThis';
 </script>
 
 <header class="header">
 
     <div class="left-icon">
-        <a>
-            <!-- goback icon -->
-        </a>
     </div>
 
     <h1>{title}</h1>
@@ -39,10 +32,10 @@
     .header {
         background-color: var(--primary-color);
         color: var(--neutral-color-100);
-        font-family: 'Bariol Bold';
-        height: 10%;
+        height: 9%;
         width: 100%;
         display: flex;
         justify-content: center;
+        position: sticky;
     }
 </style>
