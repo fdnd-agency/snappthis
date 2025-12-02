@@ -17,6 +17,8 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
+
+    import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
 </script>
 
 <svelte:head>
@@ -26,6 +28,12 @@
 <Header title={snapMap.name}></Header>
 
 <main>
+    <div class="view-transition">
+        <div class="first-line"></div>
+        <Logo />
+        <div class="second-line"></div>
+    </div>
+
     <div class="layout-navigation">
         <label>
             <input
