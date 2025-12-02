@@ -87,3 +87,8 @@ body {
         interpolate-size: allow-keywords;
     }
 }
+
+header h1 {
+    font-family: 'Bariol Bold';
+    color: var(--neutral-color-lightest);
+}

@@ -1,5 +1,4 @@
 <script>
-    import Header from '$lib/components/header.svelte'
     import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte'
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
     import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
@@ -12,14 +11,6 @@
 <svelte:head>
     <title>Your Groups</title>
 </svelte:head>
-
-<header>
-    <div>
-        <a href="/"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
-        <h1>Your Groups</h1>
-        <a href="/"><PlusIcon title="Add group"></PlusIcon></a>
-    </div>
-</header>
 
 <main>
     <div>
