@@ -1,12 +1,14 @@
 <script>
     import Logo from "$lib/components/icons/LogoIcon.svelte"
-    import { gsap } from "gsap";
+    import MorphCamera from "$lib/components/animations/MorphCamera.svelte"
+    import { gsap } from "gsap"
+
 </script>    
 
     <div class="view-transition">
         <div class="first-line"></div>
         <div class="second-line"></div>
-        <Logo />
+            <MorphCamera />
         <div class="third-line"></div>
         <div class="fourth-line"></div>
     </div>
