@@ -3,6 +3,7 @@
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
     import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
     import UserIcon from '$lib/components/icons/UserIcon.svelte'
+    import Svg from '$lib/components/retroLineArt.svelte'
 
     let { data } = $props()
     const groups = data.groups
@@ -19,6 +20,8 @@
         <a href="/"><PlusIcon title="Add group"></PlusIcon></a>
     </div>
 </header>
+
+<Svg />
 
 <main>
     <div>
