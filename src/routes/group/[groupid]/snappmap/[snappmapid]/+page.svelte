@@ -21,6 +21,12 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
 
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
+
+    import { onMount } from 'svelte'
+
+    onMount(async () => {
+
+    });
 </script>
 
 <svelte:head>
@@ -87,7 +93,7 @@
         </label>
     </div>
 
-    <ul class="snaps-{gridsize}">
+    <ul class="snaps-{gridsize}" bind:this={listItem}>
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
                 <a href="{page.url.pathname}/{snap.uuid}">
@@ -118,6 +124,7 @@
 
 <style>
     main {
+        overflow: scroll;
         margin-bottom: 5%;
         display: grid;
         grid-template-columns: 20% 80%;
