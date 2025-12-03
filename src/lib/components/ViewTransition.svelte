@@ -1,7 +1,6 @@
 <script>
-
     import Logo from "$lib/components/icons/LogoIcon.svelte"
-
+    import { gsap } from "gsap";
 </script>    
 
     <div class="view-transition">
