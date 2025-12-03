@@ -1,3 +1,12 @@
+<script>
+    import { onMount } from "svelte";
+    import gsap from "gsap/dist/gsap";
+    import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin";
+    if (typeof window !== "undefined") {
+        gsap.registerPlugin(DrawSVGPlugin);
+    }
+</script>
+
 <svg width="1232" height="176" viewBox="0 0 1232 176" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- S -->
     <g>
