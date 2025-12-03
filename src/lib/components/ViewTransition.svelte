@@ -1,7 +1,15 @@
+<script>
+
+    import Logo from "$lib/components/icons/LogoIcon.svelte"
+
+</script>    
+
     <div class="view-transition">
         <div class="first-line"></div>
-        <LogoIcon />
         <div class="second-line"></div>
+        <Logo />
+        <div class="third-line"></div>
+        <div class="fourth-line"></div>
     </div>
 
     <style>
@@ -12,20 +20,51 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        width: 100%;
-        z-index: 2;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        z-index: 7;
+        overflow: hidden;
     }
 
     .first-line {
-        display: inline-block;
-        position: relative;
-        top: 55px;
-        left: 25px;
-        height: 50px;
-        width: 100px;
-        color: white;
+        display: block;
+        position: absolute;
+        top: 50px;
+        width: 100vw;
+        height: 25px;
+        background-color: var(--primary-color-lightest);
         z-index: 3;
     }
 
+    .second-line {
+        display: block;
+        position: absolute;
+        top: 100px;
+        width: 100vw;
+        height: 25px;
+        background-color: var(--primary-color-lighter);
+        z-index: 3;
+    }
+
+    .third-line {
+        display: block;
+        position: absolute;
+        bottom: 50px;
+        width: 100vw;
+        height: 25px;
+        background-color: var(--primary-color-lightest);
+        z-index: 3;
+    }
+
+    .fourth-line {
+        display: block;
+        position: absolute;
+        bottom: 100px;
+        width: 100vw;
+        height: 25px;
+        background-color: var(--primary-color-lighter);
+        z-index: 3;
+    }
     </style>

@@ -7,7 +7,9 @@
     let gridsize = $state('grid1')
 
     const snapMap = data.snaps?.[0]
-    import Header from '$lib/components/Header.svelte'
+    import Header from '$lib/components/header.svelte'
+    import ViewTransition from '$lib/components/ViewTransition.svelte'
+
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -24,12 +26,9 @@
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
-
+<ViewTransition/>
 <Header title={snapMap.name}></Header>
-
 <main>
-
-
     <div class="layout-navigation">
         <label>
             <input
