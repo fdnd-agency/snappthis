@@ -9,61 +9,36 @@
     let gridsize = $state('grid1')
     const snapMap = data.snaps?.[0]
 
-    function handleDone(e){
-        goto(e.detail.next);  
-    }
 
     import Header from '$lib/components/header.svelte'
     import ViewTransition from '$lib/components/ViewTransition.svelte'
 
-    import Star from '$lib/components/icons/StarIcon.svelte'
-    import Tomato from '$lib/components/icons/TomatoIcon.svelte'
-    import Heart from '$lib/components/icons/HeartIcon.svelte'
-    import GridOne from '$lib/components/icons/Grid1Icon.svelte'
-    import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
-    import GridThree from '$lib/components/icons/Grid3Icon.svelte'
-    import GridFour from '$lib/components/icons/Grid4Icon.svelte'
-    import GridFive from '$lib/components/icons/Grid5Icon.svelte'
-    import ListView from '$lib/components/icons/ListviewIcon.svelte'
-    import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
+    const nextPage = `/${snappid}`;
 
-    onMount(async () => {
-
-    const listItems = document.querySelectorAll('.list')
-
-    listItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault()
-
-            // get the current link
-            const link = item.querySelector("a")?.getAttribute("href")
-            if (!link) return
-
-            transitionRef.next = link
-            transitionRef.start()
-        })
-    })
-
-    // when navigation start the animation
-    function navigate() {
-        transitionRef.start(); 
+    function handleDone(e) {
+        goto(e.detail.next);  
     }
-    });
+
+    function handleClick() {
+        const nextPage = `/${data.id}`;
+        transitionRef.next = nextPage;
+        transitionRef.start();
+    }
 </script>
 
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
+
 <ViewTransition
-    bind:this={transitionRef}
-    on:done={handleDone}
+     bind:this={transitionRef} on:done={handleDone}
 />
 
 <Header title={snapMap.name}></Header>
-<main>
-
-    <button class="list" bind:this={listItem}> GO </button>
-
+<main>  
+    {#each snaps as snap}
+        <button on:click={() => goToSnap(snap.uuid)}>Open {snap.uuid}</button>
+    {/each}
 </main>
 
 <style>

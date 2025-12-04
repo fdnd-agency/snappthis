@@ -9,6 +9,7 @@
     // this is the timeline
     let tl; 
     const dispatch = createEventDispatcher();
+    
 
     // function start redos the timeline
     export function start() {
