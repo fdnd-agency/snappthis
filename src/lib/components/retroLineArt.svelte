@@ -18,11 +18,18 @@
 
         // Animeer ALLE paths met class="draw-me"
         tl.from(".draw-me", {
-            duration: 4,
+            duration: 1.5,
             drawSVG: 0,
-            stagger: 1,    // laat ze één voor één tekenen
-            ease: "power2.out"
+            stagger: .2,    // laat ze één voor één tekenen
+            ease: "power3"
         });
+
+        tl.to(path, {
+            duration: 0.4,
+            fill: path.dataset.originalFill,
+            opacity: 1
+        });
+
     });
 </script>
 
@@ -121,10 +128,11 @@
     svg {
         margin: 1em;
         padding: .5em;
+        width: 90%;
     }
 
     .draw-me {
-        fill: inherit; 
+        fill: none; 
         stroke-width: 2;    
     }
 </style>
