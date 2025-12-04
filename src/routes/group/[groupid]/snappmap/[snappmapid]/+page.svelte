@@ -1,15 +1,15 @@
 <script>
     import { page } from '$app/state'
+    import { onMount } from 'svelte'
 
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
     let gridsize = $state('grid1')
-
     const snapMap = data.snaps?.[0]
+
     import Header from '$lib/components/header.svelte'
     import ViewTransition from '$lib/components/ViewTransition.svelte'
-    import { goto } from "$app/navigation"
 
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
@@ -20,14 +20,16 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
-
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
-
-    import { onMount } from 'svelte'
 
     onMount(async () => {
         function handleDone(e){
         goto(e.detail.next);  
+    }
+
+    // when navigation start the animation
+    function navigate() {
+        transitionRef.start(); 
     }
     });
 </script>
@@ -42,7 +44,6 @@
 
 <Header title={snapMap.name}></Header>
 <main>
-    <button bind:this={listItem}>Go</button>
     <div class="layout-navigation">
         <label>
             <input

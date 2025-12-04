@@ -16,7 +16,7 @@
     }
 
     onMount(() => {
-        tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: true});
+        tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: false});
 
         tl.from(".view-transition", { y: "200vh", x: "-100vw"})
         tl.from(".first-line", { x: "-200vw"})
@@ -26,7 +26,7 @@
         tl.to(".view-transition", { y: "-200vh", x: "100vw"})
 
         tl.eventCallback("onComplete", () => {
-            dispatch("done", { next });
+            dispatch("done", { next });  
         });
     });
 
@@ -46,21 +46,16 @@
     .view-transition {
         background-color: #837879;
         color: var(--primary-color-lightest);
-        position: absolute;
+        position: fixed;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 215%;
-        width: 200%;
-        top: -40vh;
-        left: -40vw;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
         z-index: 7;
         overflow: hidden;
-        rotate: 45deg;
-    }
-
-    .middle-element {
-        rotate: -45deg;
     }
 
     .first-line {
