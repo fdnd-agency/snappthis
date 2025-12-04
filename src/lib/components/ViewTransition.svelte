@@ -2,15 +2,23 @@
     import Logo from "$lib/components/icons/LogoIcon.svelte"
     import MorphCamera from "$lib/components/animations/MorphCamera.svelte"
     import { gsap } from "gsap"
-    import { onMount } from 'svelte'
-    import { goto } from "$app/navigation"
+    import { onMount, createEventDispatcher  } from 'svelte'
 
+    export let next;
     let listItem;
+    // this is the timeline
+    let tl; 
+    const dispatch = createEventDispatcher();
+
+    // function start redos the timeline
+    export function start() {
+        tl.restart();
+    }
 
     onMount(() => {
-        const tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: true});
+        tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: true});
 
-        tl.from(".view-transition", { y: "200vh", x: "100vw"})
+        tl.from(".view-transition", { y: "200vh", x: "-100vw"})
         tl.from(".first-line", { x: "-200vw"})
         tl.from(".second-line", { x: "-200vw"})
         tl.from(".third-line", { x: "-200vw"})
@@ -18,11 +26,7 @@
         tl.to(".view-transition", { y: "-200vh", x: "100vw"})
 
         tl.eventCallback("onComplete", () => {
-            goto("/next-page");
-        });
-
-        listItem.addEventListener('click', () => {
-            tl.restart(); 
+            dispatch("done", { next });
         });
     });
 

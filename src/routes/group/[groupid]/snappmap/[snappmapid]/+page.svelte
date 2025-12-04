@@ -9,6 +9,7 @@
     const snapMap = data.snaps?.[0]
     import Header from '$lib/components/header.svelte'
     import ViewTransition from '$lib/components/ViewTransition.svelte'
+    import { goto } from "$app/navigation"
 
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
@@ -25,14 +26,20 @@
     import { onMount } from 'svelte'
 
     onMount(async () => {
-
+        function handleDone(e){
+        goto(e.detail.next);  
+    }
     });
 </script>
 
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
-<ViewTransition/>
+<ViewTransition
+    next="/your-target-page" 
+    on:done={handleDone}
+/>
+
 <Header title={snapMap.name}></Header>
 <main>
     <button bind:this={listItem}>Go</button>
