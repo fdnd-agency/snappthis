@@ -35,6 +35,7 @@
 <ViewTransition/>
 <Header title={snapMap.name}></Header>
 <main>
+    <button bind:this={listItem}>Go</button>
     <div class="layout-navigation">
         <label>
             <input

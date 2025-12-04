@@ -3,24 +3,27 @@
     import MorphCamera from "$lib/components/animations/MorphCamera.svelte"
     import { gsap } from "gsap"
     import { onMount } from 'svelte'
+    import { goto } from "$app/navigation"
+
+    let listItem;
 
     onMount(() => {
         const tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: true});
 
-        tl.to(".view-transition", { y: "200vh", x: "100vw"})
+        tl.from(".view-transition", { y: "200vh", x: "100vw"})
         tl.from(".first-line", { x: "-200vw"})
         tl.from(".second-line", { x: "-200vw"})
         tl.from(".third-line", { x: "-200vw"})
         tl.from(".fourth-line", { x: "-200vw"})
         tl.to(".view-transition", { y: "-200vh", x: "100vw"})
 
-        listItem.addEventListener('click', clickEvent);
+        tl.eventCallback("onComplete", () => {
+            goto("/next-page");
+        });
 
-        function clickEvent(event) {
-            listItem.addEventListener('click',function() {
-                tl.play()
-            });
-        }
+        listItem.addEventListener('click', () => {
+            tl.restart(); 
+        });
     });
 
 </script>    
