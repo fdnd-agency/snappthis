@@ -6,27 +6,20 @@
     import Settings from "./icons/Settings.svelte";
 
     export let title = 'SnappThis';
+    export let href;
 </script>
 
 <header class="header">
 
     <div class="left-icon">
-        <GobackIcon />
+        <GobackIcon 
+        href={"/"}/>
     </div>
 
     <h1>{title}</h1>
 
     <div class="right-icon">
-
         <Settings />
-            <!-- add icon -->
-                <!-- create component -->
-
-            <!-- current state: layout-icon -->
-                <!-- layout component -->
-
-            <!-- setings icon -->
-                <!-- settings component -->
     </div>
 
 </header>
