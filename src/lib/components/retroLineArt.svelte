@@ -3,33 +3,25 @@
     import { MotionPathPlugin } from "gsap/MotionPathPlugin";
     import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
-    // import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin";
-    // if (typeof window !== "undefined") {
-    //     gsap.registerPlugin(DrawSVGPlugin);
-    // }
-
-
+    // Voer deze code uit zodra de component in de DOM staat / bijgewerkt is
     $effect(() => {
+
+        // Weten welke plugins je binnenhaalt
         gsap.registerPlugin(MotionPathPlugin, DrawSVGPlugin);
 
+        // Alle paths ophalen met de class ".draw-me"
         let paths = document.querySelectorAll(".draw-me");
 
+        // GSAP timeline maken
         const tl = gsap.timeline();
 
-        // Animeer ALLE paths met class="draw-me"
+        // Animeer de paths met class="draw-me"
         tl.from(".draw-me", {
             duration: 1.5,
             drawSVG: 0,
-            stagger: .2,    // laat ze één voor één tekenen
+            stagger: .2, 
             ease: "power3"
         });
-
-        tl.to(path, {
-            duration: 0.4,
-            fill: path.dataset.originalFill,
-            opacity: 1
-        });
-
     });
 </script>
 
@@ -133,6 +125,6 @@
 
     .draw-me {
         fill: none; 
-        stroke-width: 2;    
+        stroke-width: 2.2;    
     }
 </style>
