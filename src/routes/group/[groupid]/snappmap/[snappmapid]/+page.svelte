@@ -1,28 +1,22 @@
 <script>
     import { page } from '$app/state'
-    import { onMount } from 'svelte'
-
-    let { data } = $props()
-    let transitionRef
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid1')
-    const snapMap = data.snaps?.[0]
-
-
+    import { goto } from '$app/navigation';
     import Header from '$lib/components/header.svelte'
     import ViewTransition from '$lib/components/ViewTransition.svelte'
 
-    const nextPage = `/${snappid}`;
+
+    let { data } = $props()
+    const snapMap = data.snaps?.[0]
+    let transitionRef
+    const nextPage = '/';
 
     function handleDone(e) {
         goto(e.detail.next);  
     }
 
     function handleClick() {
-        const nextPage = `/${data.id}`;
-        transitionRef.next = nextPage;
-        transitionRef.start();
+        transitionRef.next = '/' 
+        transitionRef.start()    
     }
 </script>
 
@@ -30,16 +24,14 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<ViewTransition
-     bind:this={transitionRef} on:done={handleDone}
-/>
+<ViewTransition bind:this={transitionRef} on:done={handleDone} />
 
-<Header title={snapMap.name}></Header>
+<Header title={snapMap.name} />
+
 <main>  
-    {#each snaps as snap}
-        <button on:click={() => goToSnap(snap.uuid)}>Open {snap.uuid}</button>
-    {/each}
+    <button on:click={handleClick}>Home</button>
 </main>
+
 
 <style>
     main {
@@ -55,13 +47,9 @@
         }
     }
 
-    .list {
+    a {
         height: 4em;
         width: 8em;
-
     }
-
-
-
 
 </style>

@@ -17,7 +17,9 @@
     }
 
     onMount(() => {
-        tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: false});
+        tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: true});
+
+        tl.set(".view-transition", { y: "200vh", x: "-100vw" })
 
         tl.from(".view-transition", { y: "200vh", x: "-100vw"})
         tl.from(".first-line", { x: "-200vw"})
@@ -25,6 +27,7 @@
         tl.from(".third-line", { x: "-200vw"})
         tl.from(".fourth-line", { x: "-200vw"})
         tl.to(".view-transition", { y: "-200vh", x: "100vw"})
+
 
         tl.eventCallback("onComplete", () => {
             dispatch("done", { next });  
@@ -57,6 +60,8 @@
         left: 0;
         z-index: 7;
         overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
     }
 
     .first-line {
