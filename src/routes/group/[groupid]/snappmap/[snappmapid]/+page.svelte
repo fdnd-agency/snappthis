@@ -3,10 +3,15 @@
     import { onMount } from 'svelte'
 
     let { data } = $props()
+    let transitionRef
     const snaps = data.snaps[0].snaps
     const id = data.id
     let gridsize = $state('grid1')
     const snapMap = data.snaps?.[0]
+
+    function handleDone(e){
+        goto(e.detail.next);  
+    }
 
     import Header from '$lib/components/header.svelte'
     import ViewTransition from '$lib/components/ViewTransition.svelte'
@@ -23,9 +28,21 @@
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
 
     onMount(async () => {
-        function handleDone(e){
-        goto(e.detail.next);  
-    }
+
+    const listItems = document.querySelectorAll('.list')
+
+    listItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            // get the current link
+            const link = item.querySelector("a")?.getAttribute("href")
+            if (!link) return
+
+            transitionRef.next = link
+            transitionRef.start()
+        })
+    })
 
     // when navigation start the animation
     function navigate() {
@@ -38,97 +55,15 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 <ViewTransition
-    next="/your-target-page" 
+    bind:this={transitionRef}
     on:done={handleDone}
 />
 
 <Header title={snapMap.name}></Header>
 <main>
-    <div class="layout-navigation">
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid1"
-                bind:group={gridsize} />
-            <GridOne />
-            <p>One-Column</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid2"
-                bind:group={gridsize} />
-            <GridTwo />
-            <p>XLarge</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid3"
-                bind:group={gridsize} />
-            <GridThree />
-            <p>Large</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid4"
-                bind:group={gridsize} />
-            <GridFour />
-            <p>Medium</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid5"
-                bind:group={gridsize} />
-            <GridFive />
-            <p>Small</p>
-        </label>
-        <label>
-            <input
-                class="listradio"
-                type="radio"
-                name="settings"
-                value="list"
-                bind:group={gridsize} />
-            <ListView />
-            <p>List</p>
-        </label>
-    </div>
 
-    <ul class="snaps-{gridsize}" bind:this={listItem}>
-        {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="{page.url.pathname}/{snap.uuid}">
-                    <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}" />
-                </a>
-                <div
-                    class="list-container {gridsize === 'list'
-                        ? 'visible'
-                        : ''}">
-                    <h2>{snap.author}</h2>
-                    <h3>{snap.location}</h3>
+    <button bind:this={listItem}> GO </button>
 
-                    <form class="feedback">
-                        <button aria-label="Star"><Star /></button>
-                        <button aria-label="Tomato"><Tomato /></button>
-                        <button aria-label="Heart"><Heart /></button>
-                    </form>
-
-                    <a href="{page.url.pathname}/{snap.uuid}"> View Photo </a>
-                </div>
-            </li>
-        {/each}
-    </ul>
 </main>
 
 <style>
