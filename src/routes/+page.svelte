@@ -6,6 +6,10 @@
     const snappMaps = data.snappMaps
 </script>
 
+<svelte:head>
+    <title>SnappThis Homepage</title>
+</svelte:head>
+
 <h1>SnappMap Overview</h1>
 
 <ViewTransition />
