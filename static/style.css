@@ -1,13 +1,15 @@
 :root {
+    color-scheme: light dark;
+
     /* Primary colors */
     --primary-h: 200;
     --primary-s: 43%;
-    --primary-color-darkest:  hsl(var(--primary-h),var(--primary-s)%, 0%);
-    --primary-color-darker: hsl(var(--primary-h), var(--primary-s), 10%);
-    --primary-color: hsl(var(--primary-h), var(--primary-s), 20%);
-    --primary-color-light: hsl(var(--primary-h), var(--primary-s), 30%);
-    --primary-color-lighter: hsl(var(--primary-h), var(--primary-s), 40%);
-    --primary-color-lightest: hsl(var(--primary-h), var(--primary-s), 50%);
+    --primary-color-darkest: light-dark(hsl(var(--primary-h),var(--primary-s)%, 0%),hsl(var(--primary-h),var(--primary-s)%, 100%));
+    --primary-color-darker: light-dark(hsl(var(--primary-h), var(--primary-s), 10%),hsl(var(--primary-h), var(--primary-s), 90%));
+    --primary-color: light-dark(hsl(var(--primary-h), var(--primary-s), 20%),hsl(var(--primary-h), var(--primary-s), 80%));
+    --primary-color-light: light-dark(hsl(var(--primary-h), var(--primary-s), 30%),hsl(var(--primary-h), var(--primary-s), 70%));
+    --primary-color-lighter: light-dark(hsl(var(--primary-h), var(--primary-s), 40%),hsl(var(--primary-h), var(--primary-s), 40%));
+    --primary-color-lightest: light-dark(hsl(var(--primary-h), var(--primary-s), 50%),hsl(var(--primary-h), var(--primary-s), 50%));
 
     /* darkest
     darker
@@ -16,41 +18,16 @@
     lighter
     lightest */
 
-
-
     /* Accent colors */
     --secondary-h: 136;
     --secondary-s: 100%;
-    --secondary-color-darkest: hsl(var(--secondary-h), var(--secondary-s), 20%);
-    --secondary-color-darker: hsl(var(--secondary-h), var(--secondary-s), 30%);
-    --secondary-color-dark: hsl(var(--secondary-h), var(--secondary-s), 40%);
-    --secondary-color: hsl(var(--secondary-h), var(--secondary-s), 50%);
-    --secondary-color-light: hsl(var(--secondary-h), var(--secondary-s), 60%);
-    --secondary-color-lighter: hsl(var(--secondary-h), var(--secondary-s), 70%);
-    --secondary-color-lightest: hsl(var(--secondary-h), var(--secondary-s), 80%);
-
-    --accent-red-h: 357;
-    --accent-red-s: 100%;
-    --accent-red-darkest: hsl(var(--accent-red-h), var(--accent-red-s), 30%);
-    --accent-red-darker: hsl(var(--accent-red-h), var(--accent-red-s), 40%);
-    --accent-red-dark: hsl(var(--accent-red-h), var(--accent-red-s), 50%);
-    --accent-red: hsl(var(--accent-red-h), var(--accent-red-s), 60%);
-    --accent-red-light: hsl(var(--accent-red-h), var(--accent-red-s), 70%);
-    --accent-red-lighter: hsl(var(--accent-red-h), var(--accent-red-s), 80%);
-    --accent-red-lightest: hsl(var(--accent-red-h), var(--accent-red-s), 90%);
-
-
-    --accent-yellow-h: 55;
-    --accent-yellow-s: 94%;
-    --accent-yellow-dark: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 20%);
-    --accent-yellow-darker: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 30%);
-    --accent-yellow-darkest: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 40%);
-    --accent-yellow: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 50%);
-    --accent-yellow-light: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 60%);
-    --accent-yellow-lighter: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 70%);
-    --accent-yellow-lightest: hsl(var(--accent-yellow-h), var(--accent-yellow-s), 80%);
-
-
+    --secondary-color-darkest: light-dark(hsl(var(--secondary-h), var(--secondary-s), 20%),hsl(var(--secondary-h), var(--secondary-s), 80%));
+    --secondary-color-darker: light-dark(hsl(var(--secondary-h), var(--secondary-s), 30%),hsl(var(--secondary-h), var(--secondary-s), 70%));
+    --secondary-color-dark: light-dark(hsl(var(--secondary-h), var(--secondary-s), 40%),hsl(var(--secondary-h), var(--secondary-s), 60%));
+    --secondary-color: light-dark(hsl(var(--secondary-h), var(--secondary-s), 50%),hsl(var(--secondary-h), var(--secondary-s), 20%));
+    --secondary-color-light: light-dark(hsl(var(--secondary-h), var(--secondary-s), 60%),hsl(var(--secondary-h), var(--secondary-s), 40%));
+    --secondary-color-lighter: light-dark(hsl(var(--secondary-h), var(--secondary-s), 70%),hsl(var(--secondary-h), var(--secondary-s), 30%));
+    --secondary-color-lightest: light-dark(hsl(var(--secondary-h), var(--secondary-s), 80%),hsl(var(--secondary-h), var(--secondary-s), 20%));
 
     /* Neutral colors */
     --neutral-h: 200;
@@ -58,20 +35,37 @@
     --white: hsl(0, 0%, 100%);
     --black: hsl(0, 0%, 0%);
 
-    --neutral-color-darkest: var(--black);
-    --neutral-color-darker: hsl(var(--neutral-h), var(--neutral-s), 40%);
-    --neutral-color-dark: hsl(var(--neutral-h), var(--neutral-s), 60%);
-    --neutral-color: hsl(var(--neutral-h), var(--neutral-s), 70%);
-    --neutral-color-light: hsl(var(--neutral-h), var(--neutral-s), 80%);
-    --neutral-color-lighter: hsl(var(--neutral-h), var(--neutral-s), 90%);
-    --neutral-color-lightest: var(--white);
-}
+    --accent-red-darkest: light-dark(hsl(var(--accent-red-h), var(--accent-red-s), 30%),hsl(var(--accent-red-h), var(--accent-red-s), 90%));
+    --accent-red-darker: light-dark(hsl(var(--accent-red-h), var(--accent-red-s), 40%),hsl(var(--accent-red-h), var(--accent-red-s), 80%)); 
+    --accent-red-dark: light-dark(hsl(var(--accent-red-h), var(--accent-red-s), 50%),hsl(var(--accent-red-h), var(--accent-red-s), 70%));
+    --accent-red: light-dark(hsl(var(--accent-red-h), var(--accent-red-s), 60%),hsl(var(--accent-red-h), var(--accent-red-s), 60%));
+    --accent-red-light: light-dark(hsl(var(--accent-red-h), var(--accent-red-s), 70%),hsl(var(--accent-red-h), var(--accent-red-s), 50%));
+    --accent-red-lighter: light-dark(hsl(var(--accent-red-h), var(--accent-red-s), 80%),hsl(var(--accent-red-h), var(--accent-red-s), 40%));
+    --accent-red-lightest: light-dark(hsl(var(--accent-red-h), var(--accent-red-s), 90%),hsl(var(--accent-red-h), var(--accent-red-s), 30%));
 
+  /* Accent Yellow (HSL: 55, 94%) */
+    --accent-yellow-dark: light-dark(hsl(var(--accent-yellow-h), var(--accent-yellow-s), 20%),hsl(var(--accent-yellow-h), var(--accent-yellow-s), 80%));
+    --accent-yellow-darker: light-dark(hsl(var(--accent-yellow-h), var(--accent-yellow-s), 30%),hsl(var(--accent-yellow-h), var(--accent-yellow-s), 70%));
+    --accent-yellow-darkest: light-dark(hsl(var(--accent-yellow-h), var(--accent-yellow-s), 40%),hsl(var(--accent-yellow-h), var(--accent-yellow-s), 60%));  
+    --accent-yellow: light-dark(hsl(var(--accent-yellow-h), var(--accent-yellow-s), 50%),hsl(var(--accent-yellow-h), var(--accent-yellow-s), 50%));
+    --accent-yellow-light: light-dark(hsl(var(--accent-yellow-h), var(--accent-yellow-s), 60%),hsl(var(--accent-yellow-h), var(--accent-yellow-s), 40%));
+    --accent-yellow-lighter: light-dark(hsl(var(--accent-yellow-h), var(--accent-yellow-s), 70%),hsl(var(--accent-yellow-h), var(--accent-yellow-s), 30%));
+    --accent-yellow-lightest: light-dark(hsl(var(--accent-yellow-h), var(--accent-yellow-s), 80%),hsl(var(--accent-yellow-h), var(--accent-yellow-s), 20%));
+    
+    --neutral-color-darkest: light-dark(var(--black),var(--white));
+    --neutral-color-darker: light-dark(hsl(var(--neutral-h), var(--neutral-s), 40%),hsl(var(--neutral-h), var(--neutral-s), 90%));
+    --neutral-color-dark: light-dark(hsl(var(--neutral-h), var(--neutral-s), 60%),hsl(var(--neutral-h), var(--neutral-s), 80%));
+    --neutral-color: light-dark(hsl(var(--neutral-h), var(--neutral-s), 70%),hsl(var(--neutral-h), var(--neutral-s), 70%));
+    --neutral-color-light: light-dark(hsl(var(--neutral-h), var(--neutral-s), 80%),hsl(var(--neutral-h), var(--neutral-s), 60%));
+    --neutral-color-lighter: light-dark(hsl(var(--neutral-h), var(--neutral-s), 90%),hsl(var(--neutral-h), var(--neutral-s), 40%));
+    --neutral-color-lightest: light-dark(var(--white),var(--black));
+}
 /* A few snippets from https://frontendmasters.com/blog/the-coyier-css-starter/ */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+    font-family: "Bariol",Arial, Helvetica, sans-serif;
 }
 
 body {
