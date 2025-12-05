@@ -1,29 +1,29 @@
 <script>
-    import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte'
-    import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
-    import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
-    import UserIcon from '$lib/components/icons/UserIcon.svelte'
+    // import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte'
+    // import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
+    // import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
+    // import UserIcon from '$lib/components/icons/UserIcon.svelte'
     import Svg from '$lib/components/retroLineArt.svelte'
 
     let { data } = $props()
     const groups = data.groups
 </script>
-
+<!-- 
 <svelte:head>
     <title>Your Groups</title>
-</svelte:head>
+</svelte:head> -->
 
-<header>
+<!-- <header>
     <div>
         <a href="/"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
         <h1>Your Groups</h1>
         <a href="/"><PlusIcon title="Add group"></PlusIcon></a>
     </div>
-</header>
+</header> -->
 
 <Svg />
 
-<main>
+<!-- <main>
     <div>
         <ul>
             {#each groups as group}
@@ -144,4 +144,4 @@
     .options a :global(svg) {
         height: 1.5em;
     }
-</style>
+</style> -->
