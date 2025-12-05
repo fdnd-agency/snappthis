@@ -7,30 +7,32 @@
     let { snappMap } = $props()
 </script>
 
-<li>
-    <div>
-        <a href="/group/{snappMap.uuid}">{snappMap.name}</a>
+<ul>
+    <li>
+        <div>
+            <a href="/group/{snappMap.uuid}">{snappMap.name}</a>
+            <ul>
+                <li><HeartIcon></HeartIcon>15</li>
+                <li><TomatoIcon></TomatoIcon>9</li>
+                <li><StarIcon></StarIcon>2</li>
+            </ul>
+        </div>
         <ul>
-            <li><HeartIcon></HeartIcon>15</li>
-            <li><TomatoIcon></TomatoIcon>9</li>
-            <li><StarIcon></StarIcon>2</li>
+            <li><GalleryIcon></GalleryIcon>{snappMap.snaps.length}</li>
+            {#each snappMap.snaps.slice(0, 4) as snap, i}
+        <li>
+                    <img
+                        src={'https://fdnd-agency.directus.app/assets/' +
+                            snap.picture +
+                            '?width=200&height=200&format=webp'}
+                        height="200"
+                        width="200"
+                        alt="" />
+        </li>
+            {/each}
         </ul>
-    </div>
-    <ul>
-        <li><GalleryIcon></GalleryIcon>{snappMap.snaps.length}</li>
-        {#each snappMap.snaps.slice(0, 4) as snap, i}
-            <li>
-                <img
-                    src={'https://fdnd-agency.directus.app/assets/' +
-                        snap.picture +
-                        '?width=200&height=200&format=webp'}
-                    height="200"
-                    width="200"
-                    alt="" />
-            </li>
-        {/each}
-    </ul>
-</li>
+    </li>
+</ul>
 
 <style>
     * {
