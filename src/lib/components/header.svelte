@@ -12,30 +12,30 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
 
     export let title = 'SnappThis';
-    import color;
+    export let page;
 </script>
 
 <header class="header">
 
-    <div class="left-icon">
-        // the go back button should always have the previous page and it only shows if you are able to navigate back to the previous page
-        <GobackIcon 
-        href={"/"}/>
+    <div class="left-icon-{page}">
+        <div class="icon-1">
+            <GobackIcon 
+            href={"/"}/>
+        </div>
     </div>
 
     <h1>{title}</h1>
 
-    <div class="right-icon">
-        // the right icon should show one of these icons which is determined by the page where you are on
-        <Settings />
-        <Add />
-
-        // the grid states is determined by the grid state binding action on the page.svelte
-        <GridTwo color={white}/>
-        <GridThree />
-        <GridFour />
-        <GridFive />
-        <ListView />
+    <div class="right-icon-{page}">
+        <div class="icon-2">
+            <Settings />
+        </div>
+        <div class="icon-3">
+            <Add />
+        </div>
+        <div class="icon-4">
+            <GridTwo />
+        </div>
     </div>
 
 </header>
@@ -64,48 +64,32 @@
         }
     }
 
-    .layout-icon-grid2 {
-        svg {
+    .left-icon-home {
+        div {
             display: none;
-        }
-        svg:nth-last-of-type(1) {
-            display: block
         }
     }
 
-    .layout-icon-grid3 {
-        svg {
+    .right-icon-home {
+        div {
             display: none;
-        }
-        svg:nth-last-of-type(2) {
-            display: block
         }
     }
 
-    .layout-icon-grid4 {
-        svg {
-            display: none;
-        }
-        svg:nth-last-of-type(3) {
-            display: block
+    .left-icon-user {
+        div {
+            display: block;
         }
     }
 
-    .layout-icon-grid5 {
-        svg {
+    .right-icon-user {
+        div {
             display: none;
         }
-        svg:nth-last-of-type(4) {
-            display: block
+
+        div:nth-last-of-type(2) {
+            display: block;
         }
     }
 
-    .layout-icon-list {
-        svg {
-            display: none;
-        }
-        svg:nth-last-of-type(5) {
-            display: block
-        }
-    }
 </style>

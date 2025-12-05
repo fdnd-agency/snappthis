@@ -7,7 +7,7 @@
     let { children } = $props()
 </script>
 
-<Header />
+
 
 {@render children?.()}
 
