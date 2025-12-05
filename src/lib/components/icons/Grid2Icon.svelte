@@ -1,8 +1,12 @@
+<script>
+    export let color;
+</script>
+
 <svg
     width="37"
     height="36"
     viewBox="0 0 37 36"
-    fill="none"
+    fill="{color}"
     xmlns="http://www.w3.org/2000/svg">
     <path
         fill-rule="evenodd"

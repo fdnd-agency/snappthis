@@ -4,7 +4,7 @@
     let { data } = $props()
     const snaps = data.snaps[0].snaps
     const id = data.id
-    let gridsize = $state('grid1')
+    let gridsize = $state('grid2')
 
     const snapMap = data.snaps?.[0]
     import Header from '$lib/components/Header.svelte'
@@ -17,6 +17,8 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
+
+    export let gridsize;
 </script>
 
 <svelte:head>
