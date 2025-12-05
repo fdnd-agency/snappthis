@@ -17,7 +17,7 @@
     }
 
     onMount(() => {
-        tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: true});
+        tl = gsap.timeline({ defaults: { duration: 0.2 }, paused: false});
 
         tl.set(".view-transition", { y: "200vh", x: "-100vw" })
 
@@ -60,7 +60,6 @@
         left: 0;
         z-index: 7;
         overflow: hidden;
-        opacity: 0;
         pointer-events: none;
     }
 
