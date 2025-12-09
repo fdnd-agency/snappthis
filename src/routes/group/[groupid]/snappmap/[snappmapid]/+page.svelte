@@ -45,6 +45,10 @@
         background-color: var(--dark-blue);
     }
 
+    .active-icon {
+        height: 100%;
+    }
+
     header {
         height: 10%;
     }
