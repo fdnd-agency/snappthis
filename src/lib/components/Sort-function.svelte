@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte'
     import FavIcon from './icons/FavIcon.svelte'
+    import ArrowUp from './icons/Arrow.svelte'
 
     export let text;
 </script>
@@ -10,7 +11,9 @@
         <img src="{svg-file}" alt="{svg-name}">
     </div>
 
-    <p> {text} </p>
+    <div class="arrow">
+        
+    </div>
 </div>
 
 <style>
