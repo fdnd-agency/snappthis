@@ -13,8 +13,6 @@
     import SearchIcon from './icons/SearchIcon.svelte'
     import UserIcon from './icons/UserIcon.svelte'
 
-
-
     export let page
     export let title = "SnappMap"
 </script>
@@ -62,34 +60,26 @@
 
 
 <style>
-    .header {
+    header {
         background-color: var(--primary-color);
         color: var(--neutral-color-100);
-        height: 9%;
-        width: 100%;
+        width: 100vw;
+        height: 75px;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        position: sticky;
-    }
-
-    .sidebar {
         position: fixed;
-        height: 100vh;
-        width: 15vw;
-        background-color: var(--primary-color);
+
+        @media (width > 720px) {
+            height: 100px;
+        }
     }
 
-    .dropdown-settings {
-        position: absolute;
-        top: 10%;
-        background-color: var(--neutral-color-lighter);
-        list-style: none;
-        padding: 1em;
-
-        li {
-            padding: 1em;
+    h1 {
+        @media (width > 720px) {
+            height: 75px;
         }
+
     }
 
     .left-icon-home {
@@ -115,18 +105,18 @@
             display: none;
         }
 
-        div:nth-last-of-type(2) {
+    div:nth-last-of-type(2) {
             display: block;
         }
     }
 
-    .left-icon-explore {
+    .left-icon-snappmap {
         div {
             display: none;
         }
     }
 
-    .right-icon-explore {
+    .right-icon-snappmap {
         div {
             display: none;
         }
@@ -136,17 +126,12 @@
         }
     }
 
-    * {
-        box-sizing: border-box;
-    }
-
     nav {
-        background-color: #172f3b;
-        color: white;
+        position: fixed;
+        top: 8%;
+        color: var(--neutral-color-lightest);
         padding: 1rem;
-        top: 0;
-        left: 0;
-        right: 0;
+        gap: 2em;
         display: flex;
         justify-content: space-around;
         margin-inline: auto;
@@ -156,36 +141,17 @@
     nav a {
         display: flex;
         flex-direction: column;
+        height: 1em;
+        width: 1em;
+
         align-items: center;
-        gap: 0.35rem;
-
-        color: white;
-        text-decoration: none;
-    }
-
-    @media (width > 600px) {
-        nav a {
-            flex-direction: row;
-        }
+        color: var(--neutral-color-100);
+        flex-direction: row;
     }
 
     @media (width < 720px) {
         nav {
             display: none;
         }
-    }
-
-    nav a :global(svg) {
-        height: 1.5em;
-    }
-
-    nav a:hover,
-    nav a:active {
-        text-decoration: underline;
-        text-underline-offset: 2px;
-    }
-
-    nav a.active {
-        color: var(--accent-green);
     }
 </style>

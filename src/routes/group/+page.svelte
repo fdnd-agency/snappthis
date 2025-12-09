@@ -13,7 +13,7 @@
     <title>Your Groups</title>
 </svelte:head>
 
-<Header page="add"/>
+<Header page="add" />
 
 <main>
     <div>

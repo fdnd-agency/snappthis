@@ -1,5 +1,4 @@
 <script>
-    import Header from '$lib/components/header.svelte'
     import favicon from '$lib/assets/favicon.svg'
     import NavBar from '$lib/components/NavBar.svelte'
     import { page } from '$app/state';
