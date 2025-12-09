@@ -21,7 +21,7 @@
         </div>
 
         <div class="layout-navigation">
-            <Card text="large"/>
+            <Card text="large" icon="small"/>
             <Card text="medium"/>
             <Card text="small"/>
             <Card text="list" />

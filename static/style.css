@@ -72,6 +72,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    font-family: 'Bariol Bold', Arial, Helvetica, sans-serif;
 }
 
 body {

@@ -17,6 +17,7 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
+    import Sidebar from '$lib/components/Sidebar.svelte'
 
     export let gridsize;
 </script>
@@ -28,63 +29,7 @@
 <Header page="snappmap" />
 
 <main>
-    <div class="layout-navigation">
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid1"
-                bind:group={gridsize} />
-            <GridOne />
-            <p>One-Column</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid2"
-                bind:group={gridsize} />
-            <GridTwo />
-            <p>XLarge</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid3"
-                bind:group={gridsize} />
-            <GridThree />
-            <p>Large</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid4"
-                bind:group={gridsize} />
-            <GridFour />
-            <p>Medium</p>
-        </label>
-        <label>
-            <input
-                type="radio"
-                name="settings"
-                value="grid5"
-                bind:group={gridsize} />
-            <GridFive />
-            <p>Small</p>
-        </label>
-        <label>
-            <input
-                class="listradio"
-                type="radio"
-                name="settings"
-                value="list"
-                bind:group={gridsize} />
-            <ListView />
-            <p>List</p>
-        </label>
-    </div>
+    <Sidebar group="{snapMap.group}"/>
 
     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
