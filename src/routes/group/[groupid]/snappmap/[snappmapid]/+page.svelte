@@ -25,6 +25,8 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
+<Header />
+
 <main>
     <div class="layout-navigation">
         <label>
