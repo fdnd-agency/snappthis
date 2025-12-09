@@ -8,8 +8,9 @@
     let { data } = $props()
     const user = data.user
 </script>
-<Header page="add"/>
+<Header page="add" title="You"/>
 
+<main>
 <section class="user-info">
     <h1>{user.name}</h1>
 
@@ -31,6 +32,7 @@
         <li><StarIcon></StarIcon> 21 stars</li>
     </ul>
 </section>
+</main>
 
 <style>
     h1,

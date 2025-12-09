@@ -13,7 +13,7 @@
     <title>Your Groups</title>
 </svelte:head>
 
-<Header page="add" />
+<Header page="add" title="Groups"/>
 
 <main>
     <div>
@@ -50,37 +50,9 @@
 
 <style>
     /* Header styles */
-    header {
-        background-color: var(--primary-color);
-        width: 100%;
-        color: var(--neutral-color-lightest);
-        font-family: 'Bariol';
-    }
-
-    h1 {
-        font-size: clamp(1.5rem, 1.3rem + 1.15vw, 2rem);
-    }
-
-    header a {
-        color: var(--neutral-color-lightest);
-        text-decoration: none;
-    }
-
-    header a :global(svg) {
-        height: 1.25em;
-    }
-
-    header > div,
     main > div {
         max-width: 1000px;
         margin-inline: auto;
-    }
-
-    header > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-inline: 1rem;
     }
 
     /* Main styles */

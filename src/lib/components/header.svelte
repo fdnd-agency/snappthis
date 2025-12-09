@@ -17,7 +17,8 @@
     export let title = "SnappMap"
 </script>
 
-<header class="header">
+<header>
+    <div class="header-block">
     <nav>
         <a href="/" class={page === '/' ? 'active' : ''}>
             <LogoIcon />
@@ -56,23 +57,36 @@
             <Dropdown />
         </div>
     </div>
+    </div>
 </header>
 
 
+
 <style>
+
     header {
+        height: 80px;
+        width: 100%;
+
+        @media (width > 720px) {
+            height: 105px;
+        }
+    }
+    .header-block {
         background-color: var(--primary-color);
         color: var(--neutral-color-100);
         width: 100vw;
-        height: 75px;
+        height: 80px;
         display: flex;
         justify-content: space-around;
         align-items: center;
         position: fixed;
 
         @media (width > 720px) {
-            height: 100px;
+            height: 105px;
         }
+
+
     }
 
     h1 {

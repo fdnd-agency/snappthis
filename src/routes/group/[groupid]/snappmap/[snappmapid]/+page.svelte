@@ -25,7 +25,7 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap"/>
+<Header page="snappmap" icon="snappmap" title="{snapMap.name}"/>
 
 <main>
     <Sidebar group="{snapMap.group}"/>

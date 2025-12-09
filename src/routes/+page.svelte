@@ -8,9 +8,11 @@
 
 <Header page="home"/>
 
-{#each snappMaps as snappMap}
-    <SnappMapPreview {snappMap}></SnappMapPreview>
-{/each}
+<main>
+    {#each snappMaps as snappMap}
+        <SnappMapPreview {snappMap}></SnappMapPreview>
+    {/each}
+</main>
 
 <style>
     h1 {
