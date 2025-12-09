@@ -37,22 +37,6 @@
     </div>
 </header>
 
-<div class="side-bar">
-    <Card text={group}/>
-
-        <div class="sort-function">
-            <SortCard icon="clock"/>
-            <SortCard icon="star" />
-            <SortCard icon="tomato" />
-        </div>
-
-        <div class="layout-navigation">
-            <Card text="large"/>
-            <Card text="medium"/>
-            <Card text="small"/>
-            <Card text="list" />
-        </div>
-</div>
 
 <style>
     .header {

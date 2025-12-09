@@ -30,9 +30,12 @@
 
 <style>
     .sidebar {
-        position: fixed;
         height: 100vh;
-        width: 15vw;
-        background-color: var(--primary-color);
+        padding: 0.5em;
+        color: var(--primary-color);
+    }
+
+    .sort-function {
+        display: flex;
     }
 </style>
