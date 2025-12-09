@@ -153,6 +153,10 @@
 
 
     nav a {
+        color: var(--neutral-color-lightest);
+        font-family: 'Bariol Bold';
+        height: 10%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         height: 1em;

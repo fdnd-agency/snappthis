@@ -28,8 +28,8 @@
     }
 
     nav {
-        background-color: #172f3b;
-        color: white;
+        background-color: var(--primary-color);
+        color: var(--neutral-color-lightest);
         padding: 1rem;
         position: fixed;
         bottom: 0;
@@ -50,7 +50,7 @@
         align-items: center;
         gap: 0.35rem;
 
-        color: white;
+        color: var(--neutral-color-lightest);
         text-decoration: none;
         font-family: 'Bariol';
     }
@@ -78,6 +78,6 @@
     }
 
     nav a.active {
-        color: var(--accent-green);
+        color: var(--secondary-color);
     }
 </style>
