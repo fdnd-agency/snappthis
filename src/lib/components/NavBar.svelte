@@ -61,7 +61,7 @@
         }
     }
 
-    @media (width > 600px) {
+    @media (width > 720px) {
         nav {
             display: none;
         }
