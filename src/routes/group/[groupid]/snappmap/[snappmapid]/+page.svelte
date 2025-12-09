@@ -7,7 +7,6 @@
     let gridsize = $state('grid2')
 
     const snapMap = data.snaps?.[0]
-    import Header from '$lib/components/Header.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -19,45 +18,34 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
-    import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+    import { Canvas } from '@threlte/core'
+    import Scene from '$lib/components/threlthe/active-planet.svelte'
+
 </script>
 
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap" title="{snapMap.name}"/>
-
+<header>
+    <div class="active-icon"></div>
+    <Canvas>
+         <Scene />
+    </Canvas>
+</header>
 <main>
-    <Sidebar group="{snapMap.group}"/>
 
-    <div class="sidebar">
-        <LayoutNavigation />
-    </div>
-
-    <div class="content">
-    </div>
 </main>
 
 <style>
+    :root {
+        --dark-blue: #0d0f25;
+    }
     main {
-        margin-bottom: 5%;
-        display: grid;
-        grid-template-columns: 20% 80%;
-        font-family: 'Bariol Bold';
-
-        @media (max-width: 720px) {
-            grid-template-columns: 1fr;
-        }
+        background-color: var(--dark-blue);
     }
 
-    .sidebar {
-        background-color: var(--neutral-color-light);
-        height: 100vh;
-        width: fit-content;
-
-        @media (max-width: 720px) {
-            display: none;
-        }
+    header {
+        height: 10%;
     }
 </style>

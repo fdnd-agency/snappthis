@@ -3,15 +3,15 @@
     import GalleryIcon from '../../lib/components/icons/GalleryIcon.svelte'
     import GroupIcon from '../../lib/components/icons/GroupIcon.svelte'
     import StarIcon from '../../lib/components/icons/StarIcon.svelte'
-    import Header from '$lib/components/header.svelte'
 
 
     let { data } = $props()
     const user = data.user
 </script>
-<Header page="add" title="You"/>
 
-<main>
+<Header page="add"/>
+
+
 <section class="user-info">
     <h1>{user.name}</h1>
 
@@ -33,8 +33,6 @@
         <li><StarIcon></StarIcon> 21 stars</li>
     </ul>
 </section>
-</main>
-
 <style>
     h1,
     li {
