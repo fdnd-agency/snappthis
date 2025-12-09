@@ -15,6 +15,7 @@
 
 <Header page="add" />
 
+<Header title="Groups" />
 <main>
     <div>
         <ul>
