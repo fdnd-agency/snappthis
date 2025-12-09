@@ -3,7 +3,7 @@
     const snappDetail = data.snappDetails
 </script>
 
-<h1>Snap Detail</h1>
+<Header name="snappmap"/>
 <h2>{snappDetail.snapmap.name}</h2>
 
 <section class="content-holder">

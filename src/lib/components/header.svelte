@@ -1,5 +1,4 @@
 <script>
-
     // icons
     import GobackIcon from "./icons/GobackIcon.svelte";
 
@@ -12,7 +11,6 @@
 </script>
 
 <header class="header">
-
     <div class="left-icon-{page}">
         <div class="icon-1">
             <GobackIcon 
@@ -30,11 +28,22 @@
             <Add />
         </div>
         <div class="icon-4">
-            <GridTwo />
+            <Dropdown />
         </div>
     </div>
-
 </header>
+
+<div class="side-bar">
+    <Card text={group}/>
+
+        <div class="sort-function">
+
+        </div>
+
+        <div class="layout-navigation">
+
+        </div>
+</div>
 
 <style>
     .header {
@@ -72,13 +81,13 @@
         }
     }
 
-    .left-icon-user {
+    .left-icon-add {
         div {
             display: block;
         }
     }
 
-    .right-icon-user {
+    .right-icon-add {
         div {
             display: none;
         }
@@ -88,4 +97,19 @@
         }
     }
 
+    .left-icon-explore {
+        div {
+            display: none;
+        }
+    }
+
+    .right-icon-explore {
+        div {
+            display: none;
+        }
+
+        div:nth-last-of-type(1) {
+            display: block;
+        }
+    }
 </style>
