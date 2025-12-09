@@ -6,8 +6,8 @@
 </script>
 
 <div class="card">
-    <div class="icon">
-        <img src="{svg-file}" alt="{svg-name}">
+    <div class="card-{icon}">
+        
     </div>
 
     <p> {text} </p>
