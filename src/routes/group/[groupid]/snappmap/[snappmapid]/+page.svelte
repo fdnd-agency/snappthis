@@ -28,10 +28,13 @@
 </svelte:head>
 
 <header>
-    <div class="active-icon"></div>
-    <Canvas>
-         <Scene />
-    </Canvas>
+    <div class="title-block">
+        <p> {snapMap.name} </p>
+
+    </div>
+    <div class="active-icon">
+        <!-- threlte obj -->
+    </div>
 </header>
 <main>
 
@@ -47,6 +50,7 @@
 
     .active-icon {
         height: 100%;
+        width: 100%;
     }
 
     header {
