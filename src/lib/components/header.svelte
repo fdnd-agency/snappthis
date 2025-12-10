@@ -17,6 +17,7 @@
     export let title = "SnappMap"
 </script>
 
+
 <header class="header">
     <nav>
         <a href="/" class={page === '/' ? 'active' : ''}>
@@ -58,8 +59,21 @@
     </div>
 </header>
 
+<div class="header-block">
+
+</div>
+
 
 <style>
+
+    .header-block {
+        height: 75px;
+
+        @media (width > 720px) {
+            height: 100px;
+        }
+    }
+
     header {
         background-color: var(--primary-color);
         color: var(--neutral-color-100);
