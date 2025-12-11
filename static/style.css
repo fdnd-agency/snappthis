@@ -70,6 +70,8 @@
 
 body {
     margin: 0px ;
+    background-color: rgb(5, 5, 42);
+    height: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
