@@ -23,6 +23,8 @@
     import SearchIcon from '$lib/components/icons/SearchIcon.svelte'
     import UserIcon from '$lib/components/icons/UserIcon.svelte'
 
+    import Dropdown from '$lib/components/icons/Dropdown.svelte'
+
 </script>
 
 <svelte:head>
@@ -51,6 +53,10 @@
             <UserIcon />
         </div>
     </nav>
+
+    <div class="dropdown-block">
+         <Dropdown />
+    </div>
 </header>
 
 </div>
@@ -67,6 +73,14 @@
         background-color: var(--dark-blue);
     }
 
+    header {
+        display: flex;
+        height: 100px;
+        width: 100vw;
+        gap: 4em;
+        align-items: center;
+    }
+
     .title-block {
         padding: 1em;
         height: fit-content;
@@ -77,9 +91,30 @@
         left: 1em;
     }
 
-    .active-icon {
-        height: 100%;
-        width: 100%;
+    nav {
+        display: flex;
+        gap: 2em;
+        margin-top: 2em;
+        color: var(--neutral-color-darkest);
+    }
+
+    .navigation-sphere {
+        background-color: var(--grey);
+        padding: 1em;
+        height: 3em;
+        width: 3em;
+        border-radius: 999px;
+        background: radial-gradient(circle at center, white 0, black 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dropdown-block {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        color: var(--neutral-color-darkest);
     }
 
     header {
