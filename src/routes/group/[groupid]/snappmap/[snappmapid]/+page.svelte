@@ -18,34 +18,63 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
-    import { Canvas } from '@threlte/core'
-    import Scene from '$lib/components/threlthe/active-planet.svelte'
+    import GroupIcon from '$lib/components/icons/GroupIcon.svelte'
+    import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
+    import SearchIcon from '$lib/components/icons/SearchIcon.svelte'
+    import UserIcon from '$lib/components/icons/UserIcon.svelte'
 
 </script>
 
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
+<div class="page">
 
 <header>
     <div class="title-block">
         <p> {snapMap.name} </p>
+    </div>
+    <nav>
+        <div class="navigation-sphere">
+            <LogoIcon />
+        </div>
 
-    </div>
-    <div class="active-icon">
-        <!-- threlte obj -->
-    </div>
+        <div class="navigation-sphere">
+            <SearchIcon />
+        </div>
+
+        <div class="navigation-sphere">
+            <GroupIcon />
+        </div>
+
+        <div class="navigation-sphere">
+            <UserIcon />
+        </div>
+    </nav>
 </header>
-<main>
 
-</main>
+</div>
 
 <style>
     :root {
-        --dark-blue: #0d0f25;
+        --dark-blue: #1d2152;
+        --grey: #7a7a7a;
     }
-    main {
+
+    .page {
+        margin: 0;
+        height: 100vh;
         background-color: var(--dark-blue);
+    }
+
+    .title-block {
+        padding: 1em;
+        height: fit-content;
+        width: fit-content;
+        background-color: var(--grey);
+        position: relative;
+        top: 1em;
+        left: 1em;
     }
 
     .active-icon {
