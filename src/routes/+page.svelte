@@ -36,6 +36,7 @@ div {
     animation: splat 1.5s;
     transition: easeOutBack;
     opacity: 0;
+    animation-delay: calc( .5s + (.15s * sibling-index()));
 
     &:nth-of-type(1) {
         top: 2.5em;
