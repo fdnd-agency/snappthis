@@ -5,6 +5,19 @@
     // const snappMaps = data.snappMaps
 </script>
 
+<main>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</main>
 
 <!-- <h1>SnappMap Overview</h1> -->
 
