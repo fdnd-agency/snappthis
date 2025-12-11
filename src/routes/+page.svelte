@@ -33,6 +33,9 @@ div {
     height: 10em;
     width: 10em;
     border-radius: 5em;
+    animation: splat 1.5s;
+    transition: easeOutBack;
+    opacity: 0;
 
     &:nth-of-type(1) {
         top: 2.5em;
@@ -41,6 +44,7 @@ div {
         width: 25em;
         border-radius: 12.5em;
         z-index: 1;
+        animation: splash 3s;
     }
 
     &:nth-of-type(2) {
@@ -95,6 +99,52 @@ div {
         border-radius: 3.5em;
     }
 }
+
+/* ANIMATIE - KLEINE BLOBJES */
+@keyframes splat {
+    0% {
+        corner-shape: round;
+        opacity: 0;
+    }
+
+    10% {
+        corner-shape: round;
+        opacity: 1;
+    }
+
+    90% {
+        corner-shape: notch;
+        opacity: 30%;
+    }
+
+    100% {
+        corner-shape: notch;
+        opacity: 0;
+    }
+}
+
+/* ANIMATIE - GROTE BLOB */
+@keyframes splash {
+    0% {
+        corner-shape: round;
+        opacity: 1;
+    }
+
+    20% {
+        corner-shape: round;
+    }
+
+    85% {
+        corner-shape: notch;
+        opacity: 0;
+    }
+
+    100% {
+        corner-shape: notch;
+        opacity: 0;
+    }
+}
+
 
 </style>
 
