@@ -8,7 +8,7 @@
 
 {@render children?.()}
 
-<NavBar page={page.url.pathname}></NavBar>
+<!-- <NavBar page={page.url.pathname}></NavBar> -->
 
 <style>
     @import url('https://fonts.cdnfonts.com/css/bariol-bold');
