@@ -71,7 +71,7 @@
 body {
     margin: 0px ;
     background-color: rgb(5, 5, 42);
-    height: 100%;
+    height: 100vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {

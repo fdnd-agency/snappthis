@@ -90,6 +90,11 @@ for(let i = 0; i < starsFraction; i++) {
          <Dropdown />
     </div>
 </header>
+<main>
+   {#each snaps as snap}
+    <h1>{snap.location}</h1>
+   {/each}
+</main>
 
 <style>
     :root {
