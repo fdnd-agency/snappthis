@@ -91,25 +91,24 @@ for(let i = 0; i < starsFraction; i++) {
     </div>
 </header>
 <main>
-    <ul>
-   {#each snaps as snap}
-   <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
-    <h2 class="author">{snap.author}</h2>
-    <h3 class="location">{snap.location}</h3>
-   {/each}
-   </ul>
+    <div class="curved-panel"> 
+        <div class="curved-class">
+            <ul>
+            {#each snaps as snap}
+                <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
+                <figure></figure>
+                <h2 class="author">{snap.author}</h2>
+                <h3 class="location">{snap.location}</h3>
+            {/each}
+            </ul>
+        </div>
+   </div>
 </main>
 
 <style>
     :root {
         --dark-blue: #1d2152;
         --grey: #7a7a7a;
-    }
-
-    .page {
-        margin: 0;
-        height: 100vh;
-        background-color: var(--dark-blue);
     }
 
     header {
@@ -159,4 +158,15 @@ for(let i = 0; i < starsFraction; i++) {
     header {
         height: 10%;
     }
+
+    figure {
+    background: radial-gradient(circle at center, white 0, black 100%); 
+  opacity: 0.7;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  right: 40px;
+  bottom: 70px;
+  border-radius: 999px;
+}
 </style>
