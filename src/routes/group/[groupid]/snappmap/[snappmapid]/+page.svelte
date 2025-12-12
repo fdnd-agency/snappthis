@@ -91,9 +91,13 @@ for(let i = 0; i < starsFraction; i++) {
     </div>
 </header>
 <main>
+    <ul>
    {#each snaps as snap}
-    <h1>{snap.location}</h1>
+   <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
+    <h2 class="author">{snap.author}</h2>
+    <h3 class="location">{snap.location}</h3>
    {/each}
+   </ul>
 </main>
 
 <style>
