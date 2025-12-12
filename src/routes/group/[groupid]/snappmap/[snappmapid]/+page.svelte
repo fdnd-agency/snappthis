@@ -1,5 +1,9 @@
 <script>
     import { page } from '$app/state'
+    import gsap from "https://esm.sh/gsap";
+    import { MotionPathPlugin } from "https://esm.sh/gsap/MotionPathPlugin";
+
+    gsap.registerPlugin(MotionPathPlugin);
 
     let { data } = $props()
     const snaps = data.snaps[0].snaps
@@ -47,7 +51,7 @@ for(let i = 0; i < starsFraction; i++) {
     
   // Add them to the body
   const star = document.createElement('div');
-  star.style.position = 'relative';
+  star.style.position = 'fixed';
   star.style.left = xPos + '%';
   star.style.top = yPos + '%';
   star.style.opacity = alpha;
@@ -95,17 +99,20 @@ for(let i = 0; i < starsFraction; i++) {
         <div class="curved-track">
             <ul>
             {#each snaps as snap}
+            <li>
                 <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
                 <figure></figure>
+            </li>
             {/each}
+             </ul>
 
 
             <!-- must show the details when the planet is in focus state -->
-            {#each snaps as snap}
-                <h2 class="author">{snap.author}</h2>
-                <h3 class="location">{snap.location}</h3>
-            {/each}
-            </ul>
+             <div class="block">
+                <h2>User</h2>
+                <h3>Location</h3>
+            </div>
+           
         </div>
    </div>
 </main>
@@ -170,21 +177,22 @@ for(let i = 0; i < starsFraction; i++) {
 
     img {
         border-radius: 999px;
+        z-index: 99;
     }
 
     figure {
-        background: radial-gradient(circle at center, white 0, black 100%); 
-        opacity: 0.7;
         height: 200px;
         width: 200px;
+        box-shadow: inset 0 0 25px #000000;
+        border-radius: 999px;
         position: relative;
         right: 40px;
         bottom: 221px;
-        border-radius: 999px;
+
     }
 
 .curved-panel::before {
-    content: "";
+    content: "ellow";
     position: absolute;
     left: 0;
     right: 0;
@@ -201,8 +209,9 @@ ul {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 10px 6px 20px 6px;
     align-items: center;
+    margin-top: 10%;
+    animation: floating 10s infinite;
 }
 
 .curved-track::-webkit-scrollbar {
@@ -211,16 +220,25 @@ ul {
 
     li {
         flex: 0 0 260px;
-        height: 360px;
+        margin-top: 4em;
+        height: fit-content;
         border-radius: 14px;
-        overflow: hidden;
         scroll-snap-align: center;
-        box-shadow: 0px 10px 30px black;
         position: relative;
+
+        &:hover {
+            scale: 1.25;
+            transition-duration: 0.3s;
+        }
     }
 
 
     img:hover {
+        transform: scale(1.15);
+        transition-duration: 0.3s;
+    }
+
+    img:checked {
         transform: scale(1.15);
         transition-duration: 0.3s;
     }
@@ -252,4 +270,32 @@ ul {
         opacity: 0.2;
         cursor: default;
     }
+
+    .block {
+        color: white;
+
+        h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        h3 {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0em);
+    }
+
+    20%, 60%, 90% {
+        transform: translateY(-2em);
+    }
+
+    40%, 80% {
+        transform: translateY(0.1em);
+    }
+}
 </style>
