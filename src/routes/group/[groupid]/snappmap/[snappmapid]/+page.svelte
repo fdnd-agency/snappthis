@@ -92,11 +92,16 @@ for(let i = 0; i < starsFraction; i++) {
 </header>
 <main>
     <div class="curved-panel"> 
-        <div class="curved-class">
+        <div class="curved-track">
             <ul>
             {#each snaps as snap}
                 <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
                 <figure></figure>
+            {/each}
+
+
+            <!-- must show the details when the planet is in focus state -->
+            {#each snaps as snap}
                 <h2 class="author">{snap.author}</h2>
                 <h3 class="location">{snap.location}</h3>
             {/each}
@@ -148,6 +153,10 @@ for(let i = 0; i < starsFraction; i++) {
         align-items: center;
     }
 
+    .navigation-sphere:nth-of-type(1) {
+        scale: 1.25;
+    }
+
     .dropdown-block {
         position: absolute;
         right: 25px;
@@ -159,14 +168,88 @@ for(let i = 0; i < starsFraction; i++) {
         height: 10%;
     }
 
+    img {
+        border-radius: 999px;
+    }
+
     figure {
-    background: radial-gradient(circle at center, white 0, black 100%); 
-  opacity: 0.7;
-  height: 50px;
-  width: 50px;
-  position: relative;
-  right: 40px;
-  bottom: 70px;
-  border-radius: 999px;
+        background: radial-gradient(circle at center, white 0, black 100%); 
+        opacity: 0.7;
+        height: 200px;
+        width: 200px;
+        position: relative;
+        right: 40px;
+        bottom: 221px;
+        border-radius: 999px;
+    }
+
+.curved-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -42px;
+    height: 120px;
+    pointer-events: none;
+    opacity: 80%;
+    transform: translateY(8px);
 }
+
+ul {
+    display: flex;
+    gap: 2em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 10px 6px 20px 6px;
+    align-items: center;
+}
+
+.curved-track::-webkit-scrollbar {
+    display: none;
+}
+
+    li {
+        flex: 0 0 260px;
+        height: 360px;
+        border-radius: 14px;
+        overflow: hidden;
+        scroll-snap-align: center;
+        box-shadow: 0px 10px 30px black;
+        position: relative;
+    }
+
+
+    img:hover {
+        transform: scale(1.15);
+        transition-duration: 0.3s;
+    }
+
+    .curved-track::scroll-button(*) {
+        position: fixed;
+        position-anchor: auto;
+        cursor: pointer;
+        width: 2em;
+        height: 2em;
+        display: grid;
+        place-items: center;
+        z-index: 30;
+    }
+
+    .curved-track::scroll-button(left) {
+        content: "<";
+        position-area: left-center;
+        translate: -58% 0%;
+    }
+
+    .curved-track::scroll-button(right) {
+        content: ">";
+        position-area: right-center;
+        translate: 58% 0%;
+    }
+
+    .curved-track::scroll-button(*):disabled {
+        opacity: 0.2;
+        cursor: default;
+    }
 </style>
