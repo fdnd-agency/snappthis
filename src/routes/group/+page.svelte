@@ -1,4 +1,5 @@
 <script>
+    import Header from '$lib/components/Header.svelte'
     import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte'
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
     import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
@@ -12,14 +13,7 @@
     <title>Your Groups</title>
 </svelte:head>
 
-<header>
-    <div>
-        <a href="/"><ArrowLeftIcon title="back"></ArrowLeftIcon></a>
-        <h1>Your Groups</h1>
-        <a href="/"><PlusIcon title="Add group"></PlusIcon></a>
-    </div>
-</header>
-
+<Header title="Groups" />
 <main>
     <div>
         <ul>
@@ -58,7 +52,7 @@
     header {
         background-color: var(--primary-color);
         width: 100%;
-        color: white;
+        color: var(--neutral-color-lightest);
         font-family: 'Bariol';
     }
 
@@ -67,7 +61,7 @@
     }
 
     header a {
-        color: white;
+        color: var(--neutral-color-lightest);
         text-decoration: none;
     }
 
@@ -104,7 +98,7 @@
     .group {
         list-style: none;
         padding: 1em;
-        border-bottom: 2px solid #e9ecee;
+        border-bottom: 2px solid var(--neutral-color-lightest);
         display: grid;
         grid-template-areas:
             'title link'
@@ -124,7 +118,7 @@
     .group > p {
         grid-area: members;
         margin: 0;
-        color: var(--primary-color-30);
+        color: var(--primary-color-light);
     }
 
     .options {
@@ -135,7 +129,7 @@
     }
 
     .options a {
-        color: var(--primary-color-30);
+        color: var(--primary-color-light);
     }
 
     .options a :global(svg) {
