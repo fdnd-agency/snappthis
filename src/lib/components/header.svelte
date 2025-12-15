@@ -20,19 +20,19 @@
 
 <header class="header">
     <nav>
-        <a href="/" class={page === '/' ? 'active' : ''}>
+        <a href="/" aria-label="Home icon" class={page === '/' ? 'active' : ''}>
             <LogoIcon />
         </a>
 
-        <a href="/explore" class={page.startsWith('/explore') ? 'active' : ''}
+        <a href="/explore" aria-label="Search Icon" class={page.startsWith('/explore') ? 'active' : ''}
             ><SearchIcon/>
         </a>
 
-        <a href="/group" class={page.startsWith('/group') ? 'active' : ''}
+        <a href="/group" aria-label="Group Icon" class={page.startsWith('/group') ? 'active' : ''}
             ><GroupIcon/>
         </a>
 
-        <a href="/user" class={page.startsWith('/user') ? 'active' : ''}
+        <a href="/user" aria-label="User icon" class={page.startsWith('/user') ? 'active' : ''}
             ><UserIcon/>
         </a>
     </nav>
