@@ -1,11 +1,14 @@
 <script>
     import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
+    import LogoAnimation from '$lib/components/Logo-animation.svelte';
 
     let { data } = $props()
     const snappMaps = data.snappMaps
 </script>
 
-<h1>SnappMap Overview</h1>
+<LogoAnimation />
+
+<!-- <h1>SnappMap Overview</h1>
 
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap}></SnappMapPreview>
@@ -17,4 +20,4 @@
         margin: 2rem auto;
         width: max-content;
     }
-</style>
+</style> -->
