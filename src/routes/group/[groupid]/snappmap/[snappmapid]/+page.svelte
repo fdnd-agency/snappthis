@@ -29,7 +29,6 @@
 <Header page="snappmap" icon="snappmap"/>
 
 <main>
-    <Sidebar group="{snapMap.group}"/>
 
     <div class="sidebar">
         <LayoutNavigation />

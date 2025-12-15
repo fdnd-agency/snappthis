@@ -4,12 +4,13 @@
 
     let { data } = $props()
     const snappMaps = data.snappMaps
+    const groups = data.groups
 </script>
 
 <Header page="home"/>
 
 {#each snappMaps as snappMap}
-    <SnappMapPreview {snappMap}></SnappMapPreview>
+    <SnappMapPreview {snappMap} {groups}></SnappMapPreview>
 {/each}
 
 <style>

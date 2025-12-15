@@ -20,20 +20,20 @@
 
 <header class="header">
     <nav>
-        <a href="/" aria-label="Home icon" class={page === '/' ? 'active' : ''}>
+        <a href="/" aria-label="Home icon" class="active-{page}">
             <LogoIcon />
         </a>
 
-        <a href="/explore" aria-label="Search Icon" class={page.startsWith('/explore') ? 'active' : ''}
-            ><SearchIcon/>
+        <a href="/explore" aria-label="Search Icon" class="active-{page}">
+            <SearchIcon/>
         </a>
 
-        <a href="/group" aria-label="Group Icon" class={page.startsWith('/group') ? 'active' : ''}
-            ><GroupIcon/>
+        <a href="/group" aria-label="Group Icon" class="active-{page}">
+            <GroupIcon/>
         </a>
 
-        <a href="/user" aria-label="User icon" class={page.startsWith('/user') ? 'active' : ''}
-            ><UserIcon/>
+        <a href="/user" aria-label="User icon" class="active-{page}">
+            <UserIcon/>
         </a>
     </nav>
 
@@ -167,9 +167,21 @@
         flex-direction: row;
     }
 
+    nav a.active {
+        color: var(--secondary-color);
+    }
+
     @media (width < 720px) {
         nav {
             display: none;
         }
+    }
+
+    .active-snappmapp{
+         color: var(--secondary-color);
+    }
+
+    .active-add ~ nav:nth-of-type(4){
+         color: var(--secondary-color);
     }
 </style>
