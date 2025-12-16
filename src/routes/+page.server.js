@@ -7,7 +7,8 @@ export async function load({ url }) {
         'https://fdnd-agency.directus.app/items/snappthis_group'
     ).then((response) => response.json())
 
-    return { snappMaps: snappMaps.data,
+    return {
+        snappMaps: snappMaps.data,
         groups: groups.data
      }
 }

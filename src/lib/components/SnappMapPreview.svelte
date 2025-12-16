@@ -4,29 +4,39 @@
     import TomatoIcon from '$lib/components/icons/TomatoIcon.svelte'
     import GalleryIcon from '$lib/components/icons/GalleryIcon.svelte'
 
-    let { snappMap } = $props()
+    let { snappMap, groupID } = $props();
+
+
 </script>
 
 <li>
     <div>
         <a href="/group/{snappMap.groupid}/snappmap/{snappMap.uuid}">{snappMap.name}</a>
         <ul>
-            <li><HeartIcon></HeartIcon>15</li>
-            <li><TomatoIcon></TomatoIcon>9</li>
-            <li><StarIcon></StarIcon>2</li>
+            <li><HeartIcon />15</li>
+            <li><TomatoIcon />9</li>
+            <li><StarIcon />2</li>
         </ul>
     </div>
+
     <ul>
-        <li><GalleryIcon></GalleryIcon>{snappMap.snaps.length}</li>
-        {#each snappMap.snaps.slice(0, 4) as snap, i}
+        <li>
+            <GalleryIcon />
+            {snappMap.snaps.length}
+        </li>
+
+        {#each snappMap.snaps.slice(0, 4) as snap}
             <li>
                 <img
-                    src={'https://fdnd-agency.directus.app/assets/' +
+                    src={
+                        'https://fdnd-agency.directus.app/assets/' +
                         snap.picture +
-                        '?width=200&height=200&format=webp'}
-                    height="200"
+                        '?width=200&height=200&format=webp'
+                    }
                     width="200"
-                    alt="" />
+                    height="200"
+                    alt=""
+                />
             </li>
         {/each}
     </ul>
@@ -37,6 +47,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        color: var(--neutral-color-darkest);
     }
 
     li {
@@ -60,7 +71,6 @@
 
     a {
         text-decoration: none;
-        color: black;
     }
 
     /* First row */

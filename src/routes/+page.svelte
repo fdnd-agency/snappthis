@@ -18,5 +18,6 @@
         font-family: 'Bariol', sans-serif;
         margin: 2rem auto;
         width: max-content;
+        color: var(--neutral-color-darkest);
     }
 </style>
