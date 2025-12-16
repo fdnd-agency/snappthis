@@ -16,7 +16,7 @@
     form { 
         height: 200px; 
         width: fit-content; 
-        margin: 1em;
+        margin-top: 1em;
     } 
 
     button { 

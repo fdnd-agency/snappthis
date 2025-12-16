@@ -23,9 +23,8 @@
         <LayoutNavigation />
     </div>
 
-    <AddButton />
-
     <div class="content">
+        <AddButton />
     </div>
 </main>
 
@@ -49,5 +48,10 @@
         @media (max-width: 720px) {
             display: none;
         }
+    }
+
+    .content {
+        display: grid;
+        justify-content: center;
     }
 </style>
