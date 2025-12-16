@@ -6,7 +6,8 @@
     const id = data.id
     let gridsize = $state('grid2')
 
-    const snapMap = data.snaps?.[0]
+    const snapMap = data.snaps[0]
+
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
@@ -29,7 +30,7 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap" title="{snapMap.name}" dropdown="{snapMap.name}"/>
+<Header page="snappmap" icon="snappmap" title="{snapMap.name}"/>
 
 <main>
     <div class="sidebar">
@@ -49,16 +50,17 @@
     </div>
 
     <div class="content">
-        {#each snapMap as snap}
-            <Image picture="{snap.uuid}"/>
+        {#each snaps as snap}
+            <Image />
         {/each}
-        
     </div>
 </main>
 
 <style>
     main {
         margin-bottom: 5%;
+        display: grid;
+        grid-template-columns: 20% 80%;
 
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
@@ -68,23 +70,33 @@
     .sidebar {
         background-color: var(--neutral-color-light);
         height: 100vh;
-        width: 20vw;
         position: fixed;
         padding: 1em;
-        width: auto;
 
         @media (max-width: 720px) {
             display: none;
         }
     }
 
+
     .content {
-        overflow-y: hidden;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
         gap: 1em;
-        margin-left: 28vw;
+        margin-left: 28em;
+
+        @media (max-width: 720px) {
+            grid-template-columns: 1fr 1fr 1fr;
+            margin-left: 0em;
+        }
     }
+
+    .content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
 
     .sort-function {
         display: flex;

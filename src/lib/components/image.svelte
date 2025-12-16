@@ -30,8 +30,10 @@
 
 <style>
     picture {
-        height: 256px;
-        width: 256px;
-        border: var(--accent-green-20) 2px solid;
+        @media (max-width: 720px) {
+            height: 256px;
+            width: 256px;
+        }
     }
+
 </style>

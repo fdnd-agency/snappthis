@@ -12,6 +12,7 @@
     import LogoIcon from './icons/LogoIcon.svelte'
     import SearchIcon from './icons/SearchIcon.svelte'
     import UserIcon from './icons/UserIcon.svelte'
+    import Arrow from "./icons/Arrow.svelte";
 
     export let page
     export let title = "SnappMap"
@@ -184,4 +185,28 @@
     .active-add ~ nav:nth-of-type(4){
          color: var(--secondary-color);
     }
+
+
+    .dropdown-content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        top: 7em;
+
+        a {
+            background-color: var(--neutral-color);
+            padding: 1em;
+            width: 18em;
+            border-radius: 16px;
+        }
+    }
+
+    .dropdown-content {
+    display: none;
+}
+
+.dropdown-content.dropdownshow {
+    display: block;
+}
 </style>

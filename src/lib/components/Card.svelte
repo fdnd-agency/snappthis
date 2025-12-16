@@ -6,9 +6,14 @@
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import List from '$lib/components/icons/ListViewIcon.svelte'
     import GroupIcon from './icons/GroupIcon.svelte'
+    import Arrow from './icons/Arrow.svelte'
 
     export let text
     export let icon
+
+    // href and link
+    export let href
+    export let link
 </script>
 
 <div class="card">
@@ -28,10 +33,17 @@
         <div>
         <GroupIcon />
         </div>
+        <div>
+            <Arrow rotation="180" />
+        </div>
     </div>
 
     <p> {text} </p>
 </div>
+
+<a class="card-{href}" href="{link}">
+  <p> {text} </p>
+</a>
 
 <style>
 
@@ -69,4 +81,30 @@
             display: block;
         }
     }
+
+    .card-arrow {
+        div {
+            display: none;
+        }
+
+        div:nth-of-type(6) {
+            display: block;
+        }
+    }
+
+    .card-none {
+        div {
+            display: none;
+        }
+    }
+
+    .card- {
+        display: none;
+    }
+
+    .card-true {
+        display: block;
+    }
+
+    
 </style>
