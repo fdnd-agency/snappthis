@@ -2,11 +2,9 @@
     import { page } from '$app/state'
 
     let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid2')
-
-    const snapMap = data.snaps[0]
+    const snaps = data.snap[0].snap;
+    const groupId = data.id;  
+    const snapMap = data.snapmap[0];
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -53,13 +51,12 @@
         <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="{page.url.pathname}/{snap.uuid}">
+            <a href={'/'}>
                     <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}"
-                        height="256"
-                        width="256" />
+                    src={'https://fdnd-agency.directus.app/assets/' + snap.picture}
+                    alt="snap foto"
+                    height="256"
+                    width="256" />
                 </a>
             </li>
         {/each}
