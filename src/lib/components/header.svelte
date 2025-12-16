@@ -143,10 +143,10 @@
 
     nav {
         position: fixed;
-        top: 8%;
+        top: 6.5%;
         color: var(--neutral-color-lightest);
         padding: 1rem;
-        gap: 2em;
+        gap: 3em;
         display: flex;
         justify-content: space-around;
         margin-inline: auto;
@@ -156,12 +156,11 @@
     nav a {
         color: var(--neutral-color-lightest);
         font-family: 'Bariol Bold';
-        height: 10%;
         width: 100%;
         display: flex;
         flex-direction: column;
-        height: 1em;
-        width: 1em;
+        height: 1.5em;
+        width: 1.5em;
 
         align-items: center;
         color: var(--neutral-color-100);

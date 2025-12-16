@@ -50,30 +50,17 @@
     </div>
 
     <div class="content">
-            <ul class="snaps-{gridsize}">
+        <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
                 <a href="{page.url.pathname}/{snap.uuid}">
                     <img
                         src={'https://fdnd-agency.directus.app/assets/' +
                             snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}" />
+                        alt="Photo by ${snap.author} at ${snap.location}"
+                        height="256"
+                        width="256" />
                 </a>
-                <div
-                    class="list-container {gridsize === 'list'
-                        ? 'visible'
-                        : ''}">
-                    <h2>{snap.author}</h2>
-                    <h3>{snap.location}</h3>
-
-                    <form class="feedback">
-                        <button aria-label="Star"><Star /></button>
-                        <button aria-label="Tomato"><Tomato /></button>
-                        <button aria-label="Heart"><Heart /></button>
-                    </form>
-
-                    <a href="{page.url.pathname}/{snap.uuid}"> View Photo </a>
-                </div>
             </li>
         {/each}
     </ul>
@@ -126,4 +113,28 @@
         display: flex;
         gap: 1em;
     }
+
+    .list-container {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+    }
+
+    img {
+        height: 256px;
+        width: 256px;
+        contain: cover;
+    }
+
+    ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 65vw;
+        gap: 1em;
+        margin: 0;
+        padding: 0;
+        margin-top: 1em;
+    }
+
 </style>
