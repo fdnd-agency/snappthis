@@ -8,6 +8,7 @@
 
     const snapMap = data.snaps?.[0]
     import Header from '$lib/components/Header.svelte'
+    import Image from '$lib/components/Image.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -35,6 +36,10 @@
     </div>
 
     <div class="content">
+        {#each snaps as snap}
+            <Image picture="{snap.uuid}"/>
+        {/each}
+        
     </div>
 </main>
 
@@ -54,9 +59,17 @@
         background-color: var(--neutral-color-light);
         height: 100vh;
         width: fit-content;
+        position: fixed;
 
         @media (max-width: 720px) {
             display: none;
         }
+    }
+
+    .content {
+        overflow-y: hidden;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 </style>
