@@ -1,5 +1,6 @@
 <script>
     import { page } from '$app/state'
+    import { onMount } from 'svelte'
 
     let { data } = $props()
     const snaps = data.snaps[0].snaps
@@ -24,8 +25,14 @@
     import Sidebar from '$lib/components/Sidebar.svelte'
 
     import ChristmasBalls from '$lib/components/icons/ChristmasBalls.svelte'
-
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+
+
+    onMount(async () => {
+        const christmasBalls = document.querySelector('christmassballs').addEventListener('click', ev() {
+            document.body.toggle.classList('.xmas');
+        
+        )};
 </script>
 
 <svelte:head>
@@ -93,6 +100,7 @@
         display: grid;
         grid-template-columns: 20% 80%;
 
+
         @media (max-width: 1080px) {
             display: 10% 90%;
         }
@@ -100,6 +108,10 @@
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
         }
+    }
+
+    main.xmas {
+        background-color: var(--content-background);
     }
 
     .sidebar {
@@ -111,12 +123,17 @@
         @media (max-width: 720px) {
             display: none;
         }
+    }
 
+    .sidebar.xmas {
+        background-color: var(--christmas-sidebar-color);
+        color: var(--christmas-sidebar-color-dark);
     }
 
 
     .content {
         margin-left: 28em;
+
 
         @media (max-width: 1080px) {
             margin-left: 21em;
