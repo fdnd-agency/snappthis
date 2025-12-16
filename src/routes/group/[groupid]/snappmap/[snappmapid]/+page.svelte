@@ -9,6 +9,7 @@
     const snapMap = data.snaps?.[0]
     import Header from '$lib/components/Header.svelte'
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+    import AddButton from '$lib/components/AddButton.svelte'
 </script>
 
 <svelte:head>
@@ -21,6 +22,8 @@
     <div class="sidebar">
         <LayoutNavigation />
     </div>
+
+    <AddButton />
 
     <div class="content">
     </div>

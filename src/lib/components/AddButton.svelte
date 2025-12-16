@@ -3,15 +3,54 @@
     let { page } = $props()
 </script>
 
-<button>
-    <img src="src/lib/assets/CameraNeutral.svg" alt="Add Snapp">
-</button>
+<form action="input"> 
+    <!-- svelte-ignore a11y_consider_explicit_label -->
+    <button> 
+        <svg width="77" height="64" viewBox="0 0 77 64" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M38.436 26.9052C32.9258 26.9052 28.4426 31.3883 28.4426 36.8985C28.4426 42.4087 32.9258 46.8919 38.436 46.8919C43.9461 46.8919 48.4293 42.4087 48.4293 36.8985C48.4293 31.3883 43.9461 26.9052 38.436 26.9052V26.9052ZM55.3478 9.99335C55.3478 4.47394 50.8738 0 45.3544 0H31.5175C25.9981 0 21.5241 4.47394 21.5241 9.99335H9.99335C4.47394 9.99335 0 14.4673 0 19.9867V53.8103C0 59.3297 4.47394 63.8037 9.99335 63.8037H66.8786C72.398 63.8037 76.8719 59.3297 76.8719 53.8103V19.9867C76.8719 14.4673 72.398 9.99335 66.8786 9.99335H55.3478ZM38.436 54.5791C28.6863 54.5791 20.7554 46.6474 20.7554 36.8985C20.7554 27.1496 28.6863 19.218 38.436 19.218C48.1856 19.218 56.1165 27.1496 56.1165 36.8985C56.1165 46.6474 48.1856 54.5791 38.436 54.5791V54.5791Z" fill="white"/> 
+        </svg> 
+    </button> 
+</form> 
 
 <style>
-    button {
-        background-color: var(--accent-green);
-        height: 4em;
-        width: 4em;
-        border-radius: 50%;
-    }
+    form { 
+        height: 200px; 
+        width: fit-content; 
+        margin: 1em;
+    } 
+
+    button { 
+        height: 200px; 
+        width: 200px; 
+        border-radius: 50%; 
+        border: none; 
+        background-color: var(--secondary-color); 
+        cursor: pointer; 
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        
+        &:hover { 
+            svg { 
+                scale: 1.2; 
+                transition: .2s; 
+                filter: drop-shadow(3px 5px 2px rgb(0, 0, 0, 0.2)); 
+            } 
+        } 
+        
+        &:active { 
+            background-color: var(--primary-color);
+            svg { 
+                scale: 1.2; 
+                filter: drop-shadow(2px 3px 1px rgb(255, 255, 255, 0.2)); 
+            }  
+        } 
+    
+        &:focus-visible { 
+            outline: solid 10px var(--primary-color); 
+            svg { 
+                scale: 1.2; 
+                transition: .2s; 
+                filter: drop-shadow(3px 5px 2px rgb(0, 0, 0, 0.2)); 
+            } 
+        } 
+    }   
 </style>
