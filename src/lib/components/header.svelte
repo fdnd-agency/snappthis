@@ -126,7 +126,7 @@
 
     .left-icon-snappmap {
         div {
-            display: none;
+            display: block;
         }
     }
 

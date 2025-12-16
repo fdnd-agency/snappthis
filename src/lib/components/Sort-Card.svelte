@@ -26,18 +26,17 @@
     </div>
 
     <div class="arrow">
-        <Arrow rotation={180}/>    
+        <Arrow rotation={90}/>    
     </div>
 </div>
 
 <style>
     .card {
-        width: 200px;
-        height: fit-content;
         background-color: var(--neutral-color);
         border-radius: 16px;
         display: flex;
         justify-content: center;
+        align-items: center;
         font-size: clamp(20px, 4vw, 28px);
         padding: 0.5em;
         gap: 1em;

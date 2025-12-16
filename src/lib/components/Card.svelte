@@ -36,7 +36,7 @@
 <style>
 
     .card {
-        width: fit-content;
+        width: auto;
         height: fit-content;
         background-color: var(--neutral-color);
         color: var(--primary-color);

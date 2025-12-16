@@ -34,7 +34,7 @@
 <main>
 
     <div class="sidebar">
-        <div>
+        <div class="title-card">
             <Card text="Squad 2A" icon="group" />
         </div>
         <h2>Sort by</h2>
@@ -75,6 +75,7 @@
         width: 20vw;
         position: fixed;
         padding: 1em;
+        width: auto;
 
         @media (max-width: 720px) {
             display: none;
@@ -86,5 +87,12 @@
         width: fit-content;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    
+
+
+    .sort-function {
+        display: flex;
+        gap: 1em;
     }
 </style>

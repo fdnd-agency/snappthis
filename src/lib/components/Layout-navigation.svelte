@@ -71,17 +71,23 @@
             }
         }
 
+        label:nth-of-type(1) {
+            @media screen and (min-width: 1080px){
+                display: none;
+            }
+        }
+
         .option {
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            background: var(--neutral-color-lighter);
+            background: var(--neutral-color);
             padding: 1em;
             border-radius: 16px;
             cursor: pointer;
 
             &.selected {
-                background: var(--primary-color-lightest);
+                background: var(--primary-color);
             }
         }
 
