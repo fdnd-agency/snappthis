@@ -2,9 +2,11 @@
     import { page } from '$app/state'
 
     let { data } = $props()
-    const snaps = data.snap[0].snap;
-    const groupId = data.id;  
-    const snapMap = data.snapmap[0];
+    const snaps = data.snaps[0].snaps
+    const id = data.id
+    let gridsize = $state('grid2')
+
+    const snapMap = data.snaps[0]
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -48,15 +50,16 @@
     </div>
 
     <div class="content">
-        <ul class="snaps-{gridsize}">
+     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
-            <a href={'/'}>
+                <a href="{page.url.pathname}/{snap.uuid}">
                     <img
-                    src={'https://fdnd-agency.directus.app/assets/' + snap.picture}
-                    alt="snap foto"
-                    height="256"
-                    width="256" />
+                        src={'https://fdnd-agency.directus.app/assets/' +
+                            snap.picture}
+                        alt="Photo by ${snap.author} at ${snap.location}"
+                        height="256"
+                        width="256" />
                 </a>
             </li>
         {/each}
@@ -69,6 +72,10 @@
         margin-bottom: 5%;
         display: grid;
         grid-template-columns: 20% 80%;
+
+        @media (max-width: 1080px) {
+            display: 10% 90%;
+        }
 
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
@@ -84,17 +91,17 @@
         @media (max-width: 720px) {
             display: none;
         }
+
     }
 
 
     .content {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(200px, 1fr));
-        gap: 1em;
         margin-left: 28em;
 
+        @media (max-width: 1080px) {
+            margin-left: 21em;
+        }
         @media (max-width: 720px) {
-            grid-template-columns: 1fr 1fr 1fr;
             margin-left: 0em;
         }
     }
@@ -132,6 +139,12 @@
         margin: 0;
         padding: 0;
         margin-top: 1em;
+
+        @media (max-width: 720px) {
+            margin-left: 0em;
+            grid-template-columns: 1fr 1fr;
+            width: fit-content
+        }
     }
 
 </style>

@@ -40,6 +40,16 @@
         font-size: clamp(20px, 4vw, 28px);
         padding: 0.5em;
         gap: 1em;
+
+        @media (max-width: 1080px) {
+            padding: 0;
+        }
+    }
+
+    .card div {
+        @media (max-width: 1080px) {
+            scale: 0.7;
+        }
     }
 
     .card-clock {

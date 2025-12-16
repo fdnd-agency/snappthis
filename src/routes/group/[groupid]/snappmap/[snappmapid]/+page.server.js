@@ -1,24 +1,17 @@
-export async function load({ params, fetch }) {
-    const { groupId, snapMapId, snapId } = params;
+export async function load({ url, params }) {
+    const snapsRes = await fetch(
+        `https://fdnd-agency.directus.app/items/snappthis_snapmap/?fields=snaps.*,name,uuid&filter[uuid][_eq]=${params.snappmapid}`
+    )
+    const snapsData = await snapsRes.json()
 
-    const snapMapRes = await fetch(
-        `https://fdnd-agency.directus.app/items/snappthis_snapmap/${snapMapId}`
-    );
-    const snapMapJson = await snapMapRes.json();
-
-    const snapRes = await fetch(
-        `https://fdnd-agency.directus.app/items/snappthis_snap/${snapId}`
-    );
-
-    if (!snapRes.ok) {
-        throw new Error('Snap not found');
-    }
-
-    const snapJson = await snapRes.json();
+    const snappMapsRes = await fetch(
+        'https://fdnd-agency.directus.app/items/snappthis_snapmap?fields=name,uuid'
+    )
+    const snappMapsData = await snappMapsRes.json()
 
     return {
-        groupId,
-        snapMap: snapMapJson.data,
-        snap: snapJson.data
-    };
+        snaps: snapsData.data,
+        snapName: snappMapsData.data,
+        id: params.snappmapid,
+    }
 }
