@@ -50,9 +50,33 @@
     </div>
 
     <div class="content">
+            <ul class="snaps-{gridsize}">
         {#each snaps as snap}
-            <Image />
+            <li class="list {gridsize === 'list' ? 'visible' : ''}">
+                <a href="{page.url.pathname}/{snap.uuid}">
+                    <img
+                        src={'https://fdnd-agency.directus.app/assets/' +
+                            snap.picture}
+                        alt="Photo by ${snap.author} at ${snap.location}" />
+                </a>
+                <div
+                    class="list-container {gridsize === 'list'
+                        ? 'visible'
+                        : ''}">
+                    <h2>{snap.author}</h2>
+                    <h3>{snap.location}</h3>
+
+                    <form class="feedback">
+                        <button aria-label="Star"><Star /></button>
+                        <button aria-label="Tomato"><Tomato /></button>
+                        <button aria-label="Heart"><Heart /></button>
+                    </form>
+
+                    <a href="{page.url.pathname}/{snap.uuid}"> View Photo </a>
+                </div>
+            </li>
         {/each}
+    </ul>
     </div>
 </main>
 
