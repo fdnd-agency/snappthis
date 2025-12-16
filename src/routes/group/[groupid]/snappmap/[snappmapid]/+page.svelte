@@ -29,10 +29,9 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap"/>
+<Header page="snappmap" icon="snappmap" title="{snapMap.name}" dropdown="{snapMap.name}"/>
 
 <main>
-
     <div class="sidebar">
         <div class="title-card">
             <Card text="Squad 2A" icon="group" />
@@ -50,7 +49,7 @@
     </div>
 
     <div class="content">
-        {#each snaps as snap}
+        {#each snapMap as snap}
             <Image picture="{snap.uuid}"/>
         {/each}
         
@@ -60,9 +59,6 @@
 <style>
     main {
         margin-bottom: 5%;
-        display: grid;
-        grid-template-columns: 20% 80%;
-        font-family: 'Bariol Bold';
 
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
@@ -84,12 +80,11 @@
 
     .content {
         overflow-y: hidden;
-        width: fit-content;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1em;
+        margin-left: 28vw;
     }
-    
-
 
     .sort-function {
         display: flex;

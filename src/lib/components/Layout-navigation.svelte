@@ -82,12 +82,14 @@
             align-items: center;
             justify-content: space-evenly;
             background: var(--neutral-color);
+            
             padding: 1em;
             border-radius: 16px;
             cursor: pointer;
 
             &.selected {
                 background: var(--primary-color);
+                color: var(--neutral-color-lightest);
             }
         }
 
