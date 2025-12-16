@@ -72,4 +72,8 @@
             display: block;
         }
     }
+
+    .arrow {
+        color: var(--neutral-color-darkest);
+    }
 </style>

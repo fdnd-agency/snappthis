@@ -9,6 +9,8 @@
     const snapMap = data.snaps?.[0]
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
+    import Card from '$lib/components/Card.svelte'
+    import SortCard from '$lib/components/Sort-Card.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -32,7 +34,19 @@
 <main>
 
     <div class="sidebar">
-        <LayoutNavigation />
+        <div>
+            <Card text="Squad 2A" icon="group" />
+        </div>
+        <h2>Sort by</h2>
+        <div class="sort-function">
+            <SortCard icon="clock" />
+            <SortCard icon="star" />
+            <SortCard icon="tomato" />
+        </div>
+        <h2>Layout</h2>
+        <div>
+            <LayoutNavigation />
+        </div>
     </div>
 
     <div class="content">
@@ -58,8 +72,9 @@
     .sidebar {
         background-color: var(--neutral-color-light);
         height: 100vh;
-        width: fit-content;
+        width: 20vw;
         position: fixed;
+        padding: 1em;
 
         @media (max-width: 720px) {
             display: none;
@@ -68,7 +83,7 @@
 
     .content {
         overflow-y: hidden;
-        width: 100vw;
+        width: fit-content;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
