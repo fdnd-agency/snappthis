@@ -23,6 +23,8 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
+    import ChristmasBalls from '$lib/components/icons/ChristmasBalls.svelte'
+
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
 </script>
 
@@ -65,9 +67,27 @@
         {/each}
     </ul>
     </div>
+
+    <button class="christmasballs">
+        <ChristmasBalls />
+    </button>
 </main>
 
 <style>
+    :root {
+        --christmas-sidebar-color: #C79C9C;
+        --christmas-sidebar-color-dark: #AF6666;
+
+        --christmas-header-color: #99B695;
+        --christmas-header-color-dark: #00E53D;
+
+        --content-background: #090029;
+
+        --ice: #6BB8DE;
+        --snow: #FFFFFF;
+
+        --stroke: 1px solid black;
+    }
     main {
         margin-bottom: 5%;
         display: grid;
@@ -146,5 +166,21 @@
             width: fit-content
         }
     }
+
+    .christmasballs {
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
+    }
+
+    button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 
 </style>
