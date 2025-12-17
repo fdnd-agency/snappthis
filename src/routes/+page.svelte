@@ -7,7 +7,7 @@
     const groups = data.groups
 </script>
 
-<Header page="home"/>
+<Header page="home" active="home"/>
 
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap} {groups}></SnappMapPreview>

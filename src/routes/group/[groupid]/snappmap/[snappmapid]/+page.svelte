@@ -30,7 +30,7 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap" title="{snapMap.name}"/>
+<Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups"/>
 
 <main>
     <div class="sidebar">

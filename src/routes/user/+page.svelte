@@ -7,7 +7,7 @@
     let { data } = $props()
     const user = data.user
 </script>
-<Header page="add"/>
+<Header page="add" active="you"/>
 
 <section class="user-info">
     <h1>{user.name}</h1>

@@ -2,4 +2,4 @@
     import Header from '$lib/components/Header.svelte'
 </script>
 
-<Header title="Explore" page="snappmap"/>
+<Header title="Explore" page="snappmap" active="explore"/>

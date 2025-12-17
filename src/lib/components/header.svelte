@@ -16,24 +16,25 @@
 
     export let page
     export let title = "SnappMap"
+    export let active = "home"
 </script>
 
 
 <header class="header">
     <nav>
-        <a href="/" aria-label="Home icon" class="active-{page}">
+        <a href="/" aria-label="Home icon" class:active={active === 'home'} id="home">
             <LogoIcon />
         </a>
 
-        <a href="/explore" aria-label="Search Icon" class="active-{page}">
+        <a href="/explore" aria-label="Search Icon" class:active={active === 'explore'} id="explore">
             <SearchIcon/>
         </a>
 
-        <a href="/group" aria-label="Group Icon" class="active-{page}">
+        <a href="/group" aria-label="Group Icon" class:active={active === 'groups'} id="groups">
             <GroupIcon/>
         </a>
 
-        <a href="/user" aria-label="User icon" class="active-{page}">
+        <a href="/user" aria-label="User icon" class:active={active === 'you'} id="you">
             <UserIcon/>
         </a>
     </nav>
@@ -169,20 +170,13 @@
 
     nav a.active {
         color: var(--secondary-color);
+        transform: scale(1.2);
     }
 
     @media (width < 720px) {
         nav {
             display: none;
         }
-    }
-
-    .active-snappmapp{
-         color: var(--secondary-color);
-    }
-
-    .active-add ~ nav:nth-of-type(4){
-         color: var(--secondary-color);
     }
 
 
