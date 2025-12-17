@@ -11,10 +11,7 @@
 
 <li>
     <div>
-        <a href="/group/{groupID}/snappmap/{snappMap.uuid}">
-            {snappMap.name}
-        </a>
-
+        <a href="/group/{snappMap.groupid}/snappmap/{snappMap.uuid}">{snappMap.name}</a>
         <ul>
             <li><HeartIcon />15</li>
             <li><TomatoIcon />9</li>
