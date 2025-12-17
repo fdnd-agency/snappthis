@@ -17,6 +17,10 @@
         height: 200px; 
         width: fit-content; 
         margin-top: 1em;
+
+        @media (min-width: 720px) {
+            display: none;
+        }
     } 
 
     button { 
@@ -27,7 +31,7 @@
         background-color: var(--secondary-color); 
         cursor: pointer; 
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-        
+
         &:hover { 
             svg { 
                 scale: 1.2; 
