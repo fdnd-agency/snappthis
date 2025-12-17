@@ -24,6 +24,7 @@
     import Sidebar from '$lib/components/Sidebar.svelte'
 
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+    import AddButton from '$lib/components/AddButton.svelte'
 </script>
 
 <svelte:head>
@@ -50,6 +51,7 @@
     </div>
 
     <div class="content">
+        <AddButton />
      <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">

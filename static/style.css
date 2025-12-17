@@ -11,13 +11,6 @@
     --primary-color-lighter: light-dark(hsl(var(--primary-h), var(--primary-s), 40%),hsl(var(--primary-h), var(--primary-s), 40%));
     --primary-color-lightest: light-dark(hsl(var(--primary-h), var(--primary-s), 50%),hsl(var(--primary-h), var(--primary-s), 50%));
 
-    /* darkest
-    darker
-    dark
-    light
-    lighter
-    lightest */
-
     /* Accent colors */
     --secondary-h: 136;
     --secondary-s: 100%;
