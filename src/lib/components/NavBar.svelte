@@ -61,6 +61,12 @@
         }
     }
 
+    @media (width > 720px) {
+        nav {
+            display: none;
+        }
+    }
+
     nav a :global(svg) {
         height: 1.5em;
     }

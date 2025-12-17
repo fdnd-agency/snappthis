@@ -1,23 +1,17 @@
 <script>
     import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
+    import Header from '$lib/components/header.svelte'
 
-    let { data } = $props();
-    const { snappMaps, groups } = data;
-
-    const groupID = groups[0]?.uuid;
+    let { data } = $props()
+    const snappMaps = data.snappMaps
+    const groups = data.groups
 </script>
 
-<h1>SnappMap Overview</h1>
-<ul>
-    {#each snappMaps as snappMap}
-        <SnappMapPreview
-            snappMap={snappMap}
-            groupID={groupID}
-        />
-    {/each}
-</ul>
+<Header page="home" active="home"/>
 
-
+{#each snappMaps as snappMap}
+    <SnappMapPreview {snappMap} {groups}></SnappMapPreview>
+{/each}
 
 <style>
     h1 {

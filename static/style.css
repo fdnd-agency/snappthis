@@ -58,7 +58,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: "Bariol",Arial, Helvetica, sans-serif;
+    font-family: 'Bariol Bold', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -73,4 +73,9 @@ body {
     html {
         interpolate-size: allow-keywords;
     }
+}
+
+header h1 {
+    font-family: 'Bariol Bold';
+    color: var(--neutral-color-lightest);
 }
