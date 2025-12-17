@@ -8,7 +8,7 @@
 
 <LogoAnimation />
 
-<!-- <h1>SnappMap Overview</h1>
+<h1>SnappMap Overview</h1>
 
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap}></SnappMapPreview>
@@ -20,4 +20,4 @@
         margin: 2rem auto;
         width: max-content;
     }
-</style> -->
+</style>
