@@ -28,11 +28,9 @@
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
 
 
-    onMount(async () => {
-        const christmasBalls = document.querySelector('christmassballs').addEventListener('click', ev() {
-            document.body.toggle.classList('.xmas');
-        
-        )};
+    function toggleChristmas() {
+        document.body.classList.toggle('xmas');
+    }
 </script>
 
 <svelte:head>
@@ -75,9 +73,9 @@
     </ul>
     </div>
 
-    <button class="christmasballs">
-        <ChristmasBalls />
-    </button>
+<button class="christmasballs" on:click={toggleChristmas}>
+    <ChristmasBalls />
+</button>
 </main>
 
 <style>
@@ -110,9 +108,10 @@
         }
     }
 
-    main.xmas {
+    content.xmas {
         background-color: var(--content-background);
     }
+
 
     .sidebar {
         background-color: var(--neutral-color-light);
@@ -125,9 +124,12 @@
         }
     }
 
-    .sidebar.xmas {
-        background-color: var(--christmas-sidebar-color);
-        color: var(--christmas-sidebar-color-dark);
+    :global(body.xmas) .content {
+        background: #090029;
+    }
+
+    :global(body.xmas) .sidebar {
+        background: #C79C9C;
     }
 
 
@@ -189,15 +191,5 @@
         left: 10px;
         bottom: 10px;
     }
-
-    button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
 
 </style>

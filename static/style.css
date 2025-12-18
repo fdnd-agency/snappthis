@@ -59,6 +59,13 @@
     --neutral-color-light: light-dark(hsl(var(--neutral-h), var(--neutral-s), 80%),hsl(var(--neutral-h), var(--neutral-s), 60%));
     --neutral-color-lighter: light-dark(hsl(var(--neutral-h), var(--neutral-s), 90%),hsl(var(--neutral-h), var(--neutral-s), 40%));
     --neutral-color-lightest: light-dark(var(--white),var(--black));
+
+
+    /* christmascolors */
+    --sidebar: #C79C9C;
+    --sidebar-dark: #AF6666;
+
+    --header-color: #99B695;
 }
 /* A few snippets from https://frontendmasters.com/blog/the-coyier-css-starter/ */
 *,
@@ -85,4 +92,8 @@ body {
 header h1 {
     font-family: 'Bariol Bold';
     color: var(--neutral-color-lightest);
+}
+
+header.xmas {
+    background-color: var(--header-color);
 }
