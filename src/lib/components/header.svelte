@@ -209,6 +209,8 @@
     display: block;
 }
 
+
+/* xmas theme */
 :global(body.xmas) header {
     background-color: var(--header-color);
 }
