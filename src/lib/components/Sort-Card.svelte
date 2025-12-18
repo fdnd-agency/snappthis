@@ -85,4 +85,9 @@
     .arrow {
         color: var(--neutral-color-darkest);
     }
+
+    :global(body.xmas) div {
+        background-color: var(--sidebar-dark);
+        transition-duration: 0.3s;
+    }
 </style>

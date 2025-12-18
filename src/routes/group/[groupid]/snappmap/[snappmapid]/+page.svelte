@@ -1,6 +1,7 @@
 <script>
     import { page } from '$app/state'
     import { onMount } from 'svelte'
+    import { initSnowflakes } from '$lib/scripts/snowflakes.js'
 
     let { data } = $props()
     const snaps = data.snaps[0].snaps
@@ -27,10 +28,14 @@
     import ChristmasBalls from '$lib/components/icons/ChristmasBalls.svelte'
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
 
+    // snowflake effect
+    onMount(() => {
+    initSnowflakes() 
+  })
 
-    function toggleChristmas() {
-        document.body.classList.toggle('xmas');
-    }
+  function toggleChristmas() {
+    document.body.classList.toggle('xmas')
+  }
 </script>
 
 <svelte:head>
@@ -55,8 +60,8 @@
             <LayoutNavigation />
         </div>
     </div>
-
     <div class="content">
+        <!-- <canvas id="canvas"></canvas> -->
      <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
@@ -92,6 +97,13 @@
         --snow: #FFFFFF;
 
         --stroke: 1px solid black;
+    }
+
+    canvas {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
     }
     main {
         margin-bottom: 5%;
@@ -134,6 +146,9 @@
 
     :global(body.xmas) img {
         border: 1px solid black;
+        scale: 0.9;
+        opacity: 0.9;
+        transition-duration: 0.3s;
     }
 
 
