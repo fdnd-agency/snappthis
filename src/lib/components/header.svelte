@@ -208,4 +208,8 @@
 .dropdown-content.dropdownshow {
     display: block;
 }
+
+:global(body.xmas) header {
+    background-color: var(--header-color);
+}
 </style>

@@ -94,6 +94,3 @@ header h1 {
     color: var(--neutral-color-lightest);
 }
 
-header.xmas {
-    background-color: var(--header-color);
-}

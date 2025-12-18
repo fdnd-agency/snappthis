@@ -132,6 +132,10 @@
         background: #C79C9C;
     }
 
+    :global(body.xmas) img {
+        border: 1px solid black;
+    }
+
 
     .content {
         margin-left: 28em;
@@ -191,5 +195,9 @@
         left: 10px;
         bottom: 10px;
     }
+
+    button {
+  all: unset;
+}
 
 </style>
