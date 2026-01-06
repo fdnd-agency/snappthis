@@ -1,6 +1,8 @@
 <script>
     import { onMount } from 'svelte'
-        import Card from "./Card.svelte"
+    import Card from "./Card.svelte"
+
+    let snappmaps = [];
 
     onMount(async () => {
         async function fetchSnappmap() {
@@ -17,12 +19,13 @@
     console.log(snappmaps)
 
 </script>
+<p>{snappmaps.title}</p>
 <div class="active-card">
     <Card text="{snappmaps.title}" active="" />
 </div>
 <div class="dropdown">
     {#each snappmaps as map}
-        <Card text="{snappmaps.title}" active=""/>
+        <Card text="{map.title}" active=""/>
     {/each}
 </div>
 

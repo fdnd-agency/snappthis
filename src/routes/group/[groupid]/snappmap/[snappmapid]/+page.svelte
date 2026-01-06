@@ -25,7 +25,7 @@
 
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
-    import SnappMapDropdown from '$lib/components/SnappMapDropdown.svelte'
+    import SnappMapDropdown from '$lib/components/SnappMaptitle.svelte'
 </script>
 
 <svelte:head>
