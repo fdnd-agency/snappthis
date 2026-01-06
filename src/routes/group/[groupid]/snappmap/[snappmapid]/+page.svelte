@@ -33,10 +33,6 @@
 </svelte:head>
 
 <Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups"/>
-
-<SnappMapDropdown />
-
-
 <main>
     <div class="sidebar">
         <div class="title-card">

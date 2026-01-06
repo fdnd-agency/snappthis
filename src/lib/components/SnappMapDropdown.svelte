@@ -15,11 +15,11 @@
 </script>
 
 {#if snappmaps.length}
-    <p>{snappmaps[0].title}</p>
-
     <div class="dropdown">
         {#each snappmaps as map}
-            <a href=""> {map.name} </a>
+        <div class="card-dropdown">
+            <a href="/{map.uuid}"> {map.name} </a>
+        </div>
         {/each}
     </div>
 {/if}
@@ -28,6 +28,23 @@
     .dropdown {
         position: relative;
         width: 50%;
-        left: 25%
+        background-color: var(--primary-color-darker);
+        left: 25%;
+    }
+
+    .card-dropdown {
+        color: var(--neutral-color-whitest);
+        background-color: var(--primary-color-lighter);
+        gap: 2em;
+    }
+
+    a {
+        display: flex;
+        flex-direction: row;
+        height: 2em;
+        width: 5em;
+        text-decoration: none;
+        justify-content: center;
+        gap: 2em;
     }
 </style>

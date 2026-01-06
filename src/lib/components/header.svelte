@@ -13,10 +13,17 @@
     import SearchIcon from './icons/SearchIcon.svelte'
     import UserIcon from './icons/UserIcon.svelte'
     import Arrow from "./icons/Arrow.svelte";
+    import SnappMapDropdown from "./SnappMapDropdown.svelte"
 
     export let page
     export let title = "SnappMap"
     export let active = "home"
+
+    function openDropdown() {
+        const dropdown = document.querySelector('.dropdown-content')
+        if (!dropdown) return
+        dropdown.classList.toggle('dropdownshow')
+    }
 </script>
 
 
@@ -46,7 +53,7 @@
         </div>
     </div>
 
-    <div class="page-{page}">
+    <div class="page-{page}" on:click={openDropdown}>
         <Card text="{title}" rightIcon="true" />
     </div>
 
@@ -71,6 +78,7 @@
 
 </div>
 
+<SnappMapDropdown />
 
 <style>
 
