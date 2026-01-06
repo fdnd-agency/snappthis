@@ -25,6 +25,7 @@
 
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
+    import SnappMapDropdown from '$lib/components/SnappMapDropdown.svelte'
 </script>
 
 <svelte:head>
@@ -32,6 +33,9 @@
 </svelte:head>
 
 <Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups"/>
+
+<SnappMapDropdown />
+
 
 <main>
     <div class="sidebar">

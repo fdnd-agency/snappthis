@@ -1,24 +1,31 @@
 <script>
     import { onMount } from 'svelte'
+        import Card from "./Card.svelte"
 
     onMount(async () => {
-    async function fetchSnappmap() {
-    const pictureResponse = await fetch(
-        'https://fdnd-agency.directus.app/items/snappthis_snapmap'
-    )
+        async function fetchSnappmap() {
+        const snappmapResponse = await fetch(
+            'https://fdnd-agency.directus.app/items/snappthis_snapmap'
+        )
 
-    const snappmap = await pictureResponse.json()
-    return snappmap
-}
+        const snappmapJSON = await snappmapResponse.json()
+        snappmaps = snappmapJSON.data
+        return snappmaps
+        }
     })
 
-console.log(fetchSnappmap)
+    console.log(snappmaps)
+
 </script>
 <div class="active-card">
-    <Card text="{snappmap.title}" active="" />
+    <Card text="{snappmaps.title}" active="" />
 </div>
 <div class="dropdown">
-    <!-- check if the snappmap is active -->
-    <!-- for each loop -->
-    <Card text="{snappmap.title}" active="{}"/>
+    {#each snappmaps as map}
+        <Card text="{snappmaps.title}" active=""/>
+    {/each}
 </div>
+
+<style>
+
+</style>
