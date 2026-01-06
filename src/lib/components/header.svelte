@@ -53,12 +53,8 @@
         </div>
     </div>
 
-    <div class="page-{page}" on:click={openDropdown}>
-        <Card text="{title}" rightIcon="true" />
-    </div>
-
-    <div class="title-{page}">
-        <h1> {title} </h1>
+    <div class="card-{page}">
+        <h1> {title}</h1>
     </div>
 
     <div class="right-icon-{page}">
@@ -221,15 +217,15 @@
     display: block;
 }
 
-.title-snappmap {
+.card-squadpage {
+    background-color: var(--neutral-color);
+}
+
+.dropdown {
     display: none;
 }
 
-.page-home {
-    display: none;
-}
-
-.title-home {
+.dropdown.dropdownshow {
     display: block;
 }
 </style>

@@ -65,6 +65,7 @@
         padding-left: 2em;
         padding-right: 2em;
         gap: 1em;
+        pointer-events: none;
     }
 
     .card-small {
