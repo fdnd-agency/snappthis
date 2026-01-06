@@ -46,7 +46,13 @@
         </div>
     </div>
 
-    <Card text="{title}" icon="" />
+    <div class="page-{page}">
+        <Card text="{title}" rightIcon="true" />
+    </div>
+
+    <div class="title-{page}">
+        <h1> {title} </h1>
+    </div>
 
     <div class="right-icon-{page}">
         <div class="icon-2">
@@ -200,6 +206,22 @@
 }
 
 .dropdown-content.dropdownshow {
+    display: block;
+}
+
+.page-snappmap {
+    display: block;
+}
+
+.title-snappmap {
+    display: none;
+}
+
+.page-home {
+    display: none;
+}
+
+.title-home {
     display: block;
 }
 </style>

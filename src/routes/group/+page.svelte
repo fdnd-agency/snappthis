@@ -5,6 +5,7 @@
     import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
     import UserIcon from '$lib/components/icons/UserIcon.svelte'
 
+    let page = 'groups'
     let { data } = $props()
     const groups = data.groups
 </script>
