@@ -20,7 +20,10 @@
     export let active = "home"
 
     function openDropdown() {
-        const dropdown = document.querySelector('.dropdown-content')
+        if (page !== 'snappmap') return
+        if (typeof document === 'undefined') return
+
+        const dropdown = document.querySelector('.dropdown-snapmapps .dropdown')
         if (!dropdown) return
         dropdown.classList.toggle('dropdownshow')
     }
@@ -53,13 +56,13 @@
         </div>
     </div>
 
-    <div id="title" class="card-{page}" on:click={openDropdown()}>
-        <h1> {title} </h1> 
-    {#if page === 'snappmap'}
-        <div class="arrow-snappmap">
-            <Arrow rotation="90" />
-        </div>
-    {/if}
+    <div id="title" class="card-{page}" on:click={openDropdown}>
+        <h1> {title} </h1>
+        {#if page === 'snappmap'}
+            <div class="arrow-snappmap">
+                <Arrow rotation="90" />
+            </div>
+        {/if}
     </div>
 
     <div class="right-icon-{page}">
@@ -78,7 +81,7 @@
 <div class="header-block">
 
 </div>
-<div class="dropdown-snapmapps">
+<div class="dropdown">
  <SnappMapDropdown />
 </div>
 
@@ -239,13 +242,6 @@
     display: none;
 }
 
-.dropdown {
-    display: none;
-}
-
-.dropdown.dropdownshow {
-    display: block;
-}
 
 #title {
     margin-top: 50px;
@@ -261,11 +257,16 @@
     }
 }
 
-.dropdown-all-snappmaps {
-    display: none;
+.dropdown {
+        position: relative;
+        width: 50%;
+        background-color: var(--primary-color-darker);
+        left: 25%;
+        display: none; 
 }
 
-.dropdown-all-snappmaps.dropdownshow {
+
+.dropdown.dropdownshow {
     display: block;
 }
 </style>

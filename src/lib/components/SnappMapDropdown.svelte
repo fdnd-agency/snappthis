@@ -5,21 +5,11 @@
     let snappmaps = [];
 
     onMount(async () => {
+        const response = await fetch(
+            'https://fdnd-agency.directus.app/items/snappthis_snapmap'
+        );
 
-        const base = 'https://fdnd-agency.directus.app/items/snappthis_snapmap'
-        let url = base;
-
-        // check the current URL or it is a group id
-        if (groupId) {
-            url += `?filter[group][_eq]=${encodeURIComponent(groupId)}`;
-        } else if (groupUuid) {
-            url += `?filter[group][uuid][_eq]=${encodeURIComponent(groupUuid)}`;
-        }
-
-        // fetch the API
-        const response = await fetch(url);
         const json = await response.json();
-        let data = json.data ?? [];
         snappmaps = json.data;
     });
 </script>
