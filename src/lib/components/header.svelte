@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="card-{page}">
+    <div id="title" class="card-{page}">
         <h1> {title} </h1> 
         <Arrow />
     </div>
@@ -74,7 +74,9 @@
 <div class="header-block">
 
 </div>
-
+<div class="dropdown-snappmap">
+<SnappMapDropdown />
+</div>
 
 <style>
 
@@ -156,6 +158,7 @@
         position: fixed;
         color: var(--neutral-color-lightest);
         padding: 1rem;
+        top: -0%;
         gap: 3em;
         display: flex;
         justify-content: space-around;
@@ -228,5 +231,9 @@
 
 .dropdown.dropdownshow {
     display: block;
+}
+
+#title {
+    margin-top: 100px;
 }
 </style>
