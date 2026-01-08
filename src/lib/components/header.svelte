@@ -161,6 +161,22 @@
         }
     }
 
+    .left-icon-explore {
+        div {
+            display: block;
+        }
+    }
+
+    .right-icon-explore {
+        div {
+            display: none;
+        }
+
+        div:nth-last-of-type(1) {
+            display: block;
+        }
+    }
+
     nav {
         position: fixed;
         color: var(--neutral-color-lightest);
