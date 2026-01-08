@@ -18,14 +18,17 @@
     export let page
     export let title = "SnappMap"
     export let active = "home"
+    
+    let isDropdownOpen = false 
 
-    function openDropdown() {
-        if (page !== 'snappmap') return
-        if (typeof document === 'undefined') return
+    const handleDropdownClick = () => {
+    if (page !== 'snappmap') return
+    isDropdownOpen = !isDropdownOpen 
+  }
 
-        const dropdown = document.querySelector('.dropdown-snapmapps .dropdown')
-        if (!dropdown) return
-        dropdown.classList.toggle('dropdownshow')
+    const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
+        if (relatedTarget instanceof HTMLElement && currentTarget.contains(relatedTarget)) return 
+        isDropdownOpen = false
     }
 </script>
 
@@ -56,7 +59,7 @@
         </div>
     </div>
 
-    <div id="title" class="card-{page}" on:click={openDropdown}>
+    <div id="title" class="card-{page}" on:click={handleDropdownClick} on:focusout={handleDropdownFocusLoss}>
         <h1> {title} </h1>
         {#if page === 'snappmap'}
             <div class="arrow-snappmap">
@@ -81,9 +84,13 @@
 <div class="header-block">
 
 </div>
+
 <div class="dropdown">
+{#if isDropdownOpen}
  <SnappMapDropdown />
+{/if}
 </div>
+
 
 <style>
 
@@ -248,10 +255,10 @@
     width: fit-content;
     gap: 3em;
     margin-top: 50px;
-    pointer-events: none;
     background-color: var(--primary-color-darker);
     height: 3em;
     border-radius: 1em;
+    pointer-events: cursor;
 }
 
 .card-snappmap ~ .arrow-dropdown {
@@ -278,11 +285,7 @@
         width: 50%;
         background-color: var(--primary-color-darker);
         left: 25%;
-        display: none; 
 }
 
 
-.dropdown.dropdownshow {
-    display: block;
-}
 </style>
