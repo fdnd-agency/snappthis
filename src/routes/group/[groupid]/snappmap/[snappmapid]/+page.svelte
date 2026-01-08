@@ -34,6 +34,7 @@
 
 <Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups"/>
 <main>
+
     <div class="sidebar">
         <div class="title-card">
             <Card text="Squad 2A" icon="group" />

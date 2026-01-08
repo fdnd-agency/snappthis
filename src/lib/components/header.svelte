@@ -54,7 +54,8 @@
     </div>
 
     <div class="card-{page}">
-        <h1> {title}</h1>
+        <h1> {title} </h1> 
+        <Arrow />
     </div>
 
     <div class="right-icon-{page}">
@@ -74,7 +75,6 @@
 
 </div>
 
-<SnappMapDropdown />
 
 <style>
 
@@ -82,7 +82,7 @@
         height: 75px;
 
         @media (width > 720px) {
-            height: 100px;
+            height: 120px;
         }
     }
 
@@ -97,7 +97,7 @@
         position: fixed;
 
         @media (width > 720px) {
-            height: 100px;
+            height: 120px;
         }
     }
 
@@ -154,7 +154,6 @@
 
     nav {
         position: fixed;
-        top: 6.5%;
         color: var(--neutral-color-lightest);
         padding: 1rem;
         gap: 3em;
@@ -209,16 +208,18 @@
     display: none;
 }
 
-.dropdown-content.dropdownshow {
-    display: block;
-}
 
 .page-snappmap {
     display: block;
 }
 
-.card-squadpage {
-    background-color: var(--neutral-color);
+.card-snappmap {
+    display: absolute;
+    left: 50%;
+    top: 4%;
+    background-color: var(--primary-color-darker);
+    border-radius: 1.5em;
+    padding: 2em;
 }
 
 .dropdown {
