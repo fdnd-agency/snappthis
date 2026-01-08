@@ -5,6 +5,10 @@
     let snappmaps = [];
 
     onMount(async () => {
+
+        const base = 'https://fdnd-agency.directus.app/items/snappthis_snapmap'
+        let url = base;
+
         const response = await fetch(
             'https://fdnd-agency.directus.app/items/snappthis_snapmap'
         );

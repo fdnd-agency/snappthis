@@ -78,7 +78,7 @@
 <div class="header-block">
 
 </div>
-<div class="dropdown-all-snappmaps">
+<div class="dropdown-snapmapps">
  <SnappMapDropdown />
 </div>
 
@@ -225,13 +225,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1em;
+    padding: 1.5em;
     width: fit-content;
     gap: 3em;
     margin-top: 50px;
     pointer-events: none;
     background-color: var(--primary-color-darker);
     height: 3em;
+    border-radius: 1em;
 }
 
 .card-snappmap ~ .arrow-dropdown {
@@ -247,7 +248,7 @@
 }
 
 #title {
-    margin-top: 75px;
+    margin-top: 50px;
     h1 {
         margin-top: 2em;
     }
