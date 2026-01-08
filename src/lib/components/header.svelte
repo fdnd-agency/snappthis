@@ -55,9 +55,11 @@
 
     <div id="title" class="card-{page}" on:click={openDropdown()}>
         <h1> {title} </h1> 
-        <div class="arrow-dropdown">
-            <Arrow  rotation="90"/>
+    {#if page === 'snappmap'}
+        <div class="arrow-snappmap">
+            <Arrow rotation="90" />
         </div>
+    {/if}
     </div>
 
     <div class="right-icon-{page}">
@@ -218,13 +220,22 @@
     display: block;
 }
 
+
 .card-snappmap {
-    display: absolute;
-    left: 50%;
-    top: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    width: fit-content;
+    gap: 3em;
+    margin-top: 50px;
+    pointer-events: none;
     background-color: var(--primary-color-darker);
-    border-radius: 1.5em;
-    padding: 2em;
+    height: 3em;
+}
+
+.card-snappmap ~ .arrow-dropdown {
+    display: none;
 }
 
 .dropdown {
@@ -236,22 +247,16 @@
 }
 
 #title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2em;
-    gap: 1em;
-    margin-top: 100px;
-    pointer-events: none;
-    background-color: var(--primary-color-darker);
-    height: 3em;
-
+    margin-top: 75px;
     h1 {
         margin-top: 2em;
     }
 
     @media (width < 720px) {
         margin-top: 0px;
+        h1 {
+        margin-top: 0em;
+    }
     }
 }
 
