@@ -53,9 +53,11 @@
         </div>
     </div>
 
-    <div id="title" class="card-{page}">
+    <div id="title" class="card-{page}" on:click={openDropdown()}>
         <h1> {title} </h1> 
-        <Arrow />
+        <div class="arrow-dropdown">
+            <Arrow  rotation="90"/>
+        </div>
     </div>
 
     <div class="right-icon-{page}">
@@ -74,8 +76,8 @@
 <div class="header-block">
 
 </div>
-<div class="dropdown-snappmap">
-<SnappMapDropdown />
+<div class="dropdown-all-snappmaps">
+ <SnappMapDropdown />
 </div>
 
 <style>
@@ -234,6 +236,30 @@
 }
 
 #title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    gap: 1em;
     margin-top: 100px;
+    pointer-events: none;
+    background-color: var(--primary-color-darker);
+    height: 3em;
+
+    h1 {
+        margin-top: 2em;
+    }
+
+    @media (width < 720px) {
+        margin-top: 0px;
+    }
+}
+
+.dropdown-all-snappmaps {
+    display: none;
+}
+
+.dropdown-all-snappmaps.dropdownshow {
+    display: block;
 }
 </style>
