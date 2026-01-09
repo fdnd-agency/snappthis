@@ -13,7 +13,7 @@
 
     console.log(snappmapsDropdown)
 
-    import Header from '$lib/components/Header.svelte'
+    import Header from '$lib/components/header.svelte'
     import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
     import SortCard from '$lib/components/Sort-Card.svelte'

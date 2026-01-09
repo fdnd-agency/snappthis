@@ -1,5 +1,5 @@
 <script>
-    import Header from '$lib/components/Header.svelte'
+    import Header from '$lib/components/header.svelte'
 
     let page = "explore"
 </script>
