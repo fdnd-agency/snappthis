@@ -25,6 +25,7 @@
     const handleDropdownClick = () => {
     if (page !== 'snappmap') return
     isDropdownOpen = !isDropdownOpen 
+    // arrow rotation should change from 90 to 180
   }
 
     const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
@@ -62,7 +63,7 @@
     <div id="title" class="card-{page}" on:click={handleDropdownClick} on:focusout={handleDropdownFocusLoss}>
         <h1> {title} </h1>
         {#if page === 'snappmap'}
-            <div class="arrow-snappmap">
+            <div class="arrow-snappmap" style="transform: rotate({isDropdownOpen ? 90 : 0}deg); transition: 0.2s;">
                 <Arrow rotation="90" />
             </div>
         {/if}
@@ -111,6 +112,7 @@
         justify-content: space-around;
         align-items: center;
         position: fixed;
+        z-index: 2;
 
         @media (width > 720px) {
             height: 120px;
@@ -275,7 +277,7 @@
     @media (width < 720px) {
         margin-top: 0px;
         h1 {
-        margin-top: 0em;
+        margin-top: 1em;
     }
     }
 }
