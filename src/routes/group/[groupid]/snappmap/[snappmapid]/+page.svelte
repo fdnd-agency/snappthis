@@ -1,12 +1,12 @@
 <script>
     import { page } from '$app/state'
 
-    let { data } = $props()
- const snaps = data?.snaps?.[0]?.snaps ?? [];
+    export let data
+    const snaps = data?.snaps?.[0]?.snaps ?? [];
     let gridsize = ('grid2')
     const id = data?.id;
     const snapMap = data?.snaps?.[0];
-    
+
     const allGroups = data.groups?.[0]
 
 
@@ -39,7 +39,7 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups"/>
+<Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups" href="/group"/>
 <main>
 
     <div class="sidebar">

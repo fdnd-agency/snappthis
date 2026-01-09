@@ -18,6 +18,7 @@
     export let page
     export let title = "SnappMap"
     export let active = "home"
+    export let href = "/"
     
     let isDropdownOpen = false 
 
@@ -53,10 +54,9 @@
     </nav>
 
     <div class="left-icon-{page}">
-        <div class="icon-1">
-            <GobackIcon 
-            href={"/"}/>
-        </div>
+        <a class="icon-1" href={href}>
+            <GobackIcon />
+        </a>
     </div>
 
     <div id="title" class="card-{page}" on:click={handleDropdownClick} on:focusout={handleDropdownFocusLoss}>
