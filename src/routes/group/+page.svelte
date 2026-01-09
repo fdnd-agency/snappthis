@@ -20,7 +20,7 @@
         <ul>
             {#each groups as group}
                 <li class="group">
-                    <a href="/group/{group.uuid}">{group.name}</a>
+                    <a href="/group/{group.uuid}"> {group.name} </a>
                     <p>
                         {#if group.users.length == 0}
                             No members yet

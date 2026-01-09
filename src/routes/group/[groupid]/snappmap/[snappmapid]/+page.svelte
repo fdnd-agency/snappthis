@@ -2,11 +2,16 @@
     import { page } from '$app/state'
 
     let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid2')
+ const snaps = data?.snaps?.[0]?.snaps ?? [];
+    let gridsize = ('grid2')
+    const id = data?.id;
+    const snapMap = data?.snaps?.[0];
 
-    const snapMap = data.snaps[0]
+
+    const snappmapsDropdown = data?.snappMapsinGroup ?? [];
+    const { snappMapinGroup, id: currentId, } = data;
+
+    console.log(snappmapsDropdown)
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -37,7 +42,7 @@
 
     <div class="sidebar">
         <div class="title-card">
-            <Card text="Squad 2A" icon="group" />
+            <Card text="Squad 2A" icon="group"/>
         </div>
         <h2>Sort by</h2>
         <div class="sort-function">
@@ -53,6 +58,14 @@
 
     <div class="content">
         <AddButton />
+    <div class="dropdown">
+    {#each snappMapinGroup as map}
+    <a href={`/group/snappmap/${map.uuid}`}
+       class:selected={map.uuid === currentId}>
+      {map.name}
+    </a>
+  {/each}
+    </div>
      <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
