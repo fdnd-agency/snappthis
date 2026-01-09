@@ -9,9 +9,16 @@ export async function load({ url, params }) {
     )
     const snappMapsData = await snappMapsRes.json()
 
+    // set up a list with the snapmap data in a particular group
+    const snappMapinGroupRes = await fetch(
+        'https://fdnd-agency.directus.app/items/snappthis_group/?fields=snappmap'
+    )
+    const snappMapinGroupData = await snappMapinGroupRes.json()
+
     return {
         snaps: snapsData.data,
         snapName: snappMapsData.data,
+        snappMapinGroup: snappMapinGroupData.data,
         id: params.snappmapid,
     }
 }

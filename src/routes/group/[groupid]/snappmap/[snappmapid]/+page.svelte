@@ -8,6 +8,8 @@
 
     const snapMap = data.snaps[0]
 
+    const snapMaps = data.snaps
+
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
@@ -53,6 +55,13 @@
 
     <div class="content">
         <AddButton />
+                <div class="dropdown">
+    <div class="card-dropdown">
+        {#each snapMaps as map}
+            <a href="/{map.uuid}"> {map.name} </a>
+        {/each}
+    </div>
+    </div>
      <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
