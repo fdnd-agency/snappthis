@@ -122,6 +122,26 @@
         }
     }
 
+    .snaps-grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .snaps-grid3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .snaps-grid4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .snaps-grid5 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
     .content img {
     width: 100%;
     height: 100%;
@@ -148,8 +168,6 @@
 
     ul {
         list-style: none;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
         width: 65vw;
         gap: 1em;
         margin: 0;

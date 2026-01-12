@@ -26,7 +26,7 @@
     {#each options as opt, i}
     <label
     class="option {selected === opt.value ? 'selected' : ''}"
-    for={opt.value}
+    for={opt.value} 
     >
             <input
                 id={opt.value}
