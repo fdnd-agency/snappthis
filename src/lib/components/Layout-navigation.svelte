@@ -7,23 +7,23 @@
 
     import { onMount } from 'svelte'
 
-    let selected = "xlarge";
+    export let selected = "xlarge";
 
     function selectOption(value) {
         selected = value;
     }
 
-        const options = [
-            { value: "xlarge", short: "XL", long: "XLarge", icon: GridTwo },
-            { value: "large", short: "L", long: "Large", icon: GridThree },
-            { value: "medium", short: "M", long: "Medium", icon: GridFour },
-            { value: "small", short: "S", long: "Small", icon: GridFive },
-            { value: "list", short: "List", long: "List View", icon: ListView }
+    const options = [
+        { value: "xlarge", short: "XL", long: "XLarge", icon: GridTwo },
+        { value: "large", short: "L", long: "Large", icon: GridThree },
+        { value: "medium", short: "M", long: "Medium", icon: GridFour },
+        { value: "small", short: "S", long: "Small", icon: GridFive },
+        { value: "list", short: "List", long: "List View", icon: ListView }
     ]
 </script>
 
 <div class="dropdownmenu">
-    {#each options as opt, i}
+    {#each options as opt}
     <label
     class="option {selected === opt.value ? 'selected' : ''}"
     for={opt.value} 
@@ -33,11 +33,10 @@
                 type="radio"
                 name="layout"
                 value={opt.value}
-                bind:group={selected}
+                bind:group={selected} 
             />
 
-            <svelte:component this={opt.icon} />
-
+        <svelte:component this={opt.icon} />
         <span class="short">{opt.short}</span>
         <span class="long">{opt.long}</span>
     </label>

@@ -1,17 +1,13 @@
 <script>
     import { page } from '$app/state'
 
-    let { data } = $props()
- const snaps = data?.snaps?.[0]?.snaps ?? [];
-    let gridsize = ('grid2')
+    export let data
+    const snaps = data?.snaps?.[0]?.snaps ?? [];
     const id = data?.id;
     const snapMap = data?.snaps?.[0];
 
-
     const snappmapsDropdown = data?.snappMapsinGroup ?? [];
     const { snappMapinGroup, id: currentId, } = data;
-
-    console.log(snappmapsDropdown)
 
     import Header from '$lib/components/header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -31,6 +27,8 @@
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
     import SnappMapDropdown from '$lib/components/SnappMapDropdown.svelte'
+
+    let gridsize = 'xlarge'
 </script>
 
 <svelte:head>
@@ -52,7 +50,7 @@
         </div>
         <h2>Layout</h2>
         <div>
-            <LayoutNavigation />
+            <LayoutNavigation bind:selected={gridsize} />
         </div>
     </div>
 
@@ -66,7 +64,7 @@
     </a>
   {/each}
     </div>
-     <ul class="snaps-{gridsize}">
+     <ul class={"snaps-" + gridsize}>
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
                 <a href="{page.url.pathname}/{snap.uuid}">
@@ -122,22 +120,22 @@
         }
     }
 
-    .snaps-grid2 {
+    .snaps-xlarge {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
-    .snaps-grid3 {
+    .snaps-large {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    .snaps-grid4 {
+    .snaps-medium {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    .snaps-grid5 {
+    .snaps-small {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
