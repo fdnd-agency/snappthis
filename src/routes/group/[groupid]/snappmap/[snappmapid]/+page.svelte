@@ -24,6 +24,7 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
+    import Feedback from '$lib/components/Feedback.svelte'
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
     import SnappMapDropdown from '$lib/components/SnappMapDropdown.svelte'
@@ -75,6 +76,10 @@
                         height="256"
                         width="256" />
                 </a>
+                <h2>{snap.author}</h2>
+                <h2>{snap.location}</h2>
+
+                <a href="{page.url.pathname}/{snap.uuid}">Visit</a>
             </li>
         {/each}
     </ul>
