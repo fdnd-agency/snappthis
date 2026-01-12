@@ -11,7 +11,7 @@
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
-    import SortCard from '$lib/components/Sort-Card.svelte'
+    import SortCard from '$lib/components/SortCard.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -23,7 +23,7 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
-    import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+    import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
 </script>
 
