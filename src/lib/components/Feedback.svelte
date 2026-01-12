@@ -1,49 +1,4 @@
 <script>
-const heartsAmount = document.querySelector('.feedback-heart');
-const starAmount = document.querySelector('.feedback-star');
-const tomatoAmount = document.querySelector('.feedback-tomato');
-
-const buttonTomato = document.querySelector('.tomato');
-const buttonStar = document.querySelector('.star');
-const buttonHeart = document.querySelector('.heart');
-
-const fillHeart = document.querySelector('.cls-1')
-
-const fillTomato = document.querySelector('.cls-2')
-
-const fillStar = document.querySelector('.cls-3')
-
-let heartCount = 0;
-let tomatoCount = 0;
-let starCount = 0;
-
-// Limit heart to max 1
-buttonHeart.addEventListener('click', () => {
-  fillHeart.classList.add('liked')
-                             
-  if (heartCount < 1) {
-    heartCount = 1;
-    heartsAmount.textContent = heartCount;
-  }
-});
-
-// Tomato increments normally
-buttonTomato.addEventListener('click', () => {
-  fillTomato.classList.add('tomato')
-  if (tomatoCount < 1) {
-    tomatoCount = 1;
-    tomatoAmount.textContent = tomatoCount;
-  }
-});
-
-// Star increments normally
-buttonStar.addEventListener('click', () => {
-  fillStar.classList.add('star')
-  if (starCount < 1) {
-    starCount = 1;
-    starAmount.textContent = starCount;
-  }
-});
 
 </script>
 <div class="feedback">

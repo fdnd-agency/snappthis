@@ -76,10 +76,12 @@
                         height="256"
                         width="256" />
                 </a>
-                <h2>{snap.author}</h2>
-                <h2>{snap.location}</h2>
-
-                <a href="{page.url.pathname}/{snap.uuid}">Visit</a>
+                <div class="list-items">
+                    <h2>{snap.author}</h2>
+                    <h2>{snap.location}</h2>
+                    <Feedback />
+                    <a href="{page.url.pathname}/{snap.uuid}">Visit</a>
+                </div>
             </li>
         {/each}
     </ul>
@@ -133,16 +135,38 @@
     .snaps-large {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        .list-items {
+            display: none;
+        }
     }
 
     .snaps-medium {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        .list-items {
+            display: none;
+        }
     }
 
     .snaps-small {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-list {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        li {
+            display: flex;
+            background-color: var(--neutral-color-light);
+            padding: 1em;
+        }
+
     }
 
     .content img {
