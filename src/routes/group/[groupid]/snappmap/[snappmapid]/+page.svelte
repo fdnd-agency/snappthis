@@ -8,7 +8,7 @@
 
     const snapMap = data.snaps[0]
 
-    import Header from '$lib/components/header.svelte'
+    import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
     import SortCard from '$lib/components/Sort-Card.svelte'
