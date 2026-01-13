@@ -7,6 +7,9 @@
     let { data } = $props()
     let title = 'You'
     const user = data.user
+    const snappmaps = data.snappmaps
+
+    console.log(snappmaps)
 </script>
 <Header page="add" active="you" title="Your Profile"/>
 
