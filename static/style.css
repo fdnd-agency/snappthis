@@ -65,6 +65,21 @@ body {
     margin: 0;
 }
 
+    h1 {
+        font-size: clamp(1.5em, 1em + 1.15vw, 2em);
+    }
+
+    h2 {
+        font-size: clamp(1.2em, 1em + 1.15vw, 1.5em);
+    }
+
+    p {
+        font-size: clamp(16px, 1em + 1.15vw, 14px);
+    }
+
+
+
+
 @media (prefers-reduced-motion: no-preference) {
     @view-transition {
         navigation: auto;
@@ -73,9 +88,4 @@ body {
     html {
         interpolate-size: allow-keywords;
     }
-}
-
-header h1 {
-    font-family: 'Bariol Bold';
-    color: var(--neutral-color-lightest);
 }

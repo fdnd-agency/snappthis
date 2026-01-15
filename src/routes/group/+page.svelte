@@ -49,17 +49,7 @@
 </main>
 
 <style>
-    /* Header styles */
-    header {
-        background-color: var(--primary-color);
-        width: 100%;
-        color: var(--neutral-color-lightest);
-        font-family: 'Bariol';
-    }
 
-    h1 {
-        font-size: clamp(1.5rem, 1.3rem + 1.15vw, 2rem);
-    }
 
     header a {
         color: var(--neutral-color-lightest);

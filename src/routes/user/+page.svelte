@@ -34,22 +34,24 @@
 </section>
 
 <style>
-    h1,
-    li {
-        font-family: 'bariol';
+    section {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: var(--neutral-color-lighter);
+        height: 100vh;
     }
 
     a {
-        color: var(--neutral-color-0);
-        text-decoration: none;
+        color: var(--neutral-color-darkest);
+
     }
 
     .user-info {
-        background-color: var(--neutral-color-90);
-        margin: 0;
         padding: 2em;
         height: 45vh;
         place-items: center;
+        text-decoration: none;
     }
 
     ul {
@@ -57,7 +59,6 @@
         flex-wrap: wrap;
         gap: 0.5em;
         list-style: none;
-        padding: 0;
         justify-content: center;
     }
 </style>

@@ -74,7 +74,7 @@
 
     header {
         background-color: var(--primary-color);
-        color: var(--neutral-color-100);
+        color: var(--neutral-color-lightest);
         width: 100vw;
         height: 75px;
         display: flex;

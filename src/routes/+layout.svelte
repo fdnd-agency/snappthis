@@ -6,11 +6,9 @@
     let { children } = $props()
 </script>
 
-
-
 {@render children?.()}
 
-<NavBar page={page.url.pathname}></NavBar>
+<NavBar page={page.url.pathname} />
 
 <style>
     @import url('https://fonts.cdnfonts.com/css/bariol-bold');
