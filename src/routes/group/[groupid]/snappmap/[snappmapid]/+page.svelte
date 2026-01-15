@@ -1,12 +1,13 @@
 <script>
     import { page } from '$app/state'
 
-    let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid2')
-
+    export let data
+    const snaps = data?.snaps?.[0]?.snaps ?? [];
     const snapMap = data.snaps[0]
+    const usersdata = data.users
+    const id = data.id
+
+    let gridsize = 'xlarge'
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -25,6 +26,13 @@
 
     import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
+
+
+    const userMap = new Map(
+        usersdata
+            .filter(u => u?.uuid && u?.name)
+            .map(u => [u.uuid, u.name])
+    );
 </script>
 
 <svelte:head>
