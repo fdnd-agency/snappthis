@@ -12,7 +12,6 @@
     function selectOption(value) {
         selected = value;
     }
-
         const options = [
             { value: "xlarge", short: "XL", long: "XLarge", icon: GridTwo },
             { value: "large", short: "L", long: "Large", icon: GridThree },

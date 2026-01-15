@@ -149,4 +149,25 @@
         }
     }
 
+       .snaps-grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .snaps-grid3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .snaps-grid4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .snaps-grid5 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+
 </style>
