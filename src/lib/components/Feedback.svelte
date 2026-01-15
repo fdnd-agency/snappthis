@@ -1,5 +1,5 @@
 <script>
-    
+
 </script>
 <div class="feedback">
   <button id="button" class="heart">
@@ -38,31 +38,15 @@
 </div>
 
 <style>
-:root {
-  /*  border-radius  */
-  --border-radius: 8px;
-  
-  /*  colors  */
-  --white: #DCDCDC;
-  --grey: #BCBCBC;
-  --dark-grey: #5A5555;
-  
-  --blue: #6BB8DE;
-  
-  --green: #008B25;
-  --red: #940007;
-  --yellow: #A19400;
-}
-
 .feedback {
   display: flex;
   gap: 10px;
 }
 
 button {
-  background-color: var(--grey);
+  background-color: var(--neutral-color-dark);
   color: var(--dark-grey);
-  border-radius: var(--border-radius);
+  border-radius: 8px;
   width: 200px;
   height: 1em;
   cursor: pointer;

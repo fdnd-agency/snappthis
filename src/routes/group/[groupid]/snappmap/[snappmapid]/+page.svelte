@@ -27,7 +27,6 @@
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
 
-
     const userMap = new Map(
         usersdata
             .filter(u => u?.uuid && u?.name)
@@ -62,7 +61,7 @@
         <AddButton />
     <ul class={"snaps-" + gridsize}>
         {#each snaps as snap}
-            <li class="listall {gridsize === 'list' ? 'visible' : ''}">
+            <li class="list {gridsize === 'list' ? 'visible' : ''}">
                 <a href="{page.url.pathname}/{snap.uuid}">
                     <img
                         src={'https://fdnd-agency.directus.app/assets/' +
@@ -75,8 +74,7 @@
                     <h2>{userMap.get(snap.author)}</h2>
                     <h3>{snap.location}</h3>
 
-                    <Feedback/>
-                    <a href="/"> Visit </a>
+                    <a class="listview-a" href="/"> Visit </a>
                 </div>
             </li>
         {/each}
@@ -113,7 +111,7 @@
 
 
     .content {
-        margin-left: 28em;
+        margin-left: 30em;
 
         @media (max-width: 1080px) {
             margin-left: 21em;
@@ -207,6 +205,7 @@
         grid-template-columns: 1fr;
 
         img {
+            display: flex;
             width: 256px;
             height: 256px;
             object-fit: cover;
@@ -217,7 +216,23 @@
             background-color: var(--neutral-color-light);
             padding: 1em;
         }
+    }
 
+    .list-items {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .listview-a {
+        height: 2em;
+        width: 8em;
+        background-color: var(--neutral-color);
+        padding: 1em;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 

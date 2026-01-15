@@ -67,10 +67,8 @@
 
 
 <style>
-
     .header-block {
         height: 75px;
-
         @media (width > 720px) {
             height: 100px;
         }
