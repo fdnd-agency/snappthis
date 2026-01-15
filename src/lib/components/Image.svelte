@@ -2,18 +2,11 @@
     import { fetchPictures } from '$lib/components/index.js'
     import { onMount } from 'svelte'
 
-    export let pictures = []
+    export let picture = []
 </script>
 
+<a>
     <picture>
-        <source
-            srcset={`https://fdnd-agency.directus.app/assets/${picture}`}
-            type="image/webp"
-            media="(min-width: 256px)" />
-        <source
-            srcset="/example/example-photo.webp"
-            type="image/webp"
-            media="(min-width: 256px)" />
         <img
             class="pic"
             src={`https://fdnd-agency.directus.app/assets/${picture}`}
@@ -21,6 +14,7 @@
             width="256"
             alt="example photo" />
     </picture>
+</a>
 
 <style>
     picture {

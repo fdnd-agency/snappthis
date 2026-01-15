@@ -53,9 +53,12 @@
     <div class="content">
         <AddButton />
      <ul class="snaps-{gridsize}">
-        {#each snaps as snap}
-            <Image picture="{snap.uuid}">
-        {/each}
+
+    {#each snaps as snap}
+
+        <Image picture="{snap.picture}"/>
+
+{/each}
     </ul>
     </div>
 </main>
@@ -99,11 +102,10 @@
         }
     }
 
-    .content img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+.pic {
+  width: 256px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
     .sort-function {
