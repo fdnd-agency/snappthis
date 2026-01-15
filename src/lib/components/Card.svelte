@@ -49,7 +49,7 @@
         width: auto;
         height: fit-content;
         background-color: var(--neutral-color);
-        color: var(--primary-color);
+        color: var(--neutral-color-darkest);
         border-radius: 16px;
         display: flex;
         justify-content: space-around;

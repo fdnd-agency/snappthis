@@ -33,22 +33,16 @@
 <style>
     .card {
         background-color: var(--neutral-color);
+        color: var(--neutral-color-darkest);
         border-radius: 16px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: clamp(20px, 4vw, 28px);
         padding: 0.5em;
         gap: 1em;
 
         @media (max-width: 1080px) {
-            padding: 0;
-        }
-    }
-
-    .card div {
-        @media (max-width: 1080px) {
-            scale: 0.7;
+            padding: 0.2em;
         }
     }
 
@@ -80,9 +74,5 @@
         div:nth-of-type(3) {
             display: block;
         }
-    }
-
-    .arrow {
-        color: var(--neutral-color-darkest);
     }
 </style>

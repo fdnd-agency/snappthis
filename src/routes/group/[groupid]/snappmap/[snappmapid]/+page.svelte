@@ -76,7 +76,7 @@
 
     .sidebar {
         background-color: var(--primary-color-light);
-        color: var(--primary-color-lightest);
+        color: var(--neutral-color-lightest);
         height: 100%;
         position: fixed;
         padding: 1em;
