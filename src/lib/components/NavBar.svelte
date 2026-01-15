@@ -24,10 +24,6 @@
 </nav>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
-
     nav {
         background-color: var(--primary-color);
         color: var(--neutral-color-lightest);
@@ -52,8 +48,6 @@
         gap: 0.35rem;
 
         color: var(--neutral-color-lightest);
-        text-decoration: none;
-        font-family: 'Bariol';
     }
 
     @media (width > 600px) {
@@ -68,17 +62,8 @@
         }
     }
 
-    nav a :global(svg) {
-        height: 1.5em;
-    }
-
-    nav a:hover,
-    nav a:active {
-        text-decoration: underline;
-        text-underline-offset: 2px;
-    }
-
     nav a.active {
         color: var(--secondary-color);
+        scale: 1.2;
     }
 </style>
