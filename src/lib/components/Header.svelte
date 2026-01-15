@@ -62,7 +62,6 @@
 
 
 <style>
-
     .header-block {
         height: 75px;
         width: 100vw;
@@ -71,6 +70,7 @@
             height: 100px;
         }
     }
+
 
     header {
         background-color: var(--primary-color);
@@ -85,13 +85,6 @@
         @media (width > 720px) {
             height: 100px;
         }
-    }
-
-    h1 {
-        @media (width > 720px) {
-            height: 75px;
-        }
-
     }
 
     .left-icon-home {
@@ -149,7 +142,6 @@
         margin-inline: auto;
     }
 
-
     nav a {
         color: var(--neutral-color-lightest);
         font-family: 'Bariol Bold';
@@ -160,7 +152,7 @@
         width: 1.5em;
 
         align-items: center;
-        color: var(--neutral-color-100);
+        color: var(--neutral-color-lightest);
         flex-direction: row;
     }
 
@@ -174,7 +166,6 @@
             display: none;
         }
     }
-
 
     .dropdown-content {
         position: absolute;
@@ -191,7 +182,7 @@
         }
     }
 
-    .dropdown-content {
+.dropdown-content {
     display: none;
 }
 

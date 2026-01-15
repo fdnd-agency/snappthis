@@ -44,7 +44,6 @@
 </a>
 
 <style>
-
     .card {
         width: auto;
         height: fit-content;
@@ -54,9 +53,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        font-size: clamp(20px, 4vw, 28px);
-        padding-left: 2em;
-        padding-right: 2em;
         gap: 1em;
     }
 
@@ -103,6 +99,4 @@
     .card-true {
         display: block;
     }
-
-    
 </style>
