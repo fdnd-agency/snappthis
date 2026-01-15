@@ -51,13 +51,11 @@
         display: flex;
         flex-direction: column;
         gap: 0.5em;
-        background-color: var(--neutral-color-light);
         padding: 1em;
-        width: fit-content;
+        width: 100%;
 
         @media (min-width: 1080px) {
             width: 100%;
-
         }
     
         label:nth-of-type(4) {
@@ -82,14 +80,13 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            background: var(--neutral-color);
-            
+            background: var(--primary-color-lighter);
             padding: 1em;
             border-radius: 16px;
             cursor: pointer;
 
             &.selected {
-                background: var(--primary-color);
+                background: var(--primary-color-lightest);
                 color: var(--neutral-color-lightest);
             }
         }
@@ -97,7 +94,6 @@
         label span {
             align-items: center;
             flex-direction: column;
-            padding-left: 3em;
         }
 
         label span:nth-of-type(1) {
@@ -122,7 +118,7 @@
     }
 
     .long { 
-    padding-left: 3em;
+        padding-left: 3em;
     }      
 
 </style>

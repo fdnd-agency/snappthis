@@ -32,8 +32,8 @@
 
 <style>
     .card {
-        background-color: var(--neutral-color);
-        color: var(--neutral-color-darkest);
+        background: var(--primary-color-lighter);
+        color: var(--neutral-color-lighest);
         border-radius: 16px;
         display: flex;
         justify-content: center;

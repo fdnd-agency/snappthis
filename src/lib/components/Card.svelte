@@ -48,8 +48,8 @@
     .card {
         width: auto;
         height: fit-content;
-        background-color: var(--neutral-color);
-        color: var(--neutral-color-darkest);
+        background: var(--primary-color-lighter);
+        color: var(--neutral-color-lightest);
         border-radius: 16px;
         display: flex;
         justify-content: space-around;
