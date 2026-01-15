@@ -6,7 +6,7 @@
     import Add from "./icons/PlusIcon.svelte";
     import Dropdown from './icons/Dropdown.svelte'
     import Card from "./Card.svelte"
-    import SortCard from "./Sort-Card.svelte"
+    import SortCard from "./SortCard.svelte"
 
     import GroupIcon from './icons/GroupIcon.svelte'
     import LogoIcon from './icons/LogoIcon.svelte'
