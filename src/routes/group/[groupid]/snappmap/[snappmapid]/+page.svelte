@@ -46,13 +46,13 @@
         </div>
         <h2>Layout</h2>
         <div>
-            <LayoutNavigation />
+            <LayoutNavigation bind:selected={gridsize} />
         </div>
     </div>
 
     <div class="content">
         <AddButton />
-     <ul class="snaps-{gridsize}">
+    <ul class={"snaps-" + gridsize}>
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
                 <a href="{page.url.pathname}/{snap.uuid}">
@@ -63,6 +63,12 @@
                         height="256"
                         width="256" />
                 </a>
+                <div class="list-items">
+                    <h2>{userMap.get(snap.author)}</h2>
+                    <h3>{snap.location}</h3>
+
+                    <a class="listview-a" href="/"> Visit </a>
+                </div>
             </li>
         {/each}
     </ul>
@@ -93,12 +99,11 @@
         @media (max-width: 720px) {
             display: none;
         }
-
     }
 
 
     .content {
-        margin-left: 28em;
+        margin-left: 30em;
 
         @media (max-width: 1080px) {
             margin-left: 21em;
@@ -134,8 +139,6 @@
 
     ul {
         list-style: none;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
         width: 65vw;
         gap: 1em;
         margin: 0;
@@ -148,5 +151,81 @@
             width: fit-content
         }
     }
+
+    .snaps-xlarge {
+        transition-duration: 0.3s;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-large {
+        transition-duration: 0.3s;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-medium {
+        transition-duration: 0.3s;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-small {
+        transition-duration: 0.3s;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-list {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        img {
+            display: flex;
+            width: 256px;
+            height: 256px;
+            object-fit: cover;
+        }
+
+        li {
+            display: flex;
+            background-color: var(--neutral-color-light);
+            padding: 1em;
+        }
+    }
+
+    .list-items {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .listview-a {
+        height: 2em;
+        width: 8em;
+        background-color: var(--neutral-color);
+        padding: 1em;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
 </style>

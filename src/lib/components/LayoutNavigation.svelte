@@ -23,7 +23,7 @@
 </script>
 
 <div class="dropdownmenu">
-    {#each options as opt, i}
+    {#each options as opt}
     <label
     class="option {selected === opt.value ? 'selected' : ''}"
     for={opt.value}
@@ -33,9 +33,8 @@
                 type="radio"
                 name="layout"
                 value={opt.value}
-                bind:group={selected}
+                bind:group={selected} 
             />
-
             <svelte:component this={opt.icon} />
 
         <span class="short">{opt.short}</span>
