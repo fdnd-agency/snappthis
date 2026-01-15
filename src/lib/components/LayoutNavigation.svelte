@@ -6,8 +6,8 @@
     import ListView from '$lib/components/icons/Grid5Icon.svelte'
 
     import { onMount } from 'svelte'
-
-    let selected = "xlarge";
+    
+    export let selected = "xlarge";
 
     function selectOption(value) {
         selected = value;
