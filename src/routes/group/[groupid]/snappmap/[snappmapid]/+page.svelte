@@ -1,12 +1,14 @@
 <script>
     import { page } from '$app/state'
 
-    let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid2')
-
+    export let data
+    const snaps = data?.snaps?.[0]?.snaps ?? [];
     const snapMap = data.snaps[0]
+    const id = data.id
+
+    let gridsize = 'xlarge'
+
+
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -46,15 +48,15 @@
         </div>
         <h2>Layout</h2>
         <div>
-            <LayoutNavigation />
+            <LayoutNavigation bind:selected={gridsize} />
         </div>
     </div>
 
     <div class="content">
         <AddButton />
-     <ul class="snaps-{gridsize}">
+    <ul class={"snaps-" + gridsize}>
         {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}">
+            <li class="listall {gridsize === 'list' ? 'visible' : ''}">
                 <a href="{page.url.pathname}/{snap.uuid}">
                     <img
                         src={'https://fdnd-agency.directus.app/assets/' +
@@ -63,6 +65,11 @@
                         height="256"
                         width="256" />
                 </a>
+                <div class="list-items">
+                    <h2>{snap.author}</h2>
+                    <h2>{snap.location}</h2>
+                    <a href="{page.url.pathname}/{snap.uuid}">Visit</a>
+                </div>
             </li>
         {/each}
     </ul>
@@ -134,8 +141,6 @@
 
     ul {
         list-style: none;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
         width: 65vw;
         gap: 1em;
         margin: 0;
@@ -149,24 +154,56 @@
         }
     }
 
-       .snaps-grid2 {
+    .snaps-xlarge {
+        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
     }
 
-    .snaps-grid3 {
+    .snaps-large {
+        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
     }
 
-    .snaps-grid4 {
+    .snaps-medium {
+        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
     }
 
-    .snaps-grid5 {
+    .snaps-small {
+        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-list {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        li {
+            display: flex;
+            background-color: var(--neutral-color-light);
+            padding: 1em;
+        }
+
     }
 
 
