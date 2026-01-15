@@ -4,7 +4,7 @@
     export let data
     const snaps = data?.snaps?.[0]?.snaps ?? [];
     const snapMap = data.snaps[0]
-    const users = data.users
+    const usersdata = data.users
     const id = data.id
 
     let gridsize = 'xlarge'
@@ -27,11 +27,13 @@
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
 
-    // gets the name of the author
-    const userMap = new Map(users.map((u) => [u.uuid, u.name]))
 
-    console.log(userMap)
-</script>
+    const userMap = new Map(
+        usersdata
+            .filter(u => u?.uuid && u?.name)
+            .map(u => [u.uuid, u.name])
+    );
+    </script>
 
 <svelte:head>
     <title>{snapMap.name}</title>
@@ -70,7 +72,7 @@
                         width="256" />
                 </a>
                 <div class="list-items">
-                    <h2>{userMap}</h2>
+                    <h2>{userMap.get(snap.author)}</h2>
                     <h3>{snap.location}</h3>
 
                     <Feedback/>
