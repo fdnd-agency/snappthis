@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte'
-    import FavIcon from './icons/FavIcon.svelte'
+
     import GridThree from '$lib/components/icons/Grid3Icon.svelte'
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
@@ -10,8 +10,6 @@
 
     export let text
     export let icon
-
-    // href and link
     export let href
     export let link
 </script>

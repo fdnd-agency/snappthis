@@ -1,18 +1,13 @@
 <script>
     // icons
     import GobackIcon from "./icons/GobackIcon.svelte";
-
-    import Settings from "./icons/Settings.svelte";
-    import Add from "./icons/PlusIcon.svelte";
-    import Dropdown from './icons/Dropdown.svelte'
-    import Card from "./Card.svelte"
-    import SortCard from "./SortCard.svelte"
-
     import GroupIcon from './icons/GroupIcon.svelte'
     import LogoIcon from './icons/LogoIcon.svelte'
     import SearchIcon from './icons/SearchIcon.svelte'
     import UserIcon from './icons/UserIcon.svelte'
-    import Arrow from "./icons/Arrow.svelte";
+    import Settings from "./icons/Settings.svelte";
+    import Add from "./icons/PlusIcon.svelte";
+    import Dropdown from './icons/Dropdown.svelte'
 
     export let page
     export let title = "SnappMap"
