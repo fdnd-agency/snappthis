@@ -5,9 +5,13 @@
     import StarIcon from '../../lib/components/icons/StarIcon.svelte'
 
     let { data } = $props()
+    let title = 'You'
     const user = data.user
+    const snappmaps = data.snappmaps
+
+    console.log(snappmaps)
 </script>
-<Header page="add" active="you"/>
+<Header page="add" active="you" title="Your Profile"/>
 
 <section class="user-info">
     <h1>{user.name}</h1>

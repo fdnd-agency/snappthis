@@ -13,10 +13,26 @@
     import SearchIcon from './icons/SearchIcon.svelte'
     import UserIcon from './icons/UserIcon.svelte'
     import Arrow from "./icons/Arrow.svelte";
+    import SnappMapDropdown from "./SnappMapDropdown.svelte"
 
     export let page
     export let title = "SnappMap"
     export let active = "home"
+    export let href = "/"
+    export let dropdownContentSnapmapTwo
+    
+    let isDropdownOpen = false 
+
+    const handleDropdownClick = () => {
+    if (page !== 'snappmap') return
+    isDropdownOpen = !isDropdownOpen 
+    // arrow rotation should change from 90 to 180
+  }
+
+    const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
+        if (relatedTarget instanceof HTMLElement && currentTarget.contains(relatedTarget)) return 
+        isDropdownOpen = false
+    }
 </script>
 
 
@@ -40,13 +56,19 @@
     </nav>
 
     <div class="left-icon-{page}">
-        <div class="icon-1">
-            <GobackIcon 
-            href={"/"}/>
-        </div>
+        <a class="icon-1" href={href}>
+            <GobackIcon />
+        </a>
     </div>
 
-    <h1>{title}</h1>
+    <div id="title" class="card-{page}" on:click={handleDropdownClick} on:focusout={handleDropdownFocusLoss}>
+        <h1> {title} </h1>
+        {#if page === 'snappmap'}
+            <div class="arrow-snappmap" style="transform: rotate({isDropdownOpen ? 90 : 0}deg); transition: 0.2s;">
+                <Arrow rotation="90" />
+            </div>
+        {/if}
+    </div>
 
     <div class="right-icon-{page}">
         <div class="icon-2">
@@ -65,6 +87,12 @@
 
 </div>
 
+<div class="dropdown">
+{#if isDropdownOpen}
+ <SnappMapDropdown dropdownContentSnapmap={dropdownContentSnapmapTwo} />
+{/if}
+</div>
+
 
 <style>
 
@@ -72,7 +100,7 @@
         height: 75px;
 
         @media (width > 720px) {
-            height: 100px;
+            height: 120px;
         }
     }
 
@@ -85,9 +113,10 @@
         justify-content: space-around;
         align-items: center;
         position: fixed;
+        z-index: 2;
 
         @media (width > 720px) {
-            height: 100px;
+            height: 120px;
         }
     }
 
@@ -142,11 +171,27 @@
         }
     }
 
+    .left-icon-explore {
+        div {
+            display: block;
+        }
+    }
+
+    .right-icon-explore {
+        div {
+            display: none;
+        }
+
+        div:nth-last-of-type(1) {
+            display: block;
+        }
+    }
+
     nav {
         position: fixed;
-        top: 6.5%;
         color: var(--neutral-color-lightest);
         padding: 1rem;
+        top: -0%;
         gap: 3em;
         display: flex;
         justify-content: space-around;
@@ -199,7 +244,51 @@
     display: none;
 }
 
-.dropdown-content.dropdownshow {
+
+.page-snappmap {
     display: block;
 }
+
+
+.card-snappmap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5em;
+    width: fit-content;
+    gap: 3em;
+    margin-top: 50px;
+    background-color: var(--primary-color-darker);
+    height: 3em;
+    border-radius: 1em;
+    pointer-events: cursor;
+}
+
+.card-snappmap ~ .arrow-dropdown {
+    display: none;
+}
+
+
+#title {
+    margin-top: 50px;
+    h1 {
+        margin-top: 2em;
+    }
+
+    @media (width < 720px) {
+        margin-top: 0px;
+        h1 {
+        margin-top: 1em;
+    }
+    }
+}
+
+.dropdown {
+        position: relative;
+        width: 50%;
+        background-color: var(--primary-color-darker);
+        left: 25%;
+}
+
+
 </style>

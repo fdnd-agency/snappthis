@@ -5,6 +5,7 @@
     import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
     import UserIcon from '$lib/components/icons/UserIcon.svelte'
 
+    let page = 'groups'
     let { data } = $props()
     const groups = data.groups
 </script>
@@ -19,7 +20,7 @@
         <ul>
             {#each groups as group}
                 <li class="group">
-                    <a href="/group/{group.uuid}">{group.name}</a>
+                    <a href="/group/{group.uuid}"> {group.name} </a>
                     <p>
                         {#if group.users.length == 0}
                             No members yet
@@ -48,38 +49,9 @@
 </main>
 
 <style>
-    /* Header styles */
-    header {
-        background-color: var(--primary-color);
-        width: 100%;
-        color: var(--neutral-color-lightest);
-        font-family: 'Bariol';
-    }
-
-    h1 {
-        font-size: clamp(1.5rem, 1.3rem + 1.15vw, 2rem);
-    }
-
-    header a {
-        color: var(--neutral-color-lightest);
-        text-decoration: none;
-    }
-
-    header a :global(svg) {
-        height: 1.25em;
-    }
-
-    header > div,
     main > div {
         max-width: 1000px;
         margin-inline: auto;
-    }
-
-    header > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-inline: 1rem;
     }
 
     /* Main styles */

@@ -1,12 +1,14 @@
 <script>
     import { page } from '$app/state'
 
-    let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid2')
+    export let data
+    const snaps = data?.snaps?.[0]?.snaps ?? [];
+    const id = data?.id;
+    const snapMap = data?.snaps?.[0];
 
-    const snapMap = data.snaps[0]
+    const group = data?.group ?? null
+    const snappMapinGroup = group?.snappmap?.map(r => r.snappthis_snapmap_uuid) ?? []
+    const { id: currentId, } = data;
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -23,20 +25,24 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
+    import Feedback from '$lib/components/Feedback.svelte'
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
+    import SnappMapDropdown from '$lib/components/SnappMapDropdown.svelte'
+
+    let gridsize = 'xlarge'
 </script>
 
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups"/>
-
+<Header page="snappmap" icon="snappmap" title="Title" active="groups" href="/group"/>
 <main>
+
     <div class="sidebar">
         <div class="title-card">
-            <Card text="Squad 2A" icon="group" />
+            <Card text="Squad 2A" icon="group"/>
         </div>
         <h2>Sort by</h2>
         <div class="sort-function">
@@ -46,13 +52,25 @@
         </div>
         <h2>Layout</h2>
         <div>
-            <LayoutNavigation />
+            <LayoutNavigation bind:selected={gridsize} />
         </div>
     </div>
 
     <div class="content">
         <AddButton />
-     <ul class="snaps-{gridsize}">
+
+        {#each data.snappmapsInGroup as map}
+        <p>{map.uuid}</p>
+        {/each}
+    <div class="dropdown">
+    {#each snappMapinGroup as map}
+    <a href={`/group/${group.uuid}/snappmap/${map.uuid}`}
+       class:selected={map.uuid === currentId}>
+      {map.name}
+    </a>
+  {/each}
+    </div>
+     <ul class={"snaps-" + gridsize}>
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
                 <a href="{page.url.pathname}/{snap.uuid}">
@@ -63,6 +81,12 @@
                         height="256"
                         width="256" />
                 </a>
+                <div class="list-items">
+                    <h2>{snap.author}</h2>
+                    <h2>{snap.location}</h2>
+                    <Feedback />
+                    <a href="{page.url.pathname}/{snap.uuid}">Visit</a>
+                </div>
             </li>
         {/each}
     </ul>
@@ -108,6 +132,48 @@
         }
     }
 
+    .snaps-xlarge {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .snaps-large {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-medium {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-small {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        .list-items {
+            display: none;
+        }
+    }
+
+    .snaps-list {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        li {
+            display: flex;
+            background-color: var(--neutral-color-light);
+            padding: 1em;
+        }
+
+    }
+
     .content img {
     width: 100%;
     height: 100%;
@@ -134,8 +200,6 @@
 
     ul {
         list-style: none;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
         width: 65vw;
         gap: 1em;
         margin: 0;

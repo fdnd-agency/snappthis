@@ -10,6 +10,7 @@
 
     export let text
     export let icon
+    export let rightIcon
 
     // href and link
     export let href
@@ -39,6 +40,10 @@
     </div>
 
     <p> {text} </p>
+
+    <div class="card-{rightIcon}">
+        <Arrow rotation="180" />
+    </div>
 </div>
 
 <a class="card-{href}" href="{link}">
@@ -60,6 +65,7 @@
         padding-left: 2em;
         padding-right: 2em;
         gap: 1em;
+        pointer-events: none;
     }
 
     .card-small {
