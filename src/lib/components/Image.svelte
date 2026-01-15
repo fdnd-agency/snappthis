@@ -17,11 +17,12 @@
 </a>
 
 <style>
-    picture {
-        @media (max-width: 720px) {
-            height: 256px;
-            width: 256px;
-        }
-    }
+    
+.pic {
+  width: 256px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 
 </style>

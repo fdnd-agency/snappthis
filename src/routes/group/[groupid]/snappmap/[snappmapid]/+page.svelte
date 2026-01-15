@@ -55,10 +55,8 @@
      <ul class="snaps-{gridsize}">
 
     {#each snaps as snap}
-
         <Image picture="{snap.picture}"/>
-
-{/each}
+    {/each}
     </ul>
     </div>
 </main>
@@ -87,9 +85,7 @@
         @media (max-width: 720px) {
             display: none;
         }
-
     }
-
 
     .content {
         margin-left: 28em;
@@ -102,12 +98,6 @@
         }
     }
 
-.pic {
-  width: 256px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
     .sort-function {
         display: flex;
         gap: 1em;
@@ -117,12 +107,6 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
-    }
-
-    img {
-        height: 256px;
-        width: 256px;
-        contain: cover;
     }
 
     ul {
