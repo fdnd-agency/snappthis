@@ -1,6 +1,5 @@
 <script>
-    // icons
-    import Settings from "./icons/Settings.svelte";
+    // card components
     import Card from "./Card.svelte"
     import SortCard from "./SortCard.svelte"
 

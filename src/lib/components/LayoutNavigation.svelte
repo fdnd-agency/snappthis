@@ -1,4 +1,5 @@
 <script>
+    // icons
     import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
     import GridThree from '$lib/components/icons/Grid3Icon.svelte'
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'

@@ -1,4 +1,5 @@
 <script>
+    // icons
     import GroupIcon from './icons/GroupIcon.svelte'
     import LogoIcon from './icons/LogoIcon.svelte'
     import SearchIcon from './icons/SearchIcon.svelte'
@@ -10,15 +11,15 @@
 <nav>
     <div>
         <a href="/" class={page === '/' ? 'active' : ''}>
-            <LogoIcon></LogoIcon>
+            <LogoIcon />
             Home
         </a>
         <a href="/explore" class={page.startsWith('/explore') ? 'active' : ''}
-            ><SearchIcon></SearchIcon>Explore</a>
+            ><SearchIcon />Explore</a>
         <a href="/group" class={page.startsWith('/group') ? 'active' : ''}
-            ><GroupIcon></GroupIcon>Groups</a>
+            ><GroupIcon />Groups</a>
         <a href="/user" class={page.startsWith('/user') ? 'active' : ''}
-            ><UserIcon></UserIcon>You</a>
+            ><UserIcon />You</a>
     </div>
 </nav>
 
