@@ -50,27 +50,9 @@
 
 <style>
 
-
-    header a {
-        color: var(--neutral-color-lightest);
-        text-decoration: none;
-    }
-
-    header a :global(svg) {
-        height: 1.25em;
-    }
-
-    header > div,
     main > div {
         max-width: 1000px;
         margin-inline: auto;
-    }
-
-    header > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-inline: 1rem;
     }
 
     /* Main styles */
