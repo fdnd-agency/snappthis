@@ -77,8 +77,9 @@ body {
         font-size: clamp(16px, 1em + 1.15vw, 14px);
     }
 
-    ul {
+    * {
         list-style: none;
+        text-decoration: none;
     }
 
     svg {

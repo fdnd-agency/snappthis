@@ -54,25 +54,20 @@
         padding: 1rem;
         width: 100%;
         max-width: 1000px;
-        list-style: none;
-        font-family: 'Bariol', sans-serif;
     }
 
     ul {
-        list-style: none;
         display: flex;
-    }
-
-    ul li {
-        margin: 0;
-        padding: 0;
+        li {
+            margin: 0;
+            padding: 0;
+        }
     }
 
     a {
-        text-decoration: none;
+        width: 100%;
     }
 
-    /* First row */
     div {
         display: flex;
         justify-content: space-between;
@@ -90,12 +85,6 @@
         margin: 0;
         padding: 0;
         max-width: unset;
-    }
-
-    div > ul li :global(svg) {
-        height: 1.25em;
-        width: 1.25em;
-        padding-right: 0.15em;
     }
 
     /* Second row */
@@ -123,18 +112,12 @@
         aspect-ratio: 1 / 1;
     }
 
-    /* Second row: first block (gallery icon) */
     div + ul li:first-of-type {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #e9ecee;
+        background-color: var(--neutral-color-lighter);
         font-size: clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
-    }
-
-    div + ul li:first-of-type :global(svg) {
-        height: 50%;
-        width: 50%;
     }
 </style>

@@ -22,15 +22,3 @@
             <Card text="list" />
         </div>
 </div>
-
-<style>
-    .sidebar {
-        height: 100vh;
-        padding: 0.5em;
-        color: var(--primary-color);
-    }
-
-    .sort-function {
-        display: flex;
-    }
-</style>
