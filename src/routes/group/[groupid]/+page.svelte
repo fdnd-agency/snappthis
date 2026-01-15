@@ -1,6 +1,5 @@
 <script>
     import AddButton from "$lib/components/AddButton.svelte";
-
     let { data } = $props()
 </script>
 
@@ -10,4 +9,4 @@
 </h1>
 
 
-<AddButton></AddButton>
+<AddButton/>
