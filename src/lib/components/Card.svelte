@@ -4,7 +4,7 @@
     import GridThree from '$lib/components/icons/Grid3Icon.svelte'
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
-    import List from '$lib/components/icons/ListViewIcon.svelte'
+    import List from '$lib/components/icons/ListviewIcon.svelte'
     import GroupIcon from './icons/GroupIcon.svelte'
     import Arrow from './icons/Arrow.svelte'
 
