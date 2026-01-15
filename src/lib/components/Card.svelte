@@ -72,6 +72,16 @@
         }
     }
 
+    .card-listview {
+        div {
+            display: none;
+        }
+
+        div:nth-of-type(4) {
+            display: block;
+        }
+    }
+
     .card-group {
         div {
             display: none;

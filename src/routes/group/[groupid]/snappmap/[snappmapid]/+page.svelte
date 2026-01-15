@@ -4,14 +4,11 @@
     export let data
     const snaps = data?.snaps?.[0]?.snaps ?? [];
     const snapMap = data.snaps[0]
+    const users = data.users
     const id = data.id
 
     let gridsize = 'xlarge'
 
-
-
-    import Header from '$lib/components/Header.svelte'
-    import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
     import SortCard from '$lib/components/Sort-Card.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
@@ -25,8 +22,15 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
+    import Header from '$lib/components/Header.svelte'
+    import Feedback from '$lib/components/Feedback.svelte'
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
+
+    // gets the name of the author
+    const userMap = new Map(users.map((u) => [u.uuid, u.name]))
+
+    console.log(userMap)
 </script>
 
 <svelte:head>
@@ -66,9 +70,11 @@
                         width="256" />
                 </a>
                 <div class="list-items">
-                    <h2>{snap.author}</h2>
-                    <h2>{snap.location}</h2>
-                    <a href="{page.url.pathname}/{snap.uuid}">Visit</a>
+                    <h2>{userMap}</h2>
+                    <h3>{snap.location}</h3>
+
+                    <Feedback/>
+                    <a href="/"> Visit </a>
                 </div>
             </li>
         {/each}
@@ -197,6 +203,12 @@
     .snaps-list {
         display: grid;
         grid-template-columns: 1fr;
+
+        img {
+            width: 256px;
+            height: 256px;
+            object-fit: cover;
+        }
 
         li {
             display: flex;

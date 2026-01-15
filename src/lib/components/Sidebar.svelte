@@ -24,7 +24,7 @@
             <Card text="large" icon="small"/>
             <Card text="medium"/>
             <Card text="small"/>
-            <Card text="list" />
+            <Card text="list" icon="listview"/>
         </div>
 </div>
 
