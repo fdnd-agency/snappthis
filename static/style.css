@@ -77,6 +77,14 @@ body {
         font-size: clamp(16px, 1em + 1.15vw, 14px);
     }
 
+    ul {
+        list-style: none;
+    }
+
+    svg {
+        height: 32px;
+        width: 32px;
+    }
 
 
 

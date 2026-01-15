@@ -33,12 +33,12 @@
                     <ul class="options">
                         <li>
                             <a href="/">
-                                <UserIcon title="Add User"></UserIcon>
+                                <UserIcon title="Add User"/>
                             </a>
                         </li>
                         <li>
                             <a href="/">
-                                <LogoIcon title="Add Snappmap"></LogoIcon>
+                                <LogoIcon title="Add Snappmap"/>
                             </a>
                         </li>
                     </ul>
@@ -55,23 +55,9 @@
         margin-inline: auto;
     }
 
-    /* Main styles */
-    main {
-        font-family: 'Bariol';
-        color: var(--primary-color);
-        width: 100%;
-    }
-
-    ul,
-    li {
-        margin: 0;
-        padding-inline: 0;
-    }
-
     .group {
-        list-style: none;
         padding: 1em;
-        border-bottom: 2px solid var(--neutral-color-lightest);
+        border-bottom: 2px solid var(--neutral-color-light);
         display: grid;
         grid-template-areas:
             'title link'
@@ -80,8 +66,7 @@
     }
 
     .group > a {
-        font-size: 1.5rem;
-        margin: 0;
+        font-size: 1.5em;
         color: currentColor;
         text-decoration: none;
         grid-area: title;
@@ -91,7 +76,7 @@
     .group > p {
         grid-area: members;
         margin: 0;
-        color: var(--primary-color-light);
+        color: var(--neutral-color-dark);
     }
 
     .options {
@@ -102,10 +87,6 @@
     }
 
     .options a {
-        color: var(--primary-color-light);
-    }
-
-    .options a :global(svg) {
-        height: 1.5em;
+        color: var(--neutral-color-dark);
     }
 </style>
