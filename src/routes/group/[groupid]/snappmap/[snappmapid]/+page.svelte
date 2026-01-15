@@ -6,8 +6,9 @@
     const id = data?.id;
     const snapMap = data?.snaps?.[0];
 
-    const snappmapsDropdown = data?.snappMapsinGroup ?? [];
-    const { snappMapinGroup, id: currentId, } = data;
+    const group = data?.group ?? null
+    const snappMapinGroup = group?.snappmap?.map(r => r.snappthis_snapmap_uuid) ?? []
+    const { id: currentId, } = data;
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -57,9 +58,12 @@
 
     <div class="content">
         <AddButton />
+        {#each data.snappmapsInGroup as map}
+        <p>{map.uuid}</p>
+        {/each}
     <div class="dropdown">
-    {#each snappMapinGroup as map}
-    <a href={`/group/snappmap/${map.uuid}`}
+    {#each data.snappMapinGroup as map}
+    <a href={`/group/${currentId}/snappmap/${map.uuid}`}
        class:selected={map.uuid === currentId}>
       {map.name}
     </a>
