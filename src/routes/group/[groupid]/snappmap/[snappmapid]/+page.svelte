@@ -24,7 +24,7 @@
 
     import Header from '$lib/components/Header.svelte'
     import Feedback from '$lib/components/Feedback.svelte'
-    import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+    import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
 
     const userMap = new Map(
@@ -106,7 +106,6 @@
         @media (max-width: 720px) {
             display: none;
         }
-
     }
 
 
