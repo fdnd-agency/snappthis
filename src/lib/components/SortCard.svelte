@@ -4,8 +4,8 @@
     import Arrow from './icons/Arrow.svelte'
 
     import Clock from './icons/Clock.svelte'
-    import Star from './icons/StarIcon.Svelte'
-    import Tomato from './icons/TomatoIcon.Svelte'
+    import Star from './icons/StarIcon.svelte'
+    import Tomato from './icons/TomatoIcon.svelte'
 
     export let icon
 </script>
