@@ -2,37 +2,12 @@
     import { onMount } from 'svelte';
     import Card from './Card.svelte';
 
-    // all exports
-    export let groupUuid = null;
-    export let currentId = null;
-    export let data = null;
-
-    onMount(async () => {
-        try {
-            // fetching the group uuid from the database
-            if (groupUuid) {
-                const res = await fetch(
-                `https://fdnd-agency.directus.app/items/snappthis_group?filter[uuid][_eq]=${encodeURIComponent(
-                        groupUuid
-                    )}&fields=name,uuid,snappmap.snappthis_snapmap_uuid.*`
-                );    
-                const js = await res.json();
-                const group = js.data?.[0] ?? null;
-
-                snappmaps =
-                (group?.snappmap ?? [])
-    
-                    .map(rel => rel?.snapthis_snapmap_uuid)
-            }
-        }
-    })
+    export let dropdownContentSnapmap
 </script>
 
 {#if snappmaps.length}
     <div class="dropdown">
-        {#each snappmaps as map}
-            <a href="/group"> {map.name} </a>
-        {/each}
+        {dropdownContentSnapmap}
     </div>
 {/if}
 

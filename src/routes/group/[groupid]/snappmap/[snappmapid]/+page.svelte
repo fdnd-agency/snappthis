@@ -37,7 +37,7 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups" href="/group"/>
+<Header page="snappmap" icon="snappmap" title="Title" active="groups" href="/group"/>
 <main>
 
     <div class="sidebar">
@@ -58,12 +58,13 @@
 
     <div class="content">
         <AddButton />
+
         {#each data.snappmapsInGroup as map}
         <p>{map.uuid}</p>
         {/each}
     <div class="dropdown">
-    {#each data.snappMapinGroup as map}
-    <a href={`/group/${currentId}/snappmap/${map.uuid}`}
+    {#each snappMapinGroup as map}
+    <a href={`/group/${group.uuid}/snappmap/${map.uuid}`}
        class:selected={map.uuid === currentId}>
       {map.name}
     </a>

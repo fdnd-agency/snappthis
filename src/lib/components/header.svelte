@@ -19,6 +19,7 @@
     export let title = "SnappMap"
     export let active = "home"
     export let href = "/"
+    export let dropdownContentSnapmapTwo
     
     let isDropdownOpen = false 
 
@@ -88,7 +89,7 @@
 
 <div class="dropdown">
 {#if isDropdownOpen}
- <SnappMapDropdown />
+ <SnappMapDropdown dropdownContentSnapmap={dropdownContentSnapmapTwo} />
 {/if}
 </div>
 
