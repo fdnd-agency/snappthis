@@ -1,12 +1,11 @@
 <script>
+    // icons
     import HeartIcon from '$lib/components/icons/HeartIcon.svelte'
     import StarIcon from '$lib/components/icons/StarIcon.svelte'
     import TomatoIcon from '$lib/components/icons/TomatoIcon.svelte'
     import GalleryIcon from '$lib/components/icons/GalleryIcon.svelte'
 
     let { snappMap, groupID } = $props();
-
-
 </script>
 
 <li>

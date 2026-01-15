@@ -1,10 +1,6 @@
 <script>
     // icons
-    import GobackIcon from "./icons/GobackIcon.svelte";
-
     import Settings from "./icons/Settings.svelte";
-    import Add from "./icons/PlusIcon.svelte";
-    import Dropdown from './icons/Dropdown.svelte'
     import Card from "./Card.svelte"
     import SortCard from "./SortCard.svelte"
 

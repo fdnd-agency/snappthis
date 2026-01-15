@@ -1,5 +1,7 @@
 <script>
     import Header from '$lib/components/Header.svelte'
+
+
     import GalleryIcon from '../../lib/components/icons/GalleryIcon.svelte'
     import GroupIcon from '../../lib/components/icons/GroupIcon.svelte'
     import StarIcon from '../../lib/components/icons/StarIcon.svelte'
@@ -20,14 +22,14 @@
     </ul>
 
     <ul class="your-data">
-        <li><GalleryIcon></GalleryIcon> 54 snapps</li>
+        <li><GalleryIcon /> 54 snapps</li>
         <li>
             <a href="/group">
-                <GroupIcon></GroupIcon>
+                <GroupIcon />
                 {user.groups} groups
             </a>
         </li>
-        <li><StarIcon></StarIcon> 21 stars</li>
+        <li><StarIcon /> 21 stars</li>
     </ul>
 </section>
 

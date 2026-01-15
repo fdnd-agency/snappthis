@@ -1,8 +1,8 @@
 <script>
     import { onMount } from 'svelte'
-    import FavIcon from './icons/FavIcon.svelte'
-    import Arrow from './icons/Arrow.svelte'
 
+    // logos
+    import Arrow from './icons/Arrow.svelte'
     import Clock from './icons/Clock.svelte'
     import Star from './icons/StarIcon.svelte'
     import Tomato from './icons/TomatoIcon.svelte'
