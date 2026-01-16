@@ -60,25 +60,11 @@
 
     <div class="content">
         <AddButton />
-    <ul class={"snaps-" + gridsize}>
-        {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="{page.url.pathname}/{snap.uuid}">
-                    <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}"
-                        height="256"
-                        width="256" />
-                </a>
-                <div class="list-items">
-                    <h2>{userMap.get(snap.author)}</h2>
-                    <h3>{snap.location}</h3>
+     <ul class="snaps-{gridsize}">
 
-                    <a class="listview-a" href="/"> Visit </a>
-                </div>
-            </li>
-        {/each}
+    {#each snaps as snap}
+        <Image picture="{snap.picture}"/>
+    {/each}
     </ul>
     </div>
 </main>
@@ -109,7 +95,6 @@
         }
     }
 
-
     .content {
         margin-left: 30em;
 
@@ -121,13 +106,6 @@
         }
     }
 
-    .content img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
     .sort-function {
         display: flex;
         gap: 1em;
@@ -137,12 +115,6 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
-    }
-
-    img {
-        height: 256px;
-        width: 256px;
-        contain: cover;
     }
 
     ul {

@@ -1,6 +1,7 @@
 export async function load({ url, params }) {
     const snapsRes = await fetch(
         `https://fdnd-agency.directus.app/items/snappthis_snapmap/?fields=snaps.*,name,uuid&filter[uuid][_eq]=${params.snappmapid}`
+        
     )
     const snapsData = await snapsRes.json()
 
