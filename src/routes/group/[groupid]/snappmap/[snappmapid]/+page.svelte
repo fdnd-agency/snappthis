@@ -44,18 +44,10 @@
     <div class="content">
         <AddButton />
      <ul class="snaps-{gridsize}">
-        {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="{page.url.pathname}/{snap.uuid}">
-                    <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}"
-                        height="256"
-                        width="256" />
-                </a>
-            </li>
-        {/each}
+
+    {#each snaps as snap}
+        <Image picture="{snap.picture}"/>
+    {/each}
     </ul>
     </div>
 </main>
@@ -83,6 +75,17 @@
 
         @media (max-width: 720px) {
             display: none;
+        }
+    }
+
+    .content {
+        margin-left: 28em;
+
+        @media (max-width: 1080px) {
+            margin-left: 21em;
+        }
+        @media (max-width: 720px) {
+            margin-left: 0em;
         }
     }
 
