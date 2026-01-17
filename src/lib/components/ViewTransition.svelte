@@ -66,7 +66,7 @@
     .first-line {
         display: block;
         position: absolute;
-        top: 50px;
+        top: 100px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lightest);
@@ -76,7 +76,7 @@
     .second-line {
         display: block;
         position: absolute;
-        top: 100px;
+        top: 150px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lighter);
@@ -86,7 +86,7 @@
     .third-line {
         display: block;
         position: absolute;
-        bottom: 50px;
+        bottom: 100px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lightest);
@@ -96,7 +96,7 @@
     .fourth-line {
         display: block;
         position: absolute;
-        bottom: 100px;
+        bottom: 150px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lighter);
