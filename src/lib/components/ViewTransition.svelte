@@ -12,25 +12,25 @@
     
 
     // function start redos the timeline
-    export function start(nextUrl) {
-        next = nextUrl;
+    export function start() {
         tl.restart();
     }
 
     onMount(() => {
-        // page transition is gepauzeerd in en gaat op play wanneer je naar de andere pagina gaat
-        tl = gsap.timeline({ defaults: { duration: 0.4 }, paused: true});
+        tl = gsap.timeline({ defaults: { duration: 0.4 }, paused: false});
 
-        tl.set(".view-transition", { y: "200vh", x: "-100vw" });
-        tl.from(".view-transition", { y: "200vh", x: "-100vw" });
-        tl.from(".first-line", { x: "-200vw" });
-        tl.from(".second-line", { x: "-200vw" });
-        tl.from(".third-line", { x: "-200vw" });
-        tl.from(".fourth-line", { x: "-200vw" });
-        tl.to(".view-transition", { y: "-200vh", x: "100vw" });
+        tl.set(".view-transition", { y: "200vh", x: "-100vw" })
+
+        tl.from(".view-transition", { y: "200vh", x: "-100vw"})
+        tl.from(".first-line", { x: "-200vw"})
+        tl.from(".second-line", { x: "-200vw"})
+        tl.from(".third-line", { x: "-200vw"})
+        tl.from(".fourth-line", { x: "-200vw"})
+        tl.to(".view-transition", { y: "-200vh", x: "100vw"})
+
 
         tl.eventCallback("onComplete", () => {
-            dispatch("done", { next });
+            dispatch("done", { next });  
         });
     });
 
@@ -66,7 +66,7 @@
     .first-line {
         display: block;
         position: absolute;
-        top: 100px;
+        top: 150px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lightest);
@@ -76,7 +76,7 @@
     .second-line {
         display: block;
         position: absolute;
-        top: 150px;
+        top: 200px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lighter);
@@ -86,7 +86,7 @@
     .third-line {
         display: block;
         position: absolute;
-        bottom: 100px;
+        bottom: 150px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lightest);
@@ -96,7 +96,7 @@
     .fourth-line {
         display: block;
         position: absolute;
-        bottom: 150px;
+        bottom: 200px;
         width: 200vw;
         height: 25px;
         background-color: var(--primary-color-lighter);
