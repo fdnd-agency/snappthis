@@ -1,6 +1,5 @@
 <script>
     import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
-    import ViewTransition from '$lib/components/ViewTransition.svelte'
 
     let { data } = $props()
     const snappMaps = data.snappMaps
@@ -12,7 +11,6 @@
 
 <h1>SnappMap Overview</h1>
 
-<ViewTransition />
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap}></SnappMapPreview>
 {/each}

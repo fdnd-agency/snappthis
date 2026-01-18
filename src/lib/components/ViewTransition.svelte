@@ -12,12 +12,14 @@
     
 
     // function start redos the timeline
-    export function start() {
+    export function start(nextUrl) {
+        next = nextUrl;
         tl.restart();
     }
 
     onMount(() => {
-        tl = gsap.timeline({ defaults: { duration: 0.4 }, paused: false});
+        // page transition is gepauzeerd in en gaat op play wanneer je naar de andere pagina gaat
+        tl = gsap.timeline({ defaults: { duration: 0.4 }, paused: true});
 
         tl.set(".view-transition", { y: "200vh", x: "-100vw" })
 

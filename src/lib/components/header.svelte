@@ -1,6 +1,5 @@
 <script>
     export let title = 'SnappThis'
-
     import Goback from '$lib/components/icons/GobackIcon.svelte'
 </script>
 

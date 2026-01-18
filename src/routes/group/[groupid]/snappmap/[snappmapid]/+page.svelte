@@ -24,7 +24,7 @@
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<ViewTransition bind:this={transitionRef} on:done={handleDone} />
+
 
 <Header title={snapMap.name} />
 
