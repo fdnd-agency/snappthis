@@ -3,6 +3,7 @@
     import NavBar from '$lib/components/NavBar.svelte'
     import ViewTransition from '$lib/components/ViewTransition.svelte'
     import { page } from '$app/state';
+    import { beforeNavigate, goto } from '$app/navigation'
 
     let { children } = $props()
 

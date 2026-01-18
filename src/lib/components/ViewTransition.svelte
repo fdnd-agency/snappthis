@@ -21,18 +21,16 @@
         // page transition is gepauzeerd in en gaat op play wanneer je naar de andere pagina gaat
         tl = gsap.timeline({ defaults: { duration: 0.4 }, paused: true});
 
-        tl.set(".view-transition", { y: "200vh", x: "-100vw" })
-
-        tl.from(".view-transition", { y: "200vh", x: "-100vw"})
-        tl.from(".first-line", { x: "-200vw"})
-        tl.from(".second-line", { x: "-200vw"})
-        tl.from(".third-line", { x: "-200vw"})
-        tl.from(".fourth-line", { x: "-200vw"})
-        tl.to(".view-transition", { y: "-200vh", x: "100vw"})
-
+        tl.set(".view-transition", { y: "200vh", x: "-100vw" });
+        tl.from(".view-transition", { y: "200vh", x: "-100vw" });
+        tl.from(".first-line", { x: "-200vw" });
+        tl.from(".second-line", { x: "-200vw" });
+        tl.from(".third-line", { x: "-200vw" });
+        tl.from(".fourth-line", { x: "-200vw" });
+        tl.to(".view-transition", { y: "-200vh", x: "100vw" });
 
         tl.eventCallback("onComplete", () => {
-            dispatch("done", { next });  
+            dispatch("done", { next });
         });
     });
 
