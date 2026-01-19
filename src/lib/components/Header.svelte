@@ -82,6 +82,11 @@
         align-items: center;
         position: fixed;
 
+        h1 {
+            position: relative;
+            top: -15px;
+        }
+
         @media (width > 720px) {
             height: 100px;
         }
@@ -144,7 +149,6 @@
 
     nav a {
         color: var(--neutral-color-lightest);
-        font-family: 'Bariol Bold';
         width: 100%;
         display: flex;
         flex-direction: column;
