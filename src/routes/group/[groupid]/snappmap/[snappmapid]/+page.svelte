@@ -57,9 +57,6 @@
         display: grid;
         grid-template-columns: 20% 80%;
 
-        @media (max-width: 1080px) {
-            display: 10% 90%;
-        }
 
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
@@ -79,10 +76,9 @@
     }
 
     .content {
-        margin-left: 28em;
 
         @media (max-width: 1080px) {
-            margin-left: 21em;
+            margin-left: 10em;
         }
         @media (max-width: 720px) {
             margin-left: 0em;
