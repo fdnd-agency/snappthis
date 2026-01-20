@@ -7,7 +7,7 @@
     const usersdata = data.users
     const id = data.id
 
-    let gridsize = 'xlarge'
+    let gridsize = 'medium'
 
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
@@ -59,13 +59,6 @@
     </div>
 
     <div class="content">
-        <AddButton />
-     <ul class="snaps-{gridsize}">
-
-    {#each snaps as snap}
-        <Image picture="{snap.picture}"/>
-    {/each}
-    </ul>
     </div>
 </main>
 
@@ -95,17 +88,6 @@
         }
     }
 
-    .content {
-        margin-left: 30em;
-
-        @media (max-width: 1080px) {
-            margin-left: 21em;
-        }
-        @media (max-width: 720px) {
-            margin-left: 0em;
-        }
-    }
-
     .sort-function {
         display: flex;
         gap: 1em;
@@ -117,23 +99,7 @@
         width: 100vw;
     }
 
-    ul {
-        list-style: none;
-        width: 65vw;
-        gap: 1em;
-        margin: 0;
-        padding: 0;
-        margin-top: 1em;
-
-        @media (max-width: 720px) {
-            margin-left: 0em;
-            grid-template-columns: 1fr 1fr;
-            width: fit-content
-        }
-    }
-
     .snaps-xlarge {
-        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr;
 
@@ -143,7 +109,6 @@
     }
 
     .snaps-large {
-        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
 
@@ -153,7 +118,6 @@
     }
 
     .snaps-medium {
-        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -163,7 +127,6 @@
     }
 
     .snaps-small {
-        transition-duration: 0.3s;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
@@ -188,23 +151,6 @@
             background-color: var(--neutral-color-light);
             padding: 1em;
         }
-    }
-
-    .list-items {
-        padding: 1em;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .listview-a {
-        height: 2em;
-        width: 8em;
-        background-color: var(--neutral-color);
-        padding: 1em;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
 

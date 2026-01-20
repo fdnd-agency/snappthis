@@ -18,11 +18,23 @@
 
 <style>
     
-.pic {
-  width: 256px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
+    .list-items {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .listview-a {
+        height: 2em;
+        width: 8em;
+        background-color: var(--neutral-color);
+        padding: 1em;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
 
 </style>
