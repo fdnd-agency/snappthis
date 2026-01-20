@@ -46,14 +46,14 @@
         <div class="title-card">
             <Card text="Squad 2A" icon="group" />
         </div>
-        
+
         <h2>Layout</h2>
         <div>
             <LayoutNavigation bind:selected={gridsize} />
         </div>
     </div>
 
-    <div class="content">
+    <div class="snaps-{gridsize}">
         {#each snaps as snap}
             <Snap picture={snap.picture}/>
         {/each}
@@ -64,20 +64,15 @@
     main {
         margin-bottom: 5%;
         display: grid;
-        grid-template-columns:30% 80%;
+        grid-template-columns:30% 70%;
 
         @media (max-width: 1080px) {
-            display: 20% 90%;
+            display: 20% 80%;
         }
 
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
         }
-    }
-
-    .content {
-        display: flex;
-        overflow-x: scroll;
     }
 
     .sidebar {
@@ -91,11 +86,6 @@
         }
     }
 
-    .sort-function {
-        display: flex;
-        gap: 1em;
-        width: fit-content;
-    }
 
     .list-container {
         display: flex;
