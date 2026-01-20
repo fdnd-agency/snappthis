@@ -10,7 +10,7 @@
     let gridsize = 'medium'
 
     import Header from '$lib/components/Header.svelte'
-    import Image from '$lib/components/Image.svelte'
+    import Image from '$lib/components/Snap.svelte'
     import Card from '$lib/components/Card.svelte'
     import SortCard from '$lib/components/SortCard.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
