@@ -7,7 +7,7 @@
     const snappDetail = data.snappDetails
 </script>
 
-<Header page="snap" href={`${page.url.pathname} - "${snappDetail.uuid}"`}></Header>
+<Header page="snappmap" icon="snappmap" href={`${page.url.pathname} - "${snappDetail.uuid}"`}></Header>
 
 <h1>Snap Detail</h1>
 <h2>{snappDetail.snapmap.name}</h2>

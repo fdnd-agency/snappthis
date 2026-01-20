@@ -12,7 +12,7 @@
 
 </script>
 
-<a href={href}>
+<a href={href} class="all-{list}">
     <picture>
         <source
             srcset={`https://fdnd-agency.directus.app/assets/${picture}&format=avif`}
@@ -36,13 +36,23 @@
 
 
 <style>
+    .all-items-list {
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: 20% 80%;
+        margin: 1em;
+        background-color: var(--neutral-color-lighter);
+    }
+
     li {
         list-style: none;
     }
     picture img {
-        height: 100%;
+        height: auto;
         width: 100%;
+        aspect-ratio: 1/1;
         padding: 0.5em;
+        object-fit:cover;
     }
 
     .items-list {
