@@ -10,7 +10,7 @@
     let gridsize = 'medium'
 
     import Header from '$lib/components/Header.svelte'
-    import Image from '$lib/components/Snap.svelte'
+    import Snap from '$lib/components/Snap.svelte'
     import Card from '$lib/components/Card.svelte'
     import SortCard from '$lib/components/SortCard.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
@@ -46,12 +46,7 @@
         <div class="title-card">
             <Card text="Squad 2A" icon="group" />
         </div>
-        <h2>Sort by</h2>
-        <div class="sort-function">
-            <SortCard icon="clock" />
-            <SortCard icon="star" />
-            <SortCard icon="tomato" />
-        </div>
+        
         <h2>Layout</h2>
         <div>
             <LayoutNavigation bind:selected={gridsize} />
@@ -59,6 +54,9 @@
     </div>
 
     <div class="content">
+        {#each snaps as snap}
+            <Snap picture={snap.picture}/>
+        {/each}
     </div>
 </main>
 
@@ -66,10 +64,10 @@
     main {
         margin-bottom: 5%;
         display: grid;
-        grid-template-columns: 20% 80%;
+        grid-template-columns:30% 80%;
 
         @media (max-width: 1080px) {
-            display: 10% 90%;
+            display: 20% 90%;
         }
 
         @media (max-width: 720px) {
@@ -77,10 +75,15 @@
         }
     }
 
+    .content {
+        display: flex;
+        overflow-x: scroll;
+    }
+
     .sidebar {
         background-color: var(--neutral-color-light);
         height: 100vh;
-        position: fixed;
+        width: 30vw;
         padding: 1em;
 
         @media (max-width: 720px) {
@@ -91,6 +94,7 @@
     .sort-function {
         display: flex;
         gap: 1em;
+        width: fit-content;
     }
 
     .list-container {
