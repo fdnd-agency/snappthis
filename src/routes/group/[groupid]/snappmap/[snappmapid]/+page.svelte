@@ -27,7 +27,6 @@
     import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
 
-
     const userMap = new Map(
         usersdata
             .filter(u => u?.uuid && u?.name)
@@ -53,11 +52,11 @@
         </div>
     </div>
 
-    <div class="snaps-{gridsize}">
+    <ul class="snaps-{gridsize}">
         {#each snaps as snap}
-            <Snap picture={snap.picture} href="/groups"/>
+            <Snap picture={snap.picture} href="/groups" list="items-{gridsize}"/>
         {/each}
-    </div>
+    </ul>
 </main>
 
 <style>
@@ -86,6 +85,10 @@
         }
     }
 
+    .list-items {
+        display: none;
+    }
+
 
     .list-container {
         display: flex;
@@ -96,27 +99,17 @@
     .snaps-xlarge {
         padding: 1em;
         display: grid;
-                height: 100vh;
-
+        height: 100vh;
         grid-template-columns: 1fr 1fr;
         overflow: scroll;
-
-        .list-items {
-            display: none;
-        }
     }
 
     .snaps-large {
         padding: 1em;
         display: grid;
-                height: 100vh;
-
+        height: 100vh;
         grid-template-columns: 1fr 1fr 1fr;
         overflow: scroll;
-
-        .list-items {
-            display: none;
-        }
     }
 
     .snaps-medium {
@@ -125,23 +118,15 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         overflow: scroll;
-
-        .list-items {
-            display: none;
-        }
     }
 
     .snaps-small {
         padding: 1em;
-                height: 100vh;
-
+        height: 100vh;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         overflow: scroll;
-
-        .list-items {
-            display: none;
-        }
+        height: 100vh;
     }
 
     .snaps-list {
