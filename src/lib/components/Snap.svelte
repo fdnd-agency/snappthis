@@ -2,13 +2,17 @@
     import { fetchPictures } from '$lib/components/index.js'
     import { onMount } from 'svelte'
     
+    export let href = []
     export let picture = []
     export let list = []
+
+    export let author = []
+    export let location = []
 
 
 </script>
 
-<li href="/">
+<a href={href}>
     <picture>
         <source
             srcset={`https://fdnd-agency.directus.app/assets/${picture}&format=avif`}
@@ -25,10 +29,10 @@
     </picture>
 
     <div class={list}>
-        <h2>The Author</h2>
-        <h3>Location</h3>
+        <h2>{author}</h2>
+        <h3>{location}</h3>
     </div>
-</li>
+</a>
 
 
 <style>
@@ -36,7 +40,9 @@
         list-style: none;
     }
     picture img {
-        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        padding: 0.5em;
     }
 
     .items-list {

@@ -54,7 +54,8 @@
 
     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
-            <Snap picture={snap.picture} href="/groups" list="items-{gridsize}"/>
+        <p>{snap.uuid}</p>
+            <Snap href={`${page.url.pathname}/snapp/${snap.uuid}`} picture={snap.picture} list="items-{gridsize}" author={userMap.map} location={snap.location}/>
         {/each}
     </ul>
 </main>
@@ -131,22 +132,7 @@
 
     .snaps-list {
         padding: 1em;
-        display: grid;
-        grid-template-columns: 1fr;
-
-        img {
-            display: flex;
-            width: 256px;
-            height: 256px;
-            object-fit: cover;
-        }
-
-        li {
-            display: flex;
-            background-color: var(--neutral-color-light);
-            padding: 1em;
-        }
+        overflow: scroll;
+        height: 100vh;
     }
-
-
 </style>
