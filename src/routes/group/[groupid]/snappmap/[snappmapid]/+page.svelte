@@ -55,7 +55,7 @@
 
     <div class="snaps-{gridsize}">
         {#each snaps as snap}
-            <Snap picture={snap.picture}/>
+            <Snap picture={snap.picture} href="/groups"/>
         {/each}
     </div>
 </main>
@@ -94,8 +94,12 @@
     }
 
     .snaps-xlarge {
+        padding: 1em;
         display: grid;
+                height: 100vh;
+
         grid-template-columns: 1fr 1fr;
+        overflow: scroll;
 
         .list-items {
             display: none;
@@ -103,8 +107,12 @@
     }
 
     .snaps-large {
+        padding: 1em;
         display: grid;
+                height: 100vh;
+
         grid-template-columns: 1fr 1fr 1fr;
+        overflow: scroll;
 
         .list-items {
             display: none;
@@ -112,8 +120,11 @@
     }
 
     .snaps-medium {
+        padding: 1em;
+        height: 100vh;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        overflow: scroll;
 
         .list-items {
             display: none;
@@ -121,8 +132,12 @@
     }
 
     .snaps-small {
+        padding: 1em;
+                height: 100vh;
+
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        overflow: scroll;
 
         .list-items {
             display: none;
@@ -130,6 +145,7 @@
     }
 
     .snaps-list {
+        padding: 1em;
         display: grid;
         grid-template-columns: 1fr;
 

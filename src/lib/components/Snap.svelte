@@ -2,6 +2,7 @@
     import { fetchPictures } from '$lib/components/index.js'
     import { onMount } from 'svelte'
 
+    
     export let picture = []
 </script>
 
