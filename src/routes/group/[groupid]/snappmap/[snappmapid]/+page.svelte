@@ -54,7 +54,6 @@
 
     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
-        <p>{snap.uuid}</p>
             <Snap href={`${page.url.pathname}/snapp/${snap.uuid}`} picture={snap.picture} list="items-{gridsize}" author={userMap.map} location={snap.location}/>
         {/each}
     </ul>
