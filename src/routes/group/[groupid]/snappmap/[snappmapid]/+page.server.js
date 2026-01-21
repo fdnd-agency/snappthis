@@ -15,3 +15,43 @@ export async function load({ url, params }) {
         id: params.snappmapid,
     }
 }
+
+export const actions = {
+    upload: async (event) => {
+        // upload the image
+        const formData = await event.request.formData()
+        const snappmapid = event.params.snappmapid
+
+        const uploadResponse = await fetch(
+            'https://fdnd-agency.directus.app/files',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        )
+
+        // get the new image ID from the response
+        const uploadResponseData = await uploadResponse.json()
+        const imageID = uploadResponseData.data.id
+
+        // create a new snap
+        let newSnap = {
+            location: 'Amsterdam',
+            snapmap: snappmapid,
+            author: '6d6f682e-33aa-4d45-88db-e8c15263ccc6',
+            picture: imageID,
+        }
+
+        // upload the new snap to directus
+        const snapResponse = await fetch(
+            `https://fdnd-agency.directus.app/items/snappthis_snap`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newSnap),
+            }
+        )
+    },
+}

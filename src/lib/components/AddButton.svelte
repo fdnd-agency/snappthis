@@ -2,10 +2,14 @@
     let { page } = $props()
 </script>
 
-<form method="POST">
-    <label> 
-        <input type="file" accept="image/png, image/jpeg" />
-    </label> 
+<form method="POST" action="?/upload" enctype="multipart/form-data">
+    <label>
+        <input
+            type="file"
+            name="file"
+            accept="image/png, image/jpeg"
+            required />
+    </label>
 
     <button>
         <svg
