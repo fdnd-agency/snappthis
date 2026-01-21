@@ -3,11 +3,11 @@
     import GridThree from '$lib/components/icons/Grid3Icon.svelte'
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
-    import ListView from '$lib/components/icons/Grid5Icon.svelte'
+    import ListView from '$lib/components/icons/ListviewIcon.svelte'
 
     import { onMount } from 'svelte'
-
-    let selected = "xlarge";
+    
+    export let selected = "xlarge";
 
     function selectOption(value) {
         selected = value;
@@ -23,7 +23,7 @@
 </script>
 
 <div class="dropdownmenu">
-    {#each options as opt, i}
+    {#each options as opt}
     <label
     class="option {selected === opt.value ? 'selected' : ''}"
     for={opt.value}
@@ -33,9 +33,8 @@
                 type="radio"
                 name="layout"
                 value={opt.value}
-                bind:group={selected}
+                bind:group={selected} 
             />
-
             <svelte:component this={opt.icon} />
 
         <span class="short">{opt.short}</span>

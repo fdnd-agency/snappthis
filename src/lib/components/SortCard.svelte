@@ -33,6 +33,7 @@
 <style>
     .card {
         background-color: var(--neutral-color);
+        width: fit-content;
         border-radius: 16px;
         display: flex;
         justify-content: center;

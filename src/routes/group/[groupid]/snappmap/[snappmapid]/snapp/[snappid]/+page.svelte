@@ -1,13 +1,18 @@
 <script>
+    import { page } from '$app/state'
+
+    import Header from '$lib/components/Header.svelte'
+
     let { data } = $props()
     const snappDetail = data.snappDetails
 </script>
 
-<Header name="snappmap"/>
+<Header page="snappmap" icon="snappmap" href={`${page.url.pathname} - "${snappDetail.uuid}"`}></Header>
+
+<h1>Snap Detail</h1>
 <h2>{snappDetail.snapmap.name}</h2>
 
 <section class="content-holder">
-    <!-- svelte-ignore a11y_img_redundant_alt -->
     <img
         src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`}
         alt="picture"
