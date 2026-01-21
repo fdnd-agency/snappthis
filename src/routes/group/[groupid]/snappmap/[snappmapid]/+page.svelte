@@ -61,7 +61,6 @@
 
 <style>
     main {
-        margin-bottom: 5%;
         display: grid;
         grid-template-columns:30% 70%;
 
@@ -74,9 +73,13 @@
         }
     }
 
+    ul {
+        margin: 0;
+    }
+
     .sidebar {
         background-color: var(--neutral-color-light);
-        height: 100vh;
+        height: 100%;
         width: 30vw;
         padding: 1em;
 
@@ -94,12 +97,14 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
+        height: 87vh;
     }
 
     .snaps-xlarge {
         padding: 1em;
         display: grid;
-        height: 100vh;
+        height: 87vh;
+        width: 100vw;
         grid-template-columns: 1fr 1fr;
         overflow: scroll;
     }
@@ -107,14 +112,14 @@
     .snaps-large {
         padding: 1em;
         display: grid;
-        height: 100vh;
+        height: 87vh;
         grid-template-columns: 1fr 1fr 1fr;
         overflow: scroll;
     }
 
     .snaps-medium {
         padding: 1em;
-        height: 100vh;
+        height: 87vh;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         overflow: scroll;
@@ -122,16 +127,15 @@
 
     .snaps-small {
         padding: 1em;
-        height: 100vh;
+        height: 87vh;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         overflow: scroll;
-        height: 100vh;
     }
 
     .snaps-list {
         padding: 1em;
         overflow: scroll;
-        height: 100vh;
+        height: 90vh;
     }
 </style>
