@@ -51,8 +51,10 @@
             <LayoutNavigation bind:selected={gridsize} />
         </div>
     </div>
+            <AddButton/>
 
     <ul class="snaps-{gridsize}">
+
         {#each snaps as snap}
             <Snap href={`${page.url.pathname}/snapp/${snap.uuid}`} picture={snap.picture} list="items-{gridsize}" author={userMap.get(snap.author)} location={snap.location}/>
         {/each}
