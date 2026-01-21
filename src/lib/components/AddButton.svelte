@@ -5,11 +5,7 @@
 <form method="POST" action="?/upload" enctype="multipart/form-data">
     <label>
         Upload your snapp
-        <input
-            type="file"
-            name="file"
-            accept="image/png, image/jpeg"
-            required />
+        <input type="file" name="file" accept="image/*" required />
     </label>
 
     <button>
