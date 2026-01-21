@@ -11,7 +11,7 @@
     import Header from '$lib/components/Header.svelte'
     import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
-    import SortCard from '$lib/components/Sort-Card.svelte'
+    import SortCard from '$lib/components/SortCard.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -23,7 +23,7 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
-    import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+    import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
 </script>
 
@@ -53,18 +53,10 @@
     <div class="content">
         <AddButton />
      <ul class="snaps-{gridsize}">
-        {#each snaps as snap}
-            <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="{page.url.pathname}/{snap.uuid}">
-                    <img
-                        src={'https://fdnd-agency.directus.app/assets/' +
-                            snap.picture}
-                        alt="Photo by ${snap.author} at ${snap.location}"
-                        height="256"
-                        width="256" />
-                </a>
-            </li>
-        {/each}
+
+    {#each snaps as snap}
+        <Image picture="{snap.picture}"/>
+    {/each}
     </ul>
     </div>
 </main>
@@ -93,9 +85,7 @@
         @media (max-width: 720px) {
             display: none;
         }
-
     }
-
 
     .content {
         margin-left: 28em;
@@ -108,13 +98,6 @@
         }
     }
 
-    .content img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
     .sort-function {
         display: flex;
         gap: 1em;
@@ -124,12 +107,6 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
-    }
-
-    img {
-        height: 256px;
-        width: 256px;
-        contain: cover;
     }
 
     ul {
