@@ -12,6 +12,7 @@
 
 </script>
 
+<li>
 <a href={href} class="all-{list}">
     <picture>
         <source
@@ -33,6 +34,7 @@
         <h3>{location}</h3>
     </div>
 </a>
+</li>
 
 
 <style>
@@ -47,6 +49,7 @@
     li {
         list-style: none;
     }
+
     picture img {
         height: auto;
         width: 100%;
