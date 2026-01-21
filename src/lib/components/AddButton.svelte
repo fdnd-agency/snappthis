@@ -8,7 +8,7 @@
         <input type="file" name="file" accept="image/*" required />
     </label>
 
-    <button>
+    <button aria-label="submit">
         <svg
             width="77"
             height="64"
