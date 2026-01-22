@@ -8,32 +8,33 @@
     import GroupIcon from './icons/GroupIcon.svelte'
     import Arrow from './icons/Arrow.svelte'
 
+    // exports
     export let text
     export let icon
-
-    // href and link
     export let href
     export let link
 </script>
 
 <div class="card">
+    <!-- with binding the appropriate icon will be displayed -->
     <div class="card-{icon}">
         <div>
-        <GridThree />
+            <GridThree />
         </div>
         <div>
-        <GridFour />
+            <GridFour />
         </div>
         <div>
-        <GridFive />
+            <GridFive />
         </div>
         <div>
-        <List />
+            <List />
         </div>
         <div>
-        <GroupIcon />
+            <GroupIcon />
         </div>
         <div>
+            <!-- This arrow is interactive when you click on it the rotation will be changed -->
             <Arrow rotation="180" />
         </div>
     </div>
@@ -46,7 +47,6 @@
 </a>
 
 <style>
-
     .card {
         width: auto;
         height: fit-content;
@@ -56,7 +56,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        font-size: clamp(20px, 4vw, 28px);
         padding-left: 2em;
         padding-right: 2em;
         gap: 1em;
@@ -105,6 +104,5 @@
     .card-true {
         display: block;
     }
-
     
 </style>
