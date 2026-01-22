@@ -5,13 +5,15 @@
     let { data } = $props()
     const snappMaps = data.snappMaps
     const groups = data.groups
+
+    const snappMap = data.snappMaps[0]
 </script>
 
 <Header page="home" active="home"/>
 
-{#each snappMaps as snappMap}
-    <SnappMapPreview {snappMap} {groups}></SnappMapPreview>
-{/each}
+
+<SnappMapPreview {snappMap}  groupID="217f68ac-44d3-4980-9914-9ef5f7649d8f"></SnappMapPreview>
+
 
 <style>
     h1 {

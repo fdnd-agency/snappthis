@@ -4,14 +4,13 @@
     import TomatoIcon from '$lib/components/icons/TomatoIcon.svelte'
     import GalleryIcon from '$lib/components/icons/GalleryIcon.svelte'
 
-    let { snappMap, groupID } = $props();
-
-
+    export let snappMap
+    export let groupID
 </script>
 
 <li>
     <div>
-        <a href="/group/{snappMap.groupid}/snappmap/{snappMap.uuid}">{snappMap.name}</a>
+        <a href={`/group/${groupID}/snappmap/${snappMap.uuid}`}>{snappMap.name}</a>
         <ul>
             <li><HeartIcon />15</li>
             <li><TomatoIcon />9</li>
