@@ -67,7 +67,7 @@
 <style>
     header {
         background-color: var(--primary-color);
-        color: var(--neutral-color-100);
+        color: var(--neutral-color);
         width: 100vw;
         height: 75px;
         display: flex;
@@ -83,7 +83,6 @@
         @media (width > 720px) {
             height: 75px;
         }
-
     }
 
     .left-icon-home {
@@ -130,6 +129,8 @@
         }
     }
 
+    /* navigationbar in the header */
+
     nav {
         position: fixed;
         top: 6.5%;
@@ -141,7 +142,6 @@
         margin-inline: auto;
     }
 
-
     nav a {
         color: var(--neutral-color-lightest);
         font-family: 'Bariol Bold';
@@ -150,7 +150,6 @@
         flex-direction: column;
         height: 1.5em;
         width: 1.5em;
-
         align-items: center;
         color: var(--neutral-color-100);
         flex-direction: row;
@@ -167,7 +166,7 @@
         }
     }
 
-
+    /* dropdown */
     .dropdown-content {
         position: absolute;
         display: flex;

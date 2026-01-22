@@ -23,6 +23,7 @@
 </script>
 
 <div class="dropdownmenu">
+    <!-- for each loop for each item in the layout navigation -->
     {#each options as opt}
     <label
     class="option {selected === opt.value ? 'selected' : ''}"
@@ -37,12 +38,12 @@
             />
             <svelte:component this={opt.icon} />
 
+            <!-- two option to show the long and short label to describe the label -->
         <span class="short">{opt.short}</span>
         <span class="long">{opt.long}</span>
     </label>
     {/each}
 </div>
-
 
 <style>
     .dropdownmenu {
@@ -120,7 +121,6 @@
     }
 
     .long { 
-    padding-left: 3em;
+        padding-left: 3em;
     }      
-
 </style>
