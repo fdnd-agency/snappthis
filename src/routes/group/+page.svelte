@@ -1,6 +1,5 @@
 <script>
     import Header from '$lib/components/Header.svelte'
-    import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte'
     import LogoIcon from '$lib/components/icons/LogoIcon.svelte'
     import PlusIcon from '$lib/components/icons/PlusIcon.svelte'
     import UserIcon from '$lib/components/icons/UserIcon.svelte'
@@ -97,11 +96,11 @@
         justify-self: end;
         display: flex;
         list-style: none;
-    }
 
-    .options a {
-        color: var(--primary-color-light);
-    }
+            &a {
+                color: var(--primary-color-light);
+            }
+        }
 
     .options a :global(svg) {
         height: 1.5em;

@@ -1,3 +1,4 @@
+// all the groups are imported
 export async function load({ url }) {
     const groups = await fetch(
         'https://fdnd-agency.directus.app/items/snappthis_group'

@@ -9,22 +9,24 @@
 
 <Header page="snappmap" icon="snappmap" href={`${page.url.pathname} - "${snappDetail.uuid}"`}></Header>
 
-<h1>Snap Detail</h1>
-<h2>{snappDetail.snapmap.name}</h2>
+<main>
+    <h1>Snap Detail</h1>
+    <h2>{snappDetail.snapmap.name}</h2>
 
-<section class="content-holder">
-    <img
-        src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`}
-        alt="picture"
-        width="200px" />
+    <section class="content-holder">
+        <img
+            src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`}
+            alt="picture"
+            width="200px" />
 
-    <ul class="info">
-        <li>{snappDetail.location}</li>
-        <li>{snappDetail.author.name}</li>
-        <li>{snappDetail.snapmap.name}</li>
-        <li>{snappDetail.date_created.substring(0, 10)}</li>
-    </ul>
-</section>
+        <ul class="info">
+            <li>{snappDetail.location}</li>
+            <li>{snappDetail.author.name}</li>
+            <li>{snappDetail.snapmap.name}</li>
+            <li>{snappDetail.date_created.substring(0, 10)}</li>
+        </ul>
+    </section>
+</main>
 
 <style>
     .content-holder {
