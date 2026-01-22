@@ -6,14 +6,20 @@
     const snappMaps = data.snappMaps
     const groups = data.groups
 
-    const snappMap = data.snappMaps[0]
+    const fourthGroup = data.groups[2]
+
+    const ThirdSnappMap = data.snappMaps[2]
+    const FourthSnappMap = data.snappMaps[3]
 </script>
 
 <Header page="home" active="home"/>
 
 
-<SnappMapPreview {snappMap}  groupID="217f68ac-44d3-4980-9914-9ef5f7649d8f"></SnappMapPreview>
+<SnappMapPreview snappMap={ThirdSnappMap}  groupID={fourthGroup}></SnappMapPreview>
+<SnappMapPreview snappMap={FourthSnappMap}  groupID={fourthGroup}></SnappMapPreview>
 
+
+<h2>You are in group <strong>{fourthGroup.name}</strong> </h2>
 
 <style>
     h1 {
@@ -21,5 +27,14 @@
         margin: 2rem auto;
         width: max-content;
         color: var(--neutral-color-darkest);
+    }
+    h2 {
+        display: flex;
+        justify-content: center;
+    }
+
+    strong {
+        color: var(--secondary-color);
+        margin-left: 1em;
     }
 </style>
