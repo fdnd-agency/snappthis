@@ -19,16 +19,17 @@
         <ul>
             {#each groups as group}
                 <li class="group">
+                    <!-- list of all groups with an empty state -->
                     <a href="/group/{group.uuid}">{group.name}</a>
-                    <p>
-                        {#if group.users.length == 0}
-                            No members yet
-                        {:else if group.users.length == 1}
-                            {group.users.length} member
-                        {:else}
-                            {group.users.length} members
-                        {/if}
-                    </p>
+                        <p>
+                            {#if group.users.length == 0}
+                                No members yet
+                            {:else if group.users.length == 1}
+                                {group.users.length} member
+                            {:else}
+                                {group.users.length} members
+                            {/if}
+                        </p>
                     <ul class="options">
                         <li>
                             <a href="/">
@@ -48,40 +49,10 @@
 </main>
 
 <style>
-    /* Header styles */
-    header {
-        background-color: var(--primary-color);
-        width: 100%;
-        color: var(--neutral-color-lightest);
-        font-family: 'Bariol';
-    }
-
-    h1 {
-        font-size: clamp(1.5rem, 1.3rem + 1.15vw, 2rem);
-    }
-
-    header a {
-        color: var(--neutral-color-lightest);
-        text-decoration: none;
-    }
-
-    header a :global(svg) {
-        height: 1.25em;
-    }
-
-    header > div,
     main > div {
         max-width: 1000px;
         margin-inline: auto;
     }
-
-    header > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-inline: 1rem;
-    }
-
     /* Main styles */
     main {
         font-family: 'Bariol';

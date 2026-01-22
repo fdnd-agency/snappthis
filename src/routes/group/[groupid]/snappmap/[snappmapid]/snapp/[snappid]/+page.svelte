@@ -37,12 +37,10 @@
     }
 
     h1 {
-        font-family: Bariol;
         font-size: 2em;
     }
 
     h2 {
-        font-family: Bariol;
         font-size: 1.5em;
         width: 97%;
         padding: 1em;
@@ -54,7 +52,6 @@
     }
 
     li {
-        font-family: Bariol;
         font-size: 1em;
         background-color: var(--neutral-color-lighter);
         width: fit-content;

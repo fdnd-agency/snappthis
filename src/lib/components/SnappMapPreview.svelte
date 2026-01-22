@@ -34,7 +34,6 @@
                     }
                     width="200"
                     height="200"
-                    alt=""
                 />
             </li>
         {/each}
@@ -129,7 +128,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #e9ecee;
+        background-color: var(--neutral-color-lighter);
         font-size: clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
     }
 
