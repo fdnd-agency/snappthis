@@ -9,6 +9,11 @@
     const user = data.user
     const snappMaps = data.snappMaps
     const groups = data.groups
+    
+    const fourthGroup = data.groups[2]
+    const ThirdSnappMap = data.snappMaps[2]
+    const FourthSnappMap = data.snappMaps[3]
+
 </script>
 <Header page="add" active="you"/>
 
@@ -33,9 +38,9 @@
         <li><StarIcon></StarIcon> 21 stars</li>
     </ul>
 
-    {#each snappMaps as snappMap}
-        <SnappMapPreview {snappMap} {groups}></SnappMapPreview>
-    {/each}
+    <SnappMapPreview snappMap={ThirdSnappMap}  groupID={fourthGroup}></SnappMapPreview>
+    <SnappMapPreview snappMap={FourthSnappMap}  groupID={fourthGroup}></SnappMapPreview>
+
 </section>
 
 <style>
