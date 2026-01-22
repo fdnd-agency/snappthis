@@ -1,5 +1,4 @@
 <script>
-
     let { page } = $props()
 </script>
 
