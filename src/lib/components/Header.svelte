@@ -19,6 +19,7 @@
 
 
 <header class="header">
+    <!-- this is the navigation bar for the header is only enabled when you use desktop -->
     <nav>
         <a href="/" aria-label="Home icon" class:active={active === 'home'}>
             <LogoIcon />
@@ -37,6 +38,7 @@
         </a>
     </nav>
 
+    <!-- left icon with binding it shows the appropriate icon mostly back icon -->
     <div class="left-icon-{page}">
         <div class="icon-1">
             <GobackIcon 
@@ -44,7 +46,10 @@
         </div>
     </div>
 
+    <!-- this is the middle section -->
     <h1>{title}</h1>
+
+    <!-- this is the right section -->
 
     <div class="right-icon-{page}">
         <div class="icon-2">
@@ -59,20 +64,7 @@
     </div>
 </header>
 
-<div class="header-block">
-
-</div>
-
-
 <style>
-    .header-block {
-        height: 75px;
-
-        @media (width > 720px) {
-            height: 100px;
-        }
-    }
-
     header {
         background-color: var(--primary-color);
         color: var(--neutral-color-100);
@@ -81,7 +73,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        position: fixed;
 
         @media (width > 720px) {
             height: 100px;

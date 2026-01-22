@@ -1,5 +1,4 @@
 <script>
-    import { fetchPictures } from '$lib/components/index.js'
     import { onMount } from 'svelte'
     
     export let href = []
@@ -8,8 +7,6 @@
 
     export let author = []
     export let location = []
-
-
 </script>
 
 <li>

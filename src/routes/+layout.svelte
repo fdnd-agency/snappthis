@@ -5,11 +5,7 @@
 
     let { children } = $props()
 </script>
-
-
-
 {@render children?.()}
-
 <NavBar page={page.url.pathname}></NavBar>
 
 <style>

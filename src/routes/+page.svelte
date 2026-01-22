@@ -11,16 +11,15 @@
     const ThirdSnappMap = data.snappMaps[2]
     const FourthSnappMap = data.snappMaps[3]
 </script>
-
+<main>
 <Header page="home" active="home"/>
-
 
 <SnappMapPreview snappMap={ThirdSnappMap}  groupID={fourthGroup}></SnappMapPreview>
 <SnappMapPreview snappMap={FourthSnappMap}  groupID={fourthGroup}></SnappMapPreview>
 
 
 <h2>You are in group <strong>{fourthGroup.name}</strong> </h2>
-
+</main>
 <style>
     h1 {
         font-family: 'Bariol', sans-serif;
