@@ -4,6 +4,7 @@ Design Challenge: Ontwerp en ontwikkel een webapplicatie voor Snappthis die gebr
 
 ## Table of Contents
   * [Description](#beschrijving)
+  * [Techniques](#techniques)
   * [Features](#features)
   * [Installation](#installation)
   * [User Manual](#Usermanual)
@@ -13,6 +14,22 @@ Design Challenge: Ontwerp en ontwikkel een webapplicatie voor Snappthis die gebr
 ## Description
 
 Snappthis is an innovative web application that enables users to easily create “photo mind maps” (or “snappmaps”) with a group: a collection of photos taken by group members in response to a photo assignment (a theme). The app focuses on a user-friendly and efficient way to create groups, set topics, take photos, share them, and view them, making it an ideal tool for both professional and personal use.
+
+## Techniques
+
+### FrontEnd
+- **SvelteKit** – The main framework of this project is SvelteKit
+- **Mobile-first design** - This is a mobile first design
+
+### BackEnd
+- **Directus** - Data will be fetched by the Directus Database
+- **Account** - Account can be created and can be divided in general and admin role
+
+### Development Tools
+- **Git & GitHub** – Version control and project collaboration.
+
+### Deployment Tools
+- **Netify** - This repositry is deployed by Netify
 
 ## Features
 
@@ -60,17 +77,34 @@ You just came to the detailpage, here you can specifically view a snap and give 
 
 On the you page you will see all the information you have given when signing up. Here you can see all your starred snaps, and the snappmaps you are included. When you have no account yet this is the page where you can sign up. You can also change the settings of your profile from here.
 
-## Techniques
+## User Manual
+
+### Create an account
+For entering SnappThis you need to create an account you can do this when you open the application for the first time or with an inviting link you received. From here you can fill in information like name, gender and birthdecade. After signed up you will automatically join the group you are invited to. When you didn't enter with invitation link you are not in any group
+
+### Navigating through the app
+You can navigate to the app with the navigation bar through the Home, Explore, Groups and You page.
+
+### Viewing snappmaps
+You can view snappmaps by clicking on groups where you see all the groups of the groups the admin has provided. From here you can click on a group where you will be redirected to the latest snappmap. From the snappmap overview page you can navigate to other snappmaps.
+
+### Adding snaps
+You can add a snap only by mobile device. Clicking on the green button allows you to post a picture which will be displayed somewhere on the database. This will save your picture, location and create a specific id where you can also land on this page when navigating to the detailpage.
+
+### Feedback
+This function allows you to give feedback to a snap. You can throw a tomato (creative way of disliking), like or star a snap which also will be saved on the database. It also displays the amount of feedback with the snap.
+
+### Profile and Settings
+From the profile you can change the seetings. This can be changing your password, get more information about the application and more. From here you can also sign out where you will be redirected to the landing page.
 
 
 ## Installation
-
-1. Clone de repo
-2. Install dependencies met `npm install`
-3. Start een development server met `npm run dev` of start de server en open de applicatie gelijk in een nieuw browser tabje met `npm run dev -- --open`
-4. Je kan ook een productie versie van de app maken met `npm run build`
-5. Preview de productie versie met `npm run preview`
-6. Om de app te deployen is mogelijk nodig om een [adapter](https://svelte.dev/docs/kit/adapters) te installeren.
+1. Clone the repository
+2. Install dependencies with npm install
+3. Start a development server with npm run dev, or start the server and automatically open the application in a new browser tab with npm run dev -- --open
+4. You can also create a production version of the app with npm run build
+5. Preview the production version with npm run preview
+6. To deploy the app, it may be necessary to install an adapter
 
 ## User Manual
 
