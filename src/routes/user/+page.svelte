@@ -17,31 +17,33 @@
 </script>
 <Header page="add" active="you"/>
 
-<section class="user-info">
-    <h1>{user.name}</h1>
+<main>
+    <section class="user-info">
+        <h1>{user.name}</h1>
 
-    <ul class="your-info">
-        <li>{user.gender}</li>
-        <li>{user.birthdate.substring(0, 10)}</li>
-        <li>@{user.usecase}</li>
-        <li><strong>{user.email}</strong></li>
-    </ul>
+        <ul class="your-info">
+            <li>{user.gender}</li>
+            <li>{user.birthdate.substring(0, 10)}</li>
+            <li>@{user.usecase}</li>
+            <li><strong>{user.email}</strong></li>
+        </ul>
 
-    <ul class="your-data">
-        <li><GalleryIcon></GalleryIcon> 54 snapps</li>
-        <li>
-            <a href="/group">
-                <GroupIcon></GroupIcon>
-                {user.groups} groups
-            </a>
-        </li>
-        <li><StarIcon></StarIcon> 21 stars</li>
-    </ul>
+        <ul class="your-data">
+            <li><GalleryIcon></GalleryIcon> 54 snapps</li>
+            <li>
+                <a href="/group">
+                    <GroupIcon></GroupIcon>
+                    {user.groups} groups
+                </a>
+            </li>
+            <li><StarIcon></StarIcon> 21 stars</li>
+        </ul>
 
-    <SnappMapPreview snappMap={ThirdSnappMap}  groupID={fourthGroup}></SnappMapPreview>
-    <SnappMapPreview snappMap={FourthSnappMap}  groupID={fourthGroup}></SnappMapPreview>
+        <SnappMapPreview snappMap={ThirdSnappMap}  groupID={fourthGroup}></SnappMapPreview>
+        <SnappMapPreview snappMap={FourthSnappMap}  groupID={fourthGroup}></SnappMapPreview>
 
-</section>
+    </section>
+</main>
 
 <style>
     h1,

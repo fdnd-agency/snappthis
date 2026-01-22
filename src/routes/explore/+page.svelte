@@ -3,3 +3,7 @@
 </script>
 
 <Header title="Explore" page="snappmap" active="explore"/>
+
+<main>
+    
+</main>
