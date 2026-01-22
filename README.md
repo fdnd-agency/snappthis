@@ -73,7 +73,8 @@ You just came to the detailpage, here you can specifically view a snap and give 
 
 #### You
 
-<img width="3024" height="1534" alt="image" src="https://github.com/user-attachments/assets/592c41cb-dbc0-4fe3-bbc7-00b9cd9de0b4" />
+<img width="2998" height="1526" alt="image" src="https://github.com/user-attachments/assets/99aad6b9-5b7a-4a7a-aa59-8cb92a2b3ef5" />
+
 
 On the you page you will see all the information you have given when signing up. Here you can see all your starred snaps, and the snappmaps you are included. When you have no account yet this is the page where you can sign up. You can also change the settings of your profile from here.
 
@@ -105,9 +106,5 @@ From the profile you can change the seetings. This can be changing your password
 4. You can also create a production version of the app with npm run build
 5. Preview the production version with npm run preview
 6. To deploy the app, it may be necessary to install an adapter
-
-## User Manual
-
-
 
 ## Sources
