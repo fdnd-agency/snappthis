@@ -6,7 +6,7 @@
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import List from '$lib/components/icons/ListviewIcon.svelte'
     import GroupIcon from './icons/GroupIcon.svelte'
-    import Arrow from './icons/Arrow.svelte'
+    import Arrow from './icons/ArrowIcon.svelte'
 
     // exports
     export let text

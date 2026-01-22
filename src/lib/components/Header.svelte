@@ -1,19 +1,17 @@
 <script>
     // icons
     import GobackIcon from "./icons/GobackIcon.svelte";
-
-    import Settings from "./icons/Settings.svelte";
+    import Settings from "./icons/SettingsIcon.svelte";
     import Add from "./icons/PlusIcon.svelte";
-    import Dropdown from './icons/Dropdown.svelte'
+    import Dropdown from './icons/DropdownIcon.svelte'
     import Card from "./Card.svelte"
     import SortCard from "./SortCard.svelte"
-
     import GroupIcon from './icons/GroupIcon.svelte'
     import LogoIcon from './icons/LogoIcon.svelte'
     import SearchIcon from './icons/SearchIcon.svelte'
     import UserIcon from './icons/UserIcon.svelte'
-    import Arrow from "./icons/Arrow.svelte";
 
+    // exports
     export let page
     export let title = "SnappMap"
     export let active = "home"
@@ -22,19 +20,19 @@
 
 <header class="header">
     <nav>
-        <a href="/" aria-label="Home icon" class:active={active === 'home'} id="home">
+        <a href="/" aria-label="Home icon" class:active={active === 'home'}>
             <LogoIcon />
         </a>
 
-        <a href="/explore" aria-label="Search Icon" class:active={active === 'explore'} id="explore">
+        <a href="/explore" aria-label="Search Icon" class:active={active === 'explore'}>
             <SearchIcon/>
         </a>
 
-        <a href="/group" aria-label="Group Icon" class:active={active === 'groups'} id="groups">
+        <a href="/group" aria-label="Group Icon" class:active={active === 'groups'}>
             <GroupIcon/>
         </a>
 
-        <a href="/user" aria-label="User icon" class:active={active === 'you'} id="you">
+        <a href="/user" aria-label="User icon" class:active={active === 'you'}>
             <UserIcon/>
         </a>
     </nav>
@@ -67,7 +65,6 @@
 
 
 <style>
-
     .header-block {
         height: 75px;
 

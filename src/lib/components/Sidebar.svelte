@@ -2,9 +2,9 @@
     // icons
     import GobackIcon from "./icons/GobackIcon.svelte";
 
-    import Settings from "./icons/Settings.svelte";
+    import Settings from "./icons/SettingsIcon.svelte";
     import Add from "./icons/PlusIcon.svelte";
-    import Dropdown from './icons/Dropdown.svelte'
+    import Dropdown from './icons/DropdownIcon.svelte'
     import Card from "./Card.svelte"
     import SortCard from "./SortCard.svelte"
 
