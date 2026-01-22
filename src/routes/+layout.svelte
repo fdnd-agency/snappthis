@@ -16,7 +16,11 @@
     @import url('https://fonts.cdnfonts.com/css/bariol-bold');
     
     @font-face {
-        font-family: 'Bariol';
-        src: url('$lib/assets/fonts/Bariol_Regular.otf') format('opentype');
+        font-family: "Bariol";
+        src:
+            url("$lib/assets/fonts/Bariol_Regular.otf") format("opentype");
+        font-weight: 800;
+        font-style: normal;
+        font-display: fallback;
     }
 </style>

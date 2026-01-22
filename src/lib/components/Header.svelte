@@ -112,7 +112,7 @@
 
     .left-icon-add {
         div {
-            display: block;
+            display: none;
         }
     }
 
