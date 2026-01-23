@@ -6,6 +6,7 @@
     gsap.registerPlugin(MotionPathPlugin);
 
     let { data } = $props()
+    let track;
     const snaps = data.snaps[0].snaps
     const id = data.id
     let gridsize = $state('grid2')
@@ -35,7 +36,6 @@
 function random(min, max) {
   return min + Math.random() * (max + 1 - min);
 }
-
 
         const body = document.querySelector('body');
         const canvasSize = body.offsetWidth * body.offsetHeight;
@@ -97,7 +97,7 @@ for(let i = 0; i < starsFraction; i++) {
 <main>
     <div class="curved-panel"> 
         <div class="curved-track">
-            <ul>
+            <ul bind:this={track}>
             {#each snaps as snap}
             <li>
                 <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
@@ -105,7 +105,6 @@ for(let i = 0; i < starsFraction; i++) {
             </li>
             {/each}
              </ul>
-
 
             <!-- must show the details when the planet is in focus state -->
              <div class="block">
