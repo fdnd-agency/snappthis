@@ -67,7 +67,7 @@ for(let i = 0; i < starsFraction; i++) {
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
-
+<div class="page">
 <header>
     <div class="title-block">
         <p> {snapMap.name} </p>
@@ -115,11 +115,16 @@ for(let i = 0; i < starsFraction; i++) {
         </div>
    </div>
 </main>
+</div>
 
 <style>
     :root {
         --dark-blue: #1d2152;
         --grey: #7a7a7a;
+    }
+
+    .page {
+        background-color: var(--dark-blue);
     }
 
     header {
@@ -219,6 +224,7 @@ ul {
 
     li {
         flex: 0 0 260px;
+        list-style: none;
         margin-top: 4em;
         height: fit-content;
         border-radius: 14px;
