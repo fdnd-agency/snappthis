@@ -14,9 +14,4 @@
 {/each}
 
 <style>
-    h1 {
-        font-family: 'Bariol', sans-serif;
-        margin: 2rem auto;
-        width: max-content;
-    }
 </style>
