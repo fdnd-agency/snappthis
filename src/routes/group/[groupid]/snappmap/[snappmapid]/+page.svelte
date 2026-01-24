@@ -150,6 +150,36 @@
         display: none;
     }
 
+
+    ul::scroll-button(right), ul::scroll-button(left){
+        position: absolute;
+        content: ">";
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 1em;
+        position: fixed;
+        position-anchor: --carrousel;
+    }
+
+    ul::scroll-button(right){
+        content: ">";
+        position: absolute;
+        right: 1em;
+        position-area: right center;
+    }
+
+    ul::scroll-button(left){
+        content: "<";
+        position: absolute;
+        left: 1em;
+        position-area: left center;
+    }
+
+    ul::scroll-button(right):disabled, ul::scroll-button(left):disabled{
+        opacity: 0.5;
+    }
+
     li {
         scroll-snap-align: start;
         flex: 0 0 10em;
