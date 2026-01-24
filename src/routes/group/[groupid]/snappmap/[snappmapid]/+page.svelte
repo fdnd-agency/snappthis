@@ -7,6 +7,8 @@
     const snaps = data.snaps[0].snaps
     const id = data.id
     let gridsize = $state('grid2')
+    // the conttent element is defined
+    let contentEl
 
     const snapMap = data.snaps[0]
 
@@ -30,7 +32,7 @@
 
     // snowflake effect
     onMount(() => {
-        initSnowflakes()
+        initSnowflakes(contentEl)
     })
 
   function toggleChristmas() {
@@ -54,7 +56,7 @@
             <LayoutNavigation />
         </div>
     </div>
-    <div class="content">
+    <div class="content" bind:this={contentEl}>
         <canvas id="canvas"></canvas>
         <!-- <canvas id="canvas"></canvas> -->
      <ul class="snaps-{gridsize}">
@@ -126,6 +128,10 @@
         background: #090029;
     }
 
+    :global(body.xmas) canvas {
+        opacity: 1;
+    }
+
     :global(body.xmas) .sidebar {
         background: #C79C9C;
     }
@@ -151,6 +157,7 @@
             inset: 0;
             z-index: 0;
             pointer-events: none;
+            opacity: 0;
         }
     }
 

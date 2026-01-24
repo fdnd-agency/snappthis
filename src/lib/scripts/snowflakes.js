@@ -1,8 +1,18 @@
-export function initSnowflakes() {
+export function initSnowflakes(container) {
   const canvas = document.getElementById('canvas')
   if (!canvas) return
 
   const ctx = canvas.getContext('2d')
+
+  function resize() {
+    // the snowflakes should only stay in the container height and witdth
+    canvas.width = container.clientWidth
+    canvas.height = container.clientHeight
+  }
+
+  // resize the container
+  resize()
+  window.addEventListener('resize', resize)
 
   const particlesOnScreen = 245
   const particlesArray = []
@@ -13,13 +23,6 @@ export function initSnowflakes() {
   function random(min, max) {
     return min + Math.random() * (max - min)
   }
-
-  function clientResize() {
-    w = canvas.width = window.innerWidth
-    h = canvas.height = window.innerHeight
-  }
-
-  window.addEventListener('resize', clientResize)
 
   function createSnowflakes() {
     particlesArray.length = 0
