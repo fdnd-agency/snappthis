@@ -104,7 +104,7 @@
 
 
         @media (max-width: 1080px) {
-            display: 10% 90%;
+            grid-template-columns: 40% 60%;
         }
 
         @media (max-width: 720px) {
@@ -162,11 +162,11 @@
     }
 
     .content img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
 
     .sort-function {
         display: flex;
@@ -210,6 +210,22 @@
 
     button {
   all: unset;
+}
+
+@media (max-width:720px) {
+    .content {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .christmasballs {
+        left: 45%;
+        bottom: 10%;
+
+        &:checked {
+            scale: 1.25;
+        }
+    }
 }
 
 </style>
