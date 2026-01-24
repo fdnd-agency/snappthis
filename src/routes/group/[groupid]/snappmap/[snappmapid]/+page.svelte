@@ -49,12 +49,6 @@
         <div class="title-card">
             <Card text="Squad 2A" icon="group" />
         </div>
-        <h2>Sort by</h2>
-        <div class="sort-function">
-            <SortCard icon="clock" />
-            <SortCard icon="star" />
-            <SortCard icon="tomato" />
-        </div>
         <h2>Layout</h2>
         <div>
             <LayoutNavigation />
@@ -110,6 +104,7 @@
     main {
         margin-bottom: 5%;
         display: grid;
+        height: 77vh;
         grid-template-columns: 20% 80%;
 
 
@@ -124,9 +119,10 @@
 
     .sidebar {
         background-color: var(--neutral-color-light);
-        height: 100vh;
-        position: fixed;
+        height: 85vh;
+        width: 20em;
         padding: 1em;
+        position: relative;
 
         @media (max-width: 720px) {
             display: none;
@@ -151,7 +147,10 @@
 
     .content {
         overflow-y: scroll;
-        margin: 25em;
+        width: 80vw;
+        padding: 1em;
+        display: flex;
+        justify-content: center;
     }
 
     .content img {

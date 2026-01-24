@@ -129,7 +129,7 @@
     }
 
     nav {
-        position: fixed;
+        position: absolute;
         top: 6.5%;
         color: var(--neutral-color-lightest);
         padding: 1rem;
