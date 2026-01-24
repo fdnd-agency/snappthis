@@ -32,36 +32,6 @@
 
     import { onMount } from 'svelte'
 
-    onMount(async () => {
-function random(min, max) {
-  return min + Math.random() * (max + 1 - min);
-}
-
-        const body = document.querySelector('body');
-        const canvasSize = body.offsetWidth * body.offsetHeight;
-        const starsFraction = canvasSize / 2000;
-
-for(let i = 0; i < starsFraction; i++) {
-  // Set up random elements
-  let xPos = random(0, 100);
-  let yPos = random(0, 100);
-  let alpha = random(0.5, 1);
-  let size = random(1, 2);
-  let colour = '#ffffff';
-    
-  // Add them to the body
-  const star = document.createElement('div');
-  star.style.position = 'fixed';
-  star.style.left = xPos + '%';
-  star.style.top = yPos + '%';
-  star.style.opacity = alpha;
-  star.style.width = size + 'px';
-  star.style.height = size + 'px';
-  star.style.backgroundColor = colour;
-  document.body.appendChild(star);
-}
-    })
-
 </script>
 
 <svelte:head>
@@ -169,72 +139,12 @@ for(let i = 0; i < starsFraction; i++) {
         scale: 1.25;
     }
 
-    .dropdown-block {
-        position: absolute;
-        right: 25px;
-        top: 25px;
-        color: var(--neutral-color-darkest);
-    }
-
     header {
-        height: 10%;
-    }
-
-    img {
-        border-radius: 999px;
-        z-index: 99;
-        opacity: 0.5;
-    }
-
-    figure {
-        height: 200px;
-        width: 200px;
-        box-shadow: inset 0 0 25px #000000;
-        border-radius: 999px;
-        position: relative;
-        right: 40px;
-        bottom: 221px;
-
-    }
-
-
-ul {
-    margin: 3em auto;
-    display: flex;
-    gap: 2em;
-    width: 100%;
-    overflow-x: auto;
-}
-
-
-    li {
-        flex: 0 0 10em;
-        height: 7em;
-        object-fit: cover;
-        border-radius: 9999px;
-        align-content: center;
-        list-style: none;
-
-        &:hover {
-            scale: 1.25;
-            transition-duration: 0.3s;
-        }
-    }
-
-
-
-    .block {
-        color: white;
-
-        h2 {
-            display: flex;
-            justify-content: center;
-        }
-
-        h3 {
-            display: flex;
-            justify-content: center;
-        }
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        margin: 3em;
     }
 
 @keyframes floating {
