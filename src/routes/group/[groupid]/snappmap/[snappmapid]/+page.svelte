@@ -65,25 +65,19 @@
     </div>
 </header>
 <main>
-    <div class="curved-panel"> 
-        <div class="curved-track">
-            <ul class="carrouel">
+        <ul class="carrouel">
             {#each snaps as snap}
             <li>
                 <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
-                <figure></figure>
             </li>
             {/each}
-             </ul>
+        </ul>
 
             <!-- must show the details when the planet is in focus state -->
              <div class="block">
                 <h2>User</h2>
                 <h3>Location</h3>
             </div>
-           
-        </div>
-   </div>
 </main>
 </div>
 
@@ -101,7 +95,7 @@
     header {
         display: flex;
         height: 100px;
-        width: 100vw;
+        width: 80vw;
         gap: 4em;
         align-items: center;
     }
