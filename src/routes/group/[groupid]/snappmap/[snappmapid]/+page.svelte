@@ -75,7 +75,7 @@
     </ul>
     </div>
 
-<button class="christmasballs" on:click={toggleChristmas}>
+<button class="christmasballs" onclick={toggleChristmas}>
     <ChristmasBalls />
 </button>
 </main>
