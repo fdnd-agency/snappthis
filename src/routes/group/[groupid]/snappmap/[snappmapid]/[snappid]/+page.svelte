@@ -31,11 +31,6 @@
         }
     }
 
-    h1 {
-        font-family: Bariol;
-        font-size: 2em;
-    }
-
     h2 {
         font-family: Bariol;
         font-size: 1.5em;
