@@ -122,11 +122,6 @@
         }
     }
 
-    content.xmas {
-        background-color: var(--content-background);
-    }
-
-
     .sidebar {
         background-color: var(--neutral-color-light);
         height: 100vh;
@@ -155,15 +150,8 @@
 
 
     .content {
-        margin-left: 28em;
-
-
-        @media (max-width: 1080px) {
-            margin-left: 21em;
-        }
-        @media (max-width: 720px) {
-            margin-left: 0em;
-        }
+        overflow-y: scroll;
+        margin: 25em;
     }
 
     .content img {

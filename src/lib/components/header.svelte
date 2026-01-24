@@ -60,20 +60,8 @@
     </div>
 </header>
 
-<div class="header-block">
-
-</div>
-
 
 <style>
-
-    .header-block {
-        height: 75px;
-
-        @media (width > 720px) {
-            height: 100px;
-        }
-    }
 
     header {
         background-color: var(--primary-color);
@@ -83,7 +71,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        position: fixed;
 
         @media (width > 720px) {
             height: 100px;
