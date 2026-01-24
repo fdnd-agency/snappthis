@@ -133,13 +133,23 @@
         scale: 1.25;
     }
 
-    header {
-        height: 10vh;
-        width: 100vw;
+    ul {
         display: flex;
-        justify-content: space-between;
-        margin: 3em;
+        height: 25em;
+        gap: 1em;
+        overflow-x: auto;
+        width: 100%;
+        list-style: none;
+        scroll-behavior: smooth;
+        anchor-name: --carousel;
+        scroll-snap-type: x mandatory;
     }
+
+    /* no scroll bar */
+    ul::-webkit-scrollbar {
+        display: none;
+    }
+
 
 @keyframes floating {
     0%, 100% {
