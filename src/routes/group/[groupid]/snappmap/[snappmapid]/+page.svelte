@@ -30,7 +30,12 @@
 
     import Dropdown from '$lib/components/icons/Dropdown.svelte'
 
-    import { onMount } from 'svelte'
+
+    const userMap = new Map(
+        usersdata
+            .filter(u => u?.uuid && u?.name)
+            .map(u => [u.uuid, u.name])
+    );
 
 </script>
 
@@ -198,6 +203,7 @@
         img {
             border-radius: 999px;
             padding: 1em;
+            width: 30em;
         }
     }
 
@@ -217,7 +223,7 @@
     .info-block h2, h3 {
         position: absolute;
         left: 50%;
-        top: 90%;
+        top: 50%;
     }
 
 
@@ -227,7 +233,7 @@
     }
 
     20%, 60%, 90% {
-        transform: translateY(-2em);
+        transform: translateY(-0.5em);
     }
 
     40%, 80% {
