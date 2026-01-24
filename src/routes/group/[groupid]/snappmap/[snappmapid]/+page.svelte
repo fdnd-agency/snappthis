@@ -97,7 +97,7 @@ for(let i = 0; i < starsFraction; i++) {
 <main>
     <div class="curved-panel"> 
         <div class="curved-track">
-            <ul bind:this={track}>
+            <ul class="carrouel">
             {#each snaps as snap}
             <li>
                 <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
@@ -125,6 +125,7 @@ for(let i = 0; i < starsFraction; i++) {
 
     .page {
         background-color: var(--dark-blue);
+        height: 100vh;
     }
 
     header {
@@ -182,6 +183,7 @@ for(let i = 0; i < starsFraction; i++) {
     img {
         border-radius: 999px;
         z-index: 99;
+        opacity: 0.5;
     }
 
     figure {
@@ -195,41 +197,23 @@ for(let i = 0; i < starsFraction; i++) {
 
     }
 
-.curved-panel::before {
-    content: "ellow";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -42px;
-    height: 120px;
-    pointer-events: none;
-    opacity: 80%;
-    transform: translateY(8px);
-}
 
 ul {
+    margin: 3em auto;
     display: flex;
     gap: 2em;
+    width: 100%;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    align-items: center;
-    margin-top: 10%;
-    animation: floating 10s infinite;
 }
 
-.curved-track::-webkit-scrollbar {
-    display: none;
-}
 
     li {
-        flex: 0 0 260px;
+        flex: 0 0 10em;
+        height: 7em;
+        object-fit: cover;
+        border-radius: 9999px;
+        align-content: center;
         list-style: none;
-        margin-top: 4em;
-        height: fit-content;
-        border-radius: 14px;
-        scroll-snap-align: center;
-        position: relative;
 
         &:hover {
             scale: 1.25;
@@ -238,43 +222,6 @@ ul {
     }
 
 
-    img:hover {
-        transform: scale(1.15);
-        transition-duration: 0.3s;
-    }
-
-    img:checked {
-        transform: scale(1.15);
-        transition-duration: 0.3s;
-    }
-
-    .curved-track::scroll-button(*) {
-        position: fixed;
-        position-anchor: auto;
-        cursor: pointer;
-        width: 2em;
-        height: 2em;
-        display: grid;
-        place-items: center;
-        z-index: 30;
-    }
-
-    .curved-track::scroll-button(left) {
-        content: "<";
-        position-area: left-center;
-        translate: -58% 0%;
-    }
-
-    .curved-track::scroll-button(right) {
-        content: ">";
-        position-area: right-center;
-        translate: 58% 0%;
-    }
-
-    .curved-track::scroll-button(*):disabled {
-        opacity: 0.2;
-        cursor: default;
-    }
 
     .block {
         color: white;
