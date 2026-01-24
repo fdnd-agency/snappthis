@@ -69,6 +69,12 @@
             {#each snaps as snap}
             <li>
                 <img src="https://fdnd-agency.directus.app/assets/{snap.picture}?format=webp" width="200">
+
+
+            <div class="info-block">
+                <h2>{snap.uuid}</h2>
+                <h3>{snap.location}</h3>
+            </div>
             </li>
             {/each}
         </ul>
@@ -78,6 +84,7 @@
                 <h2>User</h2>
                 <h3>Location</h3>
             </div>
+            
 </main>
 </div>
 
@@ -135,7 +142,8 @@
 
     ul {
         display: flex;
-        height: 25em;
+        margin-top: 5em;
+        height: 50em;
         gap: 1em;
         overflow-x: auto;
         width: 100%;
@@ -166,13 +174,14 @@
         content: ">";
         position: absolute;
         right: 1em;
-        position-area: right center;
+        top: 17em;
     }
 
     ul::scroll-button(left){
         content: "<";
         position: absolute;
         left: 1em;
+        top: 17em;
         position-area: left center;
     }
 
@@ -184,13 +193,31 @@
         scroll-snap-align: start;
         flex: 0 0 10em;
         height: 4em;
+        animation: floating 5s infinite;
 
         img {
             border-radius: 999px;
-            height: 20em;
-            width: 20em;
             padding: 1em;
         }
+    }
+
+    @media(max-width: 720px) {
+        li {
+            flex: 0 0 100%;
+        }
+        img {
+            width: 100%;
+        }
+        
+        ul::scroll-button(left), ul::scroll-button(right){
+            top: 50%;
+        }
+    }
+
+    .info-block h2, h3 {
+        position: absolute;
+        left: 50%;
+        top: 90%;
     }
 
 
