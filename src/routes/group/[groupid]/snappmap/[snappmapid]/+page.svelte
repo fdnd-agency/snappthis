@@ -150,6 +150,19 @@
         display: none;
     }
 
+    li {
+        scroll-snap-align: start;
+        flex: 0 0 10em;
+        height: 4em;
+
+        img {
+            border-radius: 999px;
+            height: 20em;
+            width: 20em;
+            padding: 1em;
+        }
+    }
+
 
 @keyframes floating {
     0%, 100% {
