@@ -168,7 +168,7 @@
          color: var(--secondary-color);
     }
 
-    .active-add ~ nav:nth-of-type(4){
+    :global(.active-add ~ nav:nth-of-type(4)) {
          color: var(--secondary-color);
     }
 
@@ -180,7 +180,7 @@
         gap: 1em;
         top: 7em;
 
-        a {
+        :global(a){
             background-color: var(--neutral-color);
             padding: 1em;
             width: 18em;
