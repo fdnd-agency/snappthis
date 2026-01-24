@@ -102,9 +102,10 @@
     header {
         display: flex;
         height: 100px;
-        width: 80vw;
+        width: 100vw;
         gap: 4em;
         align-items: center;
+        justify-content: space-around;
     }
 
     .title-block {
@@ -174,14 +175,14 @@
         content: ">";
         position: absolute;
         right: 1em;
-        top: 17em;
+        top: 50%;
     }
 
     ul::scroll-button(left){
         content: "<";
         position: absolute;
         left: 1em;
-        top: 17em;
+        top: 50%;
         position-area: left center;
     }
 
@@ -198,14 +199,15 @@
         img {
             border-radius: 999px;
             padding: 1em;
-            width: 30em;
+            width: 20em;
+            height: 20em;
         }
 
         img:hover {
-            scale: 1.25;
+            scale: 1.1;
             transition-duration: 0.3s;
 
-            ~ .info-block h2, .info-block h3 {
+            ~ .info-block h2, ~ .info-block h3 {
                 opacity: 1;
             }
         }
@@ -214,6 +216,8 @@
     @media(max-width: 720px) {
         li {
             flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
         }
         img {
             width: 100%;
@@ -222,6 +226,11 @@
         ul::scroll-button(left), ul::scroll-button(right){
             top: 50%;
         }
+
+        header nav {
+            display: none;
+        }
+        
     }
 
     .info-block h2 {
