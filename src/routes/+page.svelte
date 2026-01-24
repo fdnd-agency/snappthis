@@ -1,6 +1,5 @@
 <script>
     import SnappMapPreview from '$lib/components/SnappMapPreview.svelte'
-    import Header from '$lib/components/Header.svelte';
 
 
     let { data } = $props()
@@ -8,7 +7,6 @@
     const groups = data.groups
 </script>
 
-<Header page="home"/>
 
 {#each snappMaps as snappMap}
     <SnappMapPreview {snappMap} {groups}></SnappMapPreview>
