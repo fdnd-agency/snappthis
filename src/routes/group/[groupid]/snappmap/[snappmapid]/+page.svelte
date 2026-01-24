@@ -29,9 +29,6 @@
     import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
 
     // snowflake effect
-    onMount(() => {
-    initSnowflakes() 
-  })
 
   function toggleChristmas() {
     document.body.classList.toggle('xmas')
@@ -61,6 +58,7 @@
         </div>
     </div>
     <div class="content">
+          <canvas id="canvas"> 
         <!-- <canvas id="canvas"></canvas> -->
      <ul class="snaps-{gridsize}">
         {#each snaps as snap}
@@ -76,6 +74,7 @@
             </li>
         {/each}
     </ul>
+    </canvas>
     </div>
 
 <button class="christmasballs" on:click={toggleChristmas}>
@@ -104,7 +103,9 @@
         width: 100%;
         height: 100%;
         z-index: -1;
+        background-color: darkblue;
     }
+
     main {
         margin-bottom: 5%;
         display: grid;

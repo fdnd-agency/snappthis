@@ -94,3 +94,10 @@ function updateSnowFall() {
 setInterval(updateSnowFall,50);
 createSnowflakes();
 }
+
+export function initSnowflakes() {
+  const canvas = document.getElementById('canvas')
+  if (!canvas) return
+
+  const ctx = canvas.getContext('2d')
+}
