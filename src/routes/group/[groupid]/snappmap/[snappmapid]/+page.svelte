@@ -28,7 +28,7 @@
     import Sidebar from '$lib/components/Sidebar.svelte'
 
     import ChristmasBalls from '$lib/components/icons/ChristmasBalls.svelte'
-    import LayoutNavigation from '$lib/components/Layout-navigation.svelte'
+    import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
 
     // snowflake effect
     onMount(() => {
