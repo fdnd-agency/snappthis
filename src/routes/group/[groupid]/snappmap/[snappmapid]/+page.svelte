@@ -94,13 +94,6 @@
         --stroke: 1px solid black;
     }
 
-    canvas {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-    }
-
     main {
         margin-bottom: 5%;
         display: grid;
@@ -146,11 +139,19 @@
 
 
     .content {
+        position: relative;
         overflow-y: scroll;
         width: 80vw;
         padding: 1em;
         display: flex;
         justify-content: center;
+        
+        canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
     }
 
     .content img {
