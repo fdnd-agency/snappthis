@@ -8,6 +8,7 @@
     let { data } = $props()
     let track;
     const snaps = data.snaps[0].snaps
+    const usersdata = data.users
     const id = data.id
     let gridsize = $state('grid2')
 
@@ -77,19 +78,13 @@
 
 
             <div class="info-block">
-                <h2>{snap.uuid}</h2>
+                <h2>{userMap.get(snap.author)}</h2>
                 <h3>{snap.location}</h3>
             </div>
             </li>
             {/each}
         </ul>
-
-            <!-- must show the details when the planet is in focus state -->
-             <div class="block">
-                <h2>User</h2>
-                <h3>Location</h3>
-            </div>
-            
+        
 </main>
 </div>
 
@@ -205,6 +200,15 @@
             padding: 1em;
             width: 30em;
         }
+
+        img:hover {
+            scale: 1.25;
+            transition-duration: 0.3s;
+
+            ~ .info-block h2, .info-block h3 {
+                opacity: 1;
+            }
+        }
     }
 
     @media(max-width: 720px) {
@@ -220,10 +224,21 @@
         }
     }
 
-    .info-block h2, h3 {
-        position: absolute;
-        left: 50%;
-        top: 50%;
+    .info-block h2 {
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: white;
+    }
+
+    .info-block h3 {
+        opacity: 0;
+        visibility: none;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: white;
     }
 
 
