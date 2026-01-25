@@ -2,20 +2,16 @@
     import { page } from '$app/state'
     import { onMount } from 'svelte'
     import { initSnowflakes } from '$lib/scripts/snowflakes.js'
-
-    let { data } = $props()
-    const snaps = data.snaps[0].snaps
-    const id = data.id
-    let gridsize = $state('grid2')
-    // the conttent element is defined
-    let contentEl
-
+    export let data
+    const snaps = data?.snaps?.[0]?.snaps ?? [];
     const snapMap = data.snaps[0]
+    const usersdata = data.users
+    const id = data.id
+
+    let gridsize = 'medium'
 
     import Header from '$lib/components/Header.svelte';
-    import Image from '$lib/components/Image.svelte'
-    import Card from '$lib/components/Card.svelte'
-    import SortCard from '$lib/components/Sort-Card.svelte'
+    import Card from '$lib/components/Card.svelte';
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -25,7 +21,6 @@
     import GridFour from '$lib/components/icons/Grid4Icon.svelte'
     import GridFive from '$lib/components/icons/Grid5Icon.svelte'
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
-    import Sidebar from '$lib/components/Sidebar.svelte'
 
     import ChristmasBalls from '$lib/components/icons/ChristmasBalls.svelte'
     import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
@@ -34,6 +29,12 @@
     onMount(() => {
         initSnowflakes(contentEl)
     })
+
+    const userMap = new Map(
+        usersdata
+            .filter(u => u?.uuid && u?.name)
+            .map(u => [u.uuid, u.name])
+    );
 
   function toggleChristmas() {
     document.body.classList.toggle('xmas')
@@ -114,8 +115,8 @@
 
     .sidebar {
         background-color: var(--neutral-color-light);
-        height: 85vh;
-        width: 20em;
+        height: 87vh;
+        width: 100%;
         padding: 1em;
         position: relative;
 
@@ -135,6 +136,7 @@
     :global(body.xmas) .sidebar {
         background: #C79C9C;
     }
+
 
     :global(body.xmas) img {
         border: 1px solid black;
