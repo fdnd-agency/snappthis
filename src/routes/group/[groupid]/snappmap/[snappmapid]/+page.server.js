@@ -36,7 +36,6 @@ export const actions = {
                 body: formData,
             }
         )
-
         // get the new image ID from the response
         const uploadResponseData = await uploadResponse.json()
         const imageID = uploadResponseData.data.id

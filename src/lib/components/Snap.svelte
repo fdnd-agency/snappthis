@@ -1,15 +1,12 @@
 <script>
-    import { fetchPictures } from '$lib/components/index.js'
     import { onMount } from 'svelte'
-    
+
+    // exports
     export let href = []
     export let picture = []
     export let list = []
-
     export let author = []
     export let location = []
-
-
 </script>
 
 <li>
@@ -29,6 +26,7 @@
         />
     </picture>
 
+    <!-- this shows the author and the location of the snap the class list is only displayed when list items is on -->
     <div class={list}>
         <h2>{author}</h2>
         <h3>{location}</h3>

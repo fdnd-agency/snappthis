@@ -1,9 +1,8 @@
 <script>
     import { onMount } from 'svelte'
     import FavIcon from './icons/FavIcon.svelte'
-    import Arrow from './icons/Arrow.svelte'
-
-    import Clock from './icons/Clock.svelte'
+    import Arrow from './icons/ArrowIcon.svelte'
+    import Clock from './icons/ClockIcon.svelte'
     import Star from './icons/StarIcon.svelte'
     import Tomato from './icons/TomatoIcon.svelte'
 
@@ -11,6 +10,7 @@
 </script>
 
 <div class="card">
+    <!-- with binding it determines which icon is on this place -->
     <div class="card-{icon}">
         <div>
             <Clock />
@@ -25,6 +25,7 @@
         </div>
     </div>
 
+    <!-- when clicking on the arrow it changes its rotation -->
     <div class="arrow">
         <Arrow rotation={90}/>    
     </div>
@@ -86,4 +87,5 @@
     .arrow {
         color: var(--neutral-color-darkest);
     }
+    
 </style>

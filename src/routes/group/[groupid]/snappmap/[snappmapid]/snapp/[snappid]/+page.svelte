@@ -9,22 +9,24 @@
 
 <Header page="snappmap" icon="snappmap" href={`${page.url.pathname} - "${snappDetail.uuid}"`}></Header>
 
-<h1>Snap Detail</h1>
-<h2>{snappDetail.snapmap.name}</h2>
+<main>
+    <h1>Snap Detail</h1>
+    <h2>{snappDetail.snapmap.name}</h2>
 
-<section class="content-holder">
-    <img
-        src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`}
-        alt="picture"
-        width="200px" />
+    <section class="content-holder">
+        <img
+            src={`https://fdnd-agency.directus.app/assets/${snappDetail.picture}?format=webp`}
+            alt="picture"
+            width="200px" />
 
-    <ul class="info">
-        <li>{snappDetail.location}</li>
-        <li>{snappDetail.author.name}</li>
-        <li>{snappDetail.snapmap.name}</li>
-        <li>{snappDetail.date_created.substring(0, 10)}</li>
-    </ul>
-</section>
+        <ul class="info">
+            <li>{snappDetail.location}</li>
+            <li>{snappDetail.author.name}</li>
+            <li>{snappDetail.snapmap.name}</li>
+            <li>{snappDetail.date_created.substring(0, 10)}</li>
+        </ul>
+    </section>
+</main>
 
 <style>
     .content-holder {
@@ -37,12 +39,10 @@
     }
 
     h1 {
-        font-family: Bariol;
         font-size: 2em;
     }
 
     h2 {
-        font-family: Bariol;
         font-size: 1.5em;
         width: 97%;
         padding: 1em;
@@ -54,7 +54,6 @@
     }
 
     li {
-        font-family: Bariol;
         font-size: 1em;
         background-color: var(--neutral-color-lighter);
         width: fit-content;

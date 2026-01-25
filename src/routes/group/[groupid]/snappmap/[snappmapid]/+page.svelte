@@ -2,31 +2,28 @@
     import { page } from '$app/state'
 
     export let data
+    // debug all the data
     const snaps = data?.snaps?.[0]?.snaps ?? [];
     const snapMap = data.snaps[0]
     const usersdata = data.users
     const id = data.id
 
+    // at general the grid columns shows medium size
     let gridsize = 'medium'
 
     import Header from '$lib/components/Header.svelte'
     import Snap from '$lib/components/Snap.svelte'
     import Card from '$lib/components/Card.svelte'
-    import SortCard from '$lib/components/SortCard.svelte'
-    import Star from '$lib/components/icons/StarIcon.svelte'
-    import Tomato from '$lib/components/icons/TomatoIcon.svelte'
-    import Heart from '$lib/components/icons/HeartIcon.svelte'
-    import GridOne from '$lib/components/icons/Grid1Icon.svelte'
-    import GridTwo from '$lib/components/icons/Grid2Icon.svelte'
-    import GridThree from '$lib/components/icons/Grid3Icon.svelte'
-    import GridFour from '$lib/components/icons/Grid4Icon.svelte'
-    import GridFive from '$lib/components/icons/Grid5Icon.svelte'
-    import ListView from '$lib/components/icons/ListviewIcon.svelte'
-    import Sidebar from '$lib/components/Sidebar.svelte'
+
+    // sort function is an option
+    // import SortCard from '$lib/components/SortCard.svelte'
+    // the sidebar is an option
+    // import Sidebar from '$lib/components/Sidebar.svelte'
 
     import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
     import AddButton from '$lib/components/AddButton.svelte'
 
+    // to get the user of the snap this function is there to check which name is connected to the user uuid
     const userMap = new Map(
         usersdata
             .filter(u => u?.uuid && u?.name)
@@ -48,13 +45,14 @@
 
         <h2>Layout</h2>
         <div>
+            <!-- with bind gridsize is displaying the size that you are currently in -->
             <LayoutNavigation bind:selected={gridsize} />
         </div>
     </div>
             <AddButton/>
 
     <ul class="snaps-{gridsize}">
-
+        <!-- the url to the detailpage is fetched from the API the snap component shows the photo and in the list view also the author and location -->
         {#each snaps as snap}
             <Snap href={`${page.url.pathname}/snapp/${snap.uuid}`} picture={snap.picture} list="items-{gridsize}" author={userMap.get(snap.author)} location={snap.location}/>
         {/each}
@@ -70,6 +68,7 @@
             display: 20% 80%;
         }
 
+        /* from here the sidebar disappears */
         @media (max-width: 720px) {
             grid-template-columns: 1fr;
         }
@@ -94,7 +93,6 @@
         display: none;
     }
 
-
     .list-container {
         display: flex;
         flex-direction: row;
@@ -102,6 +100,7 @@
         height: 87vh;
     }
 
+    /* all the gridstates */
     .snaps-xlarge {
         padding: 1em;
         display: grid;

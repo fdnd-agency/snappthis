@@ -1,19 +1,17 @@
 <script>
     // icons
     import GobackIcon from "./icons/GobackIcon.svelte";
-
-    import Settings from "./icons/Settings.svelte";
+    import Settings from "./icons/SettingsIcon.svelte";
     import Add from "./icons/PlusIcon.svelte";
-    import Dropdown from './icons/Dropdown.svelte'
+    import Dropdown from './icons/DropdownIcon.svelte'
     import Card from "./Card.svelte"
     import SortCard from "./SortCard.svelte"
-
     import GroupIcon from './icons/GroupIcon.svelte'
     import LogoIcon from './icons/LogoIcon.svelte'
     import SearchIcon from './icons/SearchIcon.svelte'
     import UserIcon from './icons/UserIcon.svelte'
-    import Arrow from "./icons/Arrow.svelte";
 
+    // exports
     export let page
     export let title = "SnappMap"
     export let active = "home"
@@ -21,24 +19,26 @@
 
 
 <header class="header">
+    <!-- this is the navigation bar for the header is only enabled when you use desktop -->
     <nav>
-        <a href="/" aria-label="Home icon" class:active={active === 'home'} id="home">
+        <a href="/" aria-label="Home icon" class:active={active === 'home'}>
             <LogoIcon />
         </a>
 
-        <a href="/explore" aria-label="Search Icon" class:active={active === 'explore'} id="explore">
+        <a href="/explore" aria-label="Search Icon" class:active={active === 'explore'}>
             <SearchIcon/>
         </a>
 
-        <a href="/group" aria-label="Group Icon" class:active={active === 'groups'} id="groups">
+        <a href="/group" aria-label="Group Icon" class:active={active === 'groups'}>
             <GroupIcon/>
         </a>
 
-        <a href="/user" aria-label="User icon" class:active={active === 'you'} id="you">
+        <a href="/user" aria-label="User icon" class:active={active === 'you'}>
             <UserIcon/>
         </a>
     </nav>
 
+    <!-- left icon with binding it shows the appropriate icon mostly back icon -->
     <div class="left-icon-{page}">
         <div class="icon-1">
             <GobackIcon 
@@ -46,7 +46,10 @@
         </div>
     </div>
 
+    <!-- this is the middle section -->
     <h1>{title}</h1>
+
+    <!-- this is the right section -->
 
     <div class="right-icon-{page}">
         <div class="icon-2">
@@ -61,33 +64,19 @@
     </div>
 </header>
 
-<div class="header-block">
-
-</div>
-
-
 <style>
-
-    .header-block {
-        height: 75px;
-
-        @media (width > 720px) {
-            height: 100px;
-        }
-    }
-
     header {
         background-color: var(--primary-color);
-        color: var(--neutral-color-100);
-        width: 100vw;
+        color: var(--neutral-color);
+        width: 100%;
         height: 75px;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        position: fixed;
 
         @media (width > 720px) {
             height: 100px;
+            width: 100%;
         }
     }
 
@@ -95,7 +84,6 @@
         @media (width > 720px) {
             height: 75px;
         }
-
     }
 
     .left-icon-home {
@@ -142,8 +130,10 @@
         }
     }
 
+    /* navigationbar in the header */
+
     nav {
-        position: fixed;
+        position: absolute;
         top: 6.5%;
         color: var(--neutral-color-lightest);
         padding: 1rem;
@@ -153,7 +143,6 @@
         margin-inline: auto;
     }
 
-
     nav a {
         color: var(--neutral-color-lightest);
         font-family: 'Bariol Bold';
@@ -162,7 +151,6 @@
         flex-direction: column;
         height: 1.5em;
         width: 1.5em;
-
         align-items: center;
         color: var(--neutral-color-100);
         flex-direction: row;
@@ -179,7 +167,7 @@
         }
     }
 
-
+    /* dropdown */
     .dropdown-content {
         position: absolute;
         display: flex;

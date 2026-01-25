@@ -1,10 +1,5 @@
 <script>
-    // icons
-    import GobackIcon from "./icons/GobackIcon.svelte";
-
-    import Settings from "./icons/Settings.svelte";
-    import Add from "./icons/PlusIcon.svelte";
-    import Dropdown from './icons/Dropdown.svelte'
+    // components
     import Card from "./Card.svelte"
     import SortCard from "./SortCard.svelte"
 
@@ -12,20 +7,16 @@
 </script>
 
 <div class="sidebar">
+    <!-- this component is not used yet -->
     <Card text={group}/>
 
+    <!-- sort function is not working -->
         <div class="sort-function">
             <SortCard icon="clock"/>
             <SortCard icon="star" />
             <SortCard icon="tomato" />
         </div>
-
-        <div class="layout-navigation">
-            <Card text="large" icon="small"/>
-            <Card text="medium"/>
-            <Card text="small"/>
-            <Card text="list" />
-        </div>
+        <!-- layoutnavigation -->
 </div>
 
 <style>
