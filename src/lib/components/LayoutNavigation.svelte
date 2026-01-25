@@ -123,4 +123,13 @@
     padding-left: 3em;
     }      
 
+    :global(body.xmas) div {
+        background-color: var(--christmas-sidebar-color-dark);
+    }
+
+
+    :global(body.xmas) label {
+        background-color: var(--christmas-sidebar-color);
+    }
+
 </style>

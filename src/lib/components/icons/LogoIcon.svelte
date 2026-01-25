@@ -8,7 +8,7 @@
     viewBox="0 0 47 48"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
-    <title id="svgTitle">{title ? title : ""}</title>
+    <title>Logo icon</title>
     <path
         fill-rule="evenodd"
         clip-rule="evenodd"

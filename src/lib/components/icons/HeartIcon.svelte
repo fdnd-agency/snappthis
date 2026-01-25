@@ -4,6 +4,7 @@
     viewBox="0 0 26 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
+        <title>Heart icon</title>
     <path
         fill-rule="evenodd"
         clip-rule="evenodd"

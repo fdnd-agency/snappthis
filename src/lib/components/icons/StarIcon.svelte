@@ -4,6 +4,7 @@
     viewBox="0 0 38 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
+        <title>Star icon</title>
     <path
         fill-rule="evenodd"
         clip-rule="evenodd"

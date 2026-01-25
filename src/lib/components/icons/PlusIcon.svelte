@@ -8,7 +8,7 @@
     viewBox="0 0 36 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
-    <title id="svgTitle">{title ? title : ''}</title>
+    <title>Plus icon</title>
     <g id="add">
         <path
             id="Shape"

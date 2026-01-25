@@ -4,6 +4,7 @@
     viewBox="0 0 46 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
+      <title>Check</title>
     <path
         fill-rule="evenodd"
         clip-rule="evenodd"

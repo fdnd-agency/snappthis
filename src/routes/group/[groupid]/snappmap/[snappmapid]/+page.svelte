@@ -102,7 +102,7 @@
 
 
         @media (max-width: 1080px) {
-            grid-template-columns: 40% 60%;
+            grid-template-columns: 30% 70%;
         }
 
         @media (max-width: 720px) {
@@ -113,7 +113,7 @@
     .sidebar {
         background-color: var(--neutral-color-light);
         height: 85vh;
-        width: 20em;
+        width: 100%;
         padding: 1em;
         position: relative;
 
@@ -133,6 +133,8 @@
     :global(body.xmas) .sidebar {
         background: #C79C9C;
     }
+
+
 
     :global(body.xmas) img {
         border: 1px solid black;

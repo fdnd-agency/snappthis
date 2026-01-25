@@ -5,6 +5,7 @@
     viewBox="0 0 37 36"
     fill="#ffff"
     xmlns="http://www.w3.org/2000/svg">
+          <title>Grid Xtra Large</title>
     <path
         fill-rule="evenodd"
         clip-rule="evenodd"
