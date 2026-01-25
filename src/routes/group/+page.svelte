@@ -56,7 +56,7 @@
     main {
         font-family: 'Bariol';
         color: var(--primary-color);
-        width: 100%;
+        width: 100vw;
     }
 
     ul,

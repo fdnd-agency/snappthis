@@ -68,7 +68,7 @@
     header {
         background-color: var(--primary-color);
         color: var(--neutral-color);
-        width: 100vw;
+        width: 100%;
         height: 75px;
         display: flex;
         justify-content: space-around;
@@ -76,6 +76,7 @@
 
         @media (width > 720px) {
             height: 100px;
+            width: 100%;
         }
     }
 
