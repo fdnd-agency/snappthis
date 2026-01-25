@@ -46,7 +46,7 @@
 
 <main>
     <div class="sidebar">
-        <div class="title-card">
+        <div class="title-card" tabindex="0">
             <Card text="Squad 2A" icon="group" />
         </div>
         <h2>Layout</h2>
@@ -60,7 +60,7 @@
      <ul class="snaps-{gridsize}">
         {#each snaps as snap}
             <li class="list {gridsize === 'list' ? 'visible' : ''}">
-                <a href="{page.url.pathname}/{snap.uuid}">
+                <a href="{page.url.pathname}/{snap.uuid}" alt="click on photo by ${snap.author} at ${snap.location}" tabindex="0">
                     <img
                         src={'https://fdnd-agency.directus.app/assets/' +
                             snap.picture}
@@ -73,7 +73,7 @@
     </ul>
     </div>
 
-<button class="christmasballs" onclick={toggleChristmas}>
+<button class="christmasballs" aria-label="christmas balls button" onclick={toggleChristmas} tabindex="0">
     <ChristmasBalls />
 </button>
 </main>
