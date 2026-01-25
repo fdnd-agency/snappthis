@@ -15,11 +15,11 @@ There are tables for users, their snapps, the groups that they're in, and the sn
 - The snapp_user_action table would hold records of every action a user has performed on a snapp.
 
 ## Relationships
-One user can have many snapps (one to many)
-One user can belong to many groups and groups can have many users (many to many)
-One user can like many snapps and snapps can be liked by many users (many to many)
-One snappmap can contain many snapps (one to many)
-One group can contain many snappmaps (one to many)
+- One user can have many snapps (one to many)
+- One user can belong to many groups and groups can have many users (many to many)
+- One user can like many snapps and snapps can be liked by many users (many to many)
+- One snappmap can contain many snapps (one to many)
+- One group can contain many snappmaps (one to many)
 
 ### Vragen
 - Hoe query ik hoeveel likes, dislikes en stars een SnappMap in totaal heeft?
