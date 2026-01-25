@@ -3,65 +3,108 @@
 Design Challenge: Ontwerp en ontwikkel een webapplicatie voor Snappthis die gebruikers een intuïtieve en naadloze ervaring biedt bij het maken en delen van foto's en 'photo mind maps' binnen een groep.
 
 ## Table of Contents
-  * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+  * [Description](#beschrijving)
+  * [Techniques](#techniques)
+  * [Features](#features)
+  * [Installation](#installation)
+  * [User Manual](#Usermanual)
+  * [Sources](#sources)
+  * [License](#License)
 
-## Beschrijving
+## Description
 
-Snappthis is een innovatieve webapplicatie die gebruikers in staat stelt om eenvoudig 'photo mind maps' (of 'snappmaps') te maken met een groep: een verzameling foto's gemaakt door de groepsleden naar aanleiding van een foto-opdracht (een onderwerp). De app richt zich op een gebruiksvriendelijke en efficiënte manier van groepen maken, onderwerpen uitzetten, foto's maken, delen en bekijken, waardoor het een ideaal hulpmiddel is voor zowel professionele als persoonlijke doeleinden.
+Snappthis is an innovative web application that enables users to easily create “photo mind maps” (or “snappmaps”) with a group: a collection of photos taken by group members in response to a photo assignment (a theme). The app focuses on a user-friendly and efficient way to create groups, set topics, take photos, share them, and view them, making it an ideal tool for both professional and personal use.
 
-## Ontwerpkeuzes
+## Techniques
 
-SnappThis is verdeeld onder de pagina met verschillende SnappMaps (dit zijn projecten waar de foto's geimporteerd kunnen worden) de overzichtspagina van de SnappMap zelf en de detailpagina van een specifieke foto. Voor Sprint 14 hebben we deze drie pagina's uitgewerkt, hierbij hebben we een werkende [datamodel](https://github.com/fdnd-agency/snappthis/wiki/Data-Model) opgesteld. Deze data wordt geladen op alle webpagina's.
+### FrontEnd
+- **SvelteKit** – The main framework of this project is SvelteKit
+- **Mobile-first design** - This is a mobile first design
 
-### Alle SnappMaps
+### BackEnd
+- **Directus** - Data will be fetched by the Directus Database
+- **Account** - Account can be created and can be divided in general and admin role
 
-### SnappMap overzichtspagina
-De overzichtspagina bestaat uit alle foto's van een SnappMap (subject) dit wordt in het datamodel aangegeven als (snappmapID). Op deze pagina worden alle foto's ingeladen die verbonden zijn met een bepaalde SnapMap ID. Op de live website is dit nog niet zichtbaar omdat dit nog een voorbeeld is. Er is een ontwerp gemaakt van deze pagina op [Figma](https://www.figma.com/design/ACEivj97iw7ao1eFssYlej/Redesign-SnappThis?node-id=0-1&t=IpVuISbZlMLqMQpd-1). Ik heb hier een aantal ontwerp keuze's gemaakt.
+### Development Tools
+- **Git & GitHub** – Version control and project collaboration.
 
-#### Border-radius
-Uit [referentie](https://bereal.com/nl/) die ik heb gebruikt BeReal komt er veel border-radius voor. Dit wil ik in de foto's terug laten komen omdat dit er moderner uitziet. Dit ga ik dan ook toepassen op de form elementen, de feedback en de explore maar niet zo hevig. Door een standaard waarde te geven aan de stylesheet komen dezelfde afmetingen terug.
+### Deployment Tools
+- **Netify** - This repositry is deployed by Netify
 
-#### Informatieverwerking
-<img width="602" height="650" alt="image" src="https://github.com/user-attachments/assets/5dca71a6-198d-4b24-b73a-1bf06cd0a9b3" />
+## Features
 
-In het ontwerp wat we hebben gekregen staat alle informatie onderaan aan de foto. Het is leuker om dit met verschillende groottes aan te geven. Voor de overzichtspagina is dit enkel de naam en de plaats waar het is genomen. Dit geeft een veel rustigere blik en zorgt er ook voor dat aandacht meer naar de foto zelf gaat.
+You can create a new account by the invitelink which is send to you. When you created an account you are part of a group where you can add snappmaps on. On these snappmaps there will be a timestamp where the user can add photo's(snaps). The user also can like, dislike and star a post by clicking on the snap and give their feedback.
 
-<img width="574" height="214" alt="image" src="https://github.com/user-attachments/assets/c3b16e7a-f9a8-451a-b6f4-74f02819f174" />
+### Sitemap
 
-Bij de list view komt er ook nog een bio er bij te staan zo krijg je een indruk van een foto.
+<img width="1092" height="152" alt="image" src="https://github.com/user-attachments/assets/dfb2e8f2-97b2-46c6-8cc2-f7bd2d2ef83f" />
 
-#### Navigatie bar
-<img width="408" height="70" alt="image" src="https://github.com/user-attachments/assets/c77f01b9-9790-4b6e-85cd-ce9c030f418a" />
+The application has 4 icons on its navigationbar. The Home (SnappThis), Explore, Groups and You-page. From scratch we made a [sitemap](https://www.figma.com/board/aIExdeeMtV8fQrmc3RYlKv/SnappThis?node-id=0-1&t=ch9RnFUiLucIOph4-1) to get better understanding of the navigation through the application.
 
-Voor de snapmap zelf heb ik een navigatie bar opgesteld dit geld dus alleen voor de overzichtspagina, hier kan je de naam zien van de SnappMap en terug gaan naar alle SnappMaps. Ook kan je de layout veranderen.
+#### Home
 
-### SnappMap detailpagina
+<img width="3024" height="1534" alt="image" src="https://github.com/user-attachments/assets/5fa4b3b2-2d32-4e63-8f9f-3c719ab9f893" />
+
+The home page exist out of the current group you are assigned to. It shows the snappmappreview components where you can also navigate to those snappmaps. This is the first page you will land on when you open the app when you are already a user.
+
+#### Explore
+The Explore page is the navigation to all snappmaps that are uploaded on the database. You can search for a subject where you can view, give feedback to snapps. This page is not made yet.
+
+#### Groups
+
+<img width="3024" height="1534" alt="image" src="https://github.com/user-attachments/assets/782c06b6-7de2-4a48-bd86-edf15e6e5b7d" />
 
 
-## Functionaliteiten
+The Group page shows the groups that are made by an admin. When an admin invites you, you can only see the groups of that admin. From here you are able to navigate to other groups. You can also add users to a particular group.
 
-### Layout-Grid
-Je kan de layout van de SnappMap overview veranderen van grid met 5 kolommen naar one-column-layout. Er is een dropdown menu gemaakt waarbij je kan klikken op welke grid je wilt toepassen. Er moet nog wat gesleuteld worden aan de styling. 
+When you click on a group you will directly redirected to the latest snappmap of that particular group. From this snappmap you can navigate to other snappmaps within that group.
 
-<img width="184" height="942" alt="image" src="https://github.com/user-attachments/assets/1ac33c67-d977-40e6-bcc5-962a20239048" />
+#### SnappMap Overview
+
+<img width="3024" height="1534" alt="image" src="https://github.com/user-attachments/assets/736c8de9-9615-4da2-8a41-0d9382094e89" />
+
+On the SnappMap page you will see all the snaps that have been posted on that snappmap. On desktop version you will find a sidebar where you can change the grid and view information of that snappmap. From there you can click on a snap to give the snap feedback.
+
+#### SnappMap Detailpage
+
+<img width="3024" height="1534" alt="image" src="https://github.com/user-attachments/assets/1c1621cb-fc15-4c7b-893c-dc2e493a309a" />
+
+You just came to the detailpage, here you can specifically view a snap and give this feedback by giving a like, tomato or star it. From here you can also navigate through the author and the location of that particular snap that has been made.
+
+#### You
+
+<img width="2998" height="1526" alt="image" src="https://github.com/user-attachments/assets/99aad6b9-5b7a-4a7a-aa59-8cb92a2b3ef5" />
 
 
-## Installatie
+On the you page you will see all the information you have given when signing up. Here you can see all your starred snaps, and the snappmaps you are included. When you have no account yet this is the page where you can sign up. You can also change the settings of your profile from here.
 
-1. Clone de repo
-2. Install dependencies met `npm install`
-3. Start een development server met `npm run dev` of start de server en open de applicatie gelijk in een nieuw browser tabje met `npm run dev -- --open`
-4. Je kan ook een productie versie van de app maken met `npm run build`
-5. Preview de productie versie met `npm run preview`
-6. Om de app te deployen is mogelijk nodig om een [adapter](https://svelte.dev/docs/kit/adapters) te installeren. 
+## User Manual
 
-## Bronnen
+### Create an account
+For entering SnappThis you need to create an account you can do this when you open the application for the first time or with an inviting link you received. From here you can fill in information like name, gender and birthdecade. After signed up you will automatically join the group you are invited to. When you didn't enter with invitation link you are not in any group
 
-## Licentie
+### Navigating through the app
+You can navigate to the app with the navigation bar through the Home, Explore, Groups and You page.
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+### Viewing snappmaps
+You can view snappmaps by clicking on groups where you see all the groups of the groups the admin has provided. From here you can click on a group where you will be redirected to the latest snappmap. From the snappmap overview page you can navigate to other snappmaps.
+
+### Adding snaps
+You can add a snap only by mobile device. Clicking on the green button allows you to post a picture which will be displayed somewhere on the database. This will save your picture, location and create a specific id where you can also land on this page when navigating to the detailpage.
+
+### Feedback
+This function allows you to give feedback to a snap. You can throw a tomato (creative way of disliking), like or star a snap which also will be saved on the database. It also displays the amount of feedback with the snap.
+
+### Profile and Settings
+From the profile you can change the seetings. This can be changing your password, get more information about the application and more. From here you can also sign out where you will be redirected to the landing page.
+
+
+## Installation
+1. Clone the repository
+2. Install dependencies with npm install
+3. Start a development server with npm run dev, or start the server and automatically open the application in a new browser tab with npm run dev -- --open
+4. You can also create a production version of the app with npm run build
+5. Preview the production version with npm run preview
+6. To deploy the app, it may be necessary to install an adapter
+
+## Sources
