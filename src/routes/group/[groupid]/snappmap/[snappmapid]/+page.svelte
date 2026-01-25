@@ -1,18 +1,21 @@
 <script>
     import { page } from '$app/state'
+    import { onMount } from 'svelte'
+    import { initSnowflakes } from '$lib/scripts/snowflakes.js'
 
-    export let data
-    const snaps = data?.snaps?.[0]?.snaps ?? [];
-    const snapMap = data.snaps[0]
-    const usersdata = data.users
+    let { data } = $props()
+    const snaps = data.snaps[0].snaps
     const id = data.id
+    let gridsize = $state('grid2')
+    // the conttent element is defined
+    let contentEl
 
-    let gridsize = 'medium'
+    const snapMap = data.snaps[0]
 
-    import Header from '$lib/components/Header.svelte'
-    import Snap from '$lib/components/Snap.svelte'
+    import Header from './src/lib/components/Header.svelte';
+    import Image from '$lib/components/Image.svelte'
     import Card from '$lib/components/Card.svelte'
-    import SortCard from '$lib/components/SortCard.svelte'
+    import SortCard from '$lib/components/Sort-Card.svelte'
     import Star from '$lib/components/icons/StarIcon.svelte'
     import Tomato from '$lib/components/icons/TomatoIcon.svelte'
     import Heart from '$lib/components/icons/HeartIcon.svelte'
@@ -24,50 +27,84 @@
     import ListView from '$lib/components/icons/ListviewIcon.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
 
+    import ChristmasBalls from '$lib/components/icons/ChristmasBalls.svelte'
     import LayoutNavigation from '$lib/components/LayoutNavigation.svelte'
-    import AddButton from '$lib/components/AddButton.svelte'
 
-    const userMap = new Map(
-        usersdata
-            .filter(u => u?.uuid && u?.name)
-            .map(u => [u.uuid, u.name])
-    );
+    // snowflake effect
+    onMount(() => {
+        initSnowflakes(contentEl)
+    })
+
+  function toggleChristmas() {
+    document.body.classList.toggle('xmas')
+  }
 </script>
 
 <svelte:head>
     <title>{snapMap.name}</title>
 </svelte:head>
 
-<Header page="snappmap" icon="snappmap" title="{snapMap.name}" active="groups"/>
+<Header page="snappmap" icon="snappmap" title={snapMap.name}/>
 
 <main>
     <div class="sidebar">
         <div class="title-card">
             <Card text="Squad 2A" icon="group" />
         </div>
-
         <h2>Layout</h2>
         <div>
-            <LayoutNavigation bind:selected={gridsize} />
+            <LayoutNavigation />
         </div>
     </div>
-            <AddButton/>
-
-    <ul class="snaps-{gridsize}">
-
+    <div class="content" bind:this={contentEl}>
+        <canvas id="canvas"></canvas>
+        <!-- <canvas id="canvas"></canvas> -->
+     <ul class="snaps-{gridsize}">
         {#each snaps as snap}
-            <Snap href={`${page.url.pathname}/snapp/${snap.uuid}`} picture={snap.picture} list="items-{gridsize}" author={userMap.get(snap.author)} location={snap.location}/>
+            <li class="list {gridsize === 'list' ? 'visible' : ''}">
+                <a href="{page.url.pathname}/{snap.uuid}">
+                    <img
+                        src={'https://fdnd-agency.directus.app/assets/' +
+                            snap.picture}
+                        alt="Photo by ${snap.author} at ${snap.location}"
+                        height="256"
+                        width="256" />
+                </a>
+            </li>
         {/each}
     </ul>
+    </div>
+
+<button class="christmasballs" onclick={toggleChristmas}>
+    <ChristmasBalls />
+</button>
 </main>
 
 <style>
+    :root {
+        --christmas-sidebar-color: #C79C9C;
+        --christmas-sidebar-color-dark: #AF6666;
+
+        --christmas-header-color: #99B695;
+        --christmas-header-color-dark: #00E53D;
+
+        --content-background: #090029;
+
+        --ice: #6BB8DE;
+        --snow: #FFFFFF;
+
+        --stroke: 1px solid black;
+    }
+
     main {
+        margin-bottom: 5%;
         display: grid;
-        grid-template-columns:30% 70%;
+        height: 77vh;
+        grid-template-columns: 20% 80%;
+
 
         @media (max-width: 1080px) {
-            display: 20% 80%;
+            grid-template-columns: 40% 60%;
         }
 
         @media (max-width: 720px) {
@@ -75,69 +112,119 @@
         }
     }
 
-    ul {
-        margin: 0;
-    }
-
     .sidebar {
         background-color: var(--neutral-color-light);
-        height: 100%;
-        width: 30vw;
+        height: 85vh;
+        width: 20em;
         padding: 1em;
+        position: relative;
 
         @media (max-width: 720px) {
             display: none;
         }
     }
 
-    .list-items {
-        display: none;
+    :global(body.xmas) .content {
+        background: #090029;
     }
 
+    :global(body.xmas) canvas {
+        opacity: 1;
+    }
+
+    :global(body.xmas) .sidebar {
+        background: #C79C9C;
+    }
+
+    :global(body.xmas) img {
+        border: 1px solid black;
+        scale: 0.9;
+        opacity: 0.9;
+        transition-duration: 0.3s;
+    }
+
+
+    .content {
+        position: relative;
+        overflow-y: scroll;
+        width: 80vw;
+        padding: 1em;
+        display: flex;
+        justify-content: center;
+        
+        canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+        }
+    }
+
+    .content img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .sort-function {
+        display: flex;
+        gap: 1em;
+    }
 
     .list-container {
         display: flex;
         flex-direction: row;
         width: 100vw;
-        height: 87vh;
     }
 
-    .snaps-xlarge {
-        padding: 1em;
-        display: grid;
-        height: 87vh;
-        width: 100vw;
-        grid-template-columns: 1fr 1fr;
-        overflow: scroll;
+    img {
+        height: 256px;
+        width: 256px;
+        contain: cover;
     }
 
-    .snaps-large {
-        padding: 1em;
-        display: grid;
-        height: 87vh;
-        grid-template-columns: 1fr 1fr 1fr;
-        overflow: scroll;
-    }
-
-    .snaps-medium {
-        padding: 1em;
-        height: 87vh;
+    ul {
+        list-style: none;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        overflow: scroll;
+        width: 65vw;
+        gap: 1em;
+        margin: 0;
+        padding: 0;
+        margin-top: 1em;
+
+        @media (max-width: 720px) {
+            margin-left: 0em;
+            grid-template-columns: 1fr 1fr;
+            width: fit-content
+        }
     }
 
-    .snaps-small {
-        padding: 1em;
-        height: 87vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        overflow: scroll;
+    .christmasballs {
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
     }
 
-    .snaps-list {
-        padding: 1em;
-        overflow: scroll;
-        height: 90vh;
+    button {
+  all: unset;
+}
+
+@media (max-width:720px) {
+    .content {
+        width: 100vw;
+        height: 100vh;
     }
+
+    .christmasballs {
+        left: 45%;
+        bottom: 10%;
+
+        &:checked {
+            scale: 1.25;
+        }
+    }
+}
 </style>
