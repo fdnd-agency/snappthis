@@ -1,5 +1,5 @@
 <script>
-    import Header from '$lib/components/Header.svelte';
+    import Header from './src/lib/components/Header.svelte';
 </script>
 
 <Header title="Explore" page="snappmap"/>

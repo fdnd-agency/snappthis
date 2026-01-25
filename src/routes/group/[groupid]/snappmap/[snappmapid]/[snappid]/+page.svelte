@@ -1,4 +1,6 @@
 <script>
+    import Header from './src/lib/components/Header.svelte';
+
     let { data } = $props()
     const snappDetail = data.snappDetails
 </script>
