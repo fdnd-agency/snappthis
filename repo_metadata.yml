@@ -5,3 +5,16 @@ years: [1]
 main_link: "https://snappthis.agency.fdnd.nl/"
 dev_link: "https://snappthis.dev.fdnd.nl/"
 tech_stack: ["SvelteKit", "Directus"]
+team:
+  - name: 'Mouaad'
+    github: 'Mouaad020'
+  - name: 'Mathijs'
+    github: 'MathijsN'
+  - name: 'Sieuwke'
+    github: 'SieuwkeSheta'
+  - name: 'Tom'
+    github: 'tom-2810'
+  - name: 'Yassine'
+    github: 'yassineAk1'
+  - name: 'Caitlin'
+    github: 'Caitlin-fdnd'
