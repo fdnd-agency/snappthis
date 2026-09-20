@@ -2,6 +2,6 @@ title: "SnappThis"
 client: "Marije ten Brink"
 status: "active"
 years: [2]
-main_link: "https://snappthis.agency.fdnd.nl/"
-dev_link: "https://snappthis.dev.fdnd.nl/"
+main_link: ""
+dev_link: ""
 tech_stack: ["SvelteKit", "Directus"]
