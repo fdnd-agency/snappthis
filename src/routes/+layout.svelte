@@ -12,6 +12,4 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<Header title="Welcome back"/>
-
 {@render children()}
