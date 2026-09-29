@@ -239,46 +239,6 @@ header {
 }
 
 /* partials/footer.liquid */
-nav {
-    height: var(--bar-height);
-    background-color: var(--primary-color);
-
-    &.bottom-nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-
-        ul {
-            display: flex;
-            justify-content: space-around;
-            height: 100%;
-            list-style: none;
-
-            a {
-                display: flex;
-                align-items: center;
-                height: 100%;
-
-                svg {
-                    height: auto;
-                    width: calc(var(--bar-height) * 0.40);
-                    fill: var(--lightest-color);
-                }
-            }
-
-            li:nth-of-type(1) svg {
-                width: calc(var(--bar-height) * 0.44);
-            }
-        }
-    }
-}
-
-.active {
-    path {
-        fill: var(--accent-color-on-dark-bg);
-    }
-}
 
 /* partials/formStatusMessage.liquid */
 dialog[open] {
