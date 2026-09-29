@@ -1,8 +1,18 @@
+<script>
+// Informatie doorgeven via page over de huidige pagina
+    import { page } from '$app/state';
+</script>
+
 <footer class="footer">
     <nav class="footer-nav" aria-label="Main navigation">
         <ul class="footer-nav-list">
             <li class="footer-nav-item">
-                <a href="/" class="footer-nav-link" aria-label="Home">
+                <a 
+                    href="/" 
+                    class="footer-nav-link" 
+                    class:active={page.url.pathname === '/'}
+                    aria-label="Home"
+                >
                     <svg
                         class="footer-nav-icon"
                         width="47"
@@ -21,7 +31,12 @@
             </li>
 
             <li class="footer-nav-item">
-                <a href="/groups" class="footer-nav-link" aria-label="Group">
+                <a 
+                    href="/groups" 
+                    class="footer-nav-link" 
+                    class:active={page.url.pathname === '/groups'}
+                    aria-label="Groups"
+                >
                     <svg
                         class="footer-nav-icon"
                         width="40"
@@ -40,7 +55,12 @@
             </li>
 
             <li class="footer-nav-item">
-                <a href="/user" class="footer-nav-link" aria-label="User">
+                <a 
+                    href="/user" 
+                    class="footer-nav-link" 
+                    class:active={page.url.pathname === '/user'}
+                    aria-label="User"
+                >
                     <svg
                         class="footer-nav-icon"
                         width="35"
@@ -60,3 +80,49 @@
         </ul>
     </nav>
 </footer>
+
+<style>
+    .footer-nav {
+        height: var(--bar-height);
+        background-color: var(--primary-color);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .footer-nav-list {
+        display: flex;
+        justify-content: space-around;
+        height: 100%;
+        list-style: none;
+    }
+
+    .footer-nav-link {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        /* Zorgt ervoor dat de hover alleen wordt toegepast op apparaten met een muis */
+        @media (any-pointer: fine) {
+            &:hover {
+                transition: var(--transition-duration);
+                scale: var(--hover-scale);
+            }
+        }
+    }
+
+    .footer-nav-icon {
+        height: auto;
+        width: calc(var(--bar-height) * 0.40);
+        fill: var(--lightest-color);
+    }
+
+    .footer-nav-link.active .footer-nav-icon {
+        fill: var(--accent-color-on-dark-bg);
+    }
+
+    .footer-nav-item:first-child .footer-nav-icon {
+        width: calc(var(--bar-height) * 0.44);
+    }
+</style>
