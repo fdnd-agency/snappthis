@@ -9,33 +9,33 @@ import Snapps from '$lib/assets/icons/Snapps.svg';
 
 
 <section>
-  <h2>Naam</h2>
+  <h2>Anne-Fleur Pietersen</h2>
 
   <p class="details">
-    <span>gender -</span>
-    <span>born – </span>
+    <span>female -</span>
+    <span>born in the 80's -</span>
     <span>@work</span>
   </p>
 
-  <p>email</p>
+  <p class="email">anne-fleur@snappthis.com</p>
 
   <ul>
     <li>
       <img src={Snapps} alt=""/>
-      <span></span>
-      <span>Snapp</span>
+      <span>29</span>
+      <span>snapps</span>
     </li>
 
     <li>
       <img src={Groups} alt=""/>
-      <span></span>
-      <span>Group</span>
+      <span>4</span>
+      <span>groups</span>
     </li>
 
     <li>
       <img src={Star} alt="" />
-      <span></span>
-      <span>Star</span>
+      <span>0</span>
+      <span>stars</span>
     </li>
   </ul>
 </section>
@@ -48,27 +48,41 @@ section {
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 40vh;
   background-color: var(--pill-link-bg-color);
   padding: var(--spacing-m);
 }
 
-/* .details {
+.details {
+  margin-top: 0.3rem;
+} 
 
-} */
+.email {
+  margin-top: 0.3rem;
+}
 
 ul {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   list-style: none;
-  margin-top: var(--spacing-m);
+  margin-top: 2.5rem;
   gap: var(--spacing-s);
 }
 
 li {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap:0.2rem;
+  font-size: var(--font-size-s);
 }
+
+li img {
+  height: 1.9rem;
+  width: auto;
+}
+
 
 
 
