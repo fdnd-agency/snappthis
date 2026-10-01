@@ -3,14 +3,15 @@
     let {
         title = '',
         showBackButton = false,
-        showAddButton = false
+        showAddButton = false,
+        backUrl = '/'
     } = $props();
 </script>
 
 <header class="top-nav">
     {#if showBackButton}
         <!-- Back navigation -->
-        <a href="/" class="go-back-link" aria-label="Go back">
+        <a href={backUrl} class="go-back-link" aria-label="Go back">
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                 <title>Go back</title>
                 <path
