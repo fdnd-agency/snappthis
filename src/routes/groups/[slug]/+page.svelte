@@ -10,6 +10,7 @@
 <Header 
     title={data.group.name}
     showBackButton={true}
+    backUrl="/groups"
     showAddButton={true}
 />
 
