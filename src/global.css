@@ -798,76 +798,6 @@ form.picture {
     }
 }
 
-/* groups.liquid */
-ul.groups {
-    min-width: 223px;
-
-    a {
-        text-decoration: none;
-        color: var(--dark-text-color-on-light-bg);
-        display: flex;
-        align-items: center;
-        flex: 1;
-    }
-}
-
-.group-list-container {
-    border-bottom: var(--text-color-on-light-bg) 1px solid;
-    padding-inline: var(--spacing-s);
-    display: flex;
-    justify-content: space-between;
-    height: var(--bar-height);
-    flex: 1;
-
-    .group-list-stats {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        &.snappmap {
-            width: 100%;
-            height: 100%;
-        }
-
-        h2 {
-            line-height: 1.25;
-            font-size: var(--font-size-m);
-            font-weight: 400;
-
-            &.active {
-                font-weight: 700;
-            }
-        }
-
-        p {
-            font-size: var(--font-size-xs);
-            color: var(--text-color-on-light-bg);
-
-            &.active {
-                color: var(--accent-color-on-light-bg);
-                font-weight: 700;
-            }
-        }
-    }
-
-    .group-list-interactive {
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-
-        svg {
-            transition: var(--transition-duration);
-
-            @media (any-pointer:fine) {
-                &:hover {
-                    cursor: pointer;
-                    scale: var(--hover-scale);
-                }
-            }
-        }
-    }
-}
-
 /* snapps.liquid / snappmap.liquid */
 .grid {
     display: grid;
@@ -1211,3 +1141,61 @@ ul.groups {
     justify-content: center;
     height: 80dvh;
 }
+
+
+
+/* Groups.svelte */
+
+.groups {
+        min-width: 223px;
+    }
+
+    .groups a {
+        text-decoration: none;
+        color: var(--dark-text-color-on-light-bg);
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+
+    .group-list-container {
+        border-bottom: var(--text-color-on-light-bg) 1px solid;
+        padding-inline: var(--spacing-s);
+        display: flex;
+        justify-content: space-between;
+        height: var(--bar-height);
+    }
+
+    .group-list-stats {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .group-list-stats h2 {
+        line-height: 1.25;
+        font-size: var(--font-size-m);
+        font-weight: 400;
+    }
+
+    .group-list-stats p {
+        font-size: var(--font-size-xs);
+        color: var(--text-color-on-light-bg);
+    }
+
+    .group-list-interactive {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        svg {
+            transition: var(--transition-duration);
+
+            @media (any-pointer:fine) {
+                &:hover {
+                    cursor: pointer;
+                    scale: var(--hover-scale);
+                }
+            }
+        }
+    }
