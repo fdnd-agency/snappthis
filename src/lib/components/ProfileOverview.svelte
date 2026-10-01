@@ -1,3 +1,13 @@
+<script>
+
+import Star from '$lib/assets/icons/Star.svg';
+import Male from '$lib/assets/icons/Male.svg';
+import Groups from '$lib/assets/icons/Groups.svg';
+import Snapps from '$lib/assets/icons/Snapps.svg';
+
+</script>
+
+
 <section>
   <h2>Naam</h2>
 
@@ -11,19 +21,19 @@
 
   <ul>
     <li>
-      <span></span>
+      <img src={Snapps} alt=""/>
       <span></span>
       <span>Snapp</span>
     </li>
 
     <li>
-      <span></span>
+      <img src={Groups} alt=""/>
       <span></span>
       <span>Group</span>
     </li>
 
     <li>
-      <span></span>
+      <img src={Star} alt="" />
       <span></span>
       <span>Star</span>
     </li>
