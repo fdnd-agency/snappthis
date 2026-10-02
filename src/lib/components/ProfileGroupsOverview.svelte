@@ -34,7 +34,7 @@ import StarProfile from '$lib/assets/StarProfile.svg';
 
 </div>
 
-  <fig class="images">
+  <figure class="images">
     <!-- <a> -->
         <img src="https://picsum.photos/300/200?random=1" alt="Tijdelijke afbeelding" />
         <img src="https://picsum.photos/300/200?random=2" alt="Tijdelijke afbeelding" />
@@ -42,7 +42,7 @@ import StarProfile from '$lib/assets/StarProfile.svg';
         <img src="https://picsum.photos/300/200?random=4" alt="Tijdelijke afbeelding" />
         <img src="https://picsum.photos/300/200?random=5" alt="Tijdelijke afbeelding" />
     <!-- </a> -->
-  </fig>
+  </figure>
 
   <h3></h3>
 
