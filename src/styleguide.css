@@ -1,0 +1,48 @@
+:root {
+    /* =========================
+       COLOR ACCENT - GREEN
+       ========================= */
+
+    --color-accent-green-white-60: hsl(136, 100%, 80%);
+    --color-accent-green-white-40: hsl(136, 100%, 70%);
+    --color-accent-green-white-20: hsl(136, 100%, 60%);
+    --color-accent-green: hsl(136, 100%, 50%);
+    --color-accent-green-black-10: hsl(136, 100%, 45%);
+    --color-accent-green-black-20: hsl(136, 100%, 40%);
+    --color-accent-green-black-30: hsl(136, 100%, 35%);
+
+
+    /* =========================
+       COLOR ACCENT - BLUE
+       ========================= */
+
+    --color-accent-blue: hsl(200, 43%, 23%);
+
+    --color-accent-blue-black-10: hsl(200, 43%, 21%);
+    --color-accent-blue-black-20: hsl(200, 43%, 19%);
+    --color-accent-blue-black-30: hsl(200, 44%, 16%);
+    --color-accent-blue-black-40: hsl(201, 44%, 14%);
+    --color-accent-blue-black-50: hsl(201, 45%, 11%);
+    --color-accent-blue-black-60: hsl(201, 42%, 9%);
+
+    --color-accent-blue-white-10: hsl(200, 29%, 31%);
+    --color-accent-blue-white-20: hsl(200, 21%, 39%);
+    --color-accent-blue-white-30: hsl(200, 15%, 46%);
+    --color-accent-blue-white-50: hsl(201, 13%, 62%);
+    --color-accent-blue-white-70: hsl(200, 13%, 77%);
+    --color-accent-blue-white-90: hsl(204, 13%, 92%);
+
+
+    /* =========================
+       COLOR ACCENT - RED
+       Error / Alert only
+       ========================= */
+
+    --color-accent-red-white-60: hsl(357, 100%, 83%);
+    --color-accent-red-white-40: hsl(357, 100%, 72%);
+    --color-accent-red-white-20: hsl(352, 100%, 60%);
+    --color-accent-red: hsl(357, 100%, 58%);
+    --color-accent-red-black-60: hsl(353, 100%, 44%);
+    --color-accent-red-black-40: hsl(358, 100%, 36%);
+    --color-accent-red-black-20: hsl(356, 100%, 24%);
+}
