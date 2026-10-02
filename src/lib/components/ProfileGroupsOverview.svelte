@@ -34,10 +34,14 @@ import StarProfile from '$lib/assets/StarProfile.svg';
 
 </div>
 
-  <fig>
-    <a>
-      <img />
-    </a>
+  <fig class="images">
+    <!-- <a> -->
+        <img src="https://picsum.photos/300/200?random=1" alt="Tijdelijke afbeelding" />
+        <img src="https://picsum.photos/300/200?random=2" alt="Tijdelijke afbeelding" />
+        <img src="https://picsum.photos/300/200?random=3" alt="Tijdelijke afbeelding" />
+        <img src="https://picsum.photos/300/200?random=4" alt="Tijdelijke afbeelding" />
+        <img src="https://picsum.photos/300/200?random=5" alt="Tijdelijke afbeelding" />
+    <!-- </a> -->
   </fig>
 
   <h3></h3>
@@ -49,6 +53,7 @@ import StarProfile from '$lib/assets/StarProfile.svg';
 
 section {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -66,6 +71,23 @@ ul {
 
 li {
     list-style: none;
+}
+
+li img {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.images {
+    display: flex;
+    width: 100%; 
+}
+
+.images img {
+ width: 20%;
+ aspect-ratio: 1;
+ object-fit: cover;
+ border: 1px solid white;
 }
 
 </style>
