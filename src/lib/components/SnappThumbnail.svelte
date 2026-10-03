@@ -3,7 +3,9 @@
 <script>
 	// One square snapp thumbnail that links to the snapp detail page.
 	// Reusable on every page that shows a grid of snapps.
-	let { snapp, label = '', size = 200 } = $props();
+	
+	// eager = true for images that are visible right away (above the fold), so they are not lazy loaded
+	let { snapp, label = '', size = 200, eager = false } = $props();
 
 	const assetsUrl = 'https://fdnd-agency.directus.app/assets';
 

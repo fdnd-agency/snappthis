@@ -12,7 +12,7 @@
 <svelte:head>
 	<title>SnappThis</title>
 </svelte:head>
-
+++
 <Header
     title="Welcome back"
     showBackButton={true}
@@ -20,8 +20,10 @@
 />
 
 <main>
-	{#each data.snappmaps as snappmap (snappmap.uuid)}
-		<SnappmapPreview {snappmap} />
+	<!-- The first 2 snappmaps are visible without scrolling, so their images load immediately -->
+     <!-- perfomance fix for the first snappmaps to be loading eager -->
+    {#each data.snappmaps as snappmap, index (snappmap.uuid)}
+     <SnappmapPreview {snappmap} eager={index < 2} />
 	{:else}
 		<p class="empty">There are no snappmaps yet.</p>
 	{/each}
