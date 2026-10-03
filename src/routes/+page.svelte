@@ -15,7 +15,7 @@
 ++
 <Header
     title="Welcome back"
-    showBackButton={true}
+    showBackButton={false}
     showAddButton={true}
 />
 
