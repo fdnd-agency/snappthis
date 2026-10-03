@@ -103,6 +103,11 @@
         align-items: center;
         height: 100%;
 
+        &:focus-visible {
+            outline: 2px solid var(--text-color-on-light-bg);
+            outline-offset: 2px;
+        }
+
         /* Zorgt ervoor dat de hover alleen wordt toegepast op apparaten met een muis */
         @media (any-pointer: fine) {
             &:hover {
