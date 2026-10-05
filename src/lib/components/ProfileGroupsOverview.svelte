@@ -64,6 +64,14 @@ section {
   width: 100%;
 }
 
+h3 {
+  font-size: var(--font-size-m);
+}
+
+h3:hover {
+ transform: scale(1.1);
+}
+
 ul {
   display: flex;
   justify-content: space-between;
