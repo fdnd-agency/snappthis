@@ -44,9 +44,28 @@ import StarProfile from '$lib/assets/StarProfile.svg';
     <!-- </a> -->
   </figure>
 
-  <h3></h3>
+  <div class="top">
+  <h3>Designers in motion</h3>
 
-  <!-- <p>no snapps yet</p> -->
+  <ul>
+    <li>
+        <img src={Heart} alt="">
+      <span>0</span>
+    </li>
+
+    <li>
+    <img src={Tomato} alt="">
+      <span>0</span>
+    </li>
+
+    <li>
+        <img src={StarProfile} alt="">
+      <span>0</span>
+    </li>
+  </ul>
+  </div>
+
+  <p>no snapps yet.</p>
 </section>
 
 <style>
@@ -66,14 +85,24 @@ section {
 }
 
 h3 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: var(--dark-text-color-on-light-bg);
+  margin: 0;
 }
 
 h3:hover {
  transform: scale(var(--hover-scale));
  transition: var(--transition-duration) ;
+}
+
+p {
+  font-size: var(--font-size-s);
+  color: var(--dark-text-color-on-light-bg);
+  align-self: flex-start;
+  padding-inline: var(--spacing-s);
+  margin: 0;
+  height: 5dvh;
 }
 
 ul {
