@@ -62,6 +62,7 @@ section {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: var(--spacing-s);
 }
 
 h3 {
@@ -69,7 +70,8 @@ h3 {
 }
 
 h3:hover {
- transform: scale(1.1);
+ transform: scale(var(--hover-scale));
+ transition: transform 0.2s ease ;
 }
 
 ul {
@@ -78,6 +80,7 @@ ul {
 }
 
 li {
+    display: flex;
     list-style: none;
 }
 
@@ -96,6 +99,12 @@ li img {
  aspect-ratio: 1;
  object-fit: cover;
  border: 1px solid white;
+ transition: var(--transition-duration);
 }
+
+.images img:hover {
+  transform: translateY(-0.3rem);
+}
+
 
 </style>
