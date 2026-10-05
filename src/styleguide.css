@@ -2,7 +2,8 @@
     /* =========================
        COLOR ACCENT - GREEN
        ========================= */
-
+    --color-accent-green-white-95: hsl(136, 100%, 95%);
+    --color-accent-green-white-82: hsl(131, 100%, 82%);
     --color-accent-green-white-60: hsl(136, 100%, 80%);
     --color-accent-green-white-40: hsl(136, 100%, 70%);
     --color-accent-green-white-20: hsl(136, 100%, 60%);
@@ -24,6 +25,7 @@
     --color-accent-blue-black-40: hsl(201, 44%, 14%);
     --color-accent-blue-black-50: hsl(201, 45%, 11%);
     --color-accent-blue-black-60: hsl(201, 42%, 9%);
+    --color-accent-blue-black-70: hsl(196, 64%, 21%);
 
     --color-accent-blue-white-10: hsl(200, 29%, 31%);
     --color-accent-blue-white-20: hsl(200, 21%, 39%);
@@ -38,11 +40,13 @@
        Error / Alert only
        ========================= */
 
+    --color-accent-red-white-95: hsl(358, 100%, 95%);
     --color-accent-red-white-60: hsl(357, 100%, 83%);
     --color-accent-red-white-40: hsl(357, 100%, 72%);
     --color-accent-red-white-20: hsl(352, 100%, 60%);
     --color-accent-red: hsl(357, 100%, 58%);
-    --color-accent-red-black-60: hsl(353, 100%, 44%);
-    --color-accent-red-black-40: hsl(358, 100%, 36%);
     --color-accent-red-black-20: hsl(356, 100%, 24%);
+    --color-accent-red-black-40: hsl(358, 100%, 36%);
+    --color-accent-red-black-60: hsl(353, 100%, 44%);
+    --color-accent-red-black-85: hsl(358, 100%, 15%);
 }
