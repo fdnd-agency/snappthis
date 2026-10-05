@@ -71,17 +71,20 @@ h3 {
 
 h3:hover {
  transform: scale(var(--hover-scale));
- transition: transform 0.2s ease ;
+ transition: var(--transition-duration) ;
 }
 
 ul {
   display: flex;
   justify-content: space-between;
+  gap: var(--spacing-s);
 }
 
 li {
     display: flex;
     list-style: none;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 li img {
