@@ -66,7 +66,9 @@ section {
 }
 
 h3 {
-  font-size: var(--font-size-m);
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--dark-text-color-on-light-bg);
 }
 
 h3:hover {
@@ -88,8 +90,8 @@ li {
 }
 
 li img {
-    width: 1.2em;
-    height: 1.2em;
+    width: 1.4em;
+    height: 1.4em;
 }
 
 .images {
