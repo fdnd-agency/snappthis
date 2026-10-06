@@ -1,9 +1,13 @@
 <script>
     import Header from '$lib/components/Header.svelte';
     import ProfileGroupsOverview from '$lib/components/ProfileGroupsOverview.svelte';
+
+    import ProfileOverview from '$lib/components/ProfileOverview.svelte';
+
     import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <Header title="You"/>
 <ProfileGroupsOverview/>
+<ProfileOverview/>
 <Footer/>
