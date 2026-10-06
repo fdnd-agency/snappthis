@@ -6,10 +6,12 @@
     import Footer from '$lib/components/Footer.svelte';
 
     let { data } = $props();
+
+    // console.log(data.user);
 </script>
 
 <Header title="You"/>
-<p>{data.user.name}</p>
 
-<ProfileOverview/>
+<ProfileOverview user={data.user}/>
+
 <Footer/>
