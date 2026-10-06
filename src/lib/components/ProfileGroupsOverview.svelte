@@ -41,28 +41,11 @@
   </div>
 
   <figure class="images">
-    <!-- <a> -->
-    <img
-      src="https://picsum.photos/300/200?random=1"
-      alt="Tijdelijke afbeelding"
+    {#each group.snap as snap}
+    <img src={`https://fdnd-agency.directus.app/assets/${snap.picture}`}
+    alt=""
     />
-    <img
-      src="https://picsum.photos/300/200?random=2"
-      alt="Tijdelijke afbeelding"
-    />
-    <img
-      src="https://picsum.photos/300/200?random=3"
-      alt="Tijdelijke afbeelding"
-    />
-    <img
-      src="https://picsum.photos/300/200?random=4"
-      alt="Tijdelijke afbeelding"
-    />
-    <img
-      src="https://picsum.photos/300/200?random=5"
-      alt="Tijdelijke afbeelding"
-    />
-    <!-- </a> -->
+    {/each}
   </figure>
 
   {/each}
