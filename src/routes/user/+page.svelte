@@ -9,7 +9,7 @@
 </script>
 
 <Header title="You"/>
-<p>{data.users[15].name}</p>
+<p>{data.user.name}</p>
 
 <ProfileOverview/>
 <Footer/>

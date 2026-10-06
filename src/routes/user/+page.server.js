@@ -1,3 +1,5 @@
+const userUuid = '5e9589a5-ebfa-4a99-87a6-010f2f571444';
+
 export async function load({fetch}) {
 const response = await fetch(
     'https://fdnd-agency.directus.app/items/snappthis_user'
@@ -5,6 +7,8 @@ const response = await fetch(
 
 const { data: users } = await response.json();
 
-return { users };
+const user = users.find((user) => user.uuid === userUuid);
+
+return { user };
 
 }
