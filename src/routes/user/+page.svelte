@@ -1,5 +1,6 @@
 <script>
     import Header from '$lib/components/Header.svelte';
+    import ProfileGroupsOverview from '$lib/components/ProfileGroupsOverview.svelte';
 
     import ProfileOverview from '$lib/components/ProfileOverview.svelte';
 
@@ -13,5 +14,7 @@
 <Header title="You"/>
 
 <ProfileOverview user={data.user}/>
+
+<ProfileGroupsOverview/>
 
 <Footer/>
