@@ -7,9 +7,12 @@
 </script>
 
 <section>
+
+  {#each groups as group}
+
   <div class="top">
     <h3>
-     {groups[0].name}
+     {group.name}
       <!-- <a></a> -->
     </h3>
 
@@ -62,33 +65,7 @@
     <!-- </a> -->
   </figure>
 
-  <div class="top">
-    <h3>Designers in motion</h3>
-
-    <ul>
-      <li>
-        <button type="button" aria-label="View likes">
-          <img src={Heart} alt="" />
-          <span>0</span>
-        </button>
-      </li>
-
-      <li>
-        <button type="button" aria-label="View Tomatoes">
-          <img src={Tomato} alt="" />
-          <span>0</span>
-        </button>
-      </li>
-
-      <li>
-        <button type="button" aria-label="View Stars">
-          <img src={StarProfile} alt="" />
-          <span>0</span>
-        </button>
-      </li>
-    </ul>
-
-  </div>
+  {/each}
   <p>no snapps yet.</p>
 
 </section>
