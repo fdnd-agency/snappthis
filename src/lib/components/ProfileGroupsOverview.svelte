@@ -2,12 +2,14 @@
   import Heart from "$lib/assets/Heart.svg";
   import Tomato from "$lib/assets/Tomato.svg";
   import StarProfile from "$lib/assets/StarProfile.svg";
+
+  let { groups } = $props();
 </script>
 
 <section>
   <div class="top">
     <h3>
-      Westerpark
+     {groups[0].name}
       <!-- <a></a> -->
     </h3>
 

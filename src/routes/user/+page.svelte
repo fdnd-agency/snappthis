@@ -15,6 +15,6 @@
 
 <ProfileOverview user={data.user}/>
 
-<ProfileGroupsOverview/>
+<ProfileGroupsOverview  groups={data.groups}/>
 
 <Footer/>
