@@ -41,8 +41,9 @@
 
   <figure class="images">
     {#each group.snaps.slice(0,5) as snap}
-    <img src={`https://fdnd-agency.directus.app/assets/${snap.picture}`}
+    <img src={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=400&format=webp&quality=80`}
     alt=""
+    loading="lazy"
     />
     {/each}
   </figure>
