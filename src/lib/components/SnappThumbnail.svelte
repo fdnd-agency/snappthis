@@ -3,7 +3,7 @@
 <script>
 	// One square snapp thumbnail that links to the snapp detail page.
 	// Reusable on every page that shows a grid of snapps.
-	
+
 	// eager = true for images that are visible right away (above the fold), so they are not lazy loaded
 	let { snapp, label = '', size = 200, eager = false } = $props();
 
@@ -17,7 +17,14 @@
 	<picture>
 		<source srcset="{imageUrl}&format=avif" type="image/avif" />
 		<source srcset="{imageUrl}&format=webp" type="image/webp" />
-		<img src={imageUrl} alt="" width={size} height={size} loading="lazy" />
+		<img
+			src={imageUrl}
+			alt=""
+			width={size}
+			height={size}
+			loading={eager ? 'eager' : 'lazy'}
+			fetchpriority={eager ? 'high' : 'auto'}
+		/>
 	</picture>
 </a>
 

@@ -12,7 +12,8 @@
 <svelte:head>
 	<title>SnappThis</title>
 </svelte:head>
-++
+
+
 <Header
     title="Welcome back"
     showBackButton={false}

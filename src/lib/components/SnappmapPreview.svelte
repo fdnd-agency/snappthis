@@ -5,7 +5,7 @@
 
 	// One snappmap on the homepage: title, optional "Add your snapp!" and up to 5 thumbnails
     // check!
-    
+
 	// eager = true for the snappmaps at the top of the page, so their images load immediately
     let { snappmap, eager = false } = $props();
 </script>
@@ -23,6 +23,7 @@
 				<li>
 					<SnappThumbnail
 						{snapp}
+                        {eager}
 						label="Snapp {index + 1} of {snappmap.thumbnails.length} in {snappmap.name}"
 					/>
 				</li>
