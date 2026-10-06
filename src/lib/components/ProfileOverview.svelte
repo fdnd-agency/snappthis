@@ -11,7 +11,7 @@ import Snapps from '$lib/assets/icons/Snapps.svg';
 <section>
   <h2>Anne-Fleur Pietersen</h2>
 
-  <p class="details">
+  <p class="profile-details">
     <span>female -</span>
     <span>born in the 80's -</span>
     <span>@work</span>
@@ -53,7 +53,7 @@ section {
   padding: var(--spacing-m);
 }
 
-.details {
+.profile-details {
   margin-top: 0.3rem;
 } 
 
