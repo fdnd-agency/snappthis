@@ -9,6 +9,14 @@ const { data: users } = await response.json();
 
 const user = users.find((user) => user.uuid === userUuid);
 
-return { user };
+const groupsResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/snappthis_group'
+);
+
+const { data: groups } = await groupsResponse.json();
+
+console.log(groups);
+
+return { user,groups };
 
 }
