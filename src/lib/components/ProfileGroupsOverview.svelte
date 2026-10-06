@@ -13,7 +13,6 @@
   <div class="top">
     <h3>
      {group.name}
-      <!-- <a></a> -->
     </h3>
 
     <ul>
@@ -41,7 +40,7 @@
   </div>
 
   <figure class="images">
-    {#each group.snap as snap}
+    {#each group.snaps.slice(0,5) as snap}
     <img src={`https://fdnd-agency.directus.app/assets/${snap.picture}`}
     alt=""
     />
@@ -49,7 +48,6 @@
   </figure>
 
   {/each}
-  <p>no snapps yet.</p>
 
 </section>
 
