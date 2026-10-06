@@ -2,6 +2,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 
 	import '../global.css'
+	import '../styleguide.css'
 
 	import Header from '$lib/components/Header.svelte';
 
