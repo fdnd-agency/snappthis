@@ -6,9 +6,6 @@ const directusUrl = 'https://fdnd-agency.directus.app';
 // Hardcoded user (Anne-Fleur Pietersen) until login is built, same as the Node.js version
 const userUuid = '5e9589a5-ebfa-4a99-87a6-010f2f571444';
 
-// TIJDELIJK voor testen: vaste deadline 2 minuten na het opstarten van de server. NIET COMMITTEN
-// const testTimeEnd = new Date(Date.now() + 2 * 60_000).toISOString();
-
 // Fetches one snappmap and checks if the user may post in it.
 // Used by both load and the action, so the action never trusts hidden form fields.
 async function getSnappmap(fetch, slug) {
@@ -42,9 +39,6 @@ async function getSnappmap(fetch, slug) {
 		error(404, 'Snappmap not found');
 	}
 
-// TIJDELIJK voor testen. NIET COMMITTEN
-// snappmap.time_end = testTimeEnd;
-
 	// The first group the snappmap belongs to (many-to-many via a junction table)
 	const group = snappmap.groups?.[0]?.snappthis_group_uuid;
 
@@ -54,11 +48,7 @@ async function getSnappmap(fetch, slug) {
 		userGroupSlugs.includes(g.snappthis_group_uuid?.slug)
 	);
 
-	
 	const isActive = new Date(snappmap.time_end) > new Date();
-	// const isActive = true;
-	 // TIJDELIJK voor testen, niet committen!
-// tijdelijke test
 
 	return {
 		snappmap: {
