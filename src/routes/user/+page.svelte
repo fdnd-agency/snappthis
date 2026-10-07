@@ -5,9 +5,16 @@
     import ProfileOverview from '$lib/components/ProfileOverview.svelte';
 
     import Footer from '$lib/components/Footer.svelte';
+
+    let { data } = $props();
+
+    // console.log(data.user);
 </script>
 
 <Header title="You"/>
-<ProfileGroupsOverview/>
-<ProfileOverview/>
+
+<ProfileOverview user={data.user}/>
+
+<ProfileGroupsOverview  groups={data.groups}/>
+
 <Footer/>

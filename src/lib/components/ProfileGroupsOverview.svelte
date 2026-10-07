@@ -2,13 +2,17 @@
   import Heart from "$lib/assets/Heart.svg";
   import Tomato from "$lib/assets/Tomato.svg";
   import StarProfile from "$lib/assets/StarProfile.svg";
+
+  let { groups } = $props();
 </script>
 
 <section>
+
+  {#each groups as group}
+
   <div class="top">
     <h3>
-      Westerpark
-      <!-- <a></a> -->
+     {group.name}
     </h3>
 
     <ul>
@@ -36,58 +40,15 @@
   </div>
 
   <figure class="images">
-    <!-- <a> -->
-    <img
-      src="https://picsum.photos/300/200?random=1"
-      alt="Tijdelijke afbeelding"
+    {#each group.snaps.slice(0,5) as snap}
+    <img src={`https://fdnd-agency.directus.app/assets/${snap.picture}?width=400&format=webp&quality=80`}
+    alt=""
+    loading="lazy"
     />
-    <img
-      src="https://picsum.photos/300/200?random=2"
-      alt="Tijdelijke afbeelding"
-    />
-    <img
-      src="https://picsum.photos/300/200?random=3"
-      alt="Tijdelijke afbeelding"
-    />
-    <img
-      src="https://picsum.photos/300/200?random=4"
-      alt="Tijdelijke afbeelding"
-    />
-    <img
-      src="https://picsum.photos/300/200?random=5"
-      alt="Tijdelijke afbeelding"
-    />
-    <!-- </a> -->
+    {/each}
   </figure>
 
-  <div class="top">
-    <h3>Designers in motion</h3>
-
-    <ul>
-      <li>
-        <button type="button" aria-label="View likes">
-          <img src={Heart} alt="" />
-          <span>0</span>
-        </button>
-      </li>
-
-      <li>
-        <button type="button" aria-label="View Tomatoes">
-          <img src={Tomato} alt="" />
-          <span>0</span>
-        </button>
-      </li>
-
-      <li>
-        <button type="button" aria-label="View Stars">
-          <img src={StarProfile} alt="" />
-          <span>0</span>
-        </button>
-      </li>
-    </ul>
-
-  </div>
-  <p>no snapps yet.</p>
+  {/each}
 
 </section>
 

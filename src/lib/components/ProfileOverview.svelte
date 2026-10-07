@@ -5,19 +5,22 @@ import Male from '$lib/assets/icons/Male.svg';
 import Groups from '$lib/assets/icons/Groups.svg';
 import Snapps from '$lib/assets/icons/Snapps.svg';
 
+let { user } = $props();
+
+console.log(user);
 </script>
 
 
 <section>
-  <h2>Anne-Fleur Pietersen</h2>
+  <h2>{user.name}</h2>
 
   <p class="profile-details">
-    <span>female -</span>
+    <span>{user.gender} -</span>
     <span>born in the 80's -</span>
-    <span>@work</span>
+    <span>{user.usecase}</span>
   </p>
 
-  <p class="email">anne-fleur@snappthis.com</p>
+  <p class="email">{user.email}</p>
 
   <ul>
     <li>
