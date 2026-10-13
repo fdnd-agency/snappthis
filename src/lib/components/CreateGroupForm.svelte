@@ -6,24 +6,9 @@
 
 	// result = de `form` prop van de pagina: wat de action teruggaf (naam + foutmelding), of null
 	let { result } = $props();
-
-	// Alleen met JavaScript: true zolang het formulier wordt verstuurd
-	let creating = $state(false);
-
-	// Loopt voordat het formulier wordt verstuurd
-	function handleSubmit() {
-		creating = true;
-
-		// Loopt nadat de action heeft geantwoord
-		return async ({ update }) => {
-			// update() volgt de redirect bij succes, of geeft de foutmelding door als `form` prop
-			await update();
-			creating = false;
-		};
-	}
 </script>
 
-<form method="POST" class="create-group-form" use:enhance={handleSubmit}>
+<form method="POST" class="create-group-form" use:enhance>
 	<label for="group-name" class="label">New group:</label>
 
 	<!-- Bij een fout blijft de ingevulde naam staan, en leest een screenreader de foutmelding voor -->
@@ -46,10 +31,7 @@
 		<p id="group-name-error" class="error" role="alert">{result.error}</p>
 	{/if}
 
-	<!-- Knop uitgeschakeld tijdens het versturen, zodat er niet twee keer een groep wordt gemaakt -->
-	<button type="submit" class="submit-button" disabled={creating} aria-busy={creating}>
-		{creating ? 'Creating…' : 'Create'}
-	</button>
+	<button type="submit" class="submit-button">Create</button>
 </form>
 
 <style>
@@ -107,10 +89,6 @@
 		&:focus-visible {
 			outline: 3px solid var(--primary-color);
 			outline-offset: 4px;
-		}
-
-		&:disabled {
-			cursor: wait;
 		}
 	}
 </style>
