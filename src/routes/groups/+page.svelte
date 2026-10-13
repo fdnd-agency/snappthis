@@ -3,14 +3,27 @@
 
     import Footer from '$lib/components/Footer.svelte';
 
-    let { data } = $props()
+    import CreateGroupForm from '$lib/components/CreateGroupForm.svelte';
+
+    // form = wat de action terug geeft (naam + foutmelding), of null
+    let { data, form } = $props()
+
+    // Formulier openhouden als de action een fout terug geeft
+    const showForm = $derived(data.showForm || form?.error)
 </script>
 
+<!-- De + opent het formulier via /groups?create en sluit het weer via /groups -->
 <Header
     title="Your groups"
     showBackButton={true}
     showAddButton={true}
+    addUrl={showForm ? '/groups' : '/groups?create'}
+    addLabel={showForm ? 'Close the new group form' : 'Create a new group'}
 />
+
+{#if showForm}
+    <CreateGroupForm result={form} />
+{/if}
 
 <ul class="groups">
     {#each data.groups as group}
