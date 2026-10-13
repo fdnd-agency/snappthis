@@ -40,6 +40,10 @@
 		gap: var(--spacing-s);
 		padding: var(--spacing-m) var(--spacing-s);
 		background-color: var(--pill-link-bg-color);
+
+		@media (min-width: 768px) {
+			padding-inline: max(calc((100% - 600px) / 2), var(--spacing-s));
+		}
 	}
 
 	.label {
