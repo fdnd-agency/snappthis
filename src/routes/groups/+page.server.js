@@ -1,4 +1,4 @@
-import { fail, redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 
 const directusUrl = 'https://fdnd-agency.directus.app';
 
@@ -77,7 +77,7 @@ export const actions = {
             return fail(500, { name, error: 'Something went wrong, please try again.' })
         }
 
-        // Terug naar de lijst zonder formulier, de nieuwe groep staat bovenaan
-        redirect(303, '/groups')
+        // Gelukt: de pagina toont een melding en sluit het formulier, de nieuwe groep staat bovenaan
+        return { success: true, name }
     }
 }

@@ -5,11 +5,11 @@
 
     import CreateGroupForm from '$lib/components/CreateGroupForm.svelte';
 
-    // form = wat de action terug geeft (naam + foutmelding), of null
+    // form = wat de action terug geeft (naam + foutmelding of success), of null
     let { data, form } = $props()
 
-    // Formulier openhouden als de action een fout terug geeft
-    const showForm = $derived(data.showForm || form?.error)
+    // Formulier openhouden als de action een fout terug geeft, en sluiten als de groep is aangemaakt
+    const showForm = $derived(form?.error || (data.showForm && !form?.success))
 </script>
 
 <!-- De + opent het formulier via /groups?create en sluit het weer via /groups -->
@@ -24,6 +24,11 @@
 
 {#if showForm}
     <CreateGroupForm result={form} />
+{/if}
+
+{#if form?.success}
+    <!-- role="status": een screenreader leest de melding voor -->
+    <p class="success" role="status">Group "{form.name}" has been created.</p>
 {/if}
 
 <ul class="groups">
@@ -60,5 +65,10 @@
 <Footer/>
 
 <style>
-    
+    .success {
+        padding: var(--spacing-s);
+        background-color: var(--pill-link-bg-color);
+        color: var(--dark-text-color-on-light-bg);
+        font-size: var(--font-size-xs);
+    }
 </style>

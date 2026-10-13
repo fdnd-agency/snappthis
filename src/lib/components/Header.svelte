@@ -149,4 +149,17 @@
     .add-button.open .right-center-icon {
         rotate: 45deg;
     }
+
+    /* Formulier open: grijs driehoekje onderaan de header, recht onder de x (zoals in het design) */
+    .add-button.open::after {
+        content: '';
+        position: absolute; /* ten opzichte van de header (die is sticky) */
+        bottom: 0;
+        /* midden van het icoon: padding van de header + halve icoonbreedte, min halve driehoekbreedte */
+        right: calc(var(--spacing-header-inline) + var(--bar-height) * 0.2 - 0.6rem);
+        width: 1.2rem;
+        height: 0.6rem;
+        background-color: var(--pill-link-bg-color);
+        clip-path: polygon(50% 0, 100% 100%, 0 100%); /* knipt een driehoek uit het vlak */
+    }
 </style>
