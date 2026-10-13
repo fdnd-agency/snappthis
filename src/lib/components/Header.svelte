@@ -4,7 +4,10 @@
         title = '',
         showBackButton = false,
         showAddButton = false,
-        backUrl = '/'
+        backUrl = '/',
+        // Optioneel: met een addUrl wordt de + een link, zodat hij ook zonder JavaScript werkt
+        addUrl = '',
+        addLabel = 'Add'
     } = $props();
 </script>
 
@@ -25,7 +28,22 @@
 
     <h1 class="title" >{title}</h1>
 
-    {#if showAddButton}
+    {#if showAddButton && addUrl}
+        <!-- + als link (alleen als er een addUrl is meegegeven). Zodat het formulier alleen op de Groups-pagina wordt getoond wanneer je op het plusje klikt. -->
+        <a href={addUrl} class="add-button" aria-label={addLabel}>
+            <svg
+                class="right-center-icon"
+                viewBox="0 0 36 36"
+                aria-hidden="true"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M36 20.5714H20.5714V36H15.4286V20.5714H0V15.4286H15.4286V0H20.5714V15.4286H36V20.5714Z"
+                />
+            </svg>
+        </a>
+    {:else if showAddButton}
         <!-- Add action -->
         <button
             type="button"
@@ -101,6 +119,11 @@
     .add-button {
         grid-column: 3;
         justify-self: end;
+
+        &:focus-visible {
+            outline: 3px solid var(--lightest-color);
+            outline-offset: 4px;
+        }
     }
 
     /* Right-side action */
