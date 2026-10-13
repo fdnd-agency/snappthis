@@ -19,6 +19,7 @@
     showAddButton={true}
     addUrl={showForm ? '/groups' : '/groups?create'}
     addLabel={showForm ? 'Close the new group form' : 'Create a new group'}
+    addOpen={showForm}
 />
 
 {#if showForm}

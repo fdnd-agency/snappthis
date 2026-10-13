@@ -7,7 +7,9 @@
         backUrl = '/',
         // Optioneel: met een addUrl wordt de + een link, zodat hij ook zonder JavaScript werkt
         addUrl = '',
-        addLabel = 'Add'
+        addLabel = 'Add',
+        // true als het formulier open is: de + draait dan naar een x
+        addOpen = false
     } = $props();
 </script>
 
@@ -30,7 +32,7 @@
 
     {#if showAddButton && addUrl}
         <!-- + als link (alleen als er een addUrl is meegegeven). Zodat het formulier alleen op de Groups-pagina wordt getoond wanneer je op het plusje klikt. -->
-        <a href={addUrl} class="add-button" aria-label={addLabel}>
+        <a href={addUrl} class="add-button" class:open={addOpen} aria-label={addLabel}>
             <svg
                 class="right-center-icon"
                 viewBox="0 0 36 36"
@@ -134,5 +136,17 @@
         height: auto;
         aspect-ratio: 1 / 1;
         fill: var(--lightest-color);
+    }
+
+    /* Alleen animeren als de gebruiker geen minder beweging heeft ingesteld */
+    @media (prefers-reduced-motion: no-preference) {
+        .right-center-icon {
+            transition: rotate var(--transition-duration);
+        }
+    }
+
+    /* Formulier open: de + draait 45 graden en wordt een x */
+    .add-button.open .right-center-icon {
+        rotate: 45deg;
     }
 </style>
