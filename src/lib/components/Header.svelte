@@ -4,7 +4,12 @@
         title = '',
         showBackButton = false,
         showAddButton = false,
-        backUrl = '/'
+        backUrl = '/',
+        // Optioneel: met een addUrl wordt de + een link, zodat hij ook zonder JavaScript werkt
+        addUrl = '',
+        addLabel = 'Add',
+        // true als het formulier open is: de + draait dan naar een x
+        addOpen = false
     } = $props();
 </script>
 
@@ -25,7 +30,22 @@
 
     <h1 class="title" >{title}</h1>
 
-    {#if showAddButton}
+    {#if showAddButton && addUrl}
+        <!-- + als link (alleen als er een addUrl is meegegeven). Zodat het formulier alleen op de Groups-pagina wordt getoond wanneer je op het plusje klikt. -->
+        <a href={addUrl} class="add-button" class:open={addOpen} aria-label={addLabel}>
+            <svg
+                class="right-center-icon"
+                viewBox="0 0 36 36"
+                aria-hidden="true"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M36 20.5714H20.5714V36H15.4286V20.5714H0V15.4286H15.4286V0H20.5714V15.4286H36V20.5714Z"
+                />
+            </svg>
+        </a>
+    {:else if showAddButton}
         <!-- Add action -->
         <button
             type="button"
@@ -101,6 +121,11 @@
     .add-button {
         grid-column: 3;
         justify-self: end;
+
+        &:focus-visible {
+            outline: 3px solid var(--lightest-color);
+            outline-offset: 4px;
+        }
     }
 
     /* Right-side action */
@@ -111,5 +136,30 @@
         height: auto;
         aspect-ratio: 1 / 1;
         fill: var(--lightest-color);
+    }
+
+    /* Alleen animeren als de gebruiker geen minder beweging heeft ingesteld */
+    @media (prefers-reduced-motion: no-preference) {
+        .right-center-icon {
+            transition: rotate var(--transition-duration);
+        }
+    }
+
+    /* Formulier open: de + draait 45 graden en wordt een x */
+    .add-button.open .right-center-icon {
+        rotate: 45deg;
+    }
+
+    /* Formulier open: grijs driehoekje onderaan de header, recht onder de x (zoals in het design) */
+    .add-button.open::after {
+        content: '';
+        position: absolute; /* ten opzichte van de header (die is sticky) */
+        bottom: 0;
+        /* midden van het icoon: padding van de header + halve icoonbreedte, min halve driehoekbreedte */
+        right: calc(var(--spacing-header-inline) + var(--bar-height) * 0.2 - 0.6rem);
+        width: 1.2rem;
+        height: 0.6rem;
+        background-color: var(--pill-link-bg-color);
+        clip-path: polygon(50% 0, 100% 100%, 0 100%); /* knipt een driehoek uit het vlak */
     }
 </style>
