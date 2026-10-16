@@ -42,7 +42,7 @@
             </a>
 
             <div class="group-list-interactive">
-                <a href="#" aria-label="Add member">
+                <a href={`/groups/${group.slug}/members?add-members`} aria-label={`Add member to ${group.name}`}><!--  added template lit to aria label for better screenreading-->
                     <svg width="40" height="27" viewBox="0 0 59 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M41.4986 0.5C35.5632 0.5 30.7254 5.33259 30.7254 11.2773C30.7254 17.2212 35.5581 22.0625 41.4986 22.0625C47.4412 22.0625 52.2746 17.2212 52.2746 11.2773C52.2783 5.33259 47.4404 0.5 41.4986 0.5ZM24.5 46.5H58.5V42.614C58.5 32.8671 50.8685 24.9375 41.5015 24.9375C32.1191 24.9375 24.5007 32.8678 24.5007 42.614V46.5H24.5Z" fill="#4E6977"/>
                         <path d="M14.4639 0.25V10.5361H24.75V14.4639H14.4639V24.75H10.5361V14.4639H0.25V10.5361H10.5361V0.25H14.4639Z" fill="#4E6977" stroke="#4E6977" stroke-width="0.5"/>
