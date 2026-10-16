@@ -10,6 +10,6 @@ alt=""
 />
 
 <p>{data.snap.location}</p>
-
+<p>{data.snap.author.name}</p>
 <p>{data.snap.date_created}</p>
 

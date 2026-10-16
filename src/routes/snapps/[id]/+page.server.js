@@ -3,7 +3,7 @@ export async function load({ params, fetch }) {
 
 
 const response = await fetch(
- `https://fdnd-agency.directus.app/items/snappthis_snap?filter[uuid][_eq]=${snapUuid}`
+    `https://fdnd-agency.directus.app/items/snappthis_snap?filter[uuid][_eq]=${snapUuid}&fields=*,author.*`
 );
 
 const { data: snaps } = await response.json(); 
