@@ -39,7 +39,7 @@
 		display: grid;
 		gap: var(--spacing-s);
 		padding: var(--spacing-m) var(--spacing-s);
-		background-color: var(--pill-link-bg-color);
+		background-color: var(--color-accent-blue-white-90);
 
 		@media (min-width: 768px) {
 			padding-inline: max(calc((100% - 600px) / 2), var(--spacing-s));
@@ -48,24 +48,24 @@
 
 	.label {
 		font-size: var(--font-size-m);
-		color: var(--dark-text-color-on-light-bg);
+		color: var(--color-accent-blue);
 	}
 
 	.input {
 		width: 100%;
 		padding: 0.75rem var(--spacing-s);
 		border: 0;
-		background-color: var(--lightest-color);
-		color: var(--dark-text-color-on-light-bg);
+		background-color: var(--color-white);
+		color: var(--color-accent-blue);
 		font: inherit;
 		font-size: var(--font-size-m);
 
 		&::placeholder {
-			color: var(--text-color-on-light-bg);
+			color: var(--color-accent-blue-white-50);
 		}
 
 		&:focus-visible {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 2px;
 		}
 	}
@@ -79,8 +79,8 @@
 		justify-self: end;
 		padding: 0.75rem var(--spacing-m);
 		border-radius: 2rem;
-		background-color: var(--accent-color-on-light-bg);
-		color: var(--lightest-color);
+		background-color: var(--color-accent-green-black-20);
+		color: var(--color-white);
 		font-size: var(--font-size-m);
 		transition: scale var(--transition-duration);
 
@@ -91,7 +91,7 @@
 		}
 
 		&:focus-visible {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 4px;
 		}
 	}
