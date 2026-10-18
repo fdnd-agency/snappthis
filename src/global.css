@@ -20,39 +20,6 @@ html {
     src: url('../fonts/Bariol_Regular.otf') format('opentype');
 }
 
-:root {
-    --primary-color: #172f3b;
-    --text-color-on-light-bg: #90a1aa;
-    --dark-text-color-on-light-bg: #224455;
-    --pill-link-bg-color: #e9ecee;
-    --light-text-color-on-dark-bg: #BDC7CC;
-    --lightest-color: #ffffff;
-    --accent-color-on-light-bg: #00CC33;
-    --accent-color-on-dark-bg: #00ff44;
-    --alert-accent-color: #ff2a34;
-    --icon-color-on-light-bg: #4e6977;
-    --background-color-dialog: #F5F5F5;
-    --heart-icon-color-active: var(--accent-color-on-dark-bg);
-    --heart-icon-color-inactive: #99FFB4;
-    --tomato-icon-color-active: var(--alert-accent-color);
-    --tomato-icon-color-inactive: #FFA9AD;
-    --star-icon-color-active: #f8e71c;
-    --star-icon-color-inactive: #FCF6A6;
-    --font-size-l: 2.5rem;
-    --font-size-m: 1.5rem;
-    --font-size-s: 1.2rem;
-    --font-size-xs: 1rem;
-    --bar-height: 9dvh;
-    --grid-gap: 2.5px;
-    --bottom-nav-icon-height: 36%;
-    --icon-width: 2.125rem;
-    --spacing-header-inline: 1.4rem;
-    --spacing-m: 1.875rem;
-    --spacing-s: 1rem;
-    --transition-duration: 0.3s;
-    --hover-scale: 1.05;
-}
-
 @view-transition {
     navigation: auto;
 }
@@ -99,7 +66,7 @@ dialog[open] {
     align-items: center;
     align-self: center;
     justify-self: center;
-    background-color: var(--background-color-dialog);
+    background-color: var(--color-accent-blue-white-90);
     width: 80%;
     line-height: 1.2;
     z-index: 1;
@@ -115,8 +82,8 @@ dialog[open] {
         width: max-content;
         padding: var(--spacing-s);
         font-size: var(--font-size-xs);
-        background-color: var(--accent-color-on-light-bg);
-        color: var(--lightest-color);
+        background-color: var(--color-accent-green-black-20);
+        color: var(--color-white);
         border: 0;
         border-radius: 2rem;
         margin-bottom: var(--spacing-m);
@@ -169,7 +136,7 @@ form.picture {
         position: fixed;
         inset: 0;
         z-index: 10;
-        background-color: var(--lightest-color);
+        background-color: var(--color-white);
 
         button[type="submit"],
         img,
@@ -186,7 +153,7 @@ form.picture {
             background-color: transparent;
             border: 0;
             font-size: calc(var(--font-size-xs) * 0.8);
-            color: var(--lightest-color);
+            color: var(--color-white);
         }
 
         label,
@@ -197,7 +164,7 @@ form.picture {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: var(--accent-color-on-light-bg);
+            background-color: var(--color-accent-green-black-20);
             border-radius: 50%;
 
             svg {
@@ -207,7 +174,7 @@ form.picture {
         }
 
         label {
-            background-color: #BDC7CC;
+            background-color: var(--color-accent-blue-white-70);
         }
 
         img {
@@ -232,12 +199,12 @@ form.picture {
 
     p:nth-of-type(1) {
         font-size: var(--font-size-l);
-        color: var(--dark-text-color-on-light-bg);
+        color: var(--color-accent-blue);
     }
 
     p:nth-of-type(2) {
         font-size: var(--font-size-xs);
-        color: var(--accent-color-on-light-bg);
+        color: var(--color-accent-green-black-20);
         font-weight: 700;
     }
 }
@@ -257,7 +224,7 @@ form.picture {
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 3px solid #FFF;
+    border: 3px solid var(--color-white);
     animation: prixClipFix 2s linear infinite;
 }
 
@@ -305,7 +272,7 @@ form.picture {
         align-self: center;
 
         &:last-of-type {
-            color: var(--text-color-on-light-bg);
+            color: var(--color-accent-blue-white-50);
             padding-left: 8px;
             padding-block: 4px;
             height: fit-content;
@@ -315,8 +282,8 @@ form.picture {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: var(--dark-text-color-on-light-bg);
-            background-color: var(--pill-link-bg-color);
+            color: var(--color-accent-blue);
+            background-color: var(--color-accent-blue-white-90);
             padding-inline: 1.4rem;
             border-radius: var(--bar-height);
             height: 100%;
@@ -341,12 +308,12 @@ form.picture {
 
     svg {
         height: var(--font-size-m);
-        fill: var(--text-color-on-light-bg);
+        fill: var(--color-accent-blue-white-50);
     }
 
     h2 {
         font-size: var(--font-size-m);
-        color: var(--text-color-on-light-bg);
+        color: var(--color-accent-blue-white-50);
         margin-left: 0.5rem;
         transform: translateY(5px);
         font-weight: 400;
@@ -375,7 +342,7 @@ form.picture {
                 display: block;
                 height: auto;
                 width: calc(var(--bar-height) * 0.30);
-                fill: var(--lightest-color);
+                fill: var(--color-white);
             }
         }
 
@@ -391,18 +358,18 @@ form.picture {
     }
 
     .like-active {
-        color: var(--heart-icon-color-active);
+        color: var(--color-accent-green);
 
         svg {
-            fill: var(--heart-icon-color-active);
+            fill: var(--color-accent-green);
         }
     }
 
     .tomato-active {
-        color: var(--tomato-icon-color-active);
+        color: var(--color-accent-red);
 
         svg {
-            fill: var(--tomato-icon-color-active);
+            fill: var(--color-accent-red);
         }
     }
 
@@ -423,26 +390,26 @@ form.picture {
     }
 
     .inactive {
-        color: #90A1AA;
+        color: var(--color-accent-blue-white-50);
 
         svg {
-            fill: #90A1AA;
+            fill: var(--color-accent-blue-white-50);
         }
     }
 
     .heart-inactive {
-        color: var(--heart-icon-color-inactive);
+        color: var(--color-accent-green-white-60);
 
         svg {
-            fill: var(--heart-icon-color-inactive);
+            fill: var(--color-accent-green-white-60);
         }
     }
 
     .tomato-inactive {
-        color: var(--tomato-icon-color-inactive);
+        color: var(--color-accent-red-white-60);
 
         svg {
-            fill: var(--tomato-icon-color-inactive);
+            fill: var(--color-accent-red-white-60);
         }
     }
 
@@ -480,20 +447,20 @@ form.picture {
     width: 100%;
     z-index: 1;
     opacity: 0;
-    background-color: var(--lightest-color);
+    background-color: var(--color-white);
     animation-name: --fade-popup;
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 
     h2 {
-        color: var(--dark-text-color-on-light-bg);
+        color: var(--color-accent-blue);
         font-size: var(--font-size-s);
     }
 
     p {
         grid-column: 2;
-        color: var(--dark-text-color-on-light-bg);
+        color: var(--color-accent-blue);
     }
 
     svg {
@@ -502,11 +469,11 @@ form.picture {
     }
 
     .heart-color {
-        fill: var(--heart-icon-color-active);
+        fill: var(--color-accent-green);
     }
 
     .tomato-color {
-        fill: var(--tomato-icon-color-active);
+        fill: var(--color-accent-red);
     }
 }
 
@@ -570,7 +537,7 @@ form.picture {
         a {
             text-decoration: none;
             display: inline-block;
-            color: var(--dark-text-color-on-light-bg);
+            color: var(--color-accent-blue);
 
             @media (any-pointer:fine) {
                 &:hover {
@@ -594,18 +561,18 @@ form.picture {
         display: inline-flex;
         align-items: center;
         gap: 0.35rem;
-        color: var(--dark-text-color-on-light-bg);
+        color: var(--color-accent-blue);
         font-size: var(--font-size-xs);
 
         svg {
             width: calc(var(--bar-height) * 0.30);
             height: auto;
-            fill: var(--icon-color-on-light-bg);
+            fill: var(--color-accent-blue-white-20);
         }
     }
 
     .active {
-        color: var(--accent-color-on-light-bg);
+        color: var(--color-accent-green-black-20);
         font-size: var(--font-size-xs);
     }
 
@@ -736,7 +703,7 @@ form.picture {
     gap: var(--grid-gap);
 
     >li {
-        background-color: var(--background-color-dialog);
+        background-color: var(--color-accent-blue-white-90);
     }
 
     a {
@@ -758,18 +725,18 @@ form.picture {
         flex-direction: column;
         padding: var(--spacing-s);
         gap: 0.25rem;
-        color: var(--primary-color);
+        color: var(--color-accent-blue-black-30);
     }
 
     section h2 {
         font-size: var(--font-size-m);
-        color: var(--primary-color);
+        color: var(--color-accent-blue-black-30);
         font-weight: normal;
     }
 
     section p {
         font-size: var(--font-size-s);
-        color: var(--text-color-on-light-bg);
+        color: var(--color-accent-blue-white-50);
     }
 
     .snap-stats {
@@ -783,7 +750,7 @@ form.picture {
         align-items: center;
         gap: 0.1rem;
         font-size: var(--font-size-s);
-        color: var(--icon-color-on-light-bg);
+        color: var(--color-accent-blue-white-20);
     }
 
     .snap-stats svg {
@@ -802,12 +769,12 @@ form.picture {
 
 /* snappmap.liquid */
 .current-group {
-    color: var(--text-color-on-light-bg);
+    color: var(--color-accent-blue-white-50);
 }
 
 /* user.liquid */
 .user-info-container {
-    background-color: var(--pill-link-bg-color);
+    background-color: var(--color-accent-blue-white-90);
     height: 41vh;
     display: flex;
     flex-direction: column;
@@ -817,7 +784,7 @@ form.picture {
     gap: .3rem;
 
     p {
-        color: var(--dark-text-color-on-light-bg);
+        color: var(--color-accent-blue);
 
         &.user-email {
             font-weight: 700;
@@ -828,7 +795,7 @@ form.picture {
         display: flex;
         margin-top: var(--spacing-m);
         gap: var(--spacing-s);
-        color: var(--text-color-on-light-bg);
+        color: var(--color-accent-blue-white-50);
         width: 100%;
         justify-content: space-evenly;
 
@@ -854,7 +821,7 @@ form.picture {
 
 /* login.liquid */
 .login-page {
-    background-color: var(--primary-color);
+    background-color: var(--color-accent-blue-black-30);
     height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -884,7 +851,7 @@ form.picture {
             margin: auto;
             padding-top: 1rem;
             padding-bottom: 0.3rem;
-            color: var(--lightest-color);
+            color: var(--color-white);
         }
     }
 
@@ -908,13 +875,13 @@ form.picture {
         }
 
         &::placeholder {
-            color: #90A1AAFF;
+            color: var(--color-accent-blue-white-50);
             font-size: var(--font-size-xs);
         }
     }
 
     .login-error {
-        color: var(--alert-accent-color);
+        color: var(--color-accent-red);
         width: 90%;
         margin: 0 auto;
         padding-top: 10px;
@@ -923,7 +890,7 @@ form.picture {
     a {
         display: block;
         font-size: var(--font-size-xs);
-        color: var(--light-text-color-on-dark-bg);
+        color: var(--color-accent-blue-white-70);
         text-decoration: none;
         width: 90%;
         margin: 0 auto;
@@ -937,8 +904,8 @@ form.picture {
 
         button {
             font-family: inherit;
-            background-color: var(--accent-color-on-dark-bg);
-            color: var(--primary-color);
+            background-color: var(--color-accent-green);
+            color: var(--color-accent-blue-black-30);
             font-size: var(--font-size-xs);
             border-radius: 2rem;
             border: none;
@@ -960,7 +927,7 @@ form.picture {
     display: flex;
     justify-content: center;
     background-color: #ffffffd9;
-    color: var(--dark-text-color-on-light-bg);
+    color: var(--color-accent-blue);
     font-size: var(--font-size-xs);
     z-index: 10;
 
@@ -1001,14 +968,14 @@ form.picture {
 
     .groups a {
         text-decoration: none;
-        color: var(--dark-text-color-on-light-bg);
+        color: var(--color-accent-blue);
         display: flex;
         align-items: center;
         flex: 1;
     }
 
     .group-list-container {
-        border-bottom: var(--text-color-on-light-bg) 1px solid;
+        border-bottom: var(--color-accent-blue-white-50) 1px solid;
         padding-inline: var(--spacing-s);
         display: flex;
         justify-content: space-between;
@@ -1029,7 +996,7 @@ form.picture {
 
     .group-list-stats p {
         font-size: var(--font-size-xs);
-        color: var(--text-color-on-light-bg);
+        color: var(--color-accent-blue-white-50);
     }
 
     .group-list-interactive {
@@ -1038,6 +1005,8 @@ form.picture {
         gap: .5rem;
 
         svg {
+            /* de SVG's gebruiken currentColor, dus deze kleur bepaalt de kleur van de icoontjes */
+            color: var(--color-accent-blue-white-20);
             transition: var(--transition-duration);
 
             @media (any-pointer:fine) {
