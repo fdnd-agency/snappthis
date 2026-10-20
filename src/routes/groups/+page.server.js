@@ -19,13 +19,15 @@ export async function load({ fetch, url }) {
         // TODO: vervangen door sort=-date_created zodra dat veld in Directus bestaat.
         groups: groups.sort((a, b) => Math.max(...b.users) - Math.max(...a.users)),
         // /groups?create toont het formulier (de + in de header linkt hiernaartoe)
-        showForm: url.searchParams.has('create')
+        showForm: url.searchParams.has('create'),
+        // /groups?menu=natuurnomaden opent het menu van die groep (de ⋮ linkt hiernaartoe)
+        openMenu: url.searchParams.get('menu')
     }
 }
 
 export const actions = {
-    // Default action: een <form method="POST"> zonder action-attribuut post hierheen
-    default: async ({ request, fetch }) => {
+    // Nieuwe groep aanmaken: <form action="?/create"> post hierheen
+    create: async ({ request, fetch }) => {
         const formData = await request.formData()
         // Spaties aan het begin en eind weghalen
         const name = String(formData.get('name') ?? '').trim()
@@ -78,6 +80,66 @@ export const actions = {
         }
 
         // Gelukt: de pagina toont een melding en sluit het formulier, de nieuwe groep staat bovenaan
-        return { success: true, name }
+        return { message: `Group "${name}" has been created.` }
+    },
+
+    // Groep verlaten: <form action="?/leave"> post hierheen
+    leave: async ({ request, fetch }) => {
+        const formData = await request.formData()
+        const uuid = encodeURIComponent(formData.get('uuid'))
+
+        // Groep ophalen met de leden, zodat we het lidmaatschap van de admin kunnen vinden
+        const groupResponse = await fetch(
+            `${directusUrl}/items/snappthis_group/${uuid}?fields=name,users.id,users.snappthis_user_uuid`
+        )
+
+        if (!groupResponse.ok) {
+            return fail(404, { message: 'This group could not be found.' })
+        }
+
+        const { data: group } = await groupResponse.json()
+        const membership = group.users.find((user) => user.snappthis_user_uuid === userUuid)
+
+        if (!membership) {
+            return fail(400, { message: `You are not a member of "${group.name}".` })
+        }
+
+        // Alleen het lidmaatschap verwijderen, de groep zelf blijft bestaan
+        const leaveResponse = await fetch(`${directusUrl}/items/snappthis_group/${uuid}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ users: { delete: [membership.id] } })
+        })
+
+        if (!leaveResponse.ok) {
+            return fail(500, { message: 'Something went wrong, please try again.' })
+        }
+
+        return { message: `You left "${group.name}".` }
+    },
+
+    // Groep verwijderen: <form action="?/delete"> post hierheen
+    delete: async ({ request, fetch }) => {
+        const formData = await request.formData()
+        const uuid = encodeURIComponent(formData.get('uuid'))
+
+        // Eerst de naam ophalen voor de melding
+        const groupResponse = await fetch(`${directusUrl}/items/snappthis_group/${uuid}?fields=name`)
+
+        if (!groupResponse.ok) {
+            return fail(404, { message: 'This group could not be found.' })
+        }
+
+        const { data: group } = await groupResponse.json()
+
+        const deleteResponse = await fetch(`${directusUrl}/items/snappthis_group/${uuid}`, {
+            method: 'DELETE'
+        })
+
+        if (!deleteResponse.ok) {
+            return fail(500, { message: 'Something went wrong, please try again.' })
+        }
+
+        return { message: `Group "${group.name}" has been deleted.` }
     }
 }
