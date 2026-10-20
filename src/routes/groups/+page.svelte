@@ -7,6 +7,8 @@
 
     import GroupManagementMenu from '$lib/components/GroupManagementMenu.svelte';
 
+    import { goto } from '$app/navigation';
+
     // form = wat de action terug geeft (naam + foutmelding, of een melding), of null
     let { data, form } = $props()
 
@@ -15,6 +17,62 @@
 
     // Slug van de groep waarvan het menu open is. Na een melding (left / deleted) gaat het menu dicht.
     const openMenu = $derived(form?.message ? null : data.openMenu)
+
+    // ----- Enhancement: menu openen met rechtsklik (desktop) of lang indrukken (telefoon) -----
+
+    // Staat JavaScript aan? $effect draait alleen in de browser, dus zonder JavaScript blijft dit false
+    let hasJs = $state(false)
+    $effect(() => {
+        hasJs = true // JavaScript werkt: de ⋮ mag verborgen worden (zie CSS .enhanced)
+    })
+
+    let timer // de timer van lang indrukken, zodat we hem kunnen stoppen
+    let isTouching = false // staat er nu een vinger op het scherm?
+    let longPressed = false // is er lang ingedrukt? Dan de klik daarna tegenhouden
+
+    // Menu openen of sluiten via dezelfde URL als de ⋮-link, zodat de server hetzelfde doet
+    function toggleMenu(slug) {
+        goto(
+            openMenu === slug ? '/groups' : `/groups?menu=${slug}`, // al open? dan dicht, anders open
+            { noScroll: true } // op dezelfde plek op de pagina blijven
+        )
+    }
+
+    // Vinger op de rij: start een timer. Nodig voor iOS, want Safari stuurt geen contextmenu-event.
+    function startPress(event, slug) {
+        longPressed = false // nieuwe druk, dus opnieuw beginnen
+        if (event.pointerType !== 'touch') return // muis? Dan niets doen, daarvoor is rechtsklik
+
+        isTouching = true // er staat een vinger op het scherm
+        timer = setTimeout(() => {
+            longPressed = true // 500 ms vastgehouden: dit is lang indrukken
+            toggleMenu(slug) // menu openen
+        }, 500)
+    }
+
+    // Losgelaten, van de rij af geschoven of gaan scrollen (pointercancel) voor de 500 ms
+    function cancelPress() {
+        isTouching = false // vinger is weg
+        clearTimeout(timer) // timer stoppen, dus het menu gaat niet open
+    }
+
+    // contextmenu = rechtsklik (desktop), lang indrukken (Android) of de menutoets (toetsenbord)
+    function openWithContextMenu(event, slug) {
+        event.preventDefault() // het menu van de browser niet tonen
+        if (longPressed) return // de iOS-timer heeft het menu al geopend, dus niet nog een keer
+
+        clearTimeout(timer) // timer stoppen, anders gaat het menu straks weer dicht
+        if (isTouching) longPressed = true // was het een vinger? Dan de klik daarna tegenhouden
+        toggleMenu(slug) // menu openen
+    }
+
+    // Na lang indrukken niet alsnog naar de groepspagina gaan (de groepsnaam is een link)
+    function blockClickAfterLongPress(event) {
+        if (longPressed) { // was dit een lang indrukken?
+            event.preventDefault() // ja: klik tegenhouden, de link wordt niet gevolgd
+            longPressed = false // weer resetten voor de volgende keer
+        }
+    }
 </script>
 
 <!-- De + opent het formulier via /groups?create en sluit het weer via /groups -->
@@ -36,14 +94,25 @@
     <p class="message" role="status">{form.message}</p>
 {/if}
 
-<ul class="groups">
+<ul class="groups" class:enhanced={hasJs}>
     {#each data.groups as group}
         <li>
-            <div class="group-list-container">
+            <!-- De ⋮-link is het alternatief voor toetsenbord en screenreader, daarom mag deze div events hebben -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div
+                class="group-list-container"
+                onpointerdown={(event) => startPress(event, group.slug)}
+                onpointerup={cancelPress}
+                onpointerleave={cancelPress}
+                onpointercancel={cancelPress}
+                oncontextmenu={(event) => openWithContextMenu(event, group.slug)}
+                onclickcapture={blockClickAfterLongPress}
+            >
                 <!-- De ⋮ opent het menu via /groups?menu=slug en sluit het weer via /groups -->
                 <a
                     href={openMenu === group.slug ? '/groups' : `/groups?menu=${group.slug}`}
                     class="menu-link"
+                    class:open={openMenu === group.slug}
                     aria-label={openMenu === group.slug ? `Close the menu of ${group.name}` : `Manage ${group.name}`}
                 >
                     <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -117,5 +186,29 @@
 
     .group-list-container{
         padding: 0 1rem 0 0;
+    }
+
+    /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus de ⋮ hoeft niet in beeld */
+    .enhanced {
+        .group-list-container {
+            -webkit-touch-callout: none; /* iOS: geen eigen menu van de telefoon bij lang indrukken */
+            user-select: none; /* geen tekst selecteren bij lang indrukken */
+        }
+
+        /* ⋮ visueel verborgen (WebAIM-techniek), maar nog bereikbaar met Tab en leesbaar voor een screenreader.
+           Zichtbaar bij focus of als het menu open is. */
+        .menu-link:not(:focus-visible, .open) {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        /* Is de ⋮ verborgen? Dan neemt hij geen ruimte in, dus de naam krijgt zelf ruimte aan de linkerkant */
+        .group-list-container:has(.menu-link:not(:focus-visible, .open)) {
+            padding-left: var(--spacing-s);
+        }
     }
 </style>
