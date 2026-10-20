@@ -23,7 +23,10 @@
 
 <img src="https://fdnd-agency.directus.app/assets/{data.snap.picture}" alt="" />
 
+{#if data.snap.location && data.snap.location !=="Unknown" }
 <p>{data.snap.location}</p>
+{/if}
+
 <p>{data.snap.author.name}</p>
 <p>
   {new Date(data.snap.date_created).toLocaleDateString("nl-NL", options)}
