@@ -8,6 +8,12 @@ const options = {
   month: "long",
   day: "numeric"
 };
+
+const timeOptions = {
+  hour: "2-digit",
+  minute: "2-digit"
+};
+
 </script>
 
 
@@ -18,4 +24,4 @@ alt=""
 <p>{data.snap.location}</p>
 <p>{data.snap.author.name}</p>
 <p>{new Date(data.snap.date_created).toLocaleDateString('nl-NL', options)}</p>
-
+<p>{new Date(data.snap.date_created).toLocaleTimeString('nl-NL',timeOptions)}</p>
