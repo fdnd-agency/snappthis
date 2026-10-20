@@ -2,6 +2,12 @@
 
 let { data } = $props();
 
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+};
 </script>
 
 
@@ -11,5 +17,5 @@ alt=""
 
 <p>{data.snap.location}</p>
 <p>{data.snap.author.name}</p>
-<p>{data.snap.date_created}</p>
+<p>{new Date(data.snap.date_created).toLocaleDateString('nl-NL', options)}</p>
 
