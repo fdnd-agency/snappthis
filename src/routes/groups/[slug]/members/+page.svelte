@@ -3,9 +3,11 @@
 
     import Footer from '$lib/components/Footer.svelte';
 
+    import InviteMembersForm from '$lib/components/InviteMembersForm.svelte';
+
     // data = what load in +page.server.js returns
   
-    let { data } = $props()
+    let { data, form } = $props()
 
     // The URL of this page, e.g. /groups/stadswandelaars/members
 	const membersUrl = $derived(`/groups/${data.group.slug}/members`);
@@ -28,8 +30,9 @@
 
 <main>
     {#if data.showForm}
-     <p>Invite to {data.group.name}:</p>
+        <InviteMembersForm groupName={data.group.name} result={form} />
     {/if}
+
 
     <ul class="members">
         {#each data.members as member (member.uuid)}
