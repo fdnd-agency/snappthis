@@ -14,6 +14,13 @@
   };
 </script>
 
+<h2>
+    <a href="/snappmaps/{data.snap.snapmap.slug}">
+        {data.snap.snapmap.name}
+      </a>
+</h2>
+
+
 <img src="https://fdnd-agency.directus.app/assets/{data.snap.picture}" alt="" />
 
 <p>{data.snap.location}</p>
