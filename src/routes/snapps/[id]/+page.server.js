@@ -3,12 +3,11 @@ export async function load({ params, fetch }) {
 
 
 const response = await fetch(
-    `https://fdnd-agency.directus.app/items/snappthis_snap?filter[uuid][_eq]=${snapUuid}&fields=*,author.*,snapmap.*`
+    `https://fdnd-agency.directus.app/items/snappthis_snap?filter[uuid][_eq]=${snapUuid}&fields=*,author.*,author.groups.snappthis_group_uuid.*,snapmap.*,snapmap.groups.snappthis_group_uuid.*`
 );
 
 const { data: snaps } = await response.json(); 
 
-console.log(snaps);
 
 return { snap: snaps[0]};
 
