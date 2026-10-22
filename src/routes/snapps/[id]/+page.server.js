@@ -1,3 +1,5 @@
+import { error } from '@sveltejs/kit';
+
 export async function load({ params, fetch }) {
  const snapUuid = params.id;
 
@@ -7,6 +9,10 @@ const response = await fetch(
 );
 
 const { data: snaps } = await response.json(); 
+
+if (!snaps?.[0]) {
+    error(404, 'Deze snap konden we niet vinden.');
+}
 
 
 return { snap: snaps[0]};
