@@ -1,11 +1,11 @@
 <!-- Snappmap page: group name, add-your-snapp form with countdown, status dialog and grid with all snapps -->
 <script>
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import UploadSnapForm from '$lib/components/UploadSnapForm.svelte';
-	import SnappCountdown from '$lib/components/SnappCountdown.svelte';
-	import FormStatusMessage from '$lib/components/FormStatusMessage.svelte';
-	import SnappGrid from '$lib/components/SnappGrid.svelte';
+	import Header from '$lib/components/organisms/Header.svelte';
+	import Footer from '$lib/components/organisms/Footer.svelte';
+	import UploadSnapForm from '$lib/components/molecules/UploadSnapForm.svelte';
+	import SnappCountdown from '$lib/components/atoms/SnappCountdown.svelte';
+	import FormStatusMessage from '$lib/components/molecules/FormStatusMessage.svelte';
+	import SnappGrid from '$lib/components/organisms/SnappGrid.svelte';
 
 	// data = from load, form = what the action returned (null until the form is submitted)
 	let { data, form } = $props();

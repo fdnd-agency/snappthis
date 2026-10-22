@@ -4,7 +4,7 @@
 	import '../global.css'
 	import '../styleguide.css'
 
-	import Header from '$lib/components/Header.svelte';
+	import Header from '$lib/components/organisms/Header.svelte';
 
 	let { children } = $props();
 </script>
