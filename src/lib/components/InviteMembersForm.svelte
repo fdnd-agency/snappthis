@@ -11,21 +11,22 @@
 
 <form method="POST" action="?/check" class="invite-members-form" use:enhance>
 	<label for="member" class="label">Invite to {groupName}</label>
-
+	<p id="member-hint" class="hint">Separate addresses with a comma.</p>
 	<!-- Bij een fout blijft de ingevulde naam staan, en leest een screenreader de foutmelding voor -->
-	<textarea
+	<input
+		type="email" multiple
 		id="member"
 		name="email-list"
 		class="input"
-		placeholder="Add members by email"
+		placeholder="Add (multiple) members by email"
 		autocomplete="off"
 		required
 		value={result?.name ?? ''}
 		aria-invalid={result?.error ? 'true' : undefined}
-		aria-describedby={result?.error ? 'member-list-error' : undefined}
+		aria-describedby={result?.error ? 'member-hint member-list-error' : 'member-hint'}
 		
-	></textarea>
-	
+	/>
+
 
 	{#if result?.error}
 		<!-- role="alert": een screenreader leest de melding meteen voor, ook zonder herladen -->
