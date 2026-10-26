@@ -17,10 +17,11 @@ export async function load({ params, fetch }) {
 }
 
 export const actions = {
-  react: async ({ request }) => {
+  react: async ({ request, params }) => {
     const formData = await request.formData();
     const action = formData.get("action");
+    const snapUuid = params.id;
 
-    console.log(action);
+    console.log(action, snapUuid);
   }
 };
