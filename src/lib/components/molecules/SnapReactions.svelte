@@ -7,7 +7,7 @@ import StarProfile from "$lib/assets/StarProfile.svg";
 </script>
 
 
-<form method="POST">
+<form method="POST" action="?/react">
     <button type="submit" name="action" value="like">
         <img src={Heart} alt="" />
     </button>
