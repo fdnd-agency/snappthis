@@ -12,8 +12,11 @@
     hour: "2-digit",
     minute: "2-digit",
   };
+
+  import SnapReactions from '$lib/components/molecules/SnapReactions.svelte';
 </script>
 
+<SnapReactions />
 
 {#if data.snap.snapmap}
 <h2>
