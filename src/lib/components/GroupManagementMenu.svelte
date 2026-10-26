@@ -14,39 +14,40 @@
 </script>
 
 <div class="group-menu">
-	<!-- TODO: opslaan in Directus zodra daar een veld voor bestaat. Nu slaat de checkbox nog niets op. -->
-	<label class="option">
-		<input type="checkbox" class="checkbox" checked />
-		Members can add snapp from roll
-	</label>
+	<div class="options">
+		<!-- TODO: opslaan in Directus zodra daar een veld voor bestaat. Nu slaat de checkbox nog niets op. -->
+		<label class="option">
+			<input type="checkbox" class="checkbox" checked />
+			Members can add snapp from roll
+		</label>
 
-	<form method="POST" action="?/leave" use:enhance>
-		<!-- Verborgen veld: zo weet de server om welke groep het gaat -->
-		<input type="hidden" name="uuid" value={group.uuid} />
-		<button type="submit" class="option">
-			<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-				<path d="M14 4h5v16h-5M3 12h11M7 8l-4 4 4 4" />
-			</svg>
-			Leave this group
-		</button>
-	</form>
+		<form method="POST" action="?/leave" use:enhance>
+			<!-- Verborgen veld: zo weet de server om welke groep het gaat -->
+			<input type="hidden" name="uuid" value={group.uuid} />
+			<button type="submit" class="option">
+				<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M14 4h5v16h-5M3 12h11M7 8l-4 4 4 4" />
+				</svg>
+				Leave this group
+			</button>
+		</form>
 
-	<form method="POST" action="?/delete" use:enhance={confirmDelete}>
-		<input type="hidden" name="uuid" value={group.uuid} />
-		<button type="submit" class="option">
-			<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-				<path d="M5 5l14 14M19 5L5 19" />
-			</svg>
-			Delete this group
-		</button>
-	</form>
+		<form method="POST" action="?/delete" use:enhance={confirmDelete}>
+			<input type="hidden" name="uuid" value={group.uuid} />
+			<button type="submit" class="option">
+				<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M5 5l14 14M19 5L5 19" />
+				</svg>
+				Delete this group
+			</button>
+		</form>
+	</div>
 </div>
 
 <style>
 	.group-menu {
+		container-type: inline-size; /* de breedte van het menu meten, zodat @container werkt */
 		position: relative;
-		display: grid;
-		gap: 0.25rem;
 		padding: var(--spacing-s);
 		background-color: var(--pill-link-bg-color);
 
@@ -61,6 +62,16 @@
 			height: 0.6rem;
 			background-color: var(--pill-link-bg-color);
 			clip-path: polygon(50% 0, 100% 100%, 0 100%); /* knipt een driehoek uit het vlak */
+		}
+	}
+
+	.options {
+		display: grid;
+		gap: 0.25rem;
+
+		@container (min-width: 768px) {
+			grid-template-columns: repeat(3, max-content); /* 3 kolommen, zo breed als de tekst */
+			gap: var(--spacing-m); 
 		}
 	}
 
