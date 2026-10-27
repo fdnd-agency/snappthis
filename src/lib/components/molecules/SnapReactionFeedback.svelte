@@ -62,8 +62,6 @@ import StarActive from "$lib/assets/icons/StarActive.svg";
     content:'';
     position: absolute;
     top: -0.6em;
-    /* right: 1em;
-    transform: translateX(-50%);  */
     width: 1.2em;
     height: 0.6em;
     /* background-color: var(--lightest-color); */
