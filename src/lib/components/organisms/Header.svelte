@@ -92,6 +92,11 @@
         justify-self: center;
     }
 
+    .header-actions {
+        grid-column: 3;
+        justify-self: end;
+    }
+
     details {
         grid-column: 2;
         font-size: var(--font-size-m);
@@ -166,4 +171,5 @@
         background-color: var(--pill-link-bg-color);
         clip-path: polygon(50% 0, 100% 100%, 0 100%); /* knipt een driehoek uit het vlak */
     }
+    
 </style>
