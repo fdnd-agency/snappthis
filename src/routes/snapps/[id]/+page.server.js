@@ -26,20 +26,39 @@ export const actions = {
 
     console.log(action, snapUuid,userUuid, url);
 
+    const responses = await fetch (
+         `${url}?filter[snap][_eq]=${snapUuid}&filter[user][_eq]=${userUuid}`
+    );
 
-  const responseAction = await fetch (url, {
-    method: 'POST',
-    headers: {
-        'Content-type':'application/json'
-    },
-    body: JSON.stringify ({
-        snap: snapUuid,
-        user: userUuid,
-        action: action
-    })
-  });
+    // console.log(responses);
 
-  console.log(responseAction.status);
+    const { data: existingActions} = await responses.json();
+
+    const existingReaction = existingActions.find(
+        (reaction) => reaction.action === action
+    );
+
+    if (existingReaction) {
+        console.log('deze reactie bestaat al');
+    } else {
+        console.log('deze reactie bestaat nog niet');
+    }
+
+    console.log(existingReaction);
+
+//   const responseAction = await fetch (url, {
+//     method: 'POST',
+//     headers: {
+//         'Content-type':'application/json'
+//     },
+//     body: JSON.stringify ({
+//         snap: snapUuid,
+//         user: userUuid,
+//         action: action
+//     })
+//   });
+
+//   console.log(responseAction.status);
 
   }
 };
