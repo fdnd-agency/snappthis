@@ -1,7 +1,7 @@
 <!-- Snappmap preview component, able to be reused with its own styling -->
  <!-- 1 Snappmap title "add your snapp" and row of 5 thumbnails -->
 <script>
-	import SnappThumbnail from '$lib/components/SnappThumbnail.svelte'; //thumbnail also as a component
+	import SnappThumbnail from '$lib/components/molecules/SnappThumbnail.svelte'; //thumbnail also as a component
 
 	// One snappmap on the homepage: title, optional "Add your snapp!" and up to 5 thumbnails
     // check!

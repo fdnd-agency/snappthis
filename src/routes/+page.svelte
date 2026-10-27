@@ -1,9 +1,9 @@
 <!-- The landing page with header, snappmapp-list, footer and empty state  -->
 <script>
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Header from '$lib/components/organisms/Header.svelte';
+	import Footer from '$lib/components/organisms/Footer.svelte';
 
-	import SnappmapPreview from '$lib/components/SnappmapPreview.svelte';
+	import SnappmapPreview from '$lib/components/organisms/SnappmapPreview.svelte';
 
 	// Data from the load function in +page.server.js
 	let { data } = $props();

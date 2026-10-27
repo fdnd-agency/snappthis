@@ -1,9 +1,9 @@
 <script>
-    import Header from '$lib/components/Header.svelte';
+    import Header from '$lib/components/organisms/Header.svelte';
 
-    import Footer from '$lib/components/Footer.svelte';
+    import Footer from '$lib/components/organisms/Footer.svelte';
 
-    import CreateGroupForm from '$lib/components/CreateGroupForm.svelte';
+    import CreateGroupForm from '$lib/components/organisms/CreateGroupForm.svelte';
 
     // form = wat de action terug geeft (naam + foutmelding of success), of null
     let { data, form } = $props()

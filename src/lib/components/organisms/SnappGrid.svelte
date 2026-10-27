@@ -1,6 +1,6 @@
 <!-- Grid with all snapps of a snappmap, 3 per row -->
 <script>
-	import SnappThumbnail from '$lib/components/SnappThumbnail.svelte';
+	import SnappThumbnail from '$lib/components/molecules/SnappThumbnail.svelte';
 
 	let { snapps, snappmapName = '' } = $props();
 </script>

@@ -2,9 +2,9 @@
     // haalt de props uit de server js
     let { data } = $props()
 
-    import Header from '$lib/components/Header.svelte';
+    import Header from '$lib/components/organisms/Header.svelte';
 
-    import Footer from '$lib/components/Footer.svelte';
+    import Footer from '$lib/components/organisms/Footer.svelte';
 </script>
 
 <Header 
