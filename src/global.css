@@ -38,10 +38,6 @@ html {
     --tomato-icon-color-inactive: #FFA9AD;
     --star-icon-color-active: #f8e71c;
     --star-icon-color-inactive: #FCF6A6;
-    --font-size-l: 2.5rem;
-    --font-size-m: 1.5rem;
-    --font-size-s: 1.2rem;
-    --font-size-xs: 1rem;
     --bar-height: 9dvh;
     --bottom-nav-icon-height: 36%;
     --icon-width: 2.125rem;
@@ -102,7 +98,7 @@ dialog[open] {
 
     h2 {
         text-align: center;
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
         width: 70%;
         margin-block: var(--spacing-m);
     }
@@ -110,7 +106,7 @@ dialog[open] {
     button {
         width: max-content;
         padding: var(--spacing-s);
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
         background-color: var(--accent-color-on-light-bg);
         color: var(--lightest-color);
         border: 0;
@@ -181,14 +177,14 @@ form.picture {
         button[type="submit"] {
             background-color: transparent;
             border: 0;
-            font-size: calc(var(--font-size-xs) * 0.8);
+            font-size: calc(var(--font-size-p) * 0.8);
             color: var(--lightest-color);
         }
 
         label,
         button[type="submit"] {
             width: 3.5rem;
-            font-size: var(--font-size-s);
+            font-size: var(--font-size-h5);
             aspect-ratio: 1/1;
             display: flex;
             justify-content: center;
@@ -227,12 +223,12 @@ form.picture {
     padding-block: var(--spacing-s) var(--spacing-m);
 
     p:nth-of-type(1) {
-        font-size: var(--font-size-l);
+        font-size: var(--font-size-h1);
         color: var(--dark-text-color-on-light-bg);
     }
 
     p:nth-of-type(2) {
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
         color: var(--accent-color-on-light-bg);
         font-weight: 700;
     }
@@ -316,7 +312,7 @@ form.picture {
             padding-inline: 1.4rem;
             border-radius: var(--bar-height);
             height: 100%;
-            font-size: var(--font-size-m);
+            font-size: var(--font-size-h3);
 
             @media (any-pointer:fine) {
                 &:hover {
@@ -336,12 +332,12 @@ form.picture {
     display: flex;
 
     svg {
-        height: var(--font-size-m);
+        height: var(--font-size-h3);
         fill: var(--text-color-on-light-bg);
     }
 
     h2 {
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         color: var(--text-color-on-light-bg);
         margin-left: 0.5rem;
         transform: translateY(5px);
@@ -359,7 +355,7 @@ form.picture {
     label {
         display: flex;
         align-items: center;
-        font-size: var(--font-size-s);
+        font-size: var(--font-size-h5);
         gap: 2px;
 
         button {
@@ -484,7 +480,7 @@ form.picture {
 
     h2 {
         color: var(--dark-text-color-on-light-bg);
-        font-size: var(--font-size-s);
+        font-size: var(--font-size-h5);
     }
 
     p {
@@ -494,7 +490,7 @@ form.picture {
 
     svg {
         grid-row: 1 / 3;
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
     }
 
     .heart-color {
@@ -557,7 +553,7 @@ form.picture {
     }
 
     h2 {
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         font-weight: 400;
         height: var(--bar-height);
         display: flex;
@@ -591,7 +587,7 @@ form.picture {
         align-items: center;
         gap: 0.35rem;
         color: var(--dark-text-color-on-light-bg);
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
 
         svg {
             width: calc(var(--bar-height) * 0.30);
@@ -602,7 +598,7 @@ form.picture {
 
     .active {
         color: var(--accent-color-on-light-bg);
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
     }
 
     .image-thumbnails {
@@ -758,13 +754,13 @@ form.picture {
     }
 
     section h2 {
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         color: var(--primary-color);
         font-weight: normal;
     }
 
     section p {
-        font-size: var(--font-size-s);
+        font-size: var(--font-size-h5);
         color: var(--text-color-on-light-bg);
     }
 
@@ -778,7 +774,7 @@ form.picture {
         display: flex;
         align-items: center;
         gap: 0.1rem;
-        font-size: var(--font-size-s);
+        font-size: var(--font-size-h5);
         color: var(--icon-color-on-light-bg);
     }
 
@@ -834,7 +830,7 @@ form.picture {
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-size: var(--font-size-s);
+            font-size: var(--font-size-h5);
 
             svg {
                 margin-bottom: .3rem;
@@ -892,7 +888,7 @@ form.picture {
 
     input {
         font-family: inherit;
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
         width: 90%;
         border-radius: 0;
         border: 0;
@@ -905,7 +901,7 @@ form.picture {
 
         &::placeholder {
             color: #90A1AAFF;
-            font-size: var(--font-size-xs);
+            font-size: var(--font-size-p);
         }
     }
 
@@ -918,7 +914,7 @@ form.picture {
 
     a {
         display: block;
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
         color: var(--light-text-color-on-dark-bg);
         text-decoration: none;
         width: 90%;
@@ -935,7 +931,7 @@ form.picture {
             font-family: inherit;
             background-color: var(--accent-color-on-dark-bg);
             color: var(--primary-color);
-            font-size: var(--font-size-xs);
+            font-size: var(--font-size-p);
             border-radius: 2rem;
             border: none;
             padding: 0.75rem 2rem;
@@ -957,7 +953,7 @@ form.picture {
     justify-content: center;
     background-color: #ffffffd9;
     color: var(--dark-text-color-on-light-bg);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-p);
     z-index: 10;
 
     a {
@@ -969,7 +965,7 @@ form.picture {
         color: inherit;
 
         p {
-            font-size: var(--font-size-m);
+            font-size: var(--font-size-h3);
         }
     }
 
@@ -1019,12 +1015,12 @@ form.picture {
 
     .group-list-stats h2 {
         line-height: 1.25;
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         font-weight: 400;
     }
 
     .group-list-stats p {
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
         color: var(--text-color-on-light-bg);
     }
 

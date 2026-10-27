@@ -69,6 +69,6 @@
         padding: var(--spacing-s);
         background-color: var(--pill-link-bg-color);
         color: var(--dark-text-color-on-light-bg);
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
     }
 </style>

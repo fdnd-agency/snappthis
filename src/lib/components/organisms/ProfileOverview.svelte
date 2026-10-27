@@ -78,7 +78,7 @@ li {
   flex-direction: column;
   align-items: center;
   gap:0.2rem;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-h5);
 }
 
 li img {

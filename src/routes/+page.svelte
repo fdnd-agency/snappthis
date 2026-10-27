@@ -41,6 +41,6 @@
 	.empty {
 		padding: var(--spacing-s);
 		color: var(--text-color-on-light-bg);
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 	}
 </style>

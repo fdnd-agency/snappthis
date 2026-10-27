@@ -47,7 +47,7 @@
 	}
 
 	.label {
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 		color: var(--dark-text-color-on-light-bg);
 	}
 
@@ -58,7 +58,7 @@
 		background-color: var(--lightest-color);
 		color: var(--dark-text-color-on-light-bg);
 		font: inherit;
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 
 		&::placeholder {
 			color: var(--text-color-on-light-bg);
@@ -71,7 +71,7 @@
 	}
 
 	.error {
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 		color: var(--color-accent-red-black-40);
 	}
 
@@ -81,7 +81,7 @@
 		border-radius: 2rem;
 		background-color: var(--accent-color-on-light-bg);
 		color: var(--lightest-color);
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 		transition: scale var(--transition-duration);
 
 		@media (any-pointer: fine) {

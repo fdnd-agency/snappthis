@@ -60,7 +60,7 @@
 		gap: 0.5rem;
 		height: var(--bar-height);
 		padding-inline: var(--spacing-s);
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 
 		svg {
 			height: 0.8em;
