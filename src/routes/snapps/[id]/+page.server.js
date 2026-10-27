@@ -39,8 +39,9 @@ export const actions = {
     );
 
     if (existingReaction) {
-        console.log('deze reactie bestaat al');
+        console.log('hier komt straks delete');
     } else {
+        console.log('deze reactie bestaat nog niet')
         console.log('hier komt straks de post');
     }
 
@@ -55,7 +56,13 @@ export const actions = {
     );
 
     console.log(oppositeReaction);
+
+
+    if (oppositeReaction && !existingReaction ){
+        console.log('hier komt straks patch');
     }
+    }
+
 
 //   const responseAction = await fetch (url, {
 //     method: 'POST',
