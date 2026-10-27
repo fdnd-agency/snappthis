@@ -65,4 +65,21 @@ import StarProfile from "$lib/assets/StarProfile.svg";
 
 <style>
 
+form {
+    display: flex;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem;
+}
+
+button img {
+    width: 1.4em;
+    height: 1.4em;
+    object-fit: contain;
+}
+
 </style>
