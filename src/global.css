@@ -43,12 +43,8 @@ html {
     --font-size-s: 1.2rem;
     --font-size-xs: 1rem;
     --bar-height: 9dvh;
-    --grid-gap: 2.5px;
     --bottom-nav-icon-height: 36%;
     --icon-width: 2.125rem;
-    --spacing-header-inline: 1.4rem;
-    --spacing-m: 1.875rem;
-    --spacing-s: 1rem;
     --transition-duration: 0.3s;
     --hover-scale: 1.05;
 }
