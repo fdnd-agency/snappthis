@@ -41,10 +41,18 @@ export const actions = {
     if (existingReaction) {
         console.log('deze reactie bestaat al');
     } else {
-        console.log('deze reactie bestaat nog niet');
+        console.log('hier komt straks de post');
     }
 
-    console.log(existingReaction);
+    // console.log(existingReaction);
+
+    const oppositeAction = action === 'like' ? 'tomato' : 'like';
+
+    const oppositeReaction = existingActions.find(
+        (reaction) => reaction.action === oppositeAction
+    );
+
+    console.log(oppositeReaction);
 
 //   const responseAction = await fetch (url, {
 //     method: 'POST',
