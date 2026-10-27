@@ -46,6 +46,8 @@ export const actions = {
 
     // console.log(existingReaction);
 
+    // Check if the action is a like or tomato and not a star
+    if (action === 'like' || action === 'tomato'  ) {
     const oppositeAction = action === 'like' ? 'tomato' : 'like';
 
     const oppositeReaction = existingActions.find(
@@ -53,6 +55,7 @@ export const actions = {
     );
 
     console.log(oppositeReaction);
+    }
 
 //   const responseAction = await fetch (url, {
 //     method: 'POST',
