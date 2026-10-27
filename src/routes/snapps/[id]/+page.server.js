@@ -63,10 +63,52 @@ export const actions = {
     // Kies één actie
     if (existingReaction) {
       console.log('hier komt straks delete');
+
+      const reactionUuid = existingReaction.uuid;
+
+      const deleteUrl = `${url}/${reactionUuid}`;
+
+      const responseAction = await fetch (deleteUrl, {
+        method: 'DELETE'
+      });
+
+      console.log('Delete status:', responseAction.status)
+
     } else if (oppositeReaction) {
       console.log('hier komt straks patch');
+
+      const reactionUuid = oppositeReaction.uuid;
+
+      const patchUrl = `${url}/${reactionUuid}`;
+
+      const responseAction = await fetch (patchUrl, {
+        method: 'PATCH',
+        headers: {
+                'Content-type':'application/json'
+        },
+        body: JSON.stringify ({ 
+        action: action
+        })
+      });
+
+      console.log('PATCH status:',responseAction.status)
     } else {
       console.log('hier komt straks post');
+      const responseAction = await fetch (url, {
+        method: 'POST',
+        headers: {
+            'Content-type':'application/json'
+        },
+        body: JSON.stringify ({
+            snap: snapUuid,
+            user: userUuid,
+            action: action
+        })
+      });
+    
+      console.log(responseAction.status);
+    
+      }
     }
   
 
@@ -76,19 +118,19 @@ export const actions = {
     
 
 
-//   const responseAction = await fetch (url, {
-//     method: 'POST',
-//     headers: {
-//         'Content-type':'application/json'
-//     },
-//     body: JSON.stringify ({
-//         snap: snapUuid,
-//         user: userUuid,
-//         action: action
-//     })
-//   });
+  // const responseAction = await fetch (url, {
+  //   method: 'POST',
+  //   headers: {
+  //       'Content-type':'application/json'
+  //   },
+  //   body: JSON.stringify ({
+  //       snap: snapUuid,
+  //       user: userUuid,
+  //       action: action
+  //   })
+  // });
 
-//   console.log(responseAction.status);
+  // console.log(responseAction.status);
 
-  }
+  // }
 };
