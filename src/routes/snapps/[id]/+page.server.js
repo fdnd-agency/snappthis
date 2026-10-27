@@ -38,30 +38,42 @@ export const actions = {
         (reaction) => reaction.action === action
     );
 
-    if (existingReaction) {
-        console.log('hier komt straks delete');
-    } else {
-        console.log('deze reactie bestaat nog niet')
-        console.log('hier komt straks de post');
-    }
+  // if (existingReaction) {
+  //       console.log('hier komt straks delete');
+  //   } else {
+  //       console.log('deze reactie bestaat nog niet')
+  //       console.log('hier komt straks de post');
+  //   }  
 
     // console.log(existingReaction);
 
     // Check if the action is a like or tomato and not a star
+    let oppositeReaction;
+
     if (action === 'like' || action === 'tomato'  ) {
     const oppositeAction = action === 'like' ? 'tomato' : 'like';
 
-    const oppositeReaction = existingActions.find(
+    oppositeReaction = existingActions.find(
         (reaction) => reaction.action === oppositeAction
     );
 
     console.log(oppositeReaction);
-
-
-    if (oppositeReaction && !existingReaction ){
-        console.log('hier komt straks patch');
     }
+
+    // Kies één actie
+    if (existingReaction) {
+      console.log('hier komt straks delete');
+    } else if (oppositeReaction) {
+      console.log('hier komt straks patch');
+    } else {
+      console.log('hier komt straks post');
     }
+  
+
+    // if (oppositeReaction && !existingReaction ){
+    //     console.log('hier komt straks patch');
+    // }
+    
 
 
 //   const responseAction = await fetch (url, {
