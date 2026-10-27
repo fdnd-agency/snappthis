@@ -50,7 +50,7 @@ import StarProfile from "$lib/assets/StarProfile.svg";
         <span> {likeCount}</span>
     </button>
 
-    <button type="submit" name="action" value="tomato" aria-pressed={hasTomato}>
+    <button class="tomato-button" type="submit" name="action" value="tomato" aria-pressed={hasTomato}>
         <img src={hasTomato ? TomatoActive : Tomato} alt="" />
         <span> {tomatoCount}</span>
     </button>
@@ -81,5 +81,14 @@ button img {
     height: 1.1em;
     object-fit: contain;
 }
+
+@media (min-width: 768px) {
+    button img {
+        width: 1.4em;
+        height: 1.4em;
+    }
+}
+
+
 
 </style>

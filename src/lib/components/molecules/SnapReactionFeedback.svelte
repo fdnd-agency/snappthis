@@ -62,8 +62,8 @@ import StarActive from "$lib/assets/icons/StarActive.svg";
     content:'';
     position: absolute;
     top: -0.6em;
-    left: 50%;
-    transform: translateX(-50%);
+    /* right: 1em;
+    transform: translateX(-50%);  */
     width: 1.2em;
     height: 0.6em;
     /* background-color: var(--lightest-color); */
@@ -71,6 +71,21 @@ import StarActive from "$lib/assets/icons/StarActive.svg";
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
     z-index: 10;
 }
+
+.feedback-tomato::before {
+    right: 4.5rem;
+}
+
+.feedback-star::before {
+    right: 2.3rem;
+}
+
+@media (min-width: 768px){
+    .feedback-tomato::before {
+        right: 4.9rem;
+    }
+}
+
 
 .feedback-tomato p:first-of-type {
     text-transform: uppercase;
