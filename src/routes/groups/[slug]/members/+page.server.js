@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit';
+import { error, fail } from '@sveltejs/kit';
 
 const directusUrl = 'https://fdnd-agency.directus.app';
 
@@ -52,3 +52,29 @@ export async function load({ fetch, params, url }) {
 		showForm: url.searchParams.has('add-members')
 	};
 }
+
+export const actions = {
+	//invite form posts here: <form method="POST" action="?/check"
+
+	check: async ({ request }) => {
+		// 1. read the form data
+		const formData = await request.formData();
+
+		// 2. Get the text from the email field
+		const input = String(formData.get('email-list') ?? '');
+
+		// 3. If empty then send the error back. Form stays open
+		if (!input.trim()) {
+			return fail(400, { input, error: 'Please enter at least one email address.'});
+		}
+
+		// 4. Split the text into seperate addresses
+		const emails = input
+			.split(',')
+			.map((email) => email.trim().toLowerCase())
+			.filter(Boolean);
+
+		// 5. Send the text and the list back to the page
+		return { input, emails };
+	}
+}  

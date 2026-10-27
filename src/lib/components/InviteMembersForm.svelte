@@ -21,7 +21,7 @@
 		placeholder="Add (multiple) members by email"
 		autocomplete="off"
 		required
-		value={result?.name ?? ''}
+		value={result?.input ?? ''}
 		aria-invalid={result?.error ? 'true' : undefined}
 		aria-describedby={result?.error ? 'member-hint member-list-error' : 'member-hint'}
 		
@@ -35,6 +35,8 @@
 
 	<button type="submit" class="submit-button">Invite</button>
 </form>
+
+
 
 <style>
 	.invite-members-form {
