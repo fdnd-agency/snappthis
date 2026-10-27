@@ -13,10 +13,16 @@
     minute: "2-digit",
   };
 
+  import Header from '$lib/components/organisms/Header.svelte';
   import SnapReactions from '$lib/components/molecules/SnapReactions.svelte';
+  import SnapReactionFeedback from '$lib/components/molecules/SnapReactionFeedback.svelte';
 </script>
 
+<Header showBackButton={true} backUrl={`/snappmaps/${data.snap.snapmap.slug}`}>
 <SnapReactions reactions= {data.reactions}/>
+</Header>
+
+<SnapReactionFeedback reactions= {data.reactions} />
 
 {#if data.snap.snapmap}
 <h2>

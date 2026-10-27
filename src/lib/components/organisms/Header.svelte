@@ -2,6 +2,7 @@
     // Props control the content and optional elements of the header.
     let {
         title = '',
+        children,
         showBackButton = false,
         showAddButton = false,
         backUrl = '/',
@@ -29,6 +30,9 @@
     {/if}
 
     <h1 class="title" >{title}</h1>
+    <div class="header-actions">
+        {@render children?.()}
+    </div>
 
     {#if showAddButton && addUrl}
         <!-- + als link (alleen als er een addUrl is meegegeven). Zodat het formulier alleen op de Groups-pagina wordt getoond wanneer je op het plusje klikt. -->
