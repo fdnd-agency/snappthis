@@ -13,7 +13,14 @@ export async function load({ params, fetch }) {
     error(404, "Deze snap konden we niet vinden.");
   }
 
-  return { snap: snaps[0] };
+  // Hier haal ik de reacties op van de snap
+  const reactionsResponse = await fetch(
+    `https://fdnd-agency.directus.app/items/snappthis_action?filter[snap][_eq]=${snapUuid}`
+  )
+
+  const { data:reactions } = await reactionsResponse.json();
+
+  return { snap: snaps[0], reactions };
 }
 
 export const actions = {

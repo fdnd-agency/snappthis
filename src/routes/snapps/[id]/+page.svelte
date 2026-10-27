@@ -16,7 +16,7 @@
   import SnapReactions from '$lib/components/molecules/SnapReactions.svelte';
 </script>
 
-<SnapReactions />
+<SnapReactions reactions= {data.reactions}/>
 
 {#if data.snap.snapmap}
 <h2>
