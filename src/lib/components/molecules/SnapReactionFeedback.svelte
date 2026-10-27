@@ -25,26 +25,57 @@ import StarActive from "$lib/assets/icons/StarActive.svg";
 {#if hasTomato}
 <div class="feedback-tomato">
     <img src={TomatoActive} alt="tomato">
+    <div class="feedback-text">
     <p>Splat</p>
 <p>You have thrown a tomato</p>
+</div>
 </div>
 {/if}
 
 {#if hasStarred}
 <div class="feedback-star">
     <img src={StarActive} alt="star">
+    <div class="feedback-text">
     <p>You have saved this snap!</p>
 <p>Click the star again to remove it. </p>
+    </div>
 </div>
 {/if}
 
 <style>
-    .feedback-tomato {
-    width: fit-content;
+.feedback-tomato, .feedback-star {
+    display: flex;
+    position: relative;
+    /* background-color: var(--lightest-color); */
+    background-color: lightgrey;
+    padding: 1rem;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.feedback-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-tomato::before, .feedback-star::before {
+    content:'';
+    position: absolute;
+    top: -0.6em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.2em;
+    height: 0.6em;
+    /* background-color: var(--lightest-color); */
+    background-color: lightgrey;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    z-index: 10;
 }
 
 .feedback-tomato p:first-of-type {
     text-transform: uppercase;
     font-weight: bold;
 }
+
+
 </style>
