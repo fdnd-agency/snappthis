@@ -62,7 +62,31 @@ import StarProfile from "$lib/assets/StarProfile.svg";
     </button>
 </form>
 
+{#if hasTomato}
+<div class="feedback-tomato">
+    <img src={TomatoActive} alt="tomato">
+    <p>Splat</p>
+<p>You have thrown a tomato</p>
+</div>
+{/if}
+
+{#if hasStarred}
+<div class="feedback-star">
+    <img src={StarActive} alt="star">
+    <p>You have saved this snap!</p>
+<p>Click the star again to remove it. </p>
+</div>
+{/if}
+
 <style>
 
+.feedback-tomato {
+    width: fit-content;
+}
+
+.feedback-tomato p:first-of-type {
+    text-transform: uppercase;
+    font-weight: bold;
+}
 
 </style>
