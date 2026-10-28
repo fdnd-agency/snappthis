@@ -5,6 +5,27 @@ const directusUrl = 'https://fdnd-agency.directus.app';
 // Hardcoded user (Anne-Fleur Pietersen) until login is built
 const userUuid = '5e9589a5-ebfa-4a99-87a6-010f2f571444';
 
+// Simple check if a text looks like an email address.
+// The browser already checks this (type="email"), this is the safety net on the server.
+function isValidEmail(email) {
+	// No spaces inside the address
+	if (email.includes(' ')) return false;
+
+	// Exactly one @
+	const parts = email.split('@');
+	if (parts.length !== 2) return false;
+
+	const [name, domain] = parts;
+
+	// Something before the @, and a domain with a dot that is not at the start or end
+	return (
+		name.length > 0 &&
+		domain.includes('.') &&
+		!domain.startsWith('.') &&
+		!domain.endsWith('.')
+	);
+}
+
 // Fetches the group and its members.
 // Used by load and by the check action, so the code is only written once.
 async function getGroup(fetch, slug) {
@@ -84,12 +105,29 @@ export const actions = {
 			.map((email) => email.trim().toLowerCase())
 			.filter(Boolean);
 
-		// 5. Fetch the members again: an action can't use the data from load
+		// 5. Remove duplicates: a Set keeps every value only once
+		const uniqueEmails = [...new Set(emails)];
+
+		// 6. Fetch the members again: an action can't use the data from load
 		const { members } = await getGroup(fetch, params.slug);
-		 
-		console.log(members);
-		
-		// 6. Send the text and the list back to the page
-		return { input, emails };
+		const memberEmails = members.map((member) => member.email);
+
+		// 7. Put every address in one of three lists
+		const toInvite = [];
+		const invalid = [];
+		const alreadyMembers = [];
+
+		for (const email of uniqueEmails) {
+			if (!isValidEmail(email)) {
+				invalid.push(email);
+			} else if (memberEmails.includes(email)) {
+				alreadyMembers.push(email);
+			} else {
+				toInvite.push(email);
+			}
+		}
+
+		// 8. Send the text and the three lists back to the page
+		return { input, toInvite, invalid, alreadyMembers };
 	}
 };
