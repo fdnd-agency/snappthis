@@ -127,7 +127,45 @@ export const actions = {
 			}
 		}
 
-		// 8. Send the text and the three lists back to the page
-		return { input, toInvite, invalid, alreadyMembers };
+		// 8. Send the three lists back to the page.
+		// Only the invalid addresses go back into the field, so the user can fix just those.
+		return {
+			input: invalid.join(', '),
+			toInvite,
+			invalid,
+			alreadyMembers
+		};
+	},
+
+	// Every (+) button in the review list posts here: <form method="POST" action="?/invite">
+	invite: async ({ request, fetch, params }) => {
+		// 1. Read the form data of this one row
+		const formData = await request.formData();
+		const email = String(formData.get('email') ?? '').trim().toLowerCase();
+		const canStartSnappmap = formData.get('can-start-snappmap') === 'on';
+
+		// 2. The other addresses that still have to be approved.
+		// Sent along with every (+), so the list is not lost after a page reload without JavaScript.
+		const remaining = formData.getAll('remaining').map(String);
+
+		// 3. Check again on the server: never trust what the browser sends
+		if (!isValidEmail(email)) {
+			return fail(400, { toInvite: remaining, error: `"${email}" is not a valid email address.` });
+		}
+
+		const { members } = await getGroup(fetch, params.slug);
+
+		if (members.some((member) => member.email === email)) {
+			return fail(400, { toInvite: remaining, error: `${email} is already a member.` });
+		}
+
+		// 4. TODO #255: save the invite in Directus with status "pending",
+		// once the team has decided where invites are stored (new collection or snappthis_user).
+
+		// 5. Send the remaining list back, plus which address was approved
+		return {
+			toInvite: remaining,
+			approved: { email, canStartSnappmap }
+		};
 	}
 };
