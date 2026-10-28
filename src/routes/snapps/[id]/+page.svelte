@@ -25,18 +25,18 @@
 <SnapReactionFeedback reactions= {data.reactions} />
 
 {#if data.snap.snapmap}
-<h2>
+<h1>
     <a href="/snappmaps/{data.snap.snapmap.slug}">
         {data.snap.snapmap.name}
       </a>
-</h2>
+</h1>
 {/if}
+
+<img src="https://fdnd-agency.directus.app/assets/{data.snap.picture}" alt="" />
 
 {#each data.snap.snapmap?.groups ?? [] as group}
     <p>{group.snappthis_group_uuid.name}</p>
 {/each}
-
-<img src="https://fdnd-agency.directus.app/assets/{data.snap.picture}" alt="" />
 
 {#if data.snap.location && data.snap.location !=="Unknown" }
 <p>{data.snap.location}</p>
