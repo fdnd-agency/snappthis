@@ -1,3 +1,4 @@
+import { fail } from "@sveltejs/kit";
 import { error } from "@sveltejs/kit";
 
 export async function load({ params, fetch }) {
@@ -27,6 +28,14 @@ export const actions = {
   react: async ({ request, params, fetch }) => {
     const formData = await request.formData();
     const action = formData.get("action");
+
+  if  (!['like','tomato','star'].includes(action)) {
+    return fail(400, {
+      message: 'Invalid reaction'
+    }
+      )
+  }
+
     const snapUuid = params.id;
     const userUuid = "5e9589a5-ebfa-4a99-87a6-010f2f571444";
     const url = "https://fdnd-agency.directus.app/items/snappthis_action";
