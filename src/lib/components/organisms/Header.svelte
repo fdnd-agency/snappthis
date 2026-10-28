@@ -74,8 +74,8 @@
         align-items: center;
         padding-inline: var(--spacing-header-inline);
         height: var(--bar-height);
-        background-color: var(--primary-color);
-        color: var(--lightest-color);
+        background-color: var(--color-accent-blue-black-30);
+        color: var(--color-white);
         position: sticky;
         top: 0;
         z-index: 1;
@@ -114,7 +114,7 @@
         svg {
             height: calc(var(--bar-height) * 0.40);
             width: auto;
-            fill: var(--lightest-color);
+            fill: var(--color-white);
         }
     }
 
@@ -123,7 +123,7 @@
         justify-self: end;
 
         &:focus-visible {
-            outline: 3px solid var(--lightest-color);
+            outline: 3px solid var(--color-white);
             outline-offset: 4px;
         }
     }
@@ -135,7 +135,7 @@
         width: calc(var(--bar-height) * 0.40);
         height: auto;
         aspect-ratio: 1 / 1;
-        fill: var(--lightest-color);
+        fill: var(--color-white);
     }
 
     /* Alleen animeren als de gebruiker geen minder beweging heeft ingesteld */
@@ -159,7 +159,7 @@
         right: calc(var(--spacing-header-inline) + var(--bar-height) * 0.2 - 0.6rem);
         width: 1.2rem;
         height: 0.6rem;
-        background-color: var(--pill-link-bg-color);
+        background-color: var(--color-accent-blue-white-90);
         clip-path: polygon(50% 0, 100% 100%, 0 100%); /* knipt een driehoek uit het vlak */
     }
 </style>

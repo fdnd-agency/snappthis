@@ -41,14 +41,14 @@
 
 	.time {
 		font-size: var(--font-size-h1);
-		color: var(--dark-text-color-on-light-bg);
+		color: var(--color-accent-blue);
 		font-variant-numeric: tabular-nums; /* digits stay the same width, so the timer doesn't wobble */
 	}
 
 	.call-to-action {
 		font-size: var(--font-size-p);
 		font-weight: 700;
-		color: var(--accent-color-on-light-bg);
+		color: var(--color-accent-green-black-20);
 	}
 
 	.visually-hidden {
