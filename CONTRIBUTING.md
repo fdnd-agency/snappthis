@@ -243,3 +243,19 @@ During the retrospective, we also discuss what we can improve in the next sprint
 - We prioritize reviewing and responding to pull requests before continuing with coding.
 
 We try to apply these improvements during the next sprint.
+
+
+## Atomic Design
+
+We use the Atomic Design methodology to organize our components and keep our code structured and reusable.
+
+Our components are divided into the following categories:
+
+- **Atoms:** Small, reusable UI elements, such as buttons, labels and icons.
+- **Molecules:** Combinations of atoms that work together, such as a search bar or form field.
+- **Organisms:** Larger components made up of atoms and molecules, such as a navigation bar or header.
+- **Templates:** Page layouts that define the structure of a page.
+- **Pages:** Complete pages with actual content.
+
+When creating new components, we follow this structure to keep our project consistent and maintainable.
+
