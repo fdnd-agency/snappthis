@@ -123,7 +123,7 @@
 
 	h2 {
 		font-size: var(--font-size-s);
-		color: var(--dark-text-color-on-light-bg);
+		color: var(--color-accent-blue);
 	}
 
 	.actions {
@@ -140,7 +140,7 @@
 		width: 7rem;
 		aspect-ratio: 1 / 1;
 		border-radius: 50%;
-		background-color: var(--accent-color-on-light-bg);
+		background-color: var(--color-accent-green-black-20);
 		cursor: pointer;
 		transition: scale var(--transition-duration);
 
@@ -152,13 +152,13 @@
 
 		/* The input itself is invisible, so show the focus on the circle */
 		&:has(input:focus-visible) {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 4px;
 		}
 
 		svg {
 			width: 45%;
-			fill: var(--lightest-color);
+			fill: var(--color-white);
 		}
 
 		input {
@@ -177,14 +177,14 @@
 		aspect-ratio: 1 / 1;
 		border: 0;
 		border-radius: 50%;
-		background-color: var(--accent-color-on-light-bg);
-		color: var(--lightest-color);
+		background-color: var(--color-accent-green-black-20);
+		color: var(--color-white);
 		font: inherit;
 		font-size: var(--font-size-s);
 		cursor: pointer;
 
 		&:focus-visible {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 4px;
 		}
 
@@ -200,13 +200,13 @@
 	/* Once a photo is chosen, the camera button becomes the small grey "retake" button */
 	.upload-snap-form:has(input:valid) .camera-button {
 		width: 3.5rem;
-		background-color: var(--light-text-color-on-dark-bg);
+		background-color: var(--color-accent-blue-white-70);
 	}
 
 	.loader {
 		width: 1.5rem;
 		aspect-ratio: 1 / 1;
-		border: 3px solid var(--lightest-color);
+		border: 3px solid var(--color-white);
 		border-block-start-color: transparent;
 		border-radius: 50%;
 		animation: spin 1s linear infinite;

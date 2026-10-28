@@ -64,11 +64,11 @@
 
 		svg {
 			height: 0.8em;
-			fill: var(--text-color-on-light-bg);
+			fill: var(--color-accent-blue-white-50);
 		}
 
 		a {
-			color: var(--text-color-on-light-bg);
+			color: var(--color-accent-blue-white-50);
 			text-decoration: none;
 
 			&:hover {
@@ -76,7 +76,7 @@
 			}
 
 			&:focus-visible {
-				outline: 2px solid var(--accent-color-on-light-bg);
+				outline: 2px solid var(--color-accent-green-black-20);
 				outline-offset: 4px;
 			}
 		}

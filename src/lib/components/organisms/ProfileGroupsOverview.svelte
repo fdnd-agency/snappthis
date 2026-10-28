@@ -70,7 +70,7 @@
   h3 {
     font-size: 1.6rem;
     font-weight: 400;
-    color: var(--dark-text-color-on-light-bg);
+    color: var(--color-accent-blue);
     margin: 0;
   }
 
@@ -81,7 +81,7 @@
 
   p {
     font-size: var(--font-size-s);
-    color: var(--dark-text-color-on-light-bg);
+    color: var(--color-accent-blue);
     align-self: flex-start;
     padding-inline: var(--spacing-s);
     margin: 0;
@@ -111,7 +111,7 @@
   }
 
   button:focus-visible {
-  outline: 2px solid var(--accent-color-on-light-bg) ;
+  outline: 2px solid var(--color-accent-green-black-20) ;
   outline-offset: 0.2rem;
   }
 

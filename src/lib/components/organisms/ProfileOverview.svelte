@@ -52,7 +52,7 @@ section {
   align-items: center;
   width: 100%;
   height: 40vh;
-  background-color: var(--pill-link-bg-color);
+  background-color: var(--color-accent-blue-white-90);
   padding: var(--spacing-m);
 }
 

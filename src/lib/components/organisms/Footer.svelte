@@ -84,7 +84,7 @@
 <style>
     .footer-nav {
         height: var(--bar-height);
-        background-color: var(--primary-color);
+        background-color: var(--color-accent-blue-black-30);
         position: fixed;
         bottom: 0;
         left: 0;
@@ -115,11 +115,11 @@
     .footer-nav-icon {
         height: auto;
         width: calc(var(--bar-height) * 0.40);
-        fill: var(--lightest-color);
+        fill: var(--color-white);
     }
 
     .footer-nav-link.active .footer-nav-icon {
-        fill: var(--accent-color-on-dark-bg);
+        fill: var(--color-accent-green);
     }
 
     .footer-nav-item:first-child .footer-nav-icon {
