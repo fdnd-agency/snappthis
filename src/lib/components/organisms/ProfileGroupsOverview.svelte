@@ -63,7 +63,7 @@
     display: grid;
     grid-template-columns: minmax(0,1fr) auto;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
     padding: var(--spacing-s);
   }
@@ -79,9 +79,11 @@
     font-weight: 400;
     color: var(--dark-text-color-on-light-bg);
     margin: 0;
+    min-width: 0;
+    transition: transform var(--transition-duration);
   }
 
-  @media (min-width: 786px) {
+  @media (min-width: 768px) {
     h3 {
       font-size: 1.6rem;
     }
@@ -89,7 +91,6 @@
 
   h3:hover {
     transform: scale(var(--hover-scale));
-    transition: var(--transition-duration);
   }
 
   p {
@@ -104,10 +105,16 @@
   ul {
     display: flex;
     align-items: center;
-    gap: var(--spacing-s);
+    gap: 0.5rem;
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+
+  @media (min-width: 768px){
+    ul {
+      gap: var(--spacing-s);
+    }
   }
 
   li {
