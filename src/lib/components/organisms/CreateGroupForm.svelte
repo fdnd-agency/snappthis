@@ -1,5 +1,5 @@
 <!-- Formulier om een nieuwe groep aan te maken, staat boven de groepenlijst -->
-<!-- Werkt zonder JavaScript: het formulier post naar de default action in groups/+page.server.js -->
+<!-- Werkt zonder JavaScript: het formulier post naar de create-action in groups/+page.server.js -->
 <!-- Met JavaScript (use:enhance) wordt het formulier verstuurd zonder dat de hele pagina herlaadt -->
 <script>
 	import { enhance } from '$app/forms';
@@ -8,7 +8,7 @@
 	let { result } = $props();
 </script>
 
-<form method="POST" class="create-group-form" use:enhance>
+<form method="POST" action="?/create" class="create-group-form" use:enhance>
 	<label for="group-name" class="label">New group:</label>
 
 	<!-- Bij een fout blijft de ingevulde naam staan, en leest een screenreader de foutmelding voor -->
