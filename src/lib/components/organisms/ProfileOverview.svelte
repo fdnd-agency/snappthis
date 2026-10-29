@@ -82,8 +82,14 @@ li {
 }
 
 li img {
-  height: 1.9rem;
+  height: 1.5rem;
   width: auto;
+}
+
+@media (min-width: 768px){
+ li img {
+  height: 1.9rem;
+ }
 }
 
 

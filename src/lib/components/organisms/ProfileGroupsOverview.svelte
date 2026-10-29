@@ -70,7 +70,7 @@
 
   @media (min-width: 768px) {
     .top {
-      gap: 1rem;
+      padding-inline: 1rem ;
     }
   }
 
@@ -86,6 +86,7 @@
   @media (min-width: 768px) {
     h3 {
       font-size: 1.6rem;
+      transform-origin: left center;
     }
   }
 
@@ -126,6 +127,7 @@
     align-items: center;
     gap: 0.4rem;
     padding: 0;
+    cursor: pointer;
   }
 
   button img {
