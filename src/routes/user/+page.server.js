@@ -35,7 +35,7 @@ export async function load({ fetch }) {
   const { data: snappmaps } = await snappmapResponse.json();
 
   const snapsResponse = await fetch (
-    "https://fdnd-agency.directus.app/items/snappthis_snap"
+    "https://fdnd-agency.directus.app/items/snappthis_snap?limit=-1"
   );
 
   const { data:snaps} = await snapsResponse.json();
