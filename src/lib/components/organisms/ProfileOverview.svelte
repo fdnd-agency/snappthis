@@ -5,9 +5,9 @@ import Male from '$lib/assets/icons/Male.svg';
 import Groups from '$lib/assets/icons/Groups.svg';
 import Snapps from '$lib/assets/icons/Snapps.svg';
 
-let { user } = $props();
+let { user,totalStars } = $props();
 
-console.log(user);
+// console.log(user);
 </script>
 
 
@@ -31,13 +31,13 @@ console.log(user);
 
     <li>
       <img src={Groups} alt=""/>
-      <span>4</span>
+      <span>{user.groups.length}</span>
       <span>groups</span>
     </li>
 
     <li>
       <img src={Star} alt="" />
-      <span>0</span>
+      <span>{totalStars}</span>
       <span>stars</span>
     </li>
   </ul>
