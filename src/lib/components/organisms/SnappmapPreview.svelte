@@ -1,7 +1,7 @@
 <!-- Snappmap preview component, able to be reused with its own styling -->
  <!-- 1 Snappmap title "add your snapp" and row of 5 thumbnails -->
 <script>
-	import SnappThumbnail from '$lib/components/SnappThumbnail.svelte'; //thumbnail also as a component
+	import SnappThumbnail from '$lib/components/molecules/SnappThumbnail.svelte'; //thumbnail also as a component
 
 	// One snappmap on the homepage: title, optional "Add your snapp!" and up to 5 thumbnails
     // check!
@@ -52,12 +52,12 @@
 		align-items: center;
 		height: var(--bar-height);
 		padding-inline: var(--spacing-s);
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 		font-weight: 400;
 
 		a {
 			display: inline-block;
-			color: var(--dark-text-color-on-light-bg);
+			color: var(--color-accent-blue);
 			text-decoration: none;
 			transition: scale var(--transition-duration);
 
@@ -68,7 +68,7 @@
 			}
 
 			&:focus-visible {
-				outline: 2px solid var(--accent-color-on-light-bg);
+				outline: 2px solid var(--color-accent-green-black-20);
 				outline-offset: 4px;
 			}
 		}
@@ -76,16 +76,16 @@
 
 	.active {
 		padding-inline: var(--spacing-s);
-		color: var(--accent-color-on-light-bg);
-		font-size: var(--font-size-xs);
+		color: var(--color-accent-green-black-20);
+		font-size: var(--font-size-p);
 	}
 
 	.empty {
 		grid-column: 1 / -1;
 		padding-inline: var(--spacing-s);
 		padding-block-end: var(--spacing-s);
-		color: var(--text-color-on-light-bg);
-		font-size: var(--font-size-xs);
+		color: var(--color-accent-blue-white-50);
+		font-size: var(--font-size-p);
 	}
 
 	.image-thumbnails {

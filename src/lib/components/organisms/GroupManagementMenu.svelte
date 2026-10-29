@@ -49,7 +49,7 @@
 		container-type: inline-size; /* de breedte van het menu meten, zodat @container werkt */
 		position: relative;
 		padding: var(--spacing-s);
-		background-color: var(--pill-link-bg-color);
+		background-color: var(--color-accent-blue-white-90);
 
 		/* Driehoekje dat naar de ⋮ wijst (zoals bij het formulier onder de +) */
 		&::before {
@@ -60,7 +60,7 @@
 			left: calc(.05rem + 1rem - 0.6rem);
 			width: 1.2rem;
 			height: 0.6rem;
-			background-color: var(--pill-link-bg-color);
+			background-color: var(--color-accent-blue-white-90);
 			clip-path: polygon(50% 0, 100% 100%, 0 100%); /* knipt een driehoek uit het vlak */
 		}
 	}
@@ -81,13 +81,13 @@
 		gap: var(--spacing-s);
 		min-height: 2.75rem; /* groot genoeg om op te tikken */
 		width: 100%;
-		color: var(--icon-color-on-light-bg);
-		font-size: var(--font-size-s);
+		color: var(--color-accent-blue-white-20);
+		font-size: var(--font-size-h5);
 		text-align: left;
 		cursor: pointer;
 
 		&:focus-visible {
-			outline: 2px solid var(--primary-color);
+			outline: 2px solid var(--color-accent-blue-black-30);
 			outline-offset: 2px;
 		}
 	}
@@ -95,10 +95,10 @@
 	.checkbox {
 		width: 1.4rem;
 		height: 1.4rem;
-		accent-color: var(--icon-color-on-light-bg);
+		accent-color: var(--color-accent-blue-white-20);
 
 		&:focus-visible {
-			outline: 2px solid var(--primary-color);
+			outline: 2px solid var(--color-accent-blue-black-30);
 			outline-offset: 2px;
 		}
 	}

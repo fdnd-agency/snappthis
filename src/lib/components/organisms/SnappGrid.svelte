@@ -1,6 +1,6 @@
 <!-- Grid with all snapps of a snappmap, 3 per row -->
 <script>
-	import SnappThumbnail from '$lib/components/SnappThumbnail.svelte';
+	import SnappThumbnail from '$lib/components/molecules/SnappThumbnail.svelte';
 
 	let { snapps, snappmapName = '' } = $props();
 </script>
@@ -33,7 +33,7 @@
 
 	.empty {
 		padding: var(--spacing-s);
-		color: var(--text-color-on-light-bg);
-		font-size: var(--font-size-xs);
+		color: var(--color-accent-blue-white-50);
+		font-size: var(--font-size-p);
 	}
 </style>

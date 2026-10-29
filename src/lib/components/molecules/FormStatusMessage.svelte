@@ -39,7 +39,7 @@
 		width: min(80%, 25rem);
 		padding: var(--spacing-m) var(--spacing-s);
 		border: 0;
-		background-color: var(--background-color-dialog);
+		background-color: var(--color-accent-blue-white-90);
 		text-align: center;
 
 		&::backdrop {
@@ -49,10 +49,10 @@
 
 	h2 {
 		margin-block-end: var(--spacing-m);
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 		font-weight: 400;
 		line-height: 1.4;
-		color: var(--dark-text-color-on-light-bg);
+		color: var(--color-accent-blue);
 	}
 
 	button {
@@ -60,19 +60,19 @@
 		aspect-ratio: 1 / 1;
 		border: 0;
 		border-radius: 50%;
-		background-color: var(--accent-color-on-light-bg);
-		color: var(--lightest-color);
+		background-color: var(--color-accent-green-black-20);
+		color: var(--color-white);
 		font: inherit;
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 		cursor: pointer;
 
 		&:focus-visible {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 4px;
 		}
 	}
 
 	.error button {
-		background-color: var(--alert-accent-color);
+		background-color: var(--color-accent-red);
 	}
 </style>
