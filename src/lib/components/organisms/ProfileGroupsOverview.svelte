@@ -106,8 +106,16 @@
   }
 
   button img {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.1em;
+    height: 1.1em;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+   button img {
+     width: 1.4em;
+     height: 1.4em;
+     }
   }
 
   button:focus-visible {
