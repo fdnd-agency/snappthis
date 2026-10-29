@@ -19,21 +19,21 @@
       <li>
         <button type="button" aria-label="View likes">
           <img src={Heart} alt="" />
-          <span>0</span>
+          <span>{group.likes}</span>
         </button>
       </li>
 
       <li>
         <button type="button" aria-label="View Tomatoes">
           <img src={Tomato} alt="" />
-          <span>0</span>
+          <span>{group.tomatoes}</span>
         </button>
       </li>
 
       <li>
         <button type="button" aria-label="View Stars">
           <img src={StarProfile} alt="" />
-          <span>0</span>
+          <span>{group.stars}</span>
         </button>
       </li>
     </ul>

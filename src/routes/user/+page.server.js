@@ -44,7 +44,6 @@ const reactionsResponse = await fetch (
 const { data: reactions} = await reactionsResponse.json();
 
 
-
 // Go through all the groups
 const groupsWithSnaps = userGroups.map((group) => {
 
@@ -63,10 +62,37 @@ const groupSnaps = matchingSnappmaps.flatMap(
     (snappmap) => snappmap.snaps
 );
 
+// Get the user's reactions that belong to the group
+const groupReactions= reactions.filter((reaction) =>
+    groupSnaps.some((snap) => snap.uuid === reaction.snap)
+);
+
+
+// Count the likes in this groups
+const likes = groupReactions.filter((reaction) =>
+  reaction.action === 'like'
+).length
+
+// Count the tomatoes in this groups
+const tomatoes = groupReactions.filter((reaction) =>
+  reaction.action === 'tomato'
+).length
+
+// Count the star in this groups
+const stars = groupReactions.filter((reaction) =>
+  reaction.action === 'star'
+).length
+
+console.log('aantal stars:', stars);
+
+
 // add the snaps to the group
 return {
     ...group,
-    snaps: groupSnaps
+    snaps: groupSnaps,
+    likes: likes,
+    tomatoes: tomatoes,
+    stars: stars,
 };
 
 });
