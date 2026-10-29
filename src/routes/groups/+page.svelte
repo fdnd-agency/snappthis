@@ -69,6 +69,6 @@
         padding: var(--spacing-s);
         background-color: var(--color-accent-blue-white-90);
         color: var(--color-accent-blue);
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-p);
     }
 </style>

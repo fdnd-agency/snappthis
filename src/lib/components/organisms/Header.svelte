@@ -83,14 +83,14 @@
 
     .title {
         grid-column: 2;
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         width: max-content;
         justify-self: center;
     }
 
     details {
         grid-column: 2;
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         width: max-content;
         justify-self: center;
     }

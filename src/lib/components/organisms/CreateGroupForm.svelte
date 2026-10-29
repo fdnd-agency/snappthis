@@ -47,7 +47,7 @@
 	}
 
 	.label {
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 		color: var(--color-accent-blue);
 	}
 
@@ -58,7 +58,7 @@
 		background-color: var(--color-white);
 		color: var(--color-accent-blue);
 		font: inherit;
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 
 		&::placeholder {
 			color: var(--color-accent-blue-white-50);
@@ -71,7 +71,7 @@
 	}
 
 	.error {
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 		color: var(--color-accent-red-black-40);
 	}
 
@@ -81,7 +81,7 @@
 		border-radius: 2rem;
 		background-color: var(--color-accent-green-black-20);
 		color: var(--color-white);
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 		transition: scale var(--transition-duration);
 
 		@media (any-pointer: fine) {

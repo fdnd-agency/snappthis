@@ -80,7 +80,7 @@
   }
 
   p {
-    font-size: var(--font-size-s);
+    font-size: var(--font-size-h5);
     color: var(--color-accent-blue);
     align-self: flex-start;
     padding-inline: var(--spacing-s);

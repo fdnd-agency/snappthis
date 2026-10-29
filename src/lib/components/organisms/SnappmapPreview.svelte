@@ -52,7 +52,7 @@
 		align-items: center;
 		height: var(--bar-height);
 		padding-inline: var(--spacing-s);
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 		font-weight: 400;
 
 		a {
@@ -77,7 +77,7 @@
 	.active {
 		padding-inline: var(--spacing-s);
 		color: var(--color-accent-green-black-20);
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 	}
 
 	.empty {
@@ -85,7 +85,7 @@
 		padding-inline: var(--spacing-s);
 		padding-block-end: var(--spacing-s);
 		color: var(--color-accent-blue-white-50);
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 	}
 
 	.image-thumbnails {

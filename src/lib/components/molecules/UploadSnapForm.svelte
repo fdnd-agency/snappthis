@@ -122,7 +122,7 @@
 	}
 
 	h2 {
-		font-size: var(--font-size-s);
+		font-size: var(--font-size-h5);
 		color: var(--color-accent-blue);
 	}
 
@@ -180,7 +180,7 @@
 		background-color: var(--color-accent-green-black-20);
 		color: var(--color-white);
 		font: inherit;
-		font-size: var(--font-size-s);
+		font-size: var(--font-size-h5);
 		cursor: pointer;
 
 		&:focus-visible {

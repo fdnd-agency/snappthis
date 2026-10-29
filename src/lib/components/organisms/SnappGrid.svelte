@@ -34,6 +34,6 @@
 	.empty {
 		padding: var(--spacing-s);
 		color: var(--color-accent-blue-white-50);
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 	}
 </style>

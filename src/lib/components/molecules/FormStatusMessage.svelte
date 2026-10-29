@@ -49,7 +49,7 @@
 
 	h2 {
 		margin-block-end: var(--spacing-m);
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 		font-weight: 400;
 		line-height: 1.4;
 		color: var(--color-accent-blue);
@@ -63,7 +63,7 @@
 		background-color: var(--color-accent-green-black-20);
 		color: var(--color-white);
 		font: inherit;
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-p);
 		cursor: pointer;
 
 		&:focus-visible {
