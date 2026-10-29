@@ -36,11 +36,12 @@ const snappmapResponse = await fetch(
 const { data: snappmaps } = await snappmapResponse.json();
 
 
-const Reactionresponse = await fetch (
+// Get the reactions from the useruuid
+const reactionsResponse = await fetch (
     `https://fdnd-agency.directus.app/items/snappthis_action?filter[user][_eq]=${userUuid}`
 )
 
-const { data: reactions} = await Reactionresponse.json();
+const { data: reactions} = await reactionsResponse.json();
 
 
 
