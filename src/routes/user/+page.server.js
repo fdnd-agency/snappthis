@@ -36,6 +36,14 @@ const snappmapResponse = await fetch(
 const { data: snappmaps } = await snappmapResponse.json();
 
 
+const Reactionresponse = await fetch (
+    `https://fdnd-agency.directus.app/items/snappthis_action?filter[user][_eq]=${userUuid}`
+)
+
+const { data: reactions} = await Reactionresponse.json();
+
+
+
 // Go through all the groups
 const groupsWithSnaps = userGroups.map((group) => {
 
