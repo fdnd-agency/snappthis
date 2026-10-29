@@ -60,18 +60,31 @@
   }
 
   .top {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
     align-items: center;
+    gap: 1rem;
     width: 100%;
     padding: var(--spacing-s);
   }
 
+  @media (min-width: 768px) {
+    .top {
+      gap: 1rem;
+    }
+  }
+
   h3 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 400;
     color: var(--dark-text-color-on-light-bg);
     margin: 0;
+  }
+
+  @media (min-width: 786px) {
+    h3 {
+      font-size: 1.6rem;
+    }
   }
 
   h3:hover {
@@ -90,8 +103,11 @@
 
   ul {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     gap: var(--spacing-s);
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   li {
