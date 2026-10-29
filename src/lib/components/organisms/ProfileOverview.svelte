@@ -5,7 +5,7 @@ import Male from '$lib/assets/icons/Male.svg';
 import Groups from '$lib/assets/icons/Groups.svg';
 import Snapps from '$lib/assets/icons/Snapps.svg';
 
-let { user,totalStars } = $props();
+let { user,totalStars,totalSnaps } = $props();
 
 // console.log(user);
 </script>
@@ -25,7 +25,7 @@ let { user,totalStars } = $props();
   <ul>
     <li>
       <img src={Snapps} alt=""/>
-      <span>29</span>
+      <span>{totalSnaps}</span>
       <span>snapps</span>
     </li>
 

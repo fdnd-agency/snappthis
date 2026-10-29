@@ -34,6 +34,22 @@ export async function load({ fetch }) {
 
   const { data: snappmaps } = await snappmapResponse.json();
 
+  const snapsResponse = await fetch (
+    "https://fdnd-agency.directus.app/items/snappthis_snap"
+  );
+
+  const { data:snaps} = await snapsResponse.json();
+
+
+  // filter snaps from anne fleur
+      const anneFleurSnaps = snaps.filter(
+        (snap) => snap.author === userUuid
+  )
+
+  const totalSnaps = anneFleurSnaps.length;
+
+  console.log(totalSnaps);
+
   // Get the reactions from the useruuid
   const reactionsResponse = await fetch(
     `https://fdnd-agency.directus.app/items/snappthis_action?filter[user][_eq]=${userUuid}`
@@ -56,11 +72,6 @@ export async function load({ fetch }) {
     // Get all the snaps from the matching Snappmaps and put them in one list
     const groupSnaps = matchingSnappmaps.flatMap((snappmap) => snappmap.snaps);
     // console.log('Een snapje:',groupSnaps[0] )
-
-    // filter snaps from anne fleur
-    const anneFleurSnaps = groupSnaps.filter(
-        (snap) => snap.author === userUuid
-    )
 
     // Get the user's reactions that belong to the group
     const groupReactions = reactions.filter((reaction) =>
@@ -98,7 +109,7 @@ export async function load({ fetch }) {
     0
   );
 
-  console.log(totalStars);
+//   console.log(totalStars);
 
-  return { user, groups: groupsWithSnaps, totalStars };
+  return { user, groups: groupsWithSnaps, totalStars, totalSnaps };
 }
