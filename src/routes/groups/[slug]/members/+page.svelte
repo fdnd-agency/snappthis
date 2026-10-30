@@ -1,7 +1,7 @@
 <!-- Members page of a group: list of members, and a form to invite new members -->
 <script>
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Header from '$lib/components/organisms/Header.svelte';
+	import Footer from '$lib/components/organisms/Footer.svelte';
 	import InviteMembersForm from '$lib/components/InviteMembersForm.svelte';
 	import InviteReviewList from '$lib/components/InviteReviewList.svelte';
 
