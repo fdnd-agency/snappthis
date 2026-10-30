@@ -9,7 +9,37 @@
     --font-size-h3: clamp(1.424rem, 1.25rem + 0.5vw, 1.602rem);
     --font-size-h2: clamp(1.602rem, 1.4rem + 0.6vw, 1.802rem);
     --font-size-h1: clamp(1.802rem, 1.55rem + 0.7vw, 2.027rem);
-    
+
+    /* =========================
+       SPACING
+       Ruimte tussen interface-elementen (zie issue #267)
+       ========================= */
+    --spacing-xs: 0.5rem; /* 8px */
+    --spacing-s: 1rem; /* 16px */
+    --spacing-m: 1.875rem; /* 30px */
+    --spacing-l: 2.625rem; /* 42px */
+
+    --spacing-header-inline: 1.4rem; /* ruimte links en rechts in de header */
+    --grid-gap: 2.5px; /* ruimte tussen de foto's in een grid */
+
+    /* =========================
+       LAYOUT
+       ========================= */
+    --bar-height: 9dvh;
+    --bottom-nav-icon-height: 36%;
+    --icon-width: 2.125rem;
+
+    /* =========================
+       ANIMATION
+       ========================= */
+    --transition-duration: 0.3s;
+    --hover-scale: 1.05;
+
+    /* =========================
+       COLOR NEUTRAL
+       ========================= */
+    --color-white: hsl(0, 0%, 100%);
+
     /* =========================
        COLOR ACCENT - GREEN
        ========================= */

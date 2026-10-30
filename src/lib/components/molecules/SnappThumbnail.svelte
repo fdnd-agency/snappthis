@@ -40,7 +40,7 @@
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--accent-color-on-light-bg);
+			outline: 2px solid var(--color-accent-green-black-20);
 			outline-offset: -2px;
 		}
 	}
