@@ -57,11 +57,11 @@ section {
 }
 
 .profile-details {
-  margin-top: 0.3rem;
+  margin-top: var(--spacing-xs);
 } 
 
 .email {
-  margin-top: 0.3rem;
+  margin-top: var(--spacing-xs);
 }
 
 ul {
@@ -69,7 +69,7 @@ ul {
   justify-content: space-evenly;
   width: 100%;
   list-style: none;
-  margin-top: 2.5rem;
+  margin-top: var(--spacing-l);
   gap: var(--spacing-s);
 }
 
@@ -77,7 +77,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:0.2rem;
+  gap: var(--spacing-xs);
   font-size: var(--font-size-h5);
 }
 

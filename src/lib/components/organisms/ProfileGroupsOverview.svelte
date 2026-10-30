@@ -63,19 +63,13 @@
     display: grid;
     grid-template-columns: minmax(0,1fr) auto;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
     width: 100%;
     padding: var(--spacing-s);
   }
 
-  @media (min-width: 768px) {
-    .top {
-      padding-inline: 1rem ;
-    }
-  }
-
   h3 {
-    font-size: 1.3rem;
+    font-size: var(--font-size-h5);
     font-weight: 400;
     color: var(--color-accent-blue);
     margin: 0;
@@ -85,7 +79,7 @@
 
   @media (min-width: 768px) {
     h3 {
-      font-size: 1.6rem;
+      font-size: var(--font-size-h3);
       transform-origin: left center;
     }
   }
@@ -106,7 +100,7 @@
   ul {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap:  var(--spacing-xs);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -125,7 +119,7 @@
   button {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: var(--spacing-xs);
     padding: 0;
     cursor: pointer;
   }
