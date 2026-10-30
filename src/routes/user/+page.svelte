@@ -13,7 +13,7 @@
 
 <Header title="You"/>
 
-<ProfileOverview user={data.user}/>
+<ProfileOverview user={data.user} totalStars={data.totalStars} totalSnaps={data.totalSnaps}/>
 
 <ProfileGroupsOverview  groups={data.groups}/>
 

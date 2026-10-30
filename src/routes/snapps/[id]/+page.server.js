@@ -46,8 +46,6 @@ export const actions = {
       `${url}?filter[snap][_eq]=${snapUuid}&filter[user][_eq]=${userUuid}`
     );
 
-    // console.log(responses);
-
     const { data: existingActions } = await responses.json();
 
     const existingReaction = existingActions.find(
@@ -64,7 +62,6 @@ export const actions = {
         (reaction) => reaction.action === oppositeAction
       );
 
-      console.log(oppositeReaction);
     }
 
     // Kies één actie
@@ -107,7 +104,6 @@ export const actions = {
         }),
       });
 
-      console.log(responseAction.status);
     }
   },
 };
