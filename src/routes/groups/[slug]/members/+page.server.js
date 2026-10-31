@@ -161,6 +161,7 @@ export const actions = {
 
 		// 4. TODO #255: save the invite in Directus with status "pending",
 		// once the team has decided where invites are stored (new collection or snappthis_user).
+		// Note: refreshing after an invite resends the POST (tested without JS). Prevent double invites.
 
 		// 5. Send the remaining list back, plus which address was approved
 		return {
