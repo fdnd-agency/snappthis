@@ -2,6 +2,7 @@
     // Props control the content and optional elements of the header.
     let {
         title = '',
+        children,
         showBackButton = false,
         showAddButton = false,
         backUrl = '/',
@@ -29,6 +30,9 @@
     {/if}
 
     <h1 class="title" >{title}</h1>
+    <div class="header-actions">
+        {@render children?.()}
+    </div>
 
     {#if showAddButton && addUrl}
         <!-- + als link (alleen als er een addUrl is meegegeven). Zodat het formulier alleen op de Groups-pagina wordt getoond wanneer je op het plusje klikt. -->
@@ -74,8 +78,8 @@
         align-items: center;
         padding-inline: var(--spacing-header-inline);
         height: var(--bar-height);
-        background-color: var(--primary-color);
-        color: var(--lightest-color);
+        background-color: var(--color-accent-blue-black-30);
+        color: var(--color-white);
         position: sticky;
         top: 0;
         z-index: 1;
@@ -83,14 +87,19 @@
 
     .title {
         grid-column: 2;
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         width: max-content;
         justify-self: center;
     }
 
+    .header-actions {
+        grid-column: 3;
+        justify-self: end;
+    }
+
     details {
         grid-column: 2;
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-h3);
         width: max-content;
         justify-self: center;
     }
@@ -114,7 +123,7 @@
         svg {
             height: calc(var(--bar-height) * 0.40);
             width: auto;
-            fill: var(--lightest-color);
+            fill: var(--color-white);
         }
     }
 
@@ -123,7 +132,7 @@
         justify-self: end;
 
         &:focus-visible {
-            outline: 3px solid var(--lightest-color);
+            outline: 3px solid var(--color-white);
             outline-offset: 4px;
         }
     }
@@ -135,7 +144,7 @@
         width: calc(var(--bar-height) * 0.40);
         height: auto;
         aspect-ratio: 1 / 1;
-        fill: var(--lightest-color);
+        fill: var(--color-white);
     }
 
     /* Alleen animeren als de gebruiker geen minder beweging heeft ingesteld */
@@ -159,7 +168,8 @@
         right: calc(var(--spacing-header-inline) + var(--bar-height) * 0.2 - 0.6rem);
         width: 1.2rem;
         height: 0.6rem;
-        background-color: var(--pill-link-bg-color);
+        background-color: var(--color-accent-blue-white-90);
         clip-path: polygon(50% 0, 100% 100%, 0 100%); /* knipt een driehoek uit het vlak */
     }
+    
 </style>

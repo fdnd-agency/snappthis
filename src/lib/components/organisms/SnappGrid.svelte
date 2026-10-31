@@ -33,7 +33,7 @@
 
 	.empty {
 		padding: var(--spacing-s);
-		color: var(--text-color-on-light-bg);
-		font-size: var(--font-size-xs);
+		color: var(--color-accent-blue-white-50);
+		font-size: var(--font-size-p);
 	}
 </style>

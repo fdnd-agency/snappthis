@@ -5,9 +5,9 @@ import Male from '$lib/assets/icons/Male.svg';
 import Groups from '$lib/assets/icons/Groups.svg';
 import Snapps from '$lib/assets/icons/Snapps.svg';
 
-let { user } = $props();
+let { user,totalStars,totalSnaps } = $props();
 
-console.log(user);
+// console.log(user);
 </script>
 
 
@@ -25,19 +25,19 @@ console.log(user);
   <ul>
     <li>
       <img src={Snapps} alt=""/>
-      <span>29</span>
+      <span>{totalSnaps}</span>
       <span>snapps</span>
     </li>
 
     <li>
       <img src={Groups} alt=""/>
-      <span>4</span>
+      <span>{user.groups.length}</span>
       <span>groups</span>
     </li>
 
     <li>
       <img src={Star} alt="" />
-      <span>0</span>
+      <span>{totalStars}</span>
       <span>stars</span>
     </li>
   </ul>
@@ -52,16 +52,16 @@ section {
   align-items: center;
   width: 100%;
   height: 40vh;
-  background-color: var(--pill-link-bg-color);
+  background-color: var(--color-accent-blue-white-90);
   padding: var(--spacing-m);
 }
 
 .profile-details {
-  margin-top: 0.3rem;
+  margin-top: var(--spacing-xs);
 } 
 
 .email {
-  margin-top: 0.3rem;
+  margin-top: var(--spacing-xs);
 }
 
 ul {
@@ -69,7 +69,7 @@ ul {
   justify-content: space-evenly;
   width: 100%;
   list-style: none;
-  margin-top: 2.5rem;
+  margin-top: var(--spacing-l);
   gap: var(--spacing-s);
 }
 
@@ -77,13 +77,19 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:0.2rem;
-  font-size: var(--font-size-s);
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-h5);
 }
 
 li img {
-  height: 1.9rem;
+  height: 1.5rem;
   width: auto;
+}
+
+@media (min-width: 768px){
+ li img {
+  height: 1.9rem;
+ }
 }
 
 

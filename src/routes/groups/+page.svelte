@@ -5,11 +5,74 @@
 
     import CreateGroupForm from '$lib/components/organisms/CreateGroupForm.svelte';
 
-    // form = wat de action terug geeft (naam + foutmelding of success), of null
+    import GroupManagementMenu from '$lib/components/organisms/GroupManagementMenu.svelte';
+
+    import { goto } from '$app/navigation';
+
+    // form = wat de action terug geeft (naam + foutmelding, of een melding), of null
     let { data, form } = $props()
 
-    // Formulier openhouden als de action een fout terug geeft, en sluiten als de groep is aangemaakt
-    const showForm = $derived(form?.error || (data.showForm && !form?.success))
+    // Formulier openhouden als de action een fout terug geeft, en sluiten na een melding
+    const showForm = $derived(form?.error || (data.showForm && !form?.message))
+
+    // Slug van de groep waarvan het menu open is. Na een melding (left / deleted) gaat het menu dicht.
+    const openMenu = $derived(form?.message ? null : data.openMenu)
+
+    // ----- Enhancement: menu openen met rechtsklik (desktop) of lang indrukken (telefoon) -----
+
+    // Staat JavaScript aan? $effect draait alleen in de browser, dus zonder JavaScript blijft dit false
+    let hasJs = $state(false)
+    $effect(() => {
+        hasJs = true // JavaScript werkt: de ⋮ mag verborgen worden (zie CSS .enhanced)
+    })
+
+    let timer // de timer van lang indrukken, zodat we hem kunnen stoppen
+    let isTouching = false // staat er nu een vinger op het scherm?
+    let longPressed = false // is er lang ingedrukt? Dan de klik daarna tegenhouden
+
+    // Menu openen of sluiten via dezelfde URL als de ⋮-link, zodat de server hetzelfde doet
+    function toggleMenu(slug) {
+        goto(
+            openMenu === slug ? '/groups' : `/groups?menu=${slug}`, // al open? dan dicht, anders open
+            { noScroll: true } // op dezelfde plek op de pagina blijven
+        )
+    }
+
+    // Vinger op de rij: start een timer. Nodig voor iOS, want Safari stuurt geen contextmenu-event.
+    function startPress(event, slug) {
+        longPressed = false // nieuwe druk, dus opnieuw beginnen
+        if (event.pointerType !== 'touch') return // muis? Dan niets doen, daarvoor is rechtsklik
+
+        isTouching = true // er staat een vinger op het scherm
+        timer = setTimeout(() => {
+            longPressed = true // 500 ms vastgehouden: dit is lang indrukken
+            toggleMenu(slug) // menu openen
+        }, 500)
+    }
+
+    // Losgelaten, van de rij af geschoven of gaan scrollen (pointercancel) voor de 500 ms
+    function cancelPress() {
+        isTouching = false // vinger is weg
+        clearTimeout(timer) // timer stoppen, dus het menu gaat niet open
+    }
+
+    // contextmenu = rechtsklik (desktop), lang indrukken (Android) of de menutoets (toetsenbord)
+    function openWithContextMenu(event, slug) {
+        event.preventDefault() // het menu van de browser niet tonen
+        if (longPressed) return // de iOS-timer heeft het menu al geopend, dus niet nog een keer
+
+        clearTimeout(timer) // timer stoppen, anders gaat het menu straks weer dicht
+        if (isTouching) longPressed = true // was het een vinger? Dan de klik daarna tegenhouden
+        toggleMenu(slug) // menu openen
+    }
+
+    // Na lang indrukken niet alsnog naar de groepspagina gaan (de groepsnaam is een link)
+    function blockClickAfterLongPress(event) {
+        if (longPressed) { // was dit een lang indrukken?
+            event.preventDefault() // ja: klik tegenhouden, de link wordt niet gevolgd
+            longPressed = false // weer resetten voor de volgende keer
+        }
+    }
 </script>
 
 <!-- De + opent het formulier via /groups?create en sluit het weer via /groups -->
@@ -26,18 +89,62 @@
     <CreateGroupForm result={form} />
 {/if}
 
-{#if form?.success}
+{#if form?.message}
     <!-- role="status": een screenreader leest de melding voor -->
-    <p class="success" role="status">Group "{form.name}" has been created.</p>
+    <p class="message" role="status">{form.message}</p>
 {/if}
 
-<ul class="groups">
+<ul class="groups" class:enhanced={hasJs}>
     {#each data.groups as group}
-        <li class="group-list-container">
-            <a href={`/groups/${group.slug}`}>
-                <div class="group-list-stats">
-                    <h2>{group.name}</h2>
-                    <p>{group.users.length} members</p>
+        <li>
+            <!-- De ⋮-link is het alternatief voor toetsenbord en screenreader, daarom mag deze div events hebben -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div
+                class="group-list-container"
+                onpointerdown={(event) => startPress(event, group.slug)}
+                onpointerup={cancelPress}
+                onpointerleave={cancelPress}
+                onpointercancel={cancelPress}
+                oncontextmenu={(event) => openWithContextMenu(event, group.slug)}
+                onclickcapture={blockClickAfterLongPress}
+            >
+                <!-- De ⋮ opent het menu via /groups?menu=slug en sluit het weer via /groups -->
+                <a
+                    href={openMenu === group.slug ? '/groups' : `/groups?menu=${group.slug}`}
+                    class="menu-link"
+                    class:open={openMenu === group.slug}
+                    aria-label={openMenu === group.slug ? `Close the menu of ${group.name}` : `Manage ${group.name}`}
+                >
+                    <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="5" r="2.2" />
+                        <circle cx="12" cy="12" r="2.2" />
+                        <circle cx="12" cy="19" r="2.2" />
+                    </svg>
+                </a>
+
+                <a href={`/groups/${group.slug}`}>
+                    <div class="group-list-stats">
+                        <h2>{group.name}</h2>
+                        <p>{group.users.length} members</p>
+                    </div>
+                </a>
+
+                <div class="group-list-interactive">
+                    <a href="#" aria-label="Add member">
+                        <svg width="40" height="27" viewBox="0 0 59 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.4986 0.5C35.5632 0.5 30.7254 5.33259 30.7254 11.2773C30.7254 17.2212 35.5581 22.0625 41.4986 22.0625C47.4412 22.0625 52.2746 17.2212 52.2746 11.2773C52.2783 5.33259 47.4404 0.5 41.4986 0.5ZM24.5 46.5H58.5V42.614C58.5 32.8671 50.8685 24.9375 41.5015 24.9375C32.1191 24.9375 24.5007 32.8678 24.5007 42.614V46.5H24.5Z" fill="currentColor"/>
+                            <path d="M14.4639 0.25V10.5361H24.75V14.4639H14.4639V24.75H10.5361V14.4639H0.25V10.5361H10.5361V0.25H14.4639Z" fill="currentColor" stroke="currentColor" stroke-width="0.5"/>
+                        </svg>
+                    </a>
+
+                    <a href="#" aria-label="Join group">
+                        <svg width="40" height="27" viewBox="0 0 73 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M47.9951 36.4742C45.3368 36.4742 43.3224 35.8756 42.0072 34.6949C40.665 33.4894 39.9844 31.8685 39.9844 29.876C39.9844 29.876 39.9844 28.6377 39.9844 28.5957C39.9797 28.1969 40.0893 27.7705 40.2935 27.3966C40.5471 26.9337 41.1835 26.1583 42.6007 26.1583C44.0203 26.1583 44.6538 26.9365 44.9051 27.4003C45.176 27.902 45.2105 28.3659 45.2068 28.598L45.2072 30.0053C45.2072 30.7654 45.3998 31.3146 45.7965 31.6848C46.2044 32.066 46.914 32.2589 47.9056 32.2589C48.8967 32.2589 49.6063 32.066 50.0142 31.6853C50.411 31.3146 50.604 30.7649 50.604 30.0053C50.604 29.3974 50.4231 28.8902 50.051 28.4559C49.5858 27.9117 48.9951 27.3962 48.2949 26.9226C47.5471 26.4163 46.7261 25.9105 45.8548 25.4199C44.9228 24.8956 44.0389 24.3108 43.2268 23.6836C42.3727 23.0226 41.6478 22.2616 41.0711 21.4202C40.4394 20.5008 40.1186 19.4033 40.1186 18.1585C40.1186 16.1425 40.8007 14.5146 42.1452 13.3206C43.4604 12.1529 45.4436 11.5608 48.0399 11.5608C50.6683 11.5608 52.6678 12.1594 53.9825 13.3405C55.2916 14.5151 55.9718 16.0876 56.0049 18.014C56.0049 18.014 56.0058 18.1576 56.0044 18.2817C55.9797 18.5877 55.8902 19.0151 55.5942 19.4757C55.107 20.234 54.3219 20.6351 53.3228 20.6351C52.3172 20.6351 51.5191 20.2086 51.0758 19.4342C50.7914 18.9394 50.7424 18.4839 50.7382 18.2563V18.0297C50.7382 17.2608 50.5541 16.7056 50.1746 16.3326C49.8044 15.968 49.0977 15.7756 48.1294 15.7756C47.1615 15.7756 46.4543 15.968 46.0841 16.3322C45.7047 16.7051 45.5205 17.2497 45.5205 17.9979C45.5205 18.6085 45.7028 19.1226 46.079 19.5703C46.541 20.1205 47.1298 20.6393 47.8291 21.1123C48.5755 21.6182 49.4021 22.1226 50.2869 22.6119C51.2403 23.1408 52.1336 23.7265 52.9424 24.3523C53.7946 25.0114 54.52 25.7725 55.0972 26.6139C55.7294 27.5351 56.0506 28.6326 56.0506 29.876C56.0506 31.8708 55.3606 33.494 54.0007 34.6991C52.6716 35.8769 50.651 36.4742 47.9951 36.4742ZM48.4399 47.6236C45.2091 47.6236 42.0739 46.9986 39.1214 45.7659C36.2706 44.5751 33.7107 42.8706 31.5131 40.7005C29.3149 38.5303 27.589 36.0029 26.383 33.1871C25.1336 30.2702 24.5 27.1737 24.5 23.984C24.5 20.7948 25.1336 17.6983 26.383 14.7814C27.589 11.9651 29.3154 9.43725 31.5131 7.26848C33.7103 5.09787 36.2706 3.39387 39.1214 2.2031C41.8189 1.07694 44.2786 0.457098 47.1452 0.358329C47.4175 0.349098 47.1643 0.344482 47.4445 0.344482C48.7382 0.344482 49.7904 1.38387 49.7904 2.66141C49.7904 3.93894 48.7382 4.97879 47.4445 4.97879C47.1839 4.97879 47.286 5.01156 47.0986 5.02402C37.1075 5.70617 29.1904 13.9497 29.1904 23.984C29.1904 34.4646 37.8259 42.9902 48.4399 42.9902C59.0543 42.9902 67.6897 34.4646 67.6897 23.984C67.6897 17.7708 66.1037 13.5209 61.5937 10.1568L61.6012 18.3233C61.6021 19.6003 60.5508 20.6406 59.2571 20.6425C57.9643 20.6425 56.9121 19.6036 56.9112 18.3265L56.9019 5.87556C56.9019 5.84648 56.9014 5.8391 56.9159 5.62541C56.9224 5.56725 56.927 5.53448 56.9573 5.37387C57.0473 4.99264 57.2082 4.67787 57.4674 4.36633C57.5923 4.22233 57.7131 4.11571 57.9177 3.96525C58.2408 3.7511 58.5872 3.62094 58.9359 3.57756C58.9629 3.57341 59.0007 3.56833 59.2175 3.55771C59.224 3.55771 59.2613 3.55679 59.2674 3.55679C59.3228 3.55679 59.3839 3.56141 59.5159 3.57387C59.5918 3.58171 59.6044 3.58171 59.8245 3.62879C59.8883 3.64448 59.9205 3.65371 60.1019 3.71694C60.1667 3.74233 60.1965 3.75525 60.3382 3.82356C64.1527 5.8031 66.5639 7.96817 68.8198 11.5769C71.1489 15.2993 72.3793 19.5897 72.3793 23.984C72.3793 27.1751 71.7462 30.2716 70.4967 33.1871C69.2907 36.0025 67.5653 38.5303 65.3671 40.7009C63.1699 42.8697 60.61 44.5742 57.7587 45.7659C54.8058 46.9986 51.6702 47.6236 48.4399 47.6236Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M53.7144 5.58C52.1573 5.58 50.8906 4.32831 50.8906 2.79C50.8906 1.25169 52.1573 0 53.7144 0C55.2715 0 56.5386 1.25169 56.5386 2.79C56.5386 4.32831 55.2715 5.58 53.7144 5.58Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M59.2852 27.3335C57.7281 27.3335 56.4614 26.0823 56.4614 24.544C56.4614 23.0066 57.7281 21.7549 59.2852 21.7549C60.8423 21.7549 62.1094 23.0066 62.1094 24.544C62.1094 26.0823 60.8423 27.3335 59.2852 27.3335Z" fill="currentColor"/>
+                            <path d="M14.4639 0.373535V10.6597H24.75V14.5874H14.4639V24.8735H10.5361V14.5874H0.25V10.6597H10.5361V0.373535H14.4639Z" fill="currentColor" stroke="currentColor" stroke-width="0.5"/>
+                        </svg>
+                    </a>
                 </div>
             </a>
 
@@ -58,6 +165,10 @@
                     </svg>
                 </a>
             </div>
+
+            {#if openMenu === group.slug}
+                <GroupManagementMenu {group} />
+            {/if}
         </li>
     {/each}
 </ul>
@@ -65,10 +176,57 @@
 <Footer/>
 
 <style>
-    .success {
+    .message {
         padding: var(--spacing-s);
-        background-color: var(--pill-link-bg-color);
-        color: var(--dark-text-color-on-light-bg);
-        font-size: var(--font-size-xs);
+        background-color: var(--color-accent-blue-white-90);
+        color: var(--color-accent-blue);
+        font-size: var(--font-size-p);
+    }
+
+    /* ⋮-link links van de groepsnaam */
+    .menu-link {
+        flex: none; /* niet meegroeien zoals de groepsnaam-link (.groups a in global.css) */
+        justify-content: center;
+        width: 2rem;
+        color: var(--color-accent-blue-white-20);
+
+        &:focus-visible {
+            outline: 2px solid var(--color-accent-blue-black-30);
+            outline-offset: -2px;
+        }
+    }
+
+    .menu-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: currentColor;
+    }
+
+    .group-list-container{
+        padding: 0 1rem 0 0;
+    }
+
+    /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus de ⋮ hoeft niet in beeld */
+    .enhanced {
+        .group-list-container {
+            -webkit-touch-callout: none; /* iOS: geen eigen menu van de telefoon bij lang indrukken */
+            user-select: none; /* geen tekst selecteren bij lang indrukken */
+        }
+
+        /* ⋮ visueel verborgen (WebAIM-techniek), maar nog bereikbaar met Tab en leesbaar voor een screenreader.
+           Zichtbaar bij focus of als het menu open is. */
+        .menu-link:not(:focus-visible, .open) {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        /* Is de ⋮ verborgen? Dan neemt hij geen ruimte in, dus de naam krijgt zelf ruimte aan de linkerkant */
+        .group-list-container:has(.menu-link:not(:focus-visible, .open)) {
+            padding-left: var(--spacing-s);
+        }
     }
 </style>

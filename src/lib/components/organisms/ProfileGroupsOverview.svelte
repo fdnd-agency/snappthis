@@ -19,21 +19,21 @@
       <li>
         <button type="button" aria-label="View likes">
           <img src={Heart} alt="" />
-          <span>0</span>
+          <span>{group.likes}</span>
         </button>
       </li>
 
       <li>
         <button type="button" aria-label="View Tomatoes">
           <img src={Tomato} alt="" />
-          <span>0</span>
+          <span>{group.tomatoes}</span>
         </button>
       </li>
 
       <li>
         <button type="button" aria-label="View Stars">
           <img src={StarProfile} alt="" />
-          <span>0</span>
+          <span>{group.stars}</span>
         </button>
       </li>
     </ul>
@@ -60,28 +60,37 @@
   }
 
   .top {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
     align-items: center;
+    gap: var(--spacing-xs);
     width: 100%;
     padding: var(--spacing-s);
   }
 
   h3 {
-    font-size: 1.6rem;
+    font-size: var(--font-size-h5);
     font-weight: 400;
-    color: var(--dark-text-color-on-light-bg);
+    color: var(--color-accent-blue);
     margin: 0;
+    min-width: 0;
+    transition: transform var(--transition-duration);
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      font-size: var(--font-size-h3);
+      transform-origin: left center;
+    }
   }
 
   h3:hover {
     transform: scale(var(--hover-scale));
-    transition: var(--transition-duration);
   }
 
   p {
-    font-size: var(--font-size-s);
-    color: var(--dark-text-color-on-light-bg);
+    font-size: var(--font-size-h5);
+    color: var(--color-accent-blue);
     align-self: flex-start;
     padding-inline: var(--spacing-s);
     margin: 0;
@@ -90,8 +99,17 @@
 
   ul {
     display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-s);
+    align-items: center;
+    gap:  var(--spacing-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 768px){
+    ul {
+      gap: var(--spacing-s);
+    }
   }
 
   li {
@@ -101,17 +119,26 @@
   button {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: var(--spacing-xs);
     padding: 0;
+    cursor: pointer;
   }
 
   button img {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.1em;
+    height: 1.1em;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+   button img {
+     width: 1.4em;
+     height: 1.4em;
+     }
   }
 
   button:focus-visible {
-  outline: 2px solid var(--accent-color-on-light-bg) ;
+  outline: 2px solid var(--color-accent-green-black-20) ;
   outline-offset: 0.2rem;
   }
 
