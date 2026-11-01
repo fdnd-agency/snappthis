@@ -30,9 +30,11 @@
     {/if}
 
     <h1 class="title" >{title}</h1>
+    {#if children}
     <div class="header-actions">
         {@render children?.()}
     </div>
+    {/if}
 
     {#if showAddButton && addUrl}
         <!-- + als link (alleen als er een addUrl is meegegeven). Zodat het formulier alleen op de Groups-pagina wordt getoond wanneer je op het plusje klikt. -->
