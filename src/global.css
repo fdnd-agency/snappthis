@@ -18,6 +18,7 @@ html {
 @font-face {
     font-family: 'Bariol-Regular';
     src: url('../fonts/Bariol_Regular.otf') format('opentype');
+    font-display: swap;
 }
 
 @view-transition {

@@ -36,7 +36,21 @@
 </section>
 {/if}
 
-<img class="snap-image" src="https://fdnd-agency.directus.app/assets/{data.snap.picture}" alt="" />
+<picture>
+
+<source
+srcset="https://fdnd-agency.directus.app/assets/{data.snap.picture}?format=avif&width=800"
+type="image/avif"
+/>
+
+<source
+srcset="https://fdnd-agency.directus.app/assets/{data.snap.picture}?format=webp&width=800"
+type="image/webp"
+/>
+
+<img class="snap-image" src="https://fdnd-agency.directus.app/assets/{data.snap.picture}?width=800"
+width="800" height="800" alt="" loading="eager" fetchpriority="high"  />
+</picture>
 
 <div class="snap-buttons">
 {#each data.snap.snapmap?.groups ?? [] as group}
