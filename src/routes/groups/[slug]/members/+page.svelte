@@ -67,9 +67,9 @@
 
 	.success {
 		padding: var(--spacing-s);
-		background-color: var(--pill-link-bg-color);
-		color: var(--dark-text-color-on-light-bg);
-		font-size: var(--font-size-xs);
+		background-color: var(--color-accent-blue-white-90);
+		color: var(--color-accent-blue);
+		font-size: var(--font-size-p);
 	}
 
 	.members {
@@ -77,12 +77,12 @@
 
 		li {
 			padding: var(--spacing-s);
-			border-block-end: 1px solid var(--pill-link-bg-color);
-			color: var(--dark-text-color-on-light-bg);
+			border-block-end: 1px solid var(--color-accent-blue-white-90);
+			color: var(--color-accent-blue);
 		}
 	}
 
 	.empty {
-		color: var(--text-color-on-light-bg);
+		color: var(--color-accent-blue-white-50);
 	}
 </style>

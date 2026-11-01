@@ -78,7 +78,7 @@
 		display: grid;
 		gap: var(--spacing-s);
 		padding: var(--spacing-m) var(--spacing-s);
-		background-color: var(--pill-link-bg-color);
+		background-color: var(--color-accent-blue-white-90);
 
 		@media (min-width: 768px) {
 			padding-inline: max(calc((100% - 600px) / 2), var(--spacing-s));
@@ -86,30 +86,30 @@
 	}
 
 	.label {
-		font-size: var(--font-size-m);
-		color: var(--dark-text-color-on-light-bg);
+		font-size: var(--font-size-h3);
+		color: var(--color-accent-blue);
 	}
 
 	.hint {
-		font-size: var(--font-size-xs);
-		color: var(--icon-color-on-light-bg);
+		font-size: var(--font-size-p);
+		color: var(--color-accent-blue-white-20);
 	}
 
 	.input {
 		width: 100%;
 		padding: 0.75rem var(--spacing-s);
 		border: 0;
-		background-color: var(--lightest-color);
-		color: var(--dark-text-color-on-light-bg);
+		background-color: var(--color-white);
+		color: var(--color-accent-blue);
 		font: inherit;
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 
 		&::placeholder {
-			color: var(--text-color-on-light-bg);
+			color: var(--color-accent-blue-white-50);
 		}
 
 		&:focus-visible {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 2px;
 		}
 	}
@@ -119,9 +119,9 @@
 		display: grid;
 		gap: 0.25rem;
 		padding: var(--spacing-s);
-		background-color: var(--lightest-color);
-		font-size: var(--font-size-xs);
-		color: var(--dark-text-color-on-light-bg);
+		background-color: var(--color-white);
+		font-size: var(--font-size-p);
+		color: var(--color-accent-blue);
 
 		ul {
 			padding-inline-start: 1.25rem;
@@ -134,7 +134,7 @@
 
 	/* Not only colour: the border and the title also show it is an error */
 	.error {
-		border-inline-start: 4px solid var(--alert-accent-color);
+		border-inline-start: 4px solid var(--color-accent-red);
 	}
 
 	.error-title {
@@ -142,7 +142,7 @@
 	}
 
 	.notice {
-		border-inline-start: 4px solid var(--icon-color-on-light-bg);
+		border-inline-start: 4px solid var(--color-accent-blue-white-20);
 	}
 
 	.submit-button {
@@ -150,10 +150,10 @@
 		padding: 0.75rem var(--spacing-m);
 		border: 0;
 		border-radius: 2rem;
-		background-color: var(--accent-color-on-light-bg);
-		color: var(--lightest-color);
+		background-color: var(--color-accent-green-black-20);
+		color: var(--color-white);
 		font: inherit;
-		font-size: var(--font-size-m);
+		font-size: var(--font-size-h3);
 		cursor: pointer;
 		transition: scale var(--transition-duration);
 
@@ -164,7 +164,7 @@
 		}
 
 		&:focus-visible {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 4px;
 		}
 	}

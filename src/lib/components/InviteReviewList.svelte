@@ -51,15 +51,15 @@
 <style>
 	.review {
 		padding-block: var(--spacing-s);
-		background-color: var(--pill-link-bg-color);
+		background-color: var(--color-accent-blue-white-90);
 	}
 
 	.title {
 		padding-inline: var(--spacing-s);
 		padding-block-end: var(--spacing-s);
-		font-size: var(--font-size-s);
+		font-size: var(--font-size-h5);
 		font-weight: 400;
-		color: var(--dark-text-color-on-light-bg);
+		color: var(--color-accent-blue);
 	}
 
 	.list {
@@ -76,14 +76,14 @@
 		align-items: center;
 		gap: 0.25rem var(--spacing-s);
 		padding: 0.75rem var(--spacing-s);
-		border-block-start: 1px solid var(--light-text-color-on-dark-bg);
-		background-color: var(--lightest-color);
+		border-block-start: 1px solid var(--color-accent-blue-white-70);
+		background-color: var(--color-white);
 	}
 
 	.email {
 		grid-area: email;
 		overflow-wrap: anywhere;
-		color: var(--dark-text-color-on-light-bg);
+		color: var(--color-accent-blue);
 	}
 
 	.can-start {
@@ -91,13 +91,13 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		font-size: var(--font-size-xs);
-		color: var(--icon-color-on-light-bg);
+		font-size: var(--font-size-p);
+		color: var(--color-accent-blue-white-20);
 
 		input {
 			width: 1.25rem;
 			aspect-ratio: 1 / 1;
-			accent-color: var(--accent-color-on-light-bg);
+			accent-color: var(--color-accent-green-black-20);
 		}
 	}
 
@@ -109,7 +109,7 @@
 		aspect-ratio: 1 / 1;
 		border: 0;
 		border-radius: 50%;
-		background-color: var(--accent-color-on-light-bg);
+		background-color: var(--color-accent-green-black-20);
 		cursor: pointer;
 		transition: scale var(--transition-duration);
 
@@ -120,13 +120,13 @@
 		}
 
 		&:focus-visible {
-			outline: 3px solid var(--primary-color);
+			outline: 3px solid var(--color-accent-blue-black-30);
 			outline-offset: 3px;
 		}
 
 		svg {
 			width: 45%;
-			fill: var(--lightest-color);
+			fill: var(--color-white);
 		}
 	}
 </style>
