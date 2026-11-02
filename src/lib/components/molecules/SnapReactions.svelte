@@ -67,6 +67,14 @@ import StarWhite from "$lib/assets/icons/StarWhite.svg";
 
 form {
     display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+@media (min-width: 768px) {
+    form {
+        gap: var(--spacing-s);
+    }
 }
 
 button {

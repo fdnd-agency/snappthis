@@ -108,6 +108,7 @@ width="800" height="800" alt="" loading="eager" fetchpriority="high"  />
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
+  padding-left: 4px;
 }
 
 .snap-buttons p {
