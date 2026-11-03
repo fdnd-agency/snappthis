@@ -17,6 +17,7 @@
   import SnapReactions from '$lib/components/molecules/SnapReactions.svelte';
   import SnapReactionFeedback from '$lib/components/molecules/SnapReactionFeedback.svelte';
   import GroupsGrey from '$lib/assets/icons/GroupsGrey.svg';
+  import Footer from '$lib/components/organisms/Footer.svelte';
 </script>
 
 <Header showBackButton={true} backUrl={`/snappmaps/${data.snap.snapmap.slug}`}>
@@ -68,6 +69,8 @@ width="800" height="800" alt="" loading="eager" fetchpriority="high"  />
   {new Date(data.snap.date_created).toLocaleDateString("nl-NL", options)}
   {new Date(data.snap.date_created).toLocaleTimeString("nl-NL", timeOptions)}
 </p>
+
+<Footer />
 
 <style>
 
