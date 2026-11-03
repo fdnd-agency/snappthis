@@ -35,29 +35,29 @@ let starCount =$derived (
 )
 
 import HeartActive from "$lib/assets/icons/HeartActive.svg";
-import Heart from "$lib/assets/Heart.svg";
+import HeartWhite from "$lib/assets/icons/HeartWhite.svg";
 import TomatoActive from "$lib/assets/icons/TomatoActive.svg"
-import Tomato from "$lib/assets/Tomato.svg";
+import TomatoWhite from "$lib/assets/icons/TomatoWhite.svg";
 import StarActive from "$lib/assets/icons/StarActive.svg"
-import StarProfile from "$lib/assets/StarProfile.svg";
+import StarWhite from "$lib/assets/icons/StarWhite.svg";
 
 </script>
 
 
 <form method="POST" action="?/react">
     <button type="submit" name="action" value="like" aria-pressed="{hasLiked}">
-        <img src={hasLiked ? HeartActive : Heart} alt="" />
+        <img src={hasLiked ? HeartActive : HeartWhite} alt="" />
         <span> {likeCount}</span>
     </button>
 
     <button type="submit" name="action" value="tomato" aria-pressed={hasTomato}>
-        <img src={hasTomato ? TomatoActive : Tomato} alt="" />
+        <img src={hasTomato ? TomatoActive : TomatoWhite} alt="" />
         <span> {tomatoCount}</span>
     </button>
 
 
     <button type="submit" name="action" value="star" aria-pressed={hasStarred} >
-        <img src={hasStarred ? StarActive :StarProfile} alt="" />
+        <img src={hasStarred ? StarActive :StarWhite} alt="" />
         <span> {starCount}</span>
     </button>
 </form>
@@ -67,6 +67,14 @@ import StarProfile from "$lib/assets/StarProfile.svg";
 
 form {
     display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+@media (min-width: 768px) {
+    form {
+        gap: var(--spacing-s);
+    }
 }
 
 button {
