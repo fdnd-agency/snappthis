@@ -53,11 +53,10 @@ export const actions = {
     );
 
     const starResponse = await fetch (
-      `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star`
+      `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star&fields=*,snap.*,snap.snapmap.*`
     );
 
     const { data: existingStars } = await starResponse.json();
-    console.log("bestaande sterren:",existingStars);
 
     // Check if the action is a like or tomato and not a star
     let oppositeReaction;
