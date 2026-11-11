@@ -40,7 +40,7 @@ export const actions = {
     const userUuid = "5e9589a5-ebfa-4a99-87a6-010f2f571444";
     const url = "https://fdnd-agency.directus.app/items/snappthis_action";
 
-    console.log(action, snapUuid, userUuid, url);
+    // console.log(action, snapUuid, userUuid, url);
 
     const responses = await fetch(
       `${url}?filter[snap][_eq]=${snapUuid}&filter[user][_eq]=${userUuid}`
@@ -51,6 +51,13 @@ export const actions = {
     const existingReaction = existingActions.find(
       (reaction) => reaction.action === action
     );
+
+    const starResponse = await fetch (
+      `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star`
+    );
+
+    const { data: existingStars } = await starResponse.json();
+    console.log("bestaande sterren:",existingStars);
 
     // Check if the action is a like or tomato and not a star
     let oppositeReaction;
