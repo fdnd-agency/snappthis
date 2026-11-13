@@ -1,4 +1,4 @@
-<!-- Menu om een groep te beheren, klapt open onder de groep als je op de ⋮ klikt -->
+<!-- Menu om een groep te beheren, klapt open onder de groep als je op het pijltje klikt of lang indrukt -->
 <!-- Werkt zonder JavaScript: de knoppen posten naar de leave- en delete-action in groups/+page.server.js -->
 <script>
 	import { enhance } from '$app/forms';

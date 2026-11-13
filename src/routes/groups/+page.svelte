@@ -97,7 +97,7 @@
 <ul class="groups" class:enhanced={hasJs}>
     {#each data.groups as group}
         <li>
-            <!-- De ⋮-link is het alternatief voor toetsenbord en screenreader, daarom mag deze div events hebben -->
+            <!-- De div heeft events voor lang indrukken en rechtsklik. Dat mag, omdat het pijltje hetzelfde menu opent voor toetsenbord en screenreader -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <div
                 class="group-list-container"
@@ -108,7 +108,14 @@
                 oncontextmenu={(event) => openWithContextMenu(event, group.slug)}
                 onclickcapture={blockClickAfterLongPress}
             >
-                <!-- De ⋮ opent het menu via /groups?menu=slug en sluit het weer via /groups -->
+                <a href={`/groups/${group.slug}`}>
+                    <div class="group-list-stats">
+                        <h2>{group.name}</h2>
+                        <p>{group.users.length} members</p>
+                    </div>
+                </a>
+
+                <!-- Het pijltje opent het menu via /groups?menu=slug en sluit het weer via /groups -->
                 <a
                     href={openMenu === group.slug ? '/groups' : `/groups?menu=${group.slug}`}
                     class="menu-link"
@@ -116,17 +123,8 @@
                     aria-label={openMenu === group.slug ? `Close the menu of ${group.name}` : `Manage ${group.name}`}
                 >
                     <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="5" r="2.2" />
-                        <circle cx="12" cy="12" r="2.2" />
-                        <circle cx="12" cy="19" r="2.2" />
+                        <path d="M6 9l6 6 6-6" /> <!-- pijl naar beneden -->
                     </svg>
-                </a>
-
-                <a href={`/groups/${group.slug}`}>
-                    <div class="group-list-stats">
-                        <h2>{group.name}</h2>
-                        <p>{group.users.length} members</p>
-                    </div>
                 </a>
 
                 <div class="group-list-interactive">
@@ -181,7 +179,9 @@
     .menu-icon {
         width: 1.5rem;
         height: 1.5rem;
-        fill: currentColor;
+        fill: none;
+        stroke: currentColor; /* de lijn krijgt de tekstkleur van de link */
+        stroke-width: 2;
     }
 
     .group-list-container{
