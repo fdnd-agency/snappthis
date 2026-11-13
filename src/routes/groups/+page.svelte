@@ -108,7 +108,7 @@
                 oncontextmenu={(event) => openWithContextMenu(event, group.slug)}
                 onclickcapture={blockClickAfterLongPress}
             >
-                <a href={`/groups/${group.slug}`}>
+                <a href={`/groups/${group.slug}`} class="group-link">
                     <div class="group-list-stats">
                         <h2>{group.name}</h2>
                         <p>{group.users.length} members</p>
@@ -163,7 +163,22 @@
         font-size: var(--font-size-p);
     }
 
-    /* ⋮-link links van de groepsnaam */
+    /* Kleine afstand tussen de groepsnaam en het pijltje */
+    .group-list-container {
+        gap: var(--spacing-xs);
+    }
+
+    /* De naam niet laten meegroeien (.groups a in global.css heeft flex: 1), zodat het pijltje er direct naast staat */
+    .group-link {
+        flex: none;
+    }
+
+    /* De iconen rechts houden: de lege ruimte komt links van de iconen */
+    .group-list-interactive {
+        margin-left: auto;
+    }
+
+    /* Pijltje rechts van de groepsnaam. Zelfde kleur als de iconen: wit haalt op de lichte achtergrond het contrast van 3:1 niet (WCAG 1.4.11) */
     .menu-link {
         flex: none; /* niet meegroeien zoals de groepsnaam-link (.groups a in global.css) */
         justify-content: center;
@@ -184,8 +199,16 @@
         stroke-width: 2;
     }
 
-    .group-list-container{
-        padding: 0 1rem 0 0;
+    /* Menu open: pijltje draait naar boven */
+    .menu-link.open .menu-icon {
+        rotate: 180deg;
+    }
+
+    /* Alleen draaien met animatie als de gebruiker geen minder beweging wil, net als de + in de header */
+    @media (prefers-reduced-motion: no-preference) {
+        .menu-icon {
+            transition: rotate var(--transition-duration);
+        }
     }
 
     /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus de ⋮ hoeft niet in beeld */
