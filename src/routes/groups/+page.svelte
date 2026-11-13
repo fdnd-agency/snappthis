@@ -192,8 +192,8 @@
     }
 
     .menu-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
         fill: none;
         stroke: currentColor; /* de lijn krijgt de tekstkleur van de link */
         stroke-width: 2;
