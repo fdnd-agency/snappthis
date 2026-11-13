@@ -15,12 +15,6 @@
 
 <div class="group-menu">
 	<div class="options">
-		<!-- TODO: opslaan in Directus zodra daar een veld voor bestaat. Nu slaat de checkbox nog niets op. -->
-		<label class="option">
-			<input type="checkbox" class="checkbox" checked />
-			Members can add snapp from roll
-		</label>
-
 		<form method="POST" action="?/leave" use:enhance>
 			<!-- Verborgen veld: zo weet de server om welke groep het gaat -->
 			<input type="hidden" name="uuid" value={group.uuid} />
@@ -70,7 +64,7 @@
 		gap: 0.25rem;
 
 		@container (min-width: 768px) {
-			grid-template-columns: repeat(3, max-content); /* 3 kolommen, zo breed als de tekst */
+			grid-template-columns: repeat(2, max-content); /* 2 kolommen, zo breed als de tekst */
 			gap: var(--spacing-m); 
 		}
 	}
@@ -85,17 +79,6 @@
 		font-size: var(--font-size-h5);
 		text-align: left;
 		cursor: pointer;
-
-		&:focus-visible {
-			outline: 2px solid var(--color-accent-blue-black-30);
-			outline-offset: 2px;
-		}
-	}
-
-	.checkbox {
-		width: 1.4rem;
-		height: 1.4rem;
-		accent-color: var(--color-accent-blue-white-20);
 
 		&:focus-visible {
 			outline: 2px solid var(--color-accent-blue-black-30);
