@@ -123,6 +123,7 @@
                     class="menu-link"
                     class:open={openMenu === group.slug}
                     aria-label={openMenu === group.slug ? `Close the menu of ${group.name}` : `Manage ${group.name}`}
+                    data-sveltekit-keepfocus
                 >
                     <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M6 9l6 6 6-6" /> <!-- pijl naar beneden -->
