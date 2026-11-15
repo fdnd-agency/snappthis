@@ -56,13 +56,15 @@
         clearTimeout(timer) // timer stoppen, dus het menu gaat niet open
     }
 
-    // contextmenu = rechtsklik (desktop), lang indrukken (Android) of de menutoets (toetsenbord)
+    // Opent het menu bij lang indrukken op Android. Een rechtsklik op desktop opent het normale browsermenu.
     function openWithContextMenu(event, slug) {
-        event.preventDefault() // het menu van de browser niet tonen
-        if (longPressed) return // de iOS-timer heeft het menu al geopend, dus niet nog een keer
+        if (!isTouching) return // muis of toetsenbord: het gewone menu van de browser tonen
+
+        event.preventDefault() // het menu van de telefoon niet tonen
+        if (longPressed) return // de timer heeft het menu al geopend, dus niet nog een keer
 
         clearTimeout(timer) // timer stoppen, anders gaat het menu straks weer dicht
-        if (isTouching) longPressed = true // was het een vinger? Dan de klik daarna tegenhouden
+        longPressed = true // de klik na het loslaten tegenhouden
         toggleMenu(slug) // menu openen
     }
 
@@ -97,7 +99,7 @@
 <ul class="groups" class:enhanced={hasJs}>
     {#each data.groups as group}
         <li>
-            <!-- De div heeft events voor lang indrukken en rechtsklik. Dat mag, omdat het pijltje hetzelfde menu opent voor toetsenbord en screenreader -->
+            <!-- De div heeft events voor lang indrukken. Dat mag, omdat het pijltje hetzelfde menu opent voor toetsenbord en screenreader -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <div
                 class="group-list-container"
