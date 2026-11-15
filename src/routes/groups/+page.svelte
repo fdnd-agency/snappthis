@@ -23,14 +23,14 @@
     // Staat JavaScript aan? $effect draait alleen in de browser, dus zonder JavaScript blijft dit false
     let hasJs = $state(false)
     $effect(() => {
-        hasJs = true // JavaScript werkt: de ⋮ mag verborgen worden (zie CSS .enhanced)
+        hasJs = true // JavaScript werkt: het pijltje mag op mobiel verborgen worden (zie CSS .enhanced)
     })
 
     let timer // de timer van lang indrukken, zodat we hem kunnen stoppen
     let isTouching = false // staat er nu een vinger op het scherm?
     let longPressed = false // is er lang ingedrukt? Dan de klik daarna tegenhouden
 
-    // Menu openen of sluiten via dezelfde URL als de ⋮-link, zodat de server hetzelfde doet
+    // Menu openen of sluiten via dezelfde URL als het pijltje, zodat de server hetzelfde doet
     function toggleMenu(slug) {
         goto(
             openMenu === slug ? '/groups' : `/groups?menu=${slug}`, // al open? dan dicht, anders open
@@ -211,27 +211,32 @@
         }
     }
 
-    /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus de ⋮ hoeft niet in beeld */
+    /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus het pijltje hoeft op mobiel niet in beeld */
     .enhanced {
         .group-list-container {
             -webkit-touch-callout: none; /* iOS: geen eigen menu van de telefoon bij lang indrukken */
             user-select: none; /* geen tekst selecteren bij lang indrukken */
         }
 
-        /* ⋮ visueel verborgen (WebAIM-techniek), maar nog bereikbaar met Tab en leesbaar voor een screenreader.
-           Zichtbaar bij focus of als het menu open is. */
-        .menu-link:not(:focus-visible, .open) {
+        /* Mobiel: alleen lang indrukken (keuze opdrachtgever). Het pijltje is visueel verborgen (WebAIM-techniek),
+        ook als het menu open is, maar een screenreader leest het nog voor en bij toetsenbordfocus is het zichtbaar */
+        .menu-link:not(:focus-visible) {
             position: absolute;
             width: 1px;
             height: 1px;
             overflow: hidden;
             clip-path: inset(50%);
             white-space: nowrap;
-        }
 
-        /* Is de ⋮ verborgen? Dan neemt hij geen ruimte in, dus de naam krijgt zelf ruimte aan de linkerkant */
-        .group-list-container:has(.menu-link:not(:focus-visible, .open)) {
-            padding-left: var(--spacing-s);
+            /* Desktop: pijltje weer gewoon in beeld */
+            @media (min-width: 768px) {
+                position: static;
+                width: 2rem;
+                height: auto;
+                overflow: visible;
+                clip-path: none;
+                white-space: normal;
+            }
         }
     }
 </style>

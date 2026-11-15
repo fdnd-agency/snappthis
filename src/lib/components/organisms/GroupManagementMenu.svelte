@@ -45,12 +45,12 @@
 		padding: var(--spacing-s);
 		background-color: var(--color-accent-blue-white-90);
 
-		/* Driehoekje dat naar de ⋮ wijst (zoals bij het formulier onder de +) */
+		/* Driehoekje boven het menu (op de oude plek, zie sprint review) */
 		&::before {
 			content: '';
 			position: absolute;
 			top: -0.6rem;
-			/* recht onder de ⋮-link: halve linkbreedte (1rem) min halve driehoekbreedte, met .05rem op het oog bijgesteld */
+			/* vaste plek links, op het oog bijgesteld */
 			left: calc(.05rem + 1rem - 0.6rem);
 			width: 1.2rem;
 			height: 0.6rem;

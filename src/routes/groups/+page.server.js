@@ -20,7 +20,7 @@ export async function load({ fetch, url }) {
         groups: groups.sort((a, b) => Math.max(...b.users) - Math.max(...a.users)),
         // /groups?create toont het formulier (de + in de header linkt hiernaartoe)
         showForm: url.searchParams.has('create'),
-        // /groups?menu=natuurnomaden opent het menu van die groep (de ⋮ linkt hiernaartoe)
+        // /groups?menu=natuurnomaden opent het menu van die groep (het pijltje linkt hiernaartoe)
         openMenu: url.searchParams.get('menu')
     }
 }
