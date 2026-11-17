@@ -58,6 +58,13 @@ export const actions = {
 
     const { data: existingStars } = await starResponse.json();
 
+    const snapResponse = await fetch (
+      `https://fdnd-agency.directus.app/items/snappthis_snap?filter[uuid][_eq]=${snapUuid}&fields=uuid,snapmap.*`
+    );
+
+    const { data: currentSnaps } = await snapResponse.json();
+
+
     // Check if the action is a like or tomato and not a star
     let oppositeReaction;
 
