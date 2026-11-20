@@ -1,4 +1,4 @@
-<!-- Menu om een groep te beheren, klapt open onder de groep als je op de ⋮ klikt -->
+<!-- Menu om een groep te beheren, klapt open onder de groep als je op het pijltje klikt of lang indrukt -->
 <!-- Werkt zonder JavaScript: de knoppen posten naar de leave- en delete-action in groups/+page.server.js -->
 <script>
 	import { enhance } from '$app/forms';
@@ -15,12 +15,6 @@
 
 <div class="group-menu">
 	<div class="options">
-		<!-- TODO: opslaan in Directus zodra daar een veld voor bestaat. Nu slaat de checkbox nog niets op. -->
-		<label class="option">
-			<input type="checkbox" class="checkbox" checked />
-			Members can add snapp from roll
-		</label>
-
 		<form method="POST" action="?/leave" use:enhance>
 			<!-- Verborgen veld: zo weet de server om welke groep het gaat -->
 			<input type="hidden" name="uuid" value={group.uuid} />
@@ -51,12 +45,12 @@
 		padding: var(--spacing-s);
 		background-color: var(--color-accent-blue-white-90);
 
-		/* Driehoekje dat naar de ⋮ wijst (zoals bij het formulier onder de +) */
+		/* Driehoekje boven het menu (op de oude plek, zie sprint review) */
 		&::before {
 			content: '';
 			position: absolute;
 			top: -0.6rem;
-			/* recht onder de ⋮-link: halve linkbreedte (1rem) min halve driehoekbreedte, met .05rem op het oog bijgesteld */
+			/* vaste plek links, op het oog bijgesteld */
 			left: calc(.05rem + 1rem - 0.6rem);
 			width: 1.2rem;
 			height: 0.6rem;
@@ -70,7 +64,7 @@
 		gap: 0.25rem;
 
 		@container (min-width: 768px) {
-			grid-template-columns: repeat(3, max-content); /* 3 kolommen, zo breed als de tekst */
+			grid-template-columns: repeat(2, max-content); /* 2 kolommen, zo breed als de tekst */
 			gap: var(--spacing-m); 
 		}
 	}
@@ -85,17 +79,6 @@
 		font-size: var(--font-size-h5);
 		text-align: left;
 		cursor: pointer;
-
-		&:focus-visible {
-			outline: 2px solid var(--color-accent-blue-black-30);
-			outline-offset: 2px;
-		}
-	}
-
-	.checkbox {
-		width: 1.4rem;
-		height: 1.4rem;
-		accent-color: var(--color-accent-blue-white-20);
 
 		&:focus-visible {
 			outline: 2px solid var(--color-accent-blue-black-30);

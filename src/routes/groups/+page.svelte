@@ -23,14 +23,14 @@
     // Staat JavaScript aan? $effect draait alleen in de browser, dus zonder JavaScript blijft dit false
     let hasJs = $state(false)
     $effect(() => {
-        hasJs = true // JavaScript werkt: de ⋮ mag verborgen worden (zie CSS .enhanced)
+        hasJs = true // JavaScript werkt: het pijltje mag op mobiel verborgen worden (zie CSS .enhanced)
     })
 
     let timer // de timer van lang indrukken, zodat we hem kunnen stoppen
     let isTouching = false // staat er nu een vinger op het scherm?
     let longPressed = false // is er lang ingedrukt? Dan de klik daarna tegenhouden
 
-    // Menu openen of sluiten via dezelfde URL als de ⋮-link, zodat de server hetzelfde doet
+    // Menu openen of sluiten via dezelfde URL als het pijltje, zodat de server hetzelfde doet
     function toggleMenu(slug) {
         goto(
             openMenu === slug ? '/groups' : `/groups?menu=${slug}`, // al open? dan dicht, anders open
@@ -56,13 +56,15 @@
         clearTimeout(timer) // timer stoppen, dus het menu gaat niet open
     }
 
-    // contextmenu = rechtsklik (desktop), lang indrukken (Android) of de menutoets (toetsenbord)
+    // Opent het menu bij lang indrukken op Android. Een rechtsklik op desktop opent het normale browsermenu.
     function openWithContextMenu(event, slug) {
-        event.preventDefault() // het menu van de browser niet tonen
-        if (longPressed) return // de iOS-timer heeft het menu al geopend, dus niet nog een keer
+        if (!isTouching) return // muis of toetsenbord: het gewone menu van de browser tonen
+
+        event.preventDefault() // het menu van de telefoon niet tonen
+        if (longPressed) return // de timer heeft het menu al geopend, dus niet nog een keer
 
         clearTimeout(timer) // timer stoppen, anders gaat het menu straks weer dicht
-        if (isTouching) longPressed = true // was het een vinger? Dan de klik daarna tegenhouden
+        longPressed = true // de klik na het loslaten tegenhouden
         toggleMenu(slug) // menu openen
     }
 
@@ -97,7 +99,7 @@
 <ul class="groups" class:enhanced={hasJs}>
     {#each data.groups as group}
         <li>
-            <!-- De ⋮-link is het alternatief voor toetsenbord en screenreader, daarom mag deze div events hebben -->
+            <!-- De div heeft events voor lang indrukken. Dat mag, omdat het pijltje hetzelfde menu opent voor toetsenbord en screenreader -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <div
                 class="group-list-container"
@@ -108,25 +110,24 @@
                 oncontextmenu={(event) => openWithContextMenu(event, group.slug)}
                 onclickcapture={blockClickAfterLongPress}
             >
-                <!-- De ⋮ opent het menu via /groups?menu=slug en sluit het weer via /groups -->
+                <a href={`/groups/${group.slug}`} class="group-link">
+                    <div class="group-list-stats">
+                        <h2>{group.name}</h2>
+                        <p>{group.users.length} members</p>
+                    </div>
+                </a>
+
+                <!-- Het pijltje opent het menu via /groups?menu=slug en sluit het weer via /groups -->
                 <a
                     href={openMenu === group.slug ? '/groups' : `/groups?menu=${group.slug}`}
                     class="menu-link"
                     class:open={openMenu === group.slug}
                     aria-label={openMenu === group.slug ? `Close the menu of ${group.name}` : `Manage ${group.name}`}
+                    data-sveltekit-keepfocus
                 >
                     <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="5" r="2.2" />
-                        <circle cx="12" cy="12" r="2.2" />
-                        <circle cx="12" cy="19" r="2.2" />
+                        <path d="M6 9l6 6 6-6" /> <!-- pijl naar beneden -->
                     </svg>
-                </a>
-
-                <a href={`/groups/${group.slug}`}>
-                    <div class="group-list-stats">
-                        <h2>{group.name}</h2>
-                        <p>{group.users.length} members</p>
-                    </div>
                 </a>
 
                 <div class="group-list-interactive">
@@ -158,6 +159,11 @@
 <Footer/>
 
 <style>
+    /* De breedte van de lijst meten, zodat het pijltje met @container kan reageren */
+    .groups {
+        container-type: inline-size;
+    }
+
     .message {
         padding: var(--spacing-s);
         background-color: var(--color-accent-blue-white-90);
@@ -165,7 +171,22 @@
         font-size: var(--font-size-p);
     }
 
-    /* ⋮-link links van de groepsnaam */
+    /* Kleine afstand tussen de groepsnaam en het pijltje */
+    .group-list-container {
+        gap: var(--spacing-xs);
+    }
+
+    /* De naam niet laten meegroeien (.groups a in global.css heeft flex: 1), zodat het pijltje er direct naast staat */
+    .group-link {
+        flex: none;
+    }
+
+    /* De iconen rechts houden: de lege ruimte komt links van de iconen */
+    .group-list-interactive {
+        margin-left: auto;
+    }
+
+    /* Pijltje rechts van de groepsnaam. Zelfde kleur als de iconen: wit haalt op de lichte achtergrond het contrast van 3:1 niet (WCAG 1.4.11) */
     .menu-link {
         flex: none; /* niet meegroeien zoals de groepsnaam-link (.groups a in global.css) */
         justify-content: center;
@@ -179,36 +200,49 @@
     }
 
     .menu-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        fill: currentColor;
+        width: 2rem;
+        height: 2rem;
+        fill: none;
+        stroke: currentColor; /* de lijn krijgt de tekstkleur van de link */
+        stroke-width: 2;
+
+        /* Alleen draaien met animatie als de gebruiker geen minder beweging wil, net als de + in de header */
+        @media (prefers-reduced-motion: no-preference) {
+            transition: rotate var(--transition-duration);
+        }
     }
 
-    .group-list-container{
-        padding: 0 1rem 0 0;
+    /* Menu open: pijltje draait naar boven */
+    .menu-link.open .menu-icon {
+        rotate: 180deg;
     }
 
-    /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus de ⋮ hoeft niet in beeld */
+    /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus het pijltje hoeft op mobiel niet in beeld */
     .enhanced {
         .group-list-container {
             -webkit-touch-callout: none; /* iOS: geen eigen menu van de telefoon bij lang indrukken */
             user-select: none; /* geen tekst selecteren bij lang indrukken */
         }
 
-        /* ⋮ visueel verborgen (WebAIM-techniek), maar nog bereikbaar met Tab en leesbaar voor een screenreader.
-           Zichtbaar bij focus of als het menu open is. */
-        .menu-link:not(:focus-visible, .open) {
+        /* Mobiel: alleen lang indrukken (keuze opdrachtgever). Het pijltje is visueel verborgen (WebAIM-techniek),
+        ook als het menu open is, maar een screenreader leest het nog voor en bij toetsenbordfocus is het zichtbaar */
+        .menu-link:not(:focus-visible) {
             position: absolute;
             width: 1px;
             height: 1px;
             overflow: hidden;
             clip-path: inset(50%);
             white-space: nowrap;
-        }
 
-        /* Is de ⋮ verborgen? Dan neemt hij geen ruimte in, dus de naam krijgt zelf ruimte aan de linkerkant */
-        .group-list-container:has(.menu-link:not(:focus-visible, .open)) {
-            padding-left: var(--spacing-s);
+            /* Desktop: pijltje weer gewoon in beeld */
+            @container (min-width: 768px) {
+                position: static;
+                width: 2rem;
+                height: auto;
+                overflow: visible;
+                clip-path: none;
+                white-space: normal;
+            }
         }
     }
 </style>
