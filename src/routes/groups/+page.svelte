@@ -159,6 +159,11 @@
 <Footer/>
 
 <style>
+    /* De breedte van de lijst meten, zodat het pijltje met @container kan reageren */
+    .groups {
+        container-type: inline-size;
+    }
+
     .message {
         padding: var(--spacing-s);
         background-color: var(--color-accent-blue-white-90);
@@ -200,18 +205,16 @@
         fill: none;
         stroke: currentColor; /* de lijn krijgt de tekstkleur van de link */
         stroke-width: 2;
+
+        /* Alleen draaien met animatie als de gebruiker geen minder beweging wil, net als de + in de header */
+        @media (prefers-reduced-motion: no-preference) {
+            transition: rotate var(--transition-duration);
+        }
     }
 
     /* Menu open: pijltje draait naar boven */
     .menu-link.open .menu-icon {
         rotate: 180deg;
-    }
-
-    /* Alleen draaien met animatie als de gebruiker geen minder beweging wil, net als de + in de header */
-    @media (prefers-reduced-motion: no-preference) {
-        .menu-icon {
-            transition: rotate var(--transition-duration);
-        }
     }
 
     /* Alleen met JavaScript: rechtsklik en lang indrukken werken, dus het pijltje hoeft op mobiel niet in beeld */
@@ -232,7 +235,7 @@
             white-space: nowrap;
 
             /* Desktop: pijltje weer gewoon in beeld */
-            @media (min-width: 768px) {
+            @container (min-width: 768px) {
                 position: static;
                 width: 2rem;
                 height: auto;
