@@ -83,7 +83,9 @@ export async function load({ fetch, params, url }) {
 
 	return {
 		...snappmapData,
-		gridView: getGridView(url)
+		gridView: getGridView(url),
+		// ?options in the URL opens the view options panel, also without JavaScript
+		showGridOptions: url.searchParams.has('options')
 	};
 }
 

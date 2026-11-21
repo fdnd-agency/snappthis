@@ -6,6 +6,7 @@
 	import SnappCountdown from '$lib/components/atoms/SnappCountdown.svelte';
 	import FormStatusMessage from '$lib/components/molecules/FormStatusMessage.svelte';
 	import SnappGrid from '$lib/components/organisms/SnappGrid.svelte';
+	import GridViewOptions from '$lib/components/molecules/GridViewOptions.svelte';
 
 	// data = from load, form = what the action returned (null until the form is submitted)
 	let { data, form } = $props();
@@ -15,7 +16,33 @@
 	<title>{data.snappmap.name} | SnappThis</title>
 </svelte:head>
 
-<Header title={data.snappmap.name} showBackButton={true} backUrl="/" />
+<Header title={data.snappmap.name} showBackButton={true} backUrl="/">
+	<!-- Opens and closes the view options panel, also without JavaScript -->
+	<a
+		href={data.showGridOptions ? `?view=${data.gridView}` : `?view=${data.gridView}&options`}
+		class="grid-toggle"
+		aria-label={data.showGridOptions ? 'Close view options' : 'View options'}
+		aria-expanded={data.showGridOptions}
+		data-sveltekit-noscroll
+		data-sveltekit-replacestate
+	>
+		<svg viewBox="0 0 24 24" aria-hidden="true">
+			<rect x="0" y="0" width="6.5" height="6.5" />
+			<rect x="8.75" y="0" width="6.5" height="6.5" />
+			<rect x="17.5" y="0" width="6.5" height="6.5" />
+			<rect x="0" y="8.75" width="6.5" height="6.5" />
+			<rect x="8.75" y="8.75" width="6.5" height="6.5" />
+			<rect x="17.5" y="8.75" width="6.5" height="6.5" />
+			<rect x="0" y="17.5" width="6.5" height="6.5" />
+			<rect x="8.75" y="17.5" width="6.5" height="6.5" />
+			<rect x="17.5" y="17.5" width="6.5" height="6.5" />
+		</svg>
+	</a>
+</Header>
+
+{#if data.showGridOptions}
+	<GridViewOptions view={data.gridView} />
+{/if}
 
 <main>
 	{#if data.snappmap.groupName}
@@ -42,7 +69,7 @@
 	<FormStatusMessage result={form} />
 
 	<section aria-label="Snapps">
-		<SnappGrid snapps={data.snapps} snappmapName={data.snappmap.name} />
+		<SnappGrid snapps={data.snapps} snappmapName={data.snappmap.name} view={data.gridView} />
 	</section>
 </main>
 
@@ -80,5 +107,26 @@
 				outline-offset: 4px;
 			}
 		}
+
+
+		
 	}
+
+	.grid-toggle {
+		display: grid;
+		place-items: center;
+		min-inline-size: 2.75rem; /* 44px touch target */
+		min-block-size: 2.75rem;
+
+		svg {
+			width: calc(var(--bar-height) * 0.4);
+			height: auto;
+			fill: var(--color-white);
+		}
+
+		&:focus-visible {
+			outline: 3px solid var(--color-white);
+			outline-offset: 4px;
+		}
+	}	
 </style>
