@@ -129,6 +129,14 @@
     height: 1.2em;
   }
 
+  @media (min-width: 768px) {
+   button .star-icon {
+     width: 1.35em;
+     height: 1.5em;
+     }
+  }
+
+
   button img {
     width: 1.1em;
     height: 1.1em;
