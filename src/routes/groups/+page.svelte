@@ -199,11 +199,12 @@
         justify-content: center;
         width: 2rem;
         color: var(--color-accent-blue-white-20);
+    }
 
-        &:focus-visible {
-            outline: 2px solid var(--color-accent-blue-black-30);
-            outline-offset: -2px;
-        }
+    /* Alle links in de rij krijgen dezelfde focusrand: de naam, het pijltje en de iconen */
+    .group-list-container a:focus-visible {
+        outline: 2px solid var(--color-accent-blue-black-30);
+        outline-offset: 2px;
     }
 
     .menu-icon {
