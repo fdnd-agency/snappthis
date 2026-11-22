@@ -79,6 +79,7 @@
 
 <svelte:head>
     <title>Your groups | SnappThis</title>
+    <meta name="description" content="View and manage your SnappThis groups, and create new ones." />
 </svelte:head>
 
 <!-- De + opent het formulier via /groups?create en sluit het weer via /groups -->
