@@ -77,6 +77,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>Your groups | SnappThis</title>
+</svelte:head>
+
 <!-- De + opent het formulier via /groups?create en sluit het weer via /groups -->
 <Header
     title="Your groups"
