@@ -92,12 +92,15 @@ width="800" height="800" alt="" loading="eager" fetchpriority="high"  />
  section {
    display: flex;
    align-items: center;
+   height: var(--bar-height);
+   padding-inline: var(--spacing-s);
+   gap: 0.5rem;
  }
 
  .groups-icon {
-  width: 18px;
-  height: 18px;
-  margin: var(--spacing-s) 8px var(--spacing-s) var(--spacing-s);
+  width: 20px;
+  height: 20px;
+  margin: 0;
  }
 
  .snap-image {
