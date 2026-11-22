@@ -128,7 +128,8 @@
                         href={openMenu === group.slug ? '/groups' : `/groups?menu=${group.slug}`}
                         class="menu-link"
                         class:open={openMenu === group.slug}
-                        aria-label={openMenu === group.slug ? `Close the menu of ${group.name}` : `Manage ${group.name}`}
+                        aria-label={`Menu of ${group.name}`}
+                        aria-expanded={openMenu === group.slug}
                         data-sveltekit-keepfocus
                     >
                         <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
