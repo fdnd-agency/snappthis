@@ -1,5 +1,6 @@
 import { error, fail } from '@sveltejs/kit';
 import { reverseGeocode } from '$lib/server/reverseGeocode.js';
+import { gridViewCookie } from '$lib/gridView.js';
 
 const directusUrl = 'https://fdnd-agency.directus.app';
 
@@ -72,8 +73,14 @@ async function getSnappmap(fetch, slug) {
 	};
 }	
 
-export async function load({ fetch, params }) {
-	return await getSnappmap(fetch, params.slug);
+export async function load({ fetch, params, cookies }) {
+	const snappmapData = await getSnappmap(fetch, params.slug);
+
+	return {
+		...snappmapData,
+		// The view the user chose last time, checked in +page.js
+		savedGridView: cookies.get(gridViewCookie) ?? null
+	};
 }
 
 export const actions = {
