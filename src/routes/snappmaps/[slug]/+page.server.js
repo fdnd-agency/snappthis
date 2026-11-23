@@ -12,7 +12,7 @@ async function getSnappmap(fetch, slug) {
 	const snappmapParams = new URLSearchParams();
 	snappmapParams.set(
 		'fields',
-		'uuid,slug,name,time_end,groups.snappthis_group_uuid.name,groups.snappthis_group_uuid.slug,snaps.uuid,snaps.picture,snaps.date_created'
+		'uuid,slug,name,time_end,groups.snappthis_group_uuid.name,groups.snappthis_group_uuid.slug,snaps.uuid,snaps.picture,snaps.date_created,snaps.location'
 	);
 	snappmapParams.set('filter[slug][_eq]', slug);
 	snappmapParams.set('deep[snaps][_sort]', '-date_created'); // newest snapps first
@@ -62,10 +62,15 @@ async function getSnappmap(fetch, slug) {
 		// Only snapps that actually have a picture
 		snapps: (snappmap.snaps ?? [])
 			.filter((snap) => snap.picture)
-			.map((snap) => ({ uuid: snap.uuid, picture: snap.picture })),
+			.map((snap) => ({
+				uuid: snap.uuid,
+				picture: snap.picture,
+				date: snap.date_created,
+				location: snap.location
+			})),
 		canPost: isMember && isActive
 	};
-}
+}	
 
 export async function load({ fetch, params }) {
 	return await getSnappmap(fetch, params.slug);
