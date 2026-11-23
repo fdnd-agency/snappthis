@@ -6,17 +6,6 @@ const directusUrl = 'https://fdnd-agency.directus.app';
 // Hardcoded user (Anne-Fleur Pietersen) until login is built, same as the Node.js version
 const userUuid = '5e9589a5-ebfa-4a99-87a6-010f2f571444';
 
-// The ways the photo grid can be shown: 2 to 5 columns, or a list (MoSCoW 90)
-const gridViews = ['2', '3', '4', '5', 'list'];
-const defaultGridView = '3'; // MoSCoW 89: 3 photos wide by default
-
-// Reads ?view= from the URL. Anything we don't know falls back to the default,
-// because a user can type anything in the URL.
-function getGridView(url) {
-	const view = url.searchParams.get('view');
-	return gridViews.includes(view) ? view : defaultGridView;
-}
-
 // Fetches one snappmap and checks if the user may post in it.
 // Used by both load and the action, so the action never trusts hidden form fields.
 async function getSnappmap(fetch, slug) {
@@ -78,15 +67,8 @@ async function getSnappmap(fetch, slug) {
 	};
 }
 
-export async function load({ fetch, params, url }) {
-	const snappmapData = await getSnappmap(fetch, params.slug);
-
-	return {
-		...snappmapData,
-		gridView: getGridView(url),
-		// ?options in the URL opens the view options panel, also without JavaScript
-		showGridOptions: url.searchParams.has('options')
-	};
+export async function load({ fetch, params }) {
+	return await getSnappmap(fetch, params.slug);
 }
 
 export const actions = {
