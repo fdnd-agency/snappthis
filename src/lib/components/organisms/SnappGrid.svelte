@@ -64,9 +64,13 @@
 		list-style: none;
 	}
 
-	/* In the list there is more room between the photos, for the details */
+	/* In the list there is more room between the photos, for the details.
+	   On wide screens the list stays narrow and centred, so a photo never
+	   fills the whole screen and the 900px image stays sharp */
 	.snapp-grid.list {
 		row-gap: var(--spacing-m);
+		max-inline-size: 40rem;
+		margin-inline: auto;
 	}
 
 	.details {
