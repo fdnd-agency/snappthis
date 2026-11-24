@@ -2,8 +2,8 @@
 <script>
 	import Header from '$lib/components/organisms/Header.svelte';
 	import Footer from '$lib/components/organisms/Footer.svelte';
-	import InviteMembersForm from '$lib/components/InviteMembersForm.svelte';
-	import InviteReviewList from '$lib/components/InviteReviewList.svelte';
+	import InviteMembersForm from '$lib/components/organisms/InviteMembersForm.svelte';
+	import InviteReviewList from '$lib/components/organisms/InviteReviewList.svelte';
 
 	// data = what load in +page.server.js returns
 	// form = what the check or invite action returned (or null)
