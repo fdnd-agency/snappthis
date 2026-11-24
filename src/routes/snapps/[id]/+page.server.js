@@ -64,6 +64,15 @@ export const actions = {
 
     const { data: currentSnaps } = await snapResponse.json();
 
+    const currentSnapmapUuid = currentSnaps[0].snapmap.uuid;
+
+    console.log(currentSnapmapUuid);
+
+    const existingStar = existingStars.find (
+      (reaction) => reaction.snap?.snapmap?.uuid === currentSnapmapUuid
+    );
+
+    console.log(existingStar);
 
     // Check if the action is a like or tomato and not a star
     let oppositeReaction;
