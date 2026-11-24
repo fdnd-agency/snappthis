@@ -1,4 +1,4 @@
-<!-- Members page of a group: list of members, and a form to invite new members -->
+<!-- Members page of a group: list of members and pending invites, and a form to invite new members -->
 <script>
 	import Header from '$lib/components/organisms/Header.svelte';
 	import Footer from '$lib/components/organisms/Footer.svelte';
@@ -15,6 +15,9 @@
 	// Open via ?add-members, and stay open while the user is working on a list.
 	// Without JavaScript the URL changes to ?/check after sending, so ?add-members is gone.
 	const showForm = $derived(data.showForm || form !== null);
+
+	// Nobody in the group yet, and nobody invited either
+	const isEmpty = $derived(data.members.length === 0 && data.pendingInvites.length === 0);
 </script>
 
 <svelte:head>
@@ -37,7 +40,7 @@
 		<InviteMembersForm groupName={data.group.name} result={form} />
 
 		{#if form?.approved}
-			<!-- role="status": for screen readers (accsblt) -->
+			<!-- role="status": read out by a screen reader without moving the focus -->
 			<p class="success" role="status">
 				{form.approved.email} is approved{form.approved.canStartSnappmap
 					? ' and can start a snappmap'
@@ -48,12 +51,22 @@
 		<InviteReviewList toInvite={form?.toInvite} />
 	{/if}
 
-	<ul class="members">
+	<ul class="members" aria-label="Members of {data.group.name}">
 		{#each data.members as member (member.uuid)}
 			<li>{member.isYou ? 'You' : member.name}</li>
-		{:else}
-			<li class="empty">This group has no members yet.</li>
 		{/each}
+
+		<!-- Invited, but not registered yet: we only know their email address -->
+		{#each data.pendingInvites as invite (invite.uuid)}
+			<li class="pending">
+				<span class="email">{invite.email}</span>
+				<span class="badge">Pending</span>
+			</li>
+		{/each}
+
+		{#if isEmpty}
+			<li class="empty">This group has no members yet.</li>
+		{/if}
 	</ul>
 </main>
 
@@ -80,6 +93,29 @@
 			border-block-end: 1px solid var(--color-accent-blue-white-90);
 			color: var(--color-accent-blue);
 		}
+	}
+
+	.pending {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: var(--spacing-xs);
+	}
+
+	/* The email is lighter than a real name, because this person hasn't joined yet */
+	.pending .email {
+		color: var(--color-accent-blue-white-30);
+		overflow-wrap: anywhere; /* long addresses wrap instead of pushing the badge off screen */
+	}
+
+	/* The word "Pending" is the label, not only the colour */
+	.badge {
+		padding: 0.125rem var(--spacing-xs);
+		border-radius: 1rem;
+		background-color: var(--color-accent-blue-white-90);
+		color: var(--color-accent-blue);
+		font-size: var(--font-size-small);
 	}
 
 	.empty {

@@ -1,4 +1,5 @@
 import { error, fail } from '@sveltejs/kit';
+import { dev } from '$app/environment';
 
 const directusUrl = 'https://fdnd-agency.directus.app';
 
@@ -9,6 +10,13 @@ const userUuid = '5e9589a5-ebfa-4a99-87a6-010f2f571444';
 // While this is false, nothing is saved or fetched, and the page works like before.
 // Set it to true once the collection and its permissions are there.
 const invitesEnabled = false;
+
+// Example invites to build and test the pending list before snappthis_invite exists.
+// Only used during development (npm run dev), and only with ?preview-invites in the URL.
+const previewInvites = [
+	{ uuid: 'preview-1', email: 'new.member@hva.nl', date_created: '2026-11-20T10:00:00Z' },
+	{ uuid: 'preview-2', email: 'another.member@hva.nl', date_created: '2026-11-19T09:00:00Z' }
+];
 
 // Simple check if a text looks like an email address.
 // The browser already checks this (type="email"), this is the safety net on the server.
@@ -136,10 +144,19 @@ async function saveInvite(fetch, { email, groupUuid, canStartSnappmap }) {
 export async function load({ fetch, params, url }) {
 	const { group, members } = await getGroup(fetch, params.slug);
 
+	// Real invites once the collection exists, example invites while building it, otherwise none
+	let pendingInvites = [];
+
+	if (invitesEnabled) {
+		pendingInvites = await getPendingInvites(fetch, group.uuid);
+	} else if (dev && url.searchParams.has('preview-invites')) {
+		pendingInvites = previewInvites;
+	}
+
 	return {
 		group,
 		members,
-		pendingInvites: invitesEnabled ? await getPendingInvites(fetch, group.uuid) : [],
+		pendingInvites,
 		// /groups/[slug]/members?add-members opens the form
 		showForm: url.searchParams.has('add-members')
 	};
