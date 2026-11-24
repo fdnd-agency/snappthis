@@ -52,6 +52,11 @@ export const actions = {
       (reaction) => reaction.action === action
     );
 
+    let existingStar;
+
+    if (action === "star") {
+
+    // Fetch all the exisitng star from the current user,including their associated Snapps and Snapmaps
     const starResponse = await fetch (
       `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star&fields=*,snap.*,snap.snapmap.*`
     );
@@ -62,17 +67,17 @@ export const actions = {
       `https://fdnd-agency.directus.app/items/snappthis_snap?filter[uuid][_eq]=${snapUuid}&fields=uuid,snapmap.*`
     );
 
+    // get the snapmapuuid of the current snap
     const { data: currentSnaps } = await snapResponse.json();
 
     const currentSnapmapUuid = currentSnaps[0].snapmap.uuid;
 
-    console.log(currentSnapmapUuid);
-
-    const existingStar = existingStars.find (
+    // Find an existing star reaction within the same Snapmap
+    existingStar = existingStars.find (
       (reaction) => reaction.snap?.snapmap?.uuid === currentSnapmapUuid
     );
 
-    console.log(existingStar);
+  }
 
     // Check if the action is a like or tomato and not a star
     let oppositeReaction;
