@@ -187,6 +187,10 @@
     /* De naam niet laten meegroeien (.groups a in global.css heeft flex: 1), zodat het pijltje er direct naast staat */
     .group-link {
         flex: none;
+        /* Kleiner op heel smalle schermen, zodat de iconen in beeld blijven */
+        h2 {
+            font-size: clamp(1.25rem, 6vw, var(--font-size-h3));
+        }
     }
 
     /* De iconen rechts houden: de lege ruimte komt links van de iconen */
