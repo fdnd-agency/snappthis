@@ -102,7 +102,7 @@
         <p class="message" role="status">{form.message}</p>
     {/if}
 
-    <ul class="groups" class:enhanced={hasJs}>
+    <ul class="groups" class:enhanced={hasJs} role="list">
         {#each data.groups as group}
             <li>
                 <!-- De div heeft events voor lang indrukken. Dat mag, omdat het pijltje hetzelfde menu opent voor toetsenbord en screenreader -->
@@ -170,6 +170,7 @@
     /* De breedte van de lijst meten, zodat het pijltje met @container kan reageren */
     .groups {
         container-type: inline-size;
+        list-style: none;
     }
 
     .message {
