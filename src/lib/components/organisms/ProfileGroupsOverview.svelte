@@ -32,7 +32,7 @@
 
       <li>
         <button type="button" aria-label="View Stars">
-          <img src={StarProfile} alt="" />
+          <img class="star-icon" src={StarProfile} alt="" />
           <span>{group.stars}</span>
         </button>
       </li>
@@ -123,6 +123,19 @@
     padding: 0;
     cursor: pointer;
   }
+
+  button .star-icon {
+    width: 1.05em;
+    height: 1.2em;
+  }
+
+  @media (min-width: 768px) {
+   button .star-icon {
+     width: 1.35em;
+     height: 1.5em;
+     }
+  }
+
 
   button img {
     width: 1.1em;
