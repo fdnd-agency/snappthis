@@ -187,7 +187,7 @@
     /* De naam is zo breed als de tekst, zodat het pijltje er direct naast staat.
     Te lang voor het scherm? Dan krimpt de naam en eindigt hij op "…" */
     .group-link {
-        flex: 0 1 auto; /* was: flex: none */
+        flex: 0 1 auto; 
         min-width: 0;
 
         .group-list-stats {
