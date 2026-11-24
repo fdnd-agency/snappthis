@@ -17,9 +17,9 @@ export async function load({ params, fetch }) {
   // Hier haal ik de reacties op van de snap
   const reactionsResponse = await fetch(
     `https://fdnd-agency.directus.app/items/snappthis_action?filter[snap][_eq]=${snapUuid}`
-  )
+  );
 
-  const { data:reactions } = await reactionsResponse.json();
+  const { data: reactions } = await reactionsResponse.json();
 
   return { snap: snaps[0], reactions };
 }
@@ -29,18 +29,17 @@ export const actions = {
     const formData = await request.formData();
     const action = formData.get("action");
 
-  if  (!['like','tomato','star'].includes(action)) {
-    return fail(400, {
-      message: 'Invalid reaction'
+    if (!["like", "tomato", "star"].includes(action)) {
+      return fail(400, {
+        message: "Invalid reaction",
+      });
     }
-      )
-  }
 
     const snapUuid = params.id;
     const userUuid = "5e9589a5-ebfa-4a99-87a6-010f2f571444";
     const url = "https://fdnd-agency.directus.app/items/snappthis_action";
 
-    console.log(action, snapUuid, userUuid, url);
+    // console.log(action, snapUuid, userUuid, url);
 
     const responses = await fetch(
       `${url}?filter[snap][_eq]=${snapUuid}&filter[user][_eq]=${userUuid}`
@@ -52,6 +51,31 @@ export const actions = {
       (reaction) => reaction.action === action
     );
 
+    let existingStar;
+
+    if (action === "star") {
+      // Fetch all the existing star from the current user, including their associated Snapps and Snapmaps
+      const starResponse = await fetch(
+        `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star&fields=*,snap.*,snap.snapmap.*`
+      );
+
+      const { data: existingStars } = await starResponse.json();
+
+      const snapResponse = await fetch(
+        `https://fdnd-agency.directus.app/items/snappthis_snap?filter[uuid][_eq]=${snapUuid}&fields=uuid,snapmap.*`
+      );
+
+      // Get the Snapmap Uuid of the current snap
+      const { data: currentSnaps } = await snapResponse.json();
+
+      const currentSnapmapUuid = currentSnaps[0].snapmap.uuid;
+
+      // Find an existing star reaction within the same Snapmap
+      existingStar = existingStars.find(
+        (reaction) => reaction.snap?.snapmap?.uuid === currentSnapmapUuid
+      );
+    }
+
     // Check if the action is a like or tomato and not a star
     let oppositeReaction;
 
@@ -61,7 +85,6 @@ export const actions = {
       oppositeReaction = existingActions.find(
         (reaction) => reaction.action === oppositeAction
       );
-
     }
 
     // Kies één actie
@@ -103,7 +126,6 @@ export const actions = {
           action: action,
         }),
       });
-
     }
   },
 };
