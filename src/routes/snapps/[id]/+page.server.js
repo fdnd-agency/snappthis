@@ -131,12 +131,6 @@ export const actions = {
         }),
       });
 
-      console.log("star patch status", responseAction.status);
-
-      const { data: updatedStar } = await responseAction.json();
-
-      console.log("updated star", updatedStar);
-
     } else {
       const responseAction = await fetch(url, {
         method: "POST",
