@@ -5,6 +5,11 @@ const directusUrl = 'https://fdnd-agency.directus.app';
 // Hardcoded user (Anne-Fleur Pietersen) until login is built
 const userUuid = '5e9589a5-ebfa-4a99-87a6-010f2f571444';
 
+// Feature flag: the collection snappthis_invite doesn't exist in Directus yet (#294).
+// While this is false, nothing is saved or fetched, and the page works like before.
+// Set it to true once the collection and its permissions are there.
+const invitesEnabled = false;
+
 // Simple check if a text looks like an email address.
 // The browser already checks this (type="email"), this is the safety net on the server.
 function isValidEmail(email) {
@@ -27,7 +32,7 @@ function isValidEmail(email) {
 }
 
 // Fetches the group and its members.
-// Used by load and by the check action, so the code is only written once.
+// Used by load and by both actions, so the code is only written once.
 async function getGroup(fetch, slug) {
 	// 1. Build the query for Directus
 	const query = new URLSearchParams();
@@ -63,7 +68,7 @@ async function getGroup(fetch, slug) {
 			isYou: user.uuid === userUuid
 		}));
 
-	// 3. Return only what the page and the action need
+	// 3. Return only what the page and the actions need
 	return {
 		group: {
 			uuid: group.uuid,
@@ -74,12 +79,67 @@ async function getGroup(fetch, slug) {
 	};
 }
 
+// The invites of this group that are still waiting, newest first
+async function getPendingInvites(fetch, groupUuid) {
+	const query = new URLSearchParams();
+	query.set('fields', 'uuid,email,date_created');
+	query.set('filter[group][_eq]', groupUuid);
+	query.set('filter[status][_eq]', 'pending');
+	query.set('sort', '-date_created');
+
+	const response = await fetch(`${directusUrl}/items/snappthis_invite?${query}`);
+
+	// The member list is more important than the pending list,
+	// so if this fails we show the page without pending invites instead of an error page
+	if (!response.ok) return [];
+
+	const { data: invites } = await response.json();
+	return invites;
+}
+
+// Is this email address already invited to this group? (only once per group)
+// This also stops a second invite when the page is refreshed after inviting.
+async function isAlreadyInvited(fetch, email, groupUuid) {
+	const query = new URLSearchParams();
+	query.set('fields', 'uuid');
+	query.set('filter[email][_eq]', email);
+	query.set('filter[group][_eq]', groupUuid);
+	query.set('limit', '1');
+
+	const response = await fetch(`${directusUrl}/items/snappthis_invite?${query}`);
+
+	if (!response.ok) {
+		error(503, 'Invites could not be checked. Please try again later.');
+	}
+
+	const { data: invites } = await response.json();
+	return invites.length > 0;
+}
+
+// Saves one invite with status "pending". Returns true if it worked.
+async function saveInvite(fetch, { email, groupUuid, canStartSnappmap }) {
+	const response = await fetch(`${directusUrl}/items/snappthis_invite`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+			email,
+			group: groupUuid,
+			invited_by: userUuid,
+			can_start_snappmap: canStartSnappmap,
+			status: 'pending'
+		})
+	});
+
+	return response.ok;
+}
+
 export async function load({ fetch, params, url }) {
 	const { group, members } = await getGroup(fetch, params.slug);
 
 	return {
 		group,
 		members,
+		pendingInvites: invitesEnabled ? await getPendingInvites(fetch, group.uuid) : [],
 		// /groups/[slug]/members?add-members opens the form
 		showForm: url.searchParams.has('add-members')
 	};
@@ -153,15 +213,31 @@ export const actions = {
 			return fail(400, { toInvite: remaining, error: `"${email}" is not a valid email address.` });
 		}
 
-		const { members } = await getGroup(fetch, params.slug);
+		const { group, members } = await getGroup(fetch, params.slug);
 
 		if (members.some((member) => member.email === email)) {
 			return fail(400, { toInvite: remaining, error: `${email} is already a member.` });
 		}
 
-		// 4. TODO #255: save the invite in Directus with status "pending",
-		// once the team has decided where invites are stored (new collection or snappthis_user).
-		// Note: refreshing after an invite resends the POST (tested without JS). Prevent double invites.
+		// 4. Save the invite (only once the collection exists, see invitesEnabled)
+		if (invitesEnabled) {
+			if (await isAlreadyInvited(fetch, email, group.uuid)) {
+				return fail(400, { toInvite: remaining, error: `${email} is already invited.` });
+			}
+
+			const saved = await saveInvite(fetch, {
+				email,
+				groupUuid: group.uuid,
+				canStartSnappmap
+			});
+
+			if (!saved) {
+				return fail(500, {
+					toInvite: [email, ...remaining],
+					error: `The invite for ${email} could not be saved. Please try again.`
+				});
+			}
+		}
 
 		// 5. Send the remaining list back, plus which address was approved
 		return {
