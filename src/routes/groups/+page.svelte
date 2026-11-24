@@ -184,12 +184,22 @@
         gap: var(--spacing-xs);
     }
 
-    /* De naam niet laten meegroeien (.groups a in global.css heeft flex: 1), zodat het pijltje er direct naast staat */
+    /* De naam is zo breed als de tekst, zodat het pijltje er direct naast staat.
+    Te lang voor het scherm? Dan krimpt de naam en eindigt hij op "…" */
     .group-link {
-        flex: none;
+        flex: 0 1 auto; /* was: flex: none */
+        min-width: 0;
+
+        .group-list-stats {
+            min-width: 0;
+        }
+
         /* Kleiner op heel smalle schermen, zodat de iconen in beeld blijven */
         h2 {
             font-size: clamp(1.25rem, 6vw, var(--font-size-h3));
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 
