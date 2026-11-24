@@ -17,7 +17,7 @@ html {
 
 @font-face {
     font-family: 'Bariol-Regular';
-    src: url('../fonts/Bariol_Regular.otf') format('opentype');
+    src: url('/fonts/Bariol_Regular.woff2') format('woff2');
     font-display: swap;
 }
 
@@ -997,7 +997,7 @@ form.picture {
 
     .group-list-stats p {
         font-size: var(--font-size-p);
-        color: var(--color-accent-blue-white-50);
+        color: var(--color-accent-blue-white-20);
     }
 
     .group-list-interactive {
