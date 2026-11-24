@@ -114,6 +114,29 @@ export const actions = {
       });
 
       console.log("PATCH status:", responseAction.status);
+   
+    } else if (existingStar) {
+      const reactionUuid = existingStar.uuid;
+
+      const patchUrl = `${url}/${reactionUuid}`;
+
+
+      const responseAction = await fetch(patchUrl, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify ({
+          snap: snapUuid,
+        }),
+      });
+
+      console.log("star patch status", responseAction.status);
+
+      const { data: updatedStar } = await responseAction.json();
+
+      console.log("updated star", updatedStar);
+
     } else {
       const responseAction = await fetch(url, {
         method: "POST",
