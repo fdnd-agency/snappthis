@@ -75,13 +75,8 @@ export const actions = {
         (reaction) => reaction.snap?.snapmap?.uuid === currentSnapmapUuid
       );
 
-      console.log(starsInSameSnapmap);
-      console.log(starsInSameSnapmap.length);
-
-      // select the first existing star for the
-      existingStar = starsInSameSnapmap[0];
-
-      console.log(existingStar);
+      // select the star on the clicked snapp or the first star within the same snapmap
+      existingStar = existingReaction || starsInSameSnapmap[0];
     }
 
     // Check if the action is a like or tomato and not a star
