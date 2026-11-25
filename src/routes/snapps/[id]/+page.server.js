@@ -56,7 +56,7 @@ export const actions = {
     if (action === "star") {
       // Fetch all the existing star from the current user, including their associated Snapps and Snapmaps
       const starResponse = await fetch(
-        `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star&fields=*,snap.*,snap.snapmap.*`
+        `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star&fields=*,snap.*,snap.snapmap.*&limit=-1`
       );
 
       const { data: existingStars } = await starResponse.json();
