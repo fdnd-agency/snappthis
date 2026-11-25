@@ -70,10 +70,18 @@ export const actions = {
 
       const currentSnapmapUuid = currentSnaps[0].snapmap.uuid;
 
-      // Find an existing star reaction within the same Snapmap
-      existingStar = existingStars.find(
+      // Find all existing star reactions from the current user within the same Snapmap
+       const starsInSameSnapmap = existingStars.filter(
         (reaction) => reaction.snap?.snapmap?.uuid === currentSnapmapUuid
       );
+
+      console.log(starsInSameSnapmap);
+      console.log(starsInSameSnapmap.length);
+
+      // select the first existing star for the
+      existingStar = starsInSameSnapmap[0];
+
+      console.log(existingStar);
     }
 
     // Check if the action is a like or tomato and not a star
