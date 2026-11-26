@@ -1,13 +1,11 @@
 import { error, fail } from '@sveltejs/kit';
 import { reverseGeocode } from '$lib/server/reverseGeocode.js';
+import { gridViewCookie } from '$lib/gridView.js';
 
 const directusUrl = 'https://fdnd-agency.directus.app';
 
 // Hardcoded user (Anne-Fleur Pietersen) until login is built, same as the Node.js version
 const userUuid = '5e9589a5-ebfa-4a99-87a6-010f2f571444';
-
-// TIJDELIJK voor testen: vaste deadline 2 minuten na het opstarten van de server. NIET COMMITTEN
-// const testTimeEnd = new Date(Date.now() + 2 * 60_000).toISOString();
 
 // Fetches one snappmap and checks if the user may post in it.
 // Used by both load and the action, so the action never trusts hidden form fields.
@@ -15,7 +13,7 @@ async function getSnappmap(fetch, slug) {
 	const snappmapParams = new URLSearchParams();
 	snappmapParams.set(
 		'fields',
-		'uuid,slug,name,time_end,groups.snappthis_group_uuid.name,groups.snappthis_group_uuid.slug,snaps.uuid,snaps.picture,snaps.date_created'
+		'uuid,slug,name,time_end,groups.snappthis_group_uuid.name,groups.snappthis_group_uuid.slug,snaps.uuid,snaps.picture,snaps.date_created,snaps.location'
 	);
 	snappmapParams.set('filter[slug][_eq]', slug);
 	snappmapParams.set('deep[snaps][_sort]', '-date_created'); // newest snapps first
@@ -42,9 +40,6 @@ async function getSnappmap(fetch, slug) {
 		error(404, 'Snappmap not found');
 	}
 
-// TIJDELIJK voor testen. NIET COMMITTEN
-// snappmap.time_end = testTimeEnd;
-
 	// The first group the snappmap belongs to (many-to-many via a junction table)
 	const group = snappmap.groups?.[0]?.snappthis_group_uuid;
 
@@ -54,11 +49,7 @@ async function getSnappmap(fetch, slug) {
 		userGroupSlugs.includes(g.snappthis_group_uuid?.slug)
 	);
 
-	
 	const isActive = new Date(snappmap.time_end) > new Date();
-	// const isActive = true;
-	 // TIJDELIJK voor testen, niet committen!
-// tijdelijke test
 
 	return {
 		snappmap: {
@@ -72,13 +63,24 @@ async function getSnappmap(fetch, slug) {
 		// Only snapps that actually have a picture
 		snapps: (snappmap.snaps ?? [])
 			.filter((snap) => snap.picture)
-			.map((snap) => ({ uuid: snap.uuid, picture: snap.picture })),
+			.map((snap) => ({
+				uuid: snap.uuid,
+				picture: snap.picture,
+				date: snap.date_created,
+				location: snap.location
+			})),
 		canPost: isMember && isActive
 	};
-}
+}	
 
-export async function load({ fetch, params }) {
-	return await getSnappmap(fetch, params.slug);
+export async function load({ fetch, params, cookies }) {
+	const snappmapData = await getSnappmap(fetch, params.slug);
+
+	return {
+		...snappmapData,
+		// The view the user chose last time, checked in +page.js
+		savedGridView: cookies.get(gridViewCookie) ?? null
+	};
 }
 
 export const actions = {
