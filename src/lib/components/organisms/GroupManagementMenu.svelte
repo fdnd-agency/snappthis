@@ -63,7 +63,7 @@
 		display: grid;
 		gap: 0.25rem;
 
-		@container (min-width: 768px) {
+		@container (min-width: 736px) {
 			grid-template-columns: repeat(2, max-content); /* 2 kolommen, zo breed als de tekst */
 			gap: var(--spacing-m); 
 		}
