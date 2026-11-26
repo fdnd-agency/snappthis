@@ -56,7 +56,7 @@ export const actions = {
     if (action === "star") {
       // Fetch all the existing star from the current user, including their associated Snapps and Snapmaps
       const starResponse = await fetch(
-        `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star&fields=*,snap.*,snap.snapmap.*`
+        `${url}?filter[user][_eq]=${userUuid}&filter[action][_eq]=star&fields=*,snap.*,snap.snapmap.*&limit=-1`
       );
 
       const { data: existingStars } = await starResponse.json();
@@ -70,10 +70,13 @@ export const actions = {
 
       const currentSnapmapUuid = currentSnaps[0].snapmap.uuid;
 
-      // Find an existing star reaction within the same Snapmap
-      existingStar = existingStars.find(
+      // Find all existing star reactions from the current user within the same Snapmap
+       const starsInSameSnapmap = existingStars.filter(
         (reaction) => reaction.snap?.snapmap?.uuid === currentSnapmapUuid
       );
+
+      // select the star on the clicked snapp or the first star within the same snapmap
+      existingStar = existingReaction || starsInSameSnapmap[0];
     }
 
     // Check if the action is a like or tomato and not a star
@@ -114,6 +117,23 @@ export const actions = {
       });
 
       console.log("PATCH status:", responseAction.status);
+   
+    } else if (existingStar) {
+      const reactionUuid = existingStar.uuid;
+
+      const patchUrl = `${url}/${reactionUuid}`;
+
+
+      const responseAction = await fetch(patchUrl, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify ({
+          snap: snapUuid,
+        }),
+      });
+
     } else {
       const responseAction = await fetch(url, {
         method: "POST",
